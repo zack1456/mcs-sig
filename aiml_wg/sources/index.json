@@ -1,0 +1,110 @@
+{
+  "_comment": "Registry of all sources in this collection. One entry per source file. Add here when adding a new file.",
+  "_schema": "./_schema.json",
+  "sources": [
+    {
+      "id": "cpt_moore_2019",
+      "file": "background/cpt_moore_2019.json",
+      "source_type": "paper",
+      "title_short": "MCS SIG founding article (Moore 2019)",
+      "pillars": [],
+      "relevance": "high"
+    },
+    {
+      "id": "crosssig_fostvedt_2025",
+      "file": "background/crosssig_fostvedt_2025.json",
+      "source_type": "paper",
+      "title_short": "Stronger together: cross-SIG perspective (Fostvedt et al. 2025)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "aiml_chatgpt_background",
+      "file": "background/aiml_chatgpt_background.json",
+      "source_type": "background",
+      "title_short": "AI/ML in Pharma R&D — ChatGPT survey (background doc)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "medium"
+    },
+    {
+      "id": "aiml_claude_background",
+      "file": "background/aiml_claude_background.json",
+      "source_type": "background",
+      "title_short": "Novel AI/ML in Pharmaceutical Workflows — Claude survey (background doc)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "medium"
+    },
+    {
+      "id": "baran_gaburro_2026",
+      "file": "papers/baran_gaburro_2026.json",
+      "source_type": "paper",
+      "title_short": "Hybrid mechanistic-ML PK/PD with digital biomarkers (Baran & Gaburro 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "dermawan_2026",
+      "file": "papers/dermawan_2026.json",
+      "source_type": "paper",
+      "title_short": "Global trends: ML with MIDD bibliometric review (Dermawan et al. 2026)",
+      "pillars": ["hybrid_foundations"],
+      "relevance": "medium"
+    },
+    {
+      "id": "gerard_2025",
+      "file": "papers/gerard_2025.json",
+      "source_type": "paper",
+      "title_short": "AI in PK/PD/pharmacovigilance review (Gérard et al. 2025)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "medium"
+    },
+    {
+      "id": "de_carlo_2025",
+      "file": "papers/de_carlo_2025.json",
+      "source_type": "paper",
+      "title_short": "RL + PK-PD precision dosing: givinostat (De Carlo et al. 2025)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "de_carlo_2024",
+      "file": "papers/de_carlo_2024.json",
+      "source_type": "paper",
+      "title_short": "RL + PK-PD: erdafitinib (De Carlo et al. 2024)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "ribba_2023",
+      "file": "papers/ribba_2023.json",
+      "source_type": "paper",
+      "title_short": "RL as innovative model-based approach: dosing, digital health (Ribba 2023)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "aiml_sig_page2026",
+      "file": "web/aiml_sig_page2026.json",
+      "source_type": "web",
+      "title_short": "ISoP AI/ML SIG PAGE 2026 workshop",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "fda_ai_guidance_2025",
+      "file": "web/fda_ai_guidance_2025.json",
+      "source_type": "report",
+      "title_short": "FDA draft guidance: AI to support regulatory decision making (2025)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "mcs_wg_2026v03",
+      "file": "working_docs/mcs_wg_2026v03.json",
+      "source_type": "working_doc",
+      "title_short": "MCS SIG AI working group 2026 v0.3 (primary planning doc)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
+    }
+  ]
+}

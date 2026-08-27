@@ -1,0 +1,95 @@
+{
+  "id": "aiml_sig_page2026",
+  "source_type": "web",
+  "title": "AI/ML in Pharmacometrics: Hands-On Workshop and Regulatory Panel (PAGE 2026 Satellite)",
+  "authors": [],
+  "year": 2026,
+  "doi": null,
+  "pmid": null,
+  "url": "https://aiml-sig.github.io/2026-page-workshop/",
+  "journal_or_venue": "PAGE 2026 (Population Approach Group Europe, Dubrovnik, Croatia)",
+
+  "content": {
+    "abstract_summary": "A satellite workshop organized by the ISoP AI/ML SIG at PAGE 2026 (Dubrovnik, June 2, 2026). Full-day hands-on program covering GenAI coding assistants (GitHub Copilot), neural ODEs in Julia, ML covariate selection in R (XGBoost, SHAP, UMAP), and a regulatory/industry panel (FDA, EMA). Targets practitioners with basic R/Julia skills. Positions the AI/ML SIG as the practical education hub for AI in pharmacometrics.",
+
+    "key_findings": [
+      "The ISoP AI/ML SIG actively provides practical AI/ML education for pharmacometrics — a role MCS must not duplicate but can complement with mathematical depth",
+      "Workshop topics are explicitly practical and implementation-focused: GitHub Copilot for coding, XGBoost/SHAP for covariate analysis, NeuralODEs for model fitting",
+      "A regulatory/industry panel with FDA and EMA representatives confirms AI in pharmacometrics is now a live regulatory concern, not just a research topic",
+      "SHAP values are positioned as the primary XAI tool — consistent with the WG's need to critically evaluate SHAP limitations and address them more rigorously",
+      "GenAI coding assistants (GitHub Copilot) are highlighted as a distinct educational topic — the AI/ML SIG is claiming this space; MCS should not compete here"
+    ],
+
+    "methods_discussed": [
+      "neural_ODE",
+      "XGBoost",
+      "SHAP",
+      "UMAP",
+      "LLM",
+      "GenAI_coding_assistant"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [
+      "GitHub Copilot",
+      "Julia",
+      "R",
+      "xgboost"
+    ],
+
+    "limitations": [
+      "Workshop agenda and overview only — no research outcomes, benchmark results, or methodological depth documented",
+      "Single-day program; depth of coverage on each topic is limited by time"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "The workshop covers \"GenAI coding assistants (GitHub Copilot demonstrations)\" and \"deep compartment models and neural ODEs in Julia\" — positioning the ISoP AI/ML SIG firmly in practical education rather than mathematical foundations.",
+        "location": "Agenda section",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Workshop frames AI/ML as \"rapidly transforming pharmacometrics\" by offering \"new tools for model development, covariate selection, and data analysis.\"",
+        "location": "Workshop overview",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "generative_ai"],
+    "gaps_addressed": [
+      "Confirms the ISoP AI/ML SIG's positioning as the practical education provider — the MCS WG must differentiate by providing mathematical rigor, not duplicating this workshop content",
+      "Shows NeuralODEs and SHAP are now mainstream enough for workshop education — MCS should engage at the foundational/limitations level, not the introductory level"
+    ],
+    "topics": [
+      "AI_ML_SIG",
+      "education",
+      "neural_ODE",
+      "explainable_AI",
+      "regulatory",
+      "GenAI_tools",
+      "pharmacometrics",
+      "PAGE_conference"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "web_fetch",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Fetched from https://aiml-sig.github.io/2026-page-workshop/. Key strategic source for understanding what the ISoP AI/ML SIG (launched Dec 2023) is doing educationally — directly informs MCS WG differentiation strategy."
+  }
+}

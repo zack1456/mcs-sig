@@ -1,0 +1,146 @@
+{
+  "id": "ribba_2023",
+  "source_type": "paper",
+  "title": "Reinforcement Learning as an Innovative Model-Based Approach: Examples from Precision Dosing, Digital Health and Computational Psychiatry",
+  "authors": ["Ribba B"],
+  "year": 2023,
+  "doi": "10.3389/fphar.2022.1094281",
+  "pmid": 36873047,
+  "url": null,
+  "journal_or_venue": "Frontiers in Pharmacology",
+
+  "content": {
+    "abstract_summary": "A single-author perspective from a Roche scientist positioning RL as a natural extension of the model-based pharmacometrician's toolkit across three domains: (1) precision dosing of pharmacological drugs (propofol anesthesia as the case study — Q-learning on a 16M+ solution space at 5-second intervals), (2) digital health (HeartSteps JITAI app using Thompson Sampling to personalize walking suggestions), and (3) computational psychiatry (RL as a mechanistic model of aberrant reward learning in anhedonia/depression). The unifying thread: RL solves sequential decision-making problems as MDP optimization, and pharmacometrics provides both the environment dynamics (PK-PD model) and the scientific framing (response variability, individual-level inference).",
+
+    "key_findings": [
+      "RL is formally at the crossroads of two fields: learning by trial-and-error (behavioral psychology) and optimal control — a framing that positions it as a generalization of, not a departure from, classical pharmacometric optimal control",
+      "Advantage over classical precision dosing: RL handles high-dimensional PK/PD marker spaces while classical model-based approaches are limited to a small number of variables (typically one plasma concentration + one endpoint)",
+      "Propofol anesthesia case study: Q-learning algorithm, dosing every 5 seconds over 2 minutes → solution space exceeds 16 million possibilities — makes heuristic search impractical, motivating RL",
+      "Digital health (HeartSteps JITAI): RL (Thompson Sampling) used to personalize timing and content of walking suggestion messages; simulation engine built from linear models on retrospective data rather than a PK-PD model — illustrates RL without a mechanistic model",
+      "Computational psychiatry: RL is not an optimization tool but a mechanistic model of brain computation — Q-learning parameters (learning rate, reward sensitivity) are estimated from trial-by-trial cognitive task data and correlated with clinical symptom severity",
+      "Anhedonia finding: reward sensitivity negatively correlated with anhedonic depression score; learning rate not correlated — suggesting that sensitivity to reward, not learning speed, is the key driver of anhedonic behavior",
+      "Micro-randomized trial (MRT) design cited as the correct experimental framework for evaluating personalized JITAI interventions — a potential methodological contribution from the RL/digital health intersection to clinical trial design",
+      "All RL applications described are in-silico or retrospective — the paper explicitly calls for the PMX community to provide statistical population inference tools to computational psychiatry and digital health"
+    ],
+
+    "methods_discussed": [
+      "reinforcement_learning",
+      "Q_learning",
+      "temporal_difference_learning",
+      "Markov_decision_process",
+      "Thompson_sampling",
+      "JITAI",
+      "micro_randomized_trial",
+      "model_based_pharmacometrics",
+      "precision_dosing",
+      "digital_health",
+      "computational_psychiatry",
+      "Bayesian_estimation"
+    ],
+
+    "datasets_referenced": [
+      "HeartSteps_physical_activity",
+      "propofol_theoretical_PKPD"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Perspective/opinion piece — no new empirical data; all RL examples are illustrative case studies from published literature",
+      "The propofol and computational psychiatry examples are theoretical or based on retrospective analysis — no prospective clinical validation reported",
+      "Does not formally analyze the mathematical relationship between RL and classical optimal control (Pontryagin's minimum principle, Hamilton-Jacobi-Bellman equations) — this connection is asserted but not derived"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"RL is at the crossroads between two scientific fields. First, the field of learning by trial and error that started with the study of the psychology of animal learning and second, the field of optimal control.\"",
+        "location": "Section 1 (Precision Dosing)",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"RL presents several advantages [over classical PMX precision dosing]. First, the possibility to take into account high dimensional PKPD variables while classical model-based approaches are often limited to a low number of variables (plasma concentration and one endpoint).\"",
+        "location": "Section 1 (Precision Dosing)",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"In our example on propofol, dosing could happen every 5 s so over a short period of 2 min, the space of solutions to explore when considering dichotomous dosing even is greater than 16 million possibilities.\"",
+        "location": "Section 1 (Precision Dosing)",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"The field of digital health should benefit from what constitutes one of the essential objectives of model-based drug development approaches, namely: elucidating response variability.\"",
+        "location": "Section 4 (Conclusion)",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Solution space for dichotomous propofol dosing at 5-second intervals over 2 minutes — motivating RL over heuristic approaches",
+        "value": ">16 million",
+        "value_numeric": 16000000,
+        "unit": "N (possible dosing sequences)",
+        "comparison_baseline": null,
+        "location": "Section 1 (Precision Dosing)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Estimated share of coronary heart disease burden attributable to physical inactivity (context for HeartSteps digital health JITAI)",
+        "value": "6%",
+        "value_numeric": 6,
+        "unit": "% of burden",
+        "comparison_baseline": "vs. 7% type II diabetes, 10% breast cancer, 10% colon cancer (same cause)",
+        "location": "Section 2 (Digital Health)",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "effect_size",
+        "description": "Estimated deaths averted annually with 25% reduction in global physical inactivity",
+        "value": "1.3 million",
+        "value_numeric": 1300000,
+        "unit": "N (deaths/year)",
+        "comparison_baseline": "of 57 million global deaths that year (2008 dataset)",
+        "location": "Section 2 (Digital Health)",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["optimal_control_rl"],
+    "gaps_addressed": [
+      "Provides the essential conceptual bridge: RL is formally at the intersection of trial-and-error learning and optimal control — the WG's Pillar 3 task is to operationalize this connection with mathematical rigor (MDP theory, Bellman equations, convergence guarantees)",
+      "The propofol 16M+ solution space example directly motivates why classical optimal control fails for high-frequency adaptive dosing — a concrete argument for RL",
+      "Digital health (JITAI) and computational psychiatry extensions broaden Pillar 3 scope: RL is not just a dosing optimizer but a mechanistic model of adaptive sequential decision-making in biological systems"
+    ],
+    "topics": [
+      "reinforcement_learning",
+      "optimal_control",
+      "precision_dosing",
+      "digital_health",
+      "JITAI",
+      "computational_psychiatry",
+      "pharmacometrics",
+      "model_based_approaches",
+      "Markov_decision_process"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["de_carlo_2024", "de_carlo_2025"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Full text retrieved via PMC (PMC9981647, PMID 36873047, DOI 10.3389/fphar.2022.1094281). Open access in Frontiers in Pharmacology. DOI year /fphar.2022/ = submitted 2022, published February 2023. Single-author perspective by Bernard Ribba (Roche). Full text covers 4 sections plus appendix (RL demystified via video gaming analogy). Three use cases detailed with Table 1 summarizing state/action/reward/algorithm for each domain."
+  }
+}

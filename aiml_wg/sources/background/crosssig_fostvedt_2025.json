@@ -1,0 +1,140 @@
+{
+  "id": "crosssig_fostvedt_2025",
+  "source_type": "paper",
+  "title": "Stronger together: a cross-SIG perspective on improving drug development",
+  "authors": [
+    "Fostvedt L", "Zhou J", "Kondic AG", "Androulakis IP", "Zhang T",
+    "Pryor M", "Zhuang L", "Elassaiss-Schaap J", "Chan P", "Moore H",
+    "Avedissian SN", "Tigh J", "Goteti K", "Thanneer N", "Su J", "Ait-Oudhia S"
+  ],
+  "year": 2025,
+  "doi": "10.1007/s10928-024-09960-5",
+  "pmid": null,
+  "url": null,
+  "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
+
+  "content": {
+    "abstract_summary": "A correspondence article summarizing the missions of all 5 ISoP SIGs (QSP, MCS, SxP, Clin PMx, PMxP) and arguing for cross-SIG collaboration within MIDD. Uses the inaugural cross-SIG session at ACoP14 (2023) as a case study. Provides a table of SIG founding dates, membership sizes, working groups, and websites, and a diagram mapping each SIG's methods to the MIDD framework with AI/ML as a cross-cutting theme.",
+
+    "key_findings": [
+      "As of July 2024, ISoP has 5 SIGs: QSP (founded 2014, 200+), MCS (founded 2017, 70+), SxP (founded 2016, 200+), Clin PMx (founded 2017), PMxP (founded 2024, ~50)",
+      "MCS SIG's four working groups: Modeling Delays in PKPD; Optimal Control; Sensitivity Analysis/Uncertainty Quantification; AI/Machine Learning",
+      "AI/ML is treated as a cross-SIG theme (shown at base of the MIDD diagram) rather than the exclusive domain of any one SIG",
+      "Cross-SIG collaboration demonstrated at ACoP14 (2023): three examples illustrated mathematical/computational approaches central to MIDD from QSP, MCS, and SxP perspectives",
+      "Overlapping interests include AI/ML methods, data generation, covariate selection, model evaluation, package development, and ethical AI — areas where collaboration rather than duplication is essential"
+    ],
+
+    "methods_discussed": [
+      "MIDD",
+      "model_based_meta_analysis",
+      "Bayesian_statistics",
+      "latent_variable_modeling",
+      "machine_learning",
+      "optimal_control"
+    ],
+
+    "datasets_referenced": [
+      "TransCelerate BioPharma Historical Trial Data Sharing Initiative"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Sections on each SIG are high-level; technical depth on how MCS differentiates on AI/ML is not provided",
+      "Published in early 2025; the AI/ML SIG (launched Dec 2023) is not mentioned, understating the competitive landscape"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The potential of AI/ML methodologies to transform drug discovery and development is at the forefront of our entire industry. As we attempt to identify how and where we can take advantage of opportunities from AI/ML, it is imperative that we work together and exchange knowledge.\"",
+        "location": "Discussion",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "MCS SIG working groups listed in Table 1: \"Modeling Delays in PKPD; Optimal Control; Sensitivity Analysis/Uncertainty Quantification; AI/Machine learning\"",
+        "location": "Table 1",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"Collaboration across the SIGs will result in better science, better leaders, and better medicines.\"",
+        "location": "Discussion",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "MCS SIG membership as of July 2024",
+        "value": "70+",
+        "value_numeric": 70,
+        "unit": "N (members)",
+        "comparison_baseline": null,
+        "location": "Table 1",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "QSP SIG membership as of July 2024",
+        "value": "200+",
+        "value_numeric": 200,
+        "unit": "N (members)",
+        "comparison_baseline": null,
+        "location": "Table 1",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "SxP SIG membership as of July 2024",
+        "value": "200+",
+        "value_numeric": 200,
+        "unit": "N (members)",
+        "comparison_baseline": null,
+        "location": "Table 1",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "PMxP SIG membership (newly founded March 2024)",
+        "value": "~50",
+        "value_numeric": 50,
+        "unit": "N (members)",
+        "comparison_baseline": null,
+        "location": "Table 1",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl"],
+    "gaps_addressed": [
+      "Provides the official view of each SIG's scope and working groups — essential for differentiating the MCS AI/ML WG from other ISoP SIGs",
+      "Confirms that Optimal Control and Sensitivity Analysis/UQ are established MCS SIG working groups, providing the institutional basis for Pillars 2 and 3"
+    ],
+    "topics": [
+      "SIG_landscape",
+      "cross_SIG_collaboration",
+      "MIDD",
+      "MCS_SIG_history",
+      "pharmacometrics",
+      "AI_ML_positioning"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["cpt_moore_2019"],
+    "cited_by": [],
+    "extends": ["cpt_moore_2019"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "provided_by_user",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Full PDF in background folder. Read pages 1-6 of an 8-page paper; references section not captured. Critical source for understanding the formal SIG structure and MCS's positioning as of 2025."
+  }
+}

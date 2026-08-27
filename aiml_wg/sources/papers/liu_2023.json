@@ -1,0 +1,161 @@
+{
+  "id": "liu_2023",
+  "source_type": "paper",
+  "title": "Landscape Analysis of the Application of Artificial Intelligence and Machine Learning in Regulatory Submissions for Drug Development From 2016 to 2021",
+  "authors": ["Liu Q", "Huang R", "Hsieh J", "Zhu H", "Tiwari M", "Liu G", "Jean D", "ElZarrad MK", "Fakhouri T", "Berman S", "Dunn B", "Diamond MC", "Huang SM"],
+  "year": 2023,
+  "doi": "10.1002/cpt.2668",
+  "pmid": 35707940,
+  "url": null,
+  "journal_or_venue": "Clinical Pharmacology and Therapeutics",
+
+  "content": {
+    "abstract_summary": "A 4-page FDA-internal landscape analysis by 13 CDER/CDRH scientists characterizing the volume, types, and trajectory of AI/ML use in regulatory submissions (IND, NDA, ANDA, BLA, CPIM, DDT) from 2016 to 2021. Total submissions containing AI/ML keywords: 158 (1, 1, 3, 7, 14, 132 by year), with a dramatic ~10-fold jump from 2020 to 2021. The vast majority (140/158) occurred at the clinical development stage; oncology dominated by therapeutic area. Six analysis types and nine application objectives are catalogued (Figure 2). Authors conclude the regulatory use of AI/ML will continue to increase, and signal ongoing FDA capacity-building to evaluate these submissions. The 2022 paper is the empirical baseline that directly motivated the 2025 FDA AI draft guidance (fda_ai_guidance_2025).",
+
+    "key_findings": [
+      "AI/ML-containing CDER submissions grew from 1/year in 2016–2017 to 132 in 2021 alone — an approximately 10-fold jump from 2020 (14) to 2021 (132); 2017–2020 growth was 2–3× annually",
+      "Total 158 submissions 2016–2021 identified by searching CDER databases for 'machine learning' or 'artificial intelligence' across IND, NDA, ANDA, BLA, CPIM, and Drug Development Tools submissions",
+      "Most submissions occurred at the clinical development stage (140/158); drug discovery/repurposing (4), nonclinical (8), and postmarketing (6) each accounted for fewer than 10 submissions",
+      "Oncology was the leading therapeutic area; psychiatry, gastroenterology, and neurology followed — consistent with data-rich disease areas and biomarker-heavy trial designs",
+      "Six AI/ML analysis types identified in submissions: outcome prediction, covariate selection/confounding adjustment, pharmacometric modeling, anomaly detection, imaging/video/voice analysis, RWD phenotyping/NLP",
+      "Nine application objectives identified: drug discovery/repurposing, drug toxicity prediction, enrichment design, patient risk stratification/management, dose selection/optimization, adherence monitoring, synthetic control, endpoint/biomarker assessment, postmarketing surveillance",
+      "FDA frequency counts likely underestimate actual AI/ML use: 'the frequency by which AI/ML is mentioned in regulatory submissions to the FDA likely only represents a fraction of its increasingly widespread use in drug discovery'",
+      "FDA and other regulators jointly identified 10 Good Machine Learning Practice (GMLP) guiding principles in 2021 (originally for medical devices, but noted as applicable to drug development)"
+    ],
+
+    "methods_discussed": [
+      "landscape_analysis",
+      "keyword_search_regulatory_databases",
+      "pharmacometric_modeling",
+      "NLP",
+      "outcome_prediction",
+      "anomaly_detection",
+      "covariate_selection",
+      "synthetic_control"
+    ],
+
+    "datasets_referenced": [
+      "FDA_CDER_IND_NDA_ANDA_BLA_CPIM_DDT_submissions_2016_2021"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Search limited to submissions mentioning 'machine learning' or 'artificial intelligence' by keyword — submissions using AI/ML without these exact terms are missed; authors themselves note this is likely a fraction of actual use",
+      "Covers CDER submissions only (drug/biologics); CDRH (device) AI/ML submissions not included in counts, though Diamond MC (CDRH) is a co-author",
+      "No statistical modeling of trends — descriptive counts only; no causal analysis of drivers of the 2021 spike",
+      "4-page Perspectives piece: examples of each category are illustrative, not exhaustive; analysis type and objective categories are not mutually exclusive",
+      "Disclaimer: 'The contents of this article reflect the views of the authors and should not be construed to represent the FDA's views or policies'"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"submissions with AI/ML components have increased rapidly in the past few years. In 2016 and 2017, we identified only one such submission each year. From 2017 to 2020, the numbers of submissions increased by approximately twofold to threefold yearly. Then in 2021, the number of submissions increased sharply to 132 (approximately 10-fold as compared with that in 2020).\"",
+        "location": "Section: The Trend of Increasing AI/ML-Related Submissions at the FDA's CDER",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"the frequency by which AI/ML is mentioned in regulatory submissions to the FDA likely only represents a fraction of its increasingly widespread use in drug discovery.\"",
+        "location": "Section: The Trend of Increasing AI/ML-Related Submissions",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"It is important to note that the regulatory considerations for the application of AI/ML in drug development are evolving and will require input from all stakeholders in various disciplines.\"",
+        "location": "Section: Envisioning the Future",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "AI/ML-containing CDER regulatory submissions in 2021 — the single-year peak driving the overall trend",
+        "value": "132",
+        "value_numeric": 132,
+        "unit": "N (submissions)",
+        "comparison_baseline": "vs. 14 in 2020 (~10-fold increase); 1 each in 2016 and 2017",
+        "location": "Figure 1a; Section: Trend",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Total AI/ML-containing CDER submissions identified across the full 2016–2021 period",
+        "value": "158",
+        "value_numeric": 158,
+        "unit": "N (submissions)",
+        "comparison_baseline": "annual breakdown: 1, 1, 3, 7, 14, 132 (2016–2021)",
+        "location": "Figure 1a",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Submissions at the clinical development stage — the dominant lifecycle phase for AI/ML use in FDA submissions",
+        "value": "140",
+        "value_numeric": 140,
+        "unit": "N (submissions)",
+        "comparison_baseline": "of 158 total; discovery/repurposing: 4, nonclinical: 8, postmarketing: 6",
+        "location": "Figure 1c; Section: Trend",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Number of distinct AI/ML analysis types catalogued across submissions",
+        "value": "6",
+        "value_numeric": 6,
+        "unit": "N (types)",
+        "comparison_baseline": "outcome prediction, covariate selection, pharmacometric modeling, anomaly detection, imaging/video/voice, RWD/NLP",
+        "location": "Figure 2; Section: Common Analysis Types",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Number of distinct AI/ML application objectives catalogued across submissions",
+        "value": "9",
+        "value_numeric": 9,
+        "unit": "N (objectives)",
+        "comparison_baseline": "drug discovery, toxicity prediction, enrichment design, risk stratification, dose optimization, adherence, synthetic control, endpoint/biomarker, postmarketing surveillance",
+        "location": "Figure 2; Section: Common Objectives",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": [
+      "Provides the empirical baseline — 158 submissions, 2016-2021, 10× jump in 2021 — that justifies the urgency of the WG's regulatory alignment work and the FDA's 2025 guidance",
+      "The six analysis types and nine objectives in Figure 2 map directly onto the WG's four pillars: pharmacometric modeling → hybrid_foundations; dose optimization → optimal_control_rl; biomarker assessment/anomaly detection → uq_identifiability; imaging/NLP → generative_ai",
+      "The 'fraction of actual use' caveat is an important rhetorical point for WG white papers arguing that the pharmacometrics community must proactively engage with AI/ML even if regulatory submissions don't yet reflect full industry adoption"
+    ],
+    "topics": [
+      "regulatory",
+      "FDA",
+      "AI_ML_submissions",
+      "drug_development",
+      "landscape_analysis",
+      "MIDD",
+      "pharmacometric_modeling",
+      "clinical_trials",
+      "dose_optimization",
+      "biomarkers",
+      "NLP",
+      "synthetic_control"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["fda_ai_guidance_2025"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "provided_by_user",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "PDF provided by user (Clin Pharma and Therapeutics 2022 Liu Landscape Analysis.pdf). Published online 2022-06-16; print Clin Pharmacol Ther 113(4):771-774, April 2023. Open access (CC BY-NC). US Government work, public domain in the USA. Corresponding author: Hao Zhu (hao.zhu@fda.hhs.gov). First 4 authors (Liu Q, Huang R, Hsieh J, Zhu H) contributed equally. Hsieh J and Tiwari M were ORISE fellows. Full text read: all 4 pages including Figures 1a/1b/1c and Figure 2, all sections, references (10 refs). Relevance upgraded to high after full-text read."
+  }
+}

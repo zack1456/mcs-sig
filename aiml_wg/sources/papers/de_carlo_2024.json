@@ -1,0 +1,188 @@
+{
+  "id": "de_carlo_2024",
+  "source_type": "paper",
+  "title": "Reinforcement Learning and PK-PD Models Integration to Personalize the Adaptive Dosing Protocol of Erdafitinib in Patients With Metastatic Urothelial Carcinoma",
+  "authors": ["De Carlo A", "Tosca EM", "Fantozzi M", "Magni P"],
+  "year": 2024,
+  "doi": "10.1002/cpt.3176",
+  "pmid": 38339803,
+  "url": null,
+  "journal_or_venue": "Clinical Pharmacology and Therapeutics",
+
+  "content": {
+    "abstract_summary": "Introduces and evaluates a Q-learning (QL) + PK-PD framework for individual-level personalization of the erdafitinib adaptive dosing protocol in metastatic urothelial carcinoma. Erdafitinib is an FDA-approved FGFR inhibitor whose dosing is guided by serum phosphate [PO4]serum — a dual biomarker of efficacy (≥5.5 mg/dL) and toxicity (<7 mg/dL). The MDP is formulated with 86 states (L_PO4 × D_P × L_int), 5 dose levels (4, 5, 6, 8, 9 mg/day), and a manually designed reward function. A personal QL agent is trained for each of 141 virtual patients (96 completely + 45 partially responsive) using the patient's PK-PD model as a digital twin. QL-agents outperform the FDA-approved protocol at every clinical timepoint, achieving 97.87% vs. 70.21% in the efficacy range at month 4, and completely eliminating severe hyperphosphatemia events. The companion paper de_carlo_2025 extends this framework to a 3-biomarker multiobjective dosing problem.",
+
+    "key_findings": [
+      "The erdafitinib case study is formalized as an MDP with 86 states (combining [PO4]serum discretized in 6 levels, previous dose, and hyperphosphatemia interruption flag), 5 dose levels as actions, and a piecewise reward function (β1=10 for biomarker level, β2=5 for % of days in target range)",
+      "At 2 weeks: QL agents had 76.59% of patients in efficacy range vs. 34.05% for clinical protocol; 0% vs. 15.60% in severe hyperphosphatemia — largest relative gap across all timepoints",
+      "At end of month 4 (median time for assessing erdafitinib efficacy): QL 97.87% vs. clinical 70.21% in efficacy range; severe hyperphosphatemia: 0% vs. 0% (both)",
+      "At end of treatment (5 months): QL 68.09% vs. clinical 56.73% in efficacy (all patients); in completely responsive subgroup: QL 100% vs. clinical 83.33%",
+      "Severe hyperphosphatemia completely eliminated by QL agents throughout the full 5-month treatment; moderate hyperphosphatemia drastically reduced",
+      "Personalization of the starting dose is key: QL agents chose the clinical starting dose of 8 mg/day in only 23.40% of patients — lower starting doses were preferred in most patients to avoid early toxicity",
+      "Population QL (one-for-all agent trained on all 141 patients) performed worse than personalized QL agents — confirms that individual-level optimization is necessary for heterogeneous populations",
+      "Completely and partially responsive patients (96 vs. 45) behave differently — the stratified virtual population design is essential to test framework flexibility across IIV"
+    ],
+
+    "methods_discussed": [
+      "reinforcement_learning",
+      "Q_learning",
+      "Markov_decision_process",
+      "population_PK_PD_modeling",
+      "digital_patient_twin",
+      "precision_dosing",
+      "virtual_population_simulation",
+      "Bayesian_estimation"
+    ],
+
+    "datasets_referenced": [
+      "virtual_population_erdafitinib_urothelial_carcinoma_141_patients"
+    ],
+
+    "tools_software": [
+      "R v3.4.1",
+      "RsSimulx (Simulx 2021R1, Lixoft SAS)"
+    ],
+
+    "limitations": [
+      "RUV not considered — assumes PK-PD model perfectly describes pharmacological response; adding RUV may require switching from MDP to POMDP or from QL to stochastic RL variants",
+      "Individual PK-PD parameters assumed fully known from treatment start — in practice, Bayesian online learning must progressively estimate these from monitoring observations",
+      "Only validated on virtual patients derived from a published PopPK-PD model — no real-world clinical data",
+      "Reward function and action set designed by modelers based on literature knowledge; reward function design should be reviewed with clinicians before clinical translation",
+      "A completely different action set or freedom level could change results — the arbitrary design choices in MDP formulation are a key limitation of all RL dosing frameworks"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"QL agents outperform the approved dose-adaptive rules, increasing more than 10% the efficacy and the safety of treatment at each end point.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"At each of the three timepoints, the QL-based individual protocols resulted in a higher percentage of patients with [PO4]serum in the efficacy range and in a lower percentage of subjects in hyperphosphatemia then the clinical one.\"",
+        "location": "Results",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"The personalization of the initial dose significantly increased QL-agent performances. As reported in Figure 4e, the clinical initial dose of 8mg/day was selected by the QL-agents only in 23.40% of patients, whereas the lower starting doses were generally preferred.\"",
+        "location": "Results",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"In view of an actual clinical application, the design of the reward function, as well as the entire formalization of the proposed RL-framework, should be carefully reviewed with clinicians to ensure that all the key aspects of the erdafitinib treatment are correctly considered and modeled.\"",
+        "location": "Discussion",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Size and composition of the virtual patient population used for evaluation",
+        "value": "141 (96 completely responsive + 45 partially responsive)",
+        "value_numeric": 141,
+        "unit": "N (virtual patients)",
+        "comparison_baseline": null,
+        "location": "Methods: Evaluation; Results",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Total MDP states for the erdafitinib precision dosing problem (L_PO4 × D_P × L_int combinations, with infeasible states removed)",
+        "value": "86",
+        "value_numeric": 86,
+        "unit": "N (states)",
+        "comparison_baseline": null,
+        "location": "Methods: System States",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "% patients in efficacy range [5.5, 7 mg/dL] at 2 weeks: QL-agents vs. FDA clinical protocol",
+        "value": "76.59% vs. 34.05%",
+        "value_numeric": 76.59,
+        "unit": "% of patients",
+        "comparison_baseline": "vs. FDA clinical protocol (34.05%)",
+        "location": "Table 2 (evaluation at 2nd week)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "% patients in severe hyperphosphatemia (>9 mg/dL) at 2 weeks: QL-agents vs. clinical protocol",
+        "value": "0% vs. 15.60%",
+        "value_numeric": 0,
+        "unit": "% of patients",
+        "comparison_baseline": "vs. FDA clinical protocol (15.60%)",
+        "location": "Table 2 (evaluation at 2nd week)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "% patients in efficacy range at end of month 4 (median time for assessing erdafitinib efficacy): QL-agents vs. clinical",
+        "value": "97.87% vs. 70.21%",
+        "value_numeric": 97.87,
+        "unit": "% of patients",
+        "comparison_baseline": "vs. FDA clinical protocol (70.21%)",
+        "location": "Table 2 (evaluation at end of month 4)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "% completely responsive patients in efficacy range at end of treatment (5 months): QL-agents vs. clinical",
+        "value": "100% vs. 83.33%",
+        "value_numeric": 100,
+        "unit": "% of completely responsive patients",
+        "comparison_baseline": "vs. FDA clinical protocol (83.33%), n=96 completely responsive",
+        "location": "Table 2 (evaluation at end of treatment, subgroup)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "% of QL-agents that selected the clinical starting dose of 8 mg/day — key evidence for value of personalized initial dosing",
+        "value": "23.40%",
+        "value_numeric": 23.40,
+        "unit": "% of QL-agents",
+        "comparison_baseline": "clinical protocol always starts at 8 mg/day (100%)",
+        "location": "Results (Figure 4e)",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["optimal_control_rl", "hybrid_foundations"],
+    "gaps_addressed": [
+      "Provides the first complete MDP formulation for a real FDA-approved oncology dose-adaptive protocol (erdafitinib) — establishes the state/action/reward design methodology that de_carlo_2025 then extends to 3 biomarkers",
+      "The 86-state MDP, reward function (piecewise, two-term), and digital patient twin paradigm are the technical building blocks the WG needs to critically analyze and improve with mathematical rigor (Pillar 3)",
+      "The 23.40% adoption of clinical starting dose is a striking empirical result that validates individual-level optimization — directly motivates the WG's position on RL vs. one-size-fits-all protocols"
+    ],
+    "topics": [
+      "reinforcement_learning",
+      "Q_learning",
+      "precision_dosing",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "urothelial_carcinoma",
+      "erdafitinib",
+      "adaptive_dosing",
+      "digital_patient_twin",
+      "Markov_decision_process",
+      "FDA"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["ribba_2023"],
+    "cited_by": ["de_carlo_2025"],
+    "extends": ["ribba_2023"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "provided_by_user",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "PDF provided by user (file: aiml_wg/background/Clin Pharma and Therapeutics - 2024 - De Carlo - Reinforcement Learning and PK-PD Models Integration to Personalize the.pdf). Full text read: Introduction, Methods (RL formalism, MDP equations, reward function Eqs. 3-5, state design Eqs. 6-8, action Table 1, implementation, evaluation), Results (Table 2, Figures 4-5), Discussion (limitations: RUV, known parameters, need for Bayesian online learning), References (50 refs). Open access (CC BY-NC-ND). 4 authors: De Carlo A, Tosca EM, Fantozzi M, Magni P — all University of Pavia. Fantozzi M contributed to design, research execution, and data analysis."
+  }
+}

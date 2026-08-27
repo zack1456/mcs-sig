@@ -1,0 +1,106 @@
+{
+  "id": "mcs_wg_2026v03",
+  "source_type": "working_doc",
+  "title": "MCS SIG AI Working Group Planning Document 2026 (v0.3)",
+  "authors": ["Chakravarty S", "Kenz Z"],
+  "year": 2026,
+  "doi": null,
+  "pmid": null,
+  "url": null,
+  "journal_or_venue": null,
+
+  "content": {
+    "abstract_summary": "The primary internal planning document for the MCS SIG AI/ML Working Group, version 0.3 (2026). Co-chaired by Sourish Chakravarty and Zackary Kenz, with Cameron Meaney as an active member. The WG is positioned within the MCS SIG's methodological mandate: it focuses on the mathematical and computational techniques underpinning AI/ML, advancing community awareness of methods that complement and extend traditional pharmacometrics. Key focus: testing and comparing generative AI methods and novel ML techniques (neural network applications) to assess how tools can be applied in existing and novel workflows. Secondary foci: external perspectives from Biopharma and broad AI community; cross-SIG collaboration; white papers, tutorials, and curated resources on the MCS SIG website. Six specific goals are enumerated, from organizing invited talks to authoring tutorials and collaborating with other ISoP SIGs.",
+
+    "key_findings": [
+      "WG leadership: Co-Chairs Sourish Chakravarty and Zackary Kenz; Active member Cameron Meaney (v0.3 roster)",
+      "MCS SIG AI/ML positioning: mathematical and computational techniques underpinning AI/ML, complementing and extending traditional pharmacometrics — explicit methodological differentiation from other ISoP SIGs",
+      "Primary focus: testing and comparing generative AI methods and novel ML techniques (neural network applications) for existing and novel MIDD workflows; sharing best MCS AI/ML practices",
+      "Secondary focus: external perspective from Biopharma AI experts; cross-SIG collaboration; collaborative authoring; pedagogical endeavors (tutorials, white papers)",
+      "Six specific goals: (1) invited AI-expert talks and panel discussions, (2) informal discussion forums/journal clubs, (3) assess relevant software tools and scientific articles, (4) author tutorials and white papers, (5) share curated knowledge on MCS SIG website, (6) collaborate with other ISoP SIGs and the broader ISoP community"
+    ],
+
+    "methods_discussed": [
+      "generative_AI",
+      "neural_networks",
+      "machine_learning",
+      "AI_ML_workflows"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Version 0.3 — early collaborative draft; specific technical priorities, planned publications, and timelines may evolve as membership grows",
+      "Short document: mission and 6 goals only; no detailed methodological content, pillar definitions, or publication roadmap in this version",
+      "Membership list reflects v0.3 state and likely does not represent the current full WG roster"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The MCS SIG focuses on the mathematical and computational techniques underpinning AI/ML, with the goal of advancing community awareness and improved understanding of methodologies that complement and extend traditional pharmacometrics.\"",
+        "location": "Opening paragraph",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"A key focus of this MCS SIG AI working group is on testing and comparing generative AI methods and novel ML techniques (e.g., different neural network applications) to better assess how tools can be applied in existing and novel workflows, sharing the best MCS AI/ML practices to the wider community.\"",
+        "location": "Opening paragraph",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"[The WG] will also seek out external perspectives from AI-experts from the Biopharma and broader AI community, and engage on this topic with the other SIGs and broader PMx community through collaborative authoring of white papers and tutorials, and through pedagogical endeavors.\"",
+        "location": "Opening paragraph",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Number of specific goals enumerated in the WG planning document v0.3",
+        "value": "6",
+        "value_numeric": 6,
+        "unit": "N (goals)",
+        "comparison_baseline": null,
+        "location": "Specific Goals section",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": [
+      "Defines the WG's mandate, scope, and differentiation from other ISoP SIGs — the authoritative source for WG positioning in the literature review and white paper",
+      "Goal 3 (assess relevant software tools and scientific articles) directly motivates the source library this project builds",
+      "Goal 4 (author tutorials and white papers) and Goal 6 (collaborate with other SIGs) are the primary deliverables the source library is designed to support"
+    ],
+    "topics": [
+      "MCS_SIG",
+      "working_group_planning",
+      "AI_ML",
+      "pharmacometrics",
+      "MIDD",
+      "generative_AI",
+      "neural_networks",
+      "cross_SIG_collaboration"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "provided_by_user",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Original file: aiml_wg/MCS SIG AI working group 2026v0.3.docx (binary Word document; not readable by Claude Code tools). User exported to aiml_wg/MCS SIG AI working group 2026v0.3.txt, which was read directly. Document is short (15 lines): mission statement + 6 specific goals. Contains a Word smart-quote encoding artifact in the source text (SIG's rendered as SIG? in plain text). Full text captured; record upgraded from placeholder to full_text."
+  }
+}

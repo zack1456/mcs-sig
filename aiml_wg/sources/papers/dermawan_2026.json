@@ -1,0 +1,223 @@
+{
+  "id": "dermawan_2026",
+  "source_type": "paper",
+  "title": "Global Trends in Integrating Machine Learning (ML) with Model-Informed Drug Development (MIDD): A Bibliometric and Systematic Review (2015-2025)",
+  "authors": ["Dermawan D", "Chtita S", "Alotaiq N"],
+  "year": 2026,
+  "doi": "10.3390/pharmaceutics18050542",
+  "pmid": 42198236,
+  "url": null,
+  "journal_or_venue": "Pharmaceutics",
+
+  "content": {
+    "abstract_summary": "A combined bibliometric and systematic review of ML-MIDD research (2015–2025) using Web of Science, Scopus, and PubMed. Starting from 770 records, 607 unique publications were identified after deduplication; 560 met eligibility criteria. Findings: (1) ML-MIDD follows exponential growth (Price's Law) from 7 publications in 2016 to 159 in 2025 (22-fold); (2) US and China dominate output; (3) thematic evolution proceeds from foundational PK/PD-ML methods (2016–2018) → hybrid mechanistic-ML, deep learning, and RL (2022–2025); (4) formal regulatory endorsement of ML-MIDD as a standalone methodology has not yet occurred — ML components appear as adjuncts to established MIDD workflows in submissions. Tools: Bibliometrix, VOSviewer, PRISMA. PROSPERO registered: CRD420251276229.",
+
+    "key_findings": [
+      "ML-MIDD publications follow exponential (Price's Law) growth: 7 articles in 2016 → 159 in 2025 (>22-fold increase); confirms the field is transitioning from early exploration to rapid maturation",
+      "Only 4.3% of publications were indexed in all three databases (Web of Science, Scopus, PubMed) — extreme fragmentation requires multi-database retrieval; using PubMed alone would miss >60% of relevant ML-MIDD literature",
+      "Top journals: CPT: Pharmacometrics & Systems Pharmacology (5.1%) and J Pharmacokinetics Pharmacodynamics (5.1%) — core pharmacometric venues anchor the field, but core journals account for only 28% of output",
+      "US leads (665 publications, 20.8%), followed by China (394, 12.3%) and France (180, 5.6%); US also leads citations (2,871) but citation leaders also include Switzerland and Germany despite lower volume",
+      "Most cited article in the corpus: Badillo et al. 2020 (Clinical Pharmacology & Therapeutics) with 303 citations — indicating that methodological reviews dominate citation impact, not primary empirical studies",
+      "Thematic evolution from 'machine learning' + 'PK/PD' + 'prediction' (motor themes 2019–2021) to 'machine learning' + 'humans' + 'personalized medicine' + 'pharmaco-omics' (2022–2025) — confirms shift from methods to clinical translation",
+      "No ML-MIDD approach has received standalone regulatory endorsement; FDA and EMA examples (Sotorasib, Abemaciclib, Lorlatinib) show ML as adjunctive tool within conventional MIDD, not as independent decision-making methodology",
+      "Hybrid mechanistic-ML models identified as the most impactful emerging paradigm: neural surrogate within PBPK workflows (Jia et al. 2025) achieved 2-fold accuracy across 106 test drugs; VAE for joint NLME parameter estimation and covariate selection in a single run",
+      "Global AI-in-pharma market: ~$1.94 billion in 2025 → ~$16.5 billion by 2034 (CAGR ~27%) — industry adoption context for the urgency of methodological standardization",
+      "Explainable AI (SHAP, LIME, counterfactuals) increasingly required to make ML-MIDD recommendations interpretable in pharmacological terms — a precondition for regulatory review",
+      "Drug development still costly and risky: mean cost ~$515.8 million per drug; ~90% of candidates fail in clinical development — the economic stakes motivating ML-MIDD investment"
+    ],
+
+    "methods_discussed": [
+      "bibliometric_analysis",
+      "systematic_review",
+      "deep_learning",
+      "reinforcement_learning",
+      "hybrid_mechanistic_ML",
+      "neural_ODE",
+      "PBPK_ML_surrogate",
+      "VAE_for_NLME",
+      "XGBoost",
+      "SHAP",
+      "LIME",
+      "VOSviewer",
+      "Bibliometrix",
+      "PRISMA",
+      "exponential_growth_modeling"
+    ],
+
+    "datasets_referenced": [
+      "Web_of_Science_ML_MIDD_2015_2025",
+      "Scopus_ML_MIDD_2015_2025",
+      "PubMed_ML_MIDD_2015_2025"
+    ],
+
+    "tools_software": [
+      "Bibliometrix R package v4.1.2",
+      "Biblioshiny v5.0",
+      "VOSviewer v1.6.20",
+      "R v4.5.2"
+    ],
+
+    "limitations": [
+      "Database selection excludes preprints (bioRxiv, medRxiv), regulatory submissions, conference proceedings — may underrepresent industry-specific and very recent innovations",
+      "English-language restriction may omit non-English contributions; gray literature excluded",
+      "Bibliometric reliance on metadata accuracy; interdisciplinary ML-MIDD papers may be misclassified",
+      "No quantitative quality assessment of included studies — maps the landscape but cannot assess methodological rigor of individual works",
+      "Rapidly evolving field: search cutoff September 2025 means recent publications and regulatory developments not captured"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The extent to which ML methods are explicitly integrated into regulatory decision-making remains limited and unevenly characterized.\"",
+        "location": "Abstract",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"If only Web of Science had been used, 37% of relevant publications would have been lost. This loss would rise to more than 60% if PubMed were used as the sole source.\"",
+        "location": "Section 3.1 (Database Overlap)",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"The most impactful advances will likely come from coupling mechanistic models with ML surrogates or parsers, rather than treating ML as a purely black-box replacement.\"",
+        "location": "Section 4.1 (Methodological Advances and Hybrid Modeling)",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"Regulatory acceptance of virtual bioequivalence relies heavily on the validation of computational models and the availability of accurate, comprehensive data inputs.\"",
+        "location": "Section 4.3 (Regulatory Context)",
+        "evidence_type": "regulatory"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Publications included in the final systematic review (2015–2025) after screening 607 unique deduplicated records",
+        "value": "560",
+        "value_numeric": 560,
+        "unit": "N (publications)",
+        "comparison_baseline": "of 770 initially retrieved; 607 after deduplication",
+        "location": "Abstract; Section 3.4",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Unique publication sources (journals/venues) in the ML-MIDD corpus",
+        "value": "269",
+        "value_numeric": 269,
+        "unit": "N (sources)",
+        "comparison_baseline": null,
+        "location": "Abstract",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Exponential growth in ML-MIDD publications 2016–2025",
+        "value": "7 (2016) to 159 (2025)",
+        "value_numeric": null,
+        "unit": "articles/year",
+        "comparison_baseline": ">22-fold increase over 9 years; conforms to Price's Law",
+        "location": "Section 3.2 (Price's Law analysis, Figure)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "US share of total authorship records in ML-MIDD 2015–2025",
+        "value": "20.8%",
+        "value_numeric": 20.8,
+        "unit": "% of author records",
+        "comparison_baseline": "China 12.3%, France 5.6%",
+        "location": "Section 3.2",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Share of ML-MIDD publications in core journals (Bradford's Law concentration)",
+        "value": "28%",
+        "value_numeric": 28,
+        "unit": "% in top 10 journals",
+        "comparison_baseline": "CPT:PSP and JPKPD each 5.1%; only 4.3% across all 3 databases",
+        "location": "Section 3.2",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Publications jointly indexed across all three databases (Web of Science, Scopus, PubMed) — illustrating the extreme fragmentation of the ML-MIDD literature",
+        "value": "26 (4.3%)",
+        "value_numeric": 26,
+        "unit": "N (publications)",
+        "comparison_baseline": "of 607 unique records; only 4.3% three-way overlap",
+        "location": "Section 3.1",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Citations for most-cited article in the ML-MIDD corpus (Badillo et al. 2020, Clin Pharmacol Ther)",
+        "value": "303",
+        "value_numeric": 303,
+        "unit": "N (global citations)",
+        "comparison_baseline": "2nd: Fan et al. 2019 (278 citations); 3rd: Greffier et al. 2020 (254 citations)",
+        "location": "Section 3.2",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Global AI-in-pharmaceutical market size 2025 and projected 2034 (CAGR ~27%)",
+        "value": "$1.94 billion (2025) → ~$16.5 billion (2034)",
+        "value_numeric": 1940000000,
+        "unit": "USD",
+        "comparison_baseline": "CAGR ~27%",
+        "location": "Section 1 (Introduction)",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Clinical development failure rate for drug candidates (context for ML-MIDD investment rationale)",
+        "value": "~90%",
+        "value_numeric": 90,
+        "unit": "% failure rate",
+        "comparison_baseline": "Mean cost per approved drug: ~$515.8 million; >10 years development time",
+        "location": "Section 1 (Introduction)",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": [
+      "Quantifies the ML-MIDD landscape: 560 publications, 22-fold growth — establishes why MCS WG action is urgent and well-timed",
+      "Confirms that formal regulatory ML-MIDD integration has not occurred — the exact gap the WG's credibility framework operationalization work addresses",
+      "Hybrid mechanistic-ML (neural PBPK surrogates, VAE for NLME) identified as the most impactful paradigm — directly maps to WG Pillar 1",
+      "XAI (SHAP, LIME) required for regulatory review — confirms WG Pillar 2 focus on interpretability and UQ is not optional",
+      "RL for precision dosing is a documented thematic cluster in the corpus — confirms WG Pillar 3 is a recognized and growing research space"
+    ],
+    "topics": [
+      "bibliometric_analysis",
+      "MIDD",
+      "hybrid_mechanistic_ML",
+      "deep_learning",
+      "reinforcement_learning",
+      "PBPK",
+      "pharmacometrics",
+      "regulatory",
+      "explainable_AI",
+      "generative_AI"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Full text retrieved via PMC (PMC13210285, PMID 42198236, DOI 10.3390/pharmaceutics18050542). Open access in Pharmaceutics (MDPI). Full text includes all sections: Introduction, Materials and Methods (database search, PRISMA, deduplication workflow), Results 3.1–3.4 (database overlap, geography/journals, thematic structure, systematic review), Discussion 4.1–4.3 (hybrid modeling, pipeline applications, regulatory context), Limitations/Future Works. PROSPERO ID: CRD420251276229. Relevance score upgraded to high after full-text read."
+  }
+}

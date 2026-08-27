@@ -1,0 +1,291 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "mcs-sig-source-schema",
+  "title": "MCS SIG AI/ML WG Source Record",
+  "description": "Schema for a single source document used to inform the working group plan.",
+  "type": "object",
+  "required": ["id", "source_type", "title", "year", "content", "relevance", "provenance"],
+  "additionalProperties": false,
+
+  "properties": {
+
+    "id": {
+      "type": "string",
+      "description": "Unique snake_case slug, e.g. baran_gaburro_2026",
+      "pattern": "^[a-z0-9_]+$"
+    },
+
+    "source_type": {
+      "type": "string",
+      "enum": ["paper", "preprint", "web", "report", "working_doc", "background"]
+    },
+
+    "title": { "type": "string" },
+
+    "authors": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Last, First format preferred; empty array if not applicable (web pages, reports)"
+    },
+
+    "year": {
+      "type": ["integer", "null"],
+      "description": "Publication or access year; null if unknown"
+    },
+
+    "doi": {
+      "type": ["string", "null"],
+      "description": "DOI without the https://doi.org/ prefix, e.g. 10.3389/fphar.2026.1815118"
+    },
+
+    "pmid": {
+      "type": ["integer", "null"],
+      "description": "PubMed ID for papers retrieved via PubMed; null for web pages, reports, and background docs"
+    },
+
+    "url": {
+      "type": ["string", "null"],
+      "description": "Canonical URL; null for papers where DOI is sufficient"
+    },
+
+    "journal_or_venue": {
+      "type": ["string", "null"],
+      "description": "Journal name, conference name, or website domain"
+    },
+
+    "content": {
+      "type": "object",
+      "required": ["abstract_summary", "key_findings"],
+      "additionalProperties": false,
+      "properties": {
+
+        "abstract_summary": {
+          "type": "string",
+          "description": "1–3 sentence summary of what the source covers and its main conclusion"
+        },
+
+        "key_findings": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": { "type": "string" },
+          "description": "Bullet-level findings relevant to the WG plan"
+        },
+
+        "methods_discussed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ML/statistical/mathematical methods described or evaluated",
+          "examples": ["neural_ODE", "hybrid_mechanistic_ML", "reinforcement_learning", "SHAP", "VAE", "LLM"]
+        },
+
+        "datasets_referenced": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Named datasets or data sources mentioned (empty array if none)"
+        },
+
+        "tools_software": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Software tools, packages, or platforms referenced (e.g. NONMEM, PyTorch, Julia)"
+        },
+
+        "limitations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Methodological or scope limitations of this source — either explicitly stated by the authors or apparent from the reading. Distinct from provenance.notes, which captures collection context."
+        },
+
+        "extracted_claims": {
+          "type": "array",
+          "minItems": 0,
+          "maxItems": 5,
+          "description": "Key direct quotes or paraphrased claims worth preserving verbatim",
+          "items": {
+            "type": "object",
+            "required": ["text", "location", "evidence_type"],
+            "additionalProperties": false,
+            "properties": {
+              "text": {
+                "type": "string",
+                "description": "The claim — direct quote (in double quotes) or close paraphrase"
+              },
+              "location": {
+                "type": "string",
+                "description": "Where in the source: Abstract, Introduction, section name, URL anchor, etc."
+              },
+              "evidence_type": {
+                "type": "string",
+                "enum": ["empirical", "theoretical", "review", "opinion", "regulatory"],
+                "description": "Nature of the supporting evidence"
+              }
+            }
+          }
+        },
+
+        "numerical_findings": {
+          "type": "array",
+          "maxItems": 15,
+          "description": "Quantitative results, statistics, and measurements extracted from the source",
+          "items": {
+            "type": "object",
+            "required": ["metric_type", "description", "value", "location", "is_primary_finding"],
+            "additionalProperties": false,
+            "properties": {
+
+              "metric_type": {
+                "type": "string",
+                "enum": [
+                  "performance_metric",
+                  "effect_size",
+                  "study_statistic",
+                  "computational_metric",
+                  "count"
+                ],
+                "description": "performance_metric: model quality (AUC, F1, accuracy, hit rate); effect_size: comparative improvement or treatment effect (% gain, fold change, CHR comparison); study_statistic: dataset or cohort characteristics (N, date range, country share); computational_metric: speed or scale of computation (x faster, inference time); count: raw entity counts (nodes, edges, records, publications)"
+              },
+
+              "description": {
+                "type": "string",
+                "description": "What is being measured, in plain language, e.g. 'AUC for chemical-protein interaction prediction (MM-TcoCPin)' or 'CHR rate: QL-agent vs. clinical protocol'"
+              },
+
+              "value": {
+                "type": "string",
+                "minLength": 1,
+                "description": "The value exactly as it appears or is described in the source. Use plain numbers ('0.93'), inequalities ('>0.9'), ranges ('54-60'), comparisons ('[77%, 83%]'), or approximations ('~54 million'). Always a string to preserve the original precision and form."
+              },
+
+              "value_numeric": {
+                "type": ["number", "null"],
+                "description": "Optional single numeric representation of value for filtering/sorting. Use the primary or central value; null for ranges, inequalities, or multi-part comparisons where a single number would be misleading."
+              },
+
+              "unit": {
+                "type": ["string", "null"],
+                "description": "Unit or scale: '%', 'AUC', 'N (patients)', 'N (publications)', 'fold', 'x faster', 'nodes', 'edges', 'kappa', 'RMSE', 'years'. null if dimensionless or unit is embedded in value."
+              },
+
+              "comparison_baseline": {
+                "type": ["string", "null"],
+                "description": "What the value is measured against or compared to. E.g. 'vs. conventional allometric scaling', 'vs. clinical protocol', 'vs. traditional molecular docking'. null if the value is standalone."
+              },
+
+              "location": {
+                "type": "string",
+                "description": "Where in the source: Abstract, Results, Table 1, Discussion, Figure 2 caption, etc."
+              },
+
+              "is_primary_finding": {
+                "type": "boolean",
+                "description": "true if this is a headline result of the source; false if incidental, from a cited study, or from a passing reference"
+              }
+
+            }
+          }
+        }
+      }
+    },
+
+    "relevance": {
+      "type": "object",
+      "required": ["pillars", "gaps_addressed", "topics", "relevance_score"],
+      "additionalProperties": false,
+      "properties": {
+
+        "pillars": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "hybrid_foundations",
+              "uq_identifiability",
+              "optimal_control_rl",
+              "generative_ai"
+            ]
+          },
+          "description": "Which WG pillars this source directly informs"
+        },
+
+        "gaps_addressed": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free-text description of which gaps from Section 2 of the plan this source speaks to"
+        },
+
+        "topics": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Free-form keyword tags (e.g. pharmacokinetics, regulatory, virtual_patients)"
+        },
+
+        "relevance_score": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "How directly this source informs the WG plan and outputs"
+        }
+      }
+    },
+
+    "relationships": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Cross-references to other sources in this collection by their id",
+      "properties": {
+        "cites": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ids of sources in this collection that this source cites"
+        },
+        "cited_by": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ids of sources in this collection that cite this source"
+        },
+        "extends": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ids of sources this source directly builds on or updates"
+        },
+        "contradicts": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "ids of sources whose findings conflict with this source"
+        }
+      }
+    },
+
+    "provenance": {
+      "type": "object",
+      "required": ["how_obtained", "date_read", "read_by", "read_depth"],
+      "additionalProperties": false,
+      "properties": {
+        "how_obtained": {
+          "type": "string",
+          "enum": ["pubmed_search", "biorxiv_search", "web_search", "web_fetch", "provided_by_user", "background_doc"],
+          "description": "How this source entered the collection"
+        },
+        "date_read": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "ISO 8601 date when the source was read and processed"
+        },
+        "read_by": {
+          "type": "string",
+          "enum": ["claude", "user", "both"],
+          "description": "Who read and extracted content from this source"
+        },
+        "read_depth": {
+          "type": "string",
+          "enum": ["abstract_only", "sections_key", "full_text"],
+          "description": "How deeply the source was read: abstract_only = only abstract or summary processed; sections_key = abstract plus targeted sections (e.g. Results, Discussion, Conclusions); full_text = complete document read"
+        },
+        "notes": {
+          "type": ["string", "null"],
+          "description": "Free-text: caveats, follow-up questions, context not captured by structured fields"
+        }
+      }
+    }
+  }
+}

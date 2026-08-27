@@ -1,0 +1,195 @@
+{
+  "id": "de_carlo_2025",
+  "source_type": "paper",
+  "title": "Precision Dosing in Presence of Multiobjective Therapies by Integrating Reinforcement Learning and PK-PD Models: Application to Givinostat Treatment of Polycythemia Vera",
+  "authors": ["De Carlo A", "Tosca EM", "Magni P"],
+  "year": 2025,
+  "doi": "10.1002/psp4.70012",
+  "pmid": 40325832,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Applies Q-learning (QL) integrated with a population PK-PD model to the multiobjective adaptive dosing problem for givinostat (HDAC inhibitor) in polycythemia vera (PV). PV treatment must simultaneously normalize three hematological parameters (PLT, WBC, HCT) as both efficacy and toxicity endpoints. The MDP state space is 487 states; 7 dose levels (50–200 mg/day) are the actions. Two QL approaches: QL-agent (one agent trained on a population of 98 virtual patients) and QL-agents (one personal agent per patient). QL-agent achieves similar CHR to the clinical protocol (77% vs. 83%) with slightly worse safety. QL-agents outperform both: 93% CHR, 0% severe toxicities, median time to stable CHR 47 days vs. 99–105 days for comparators. Limitation: validated only in-silico; RUV excluded; individual PK-PD parameters assumed fully known.",
+
+    "key_findings": [
+      "The givinostat adaptive dosing problem is formalized as an MDP with 487 states (PLT×WBC×HCT categories + previous dose + interruption flags), 7 dose-level actions, and a manually designed multi-term reward function balancing three simultaneous endpoints",
+      "Population-level QL-agent (trained on 98 virtual patients, evaluated on 10 test sets of 98 patients): 77% CHR vs. 83% for the clinical Phase III protocol — statistically similar efficacy but higher severe toxicity rate (40.30% vs. 14.28%)",
+      "The QL-agent notably learned the same dose-maintenance rule as the clinical protocol when parameters are in the efficacy range — a nontrivial validation of the RL framework's ability to rediscover clinical knowledge from scratch",
+      "Personal QL-agents (one per patient, trained on patient-specific PK-PD model simulations): 93% CHR vs. 79% (population QL-agent) vs. 75% (clinical protocol); median time to stable CHR 47 days vs. 99–105 days; 0% severe toxicities",
+      "Computational cost: training 98 personal QL-agents + 1 population agent simultaneously took 26 and 52 days respectively on an 8-core i7 Linux machine (3.6 GHz) using NONMEM 7.3.0 + MATLAB — a practical barrier to clinical translation",
+      "Key unresolved limitation: residual unexplained variability (RUV) was not simulated; adding RUV may require switching from tabular QL to stochastic RL variants or POMDP formulations",
+      "The study provides one of the first RL applications to a true multiobjective precision dosing problem with 3 simultaneous biomarkers — a more realistic oncology scenario than prior single-biomarker work"
+    ],
+
+    "methods_discussed": [
+      "reinforcement_learning",
+      "Q_learning",
+      "Markov_decision_process",
+      "PK_PD_modeling",
+      "population_PK_PD",
+      "hybrid_mechanistic_ML",
+      "precision_dosing",
+      "virtual_population_simulation",
+      "NONMEM"
+    ],
+
+    "datasets_referenced": [
+      "virtual_population_givinostat_PV_98_patients"
+    ],
+
+    "tools_software": [
+      "NONMEM 7.3.0",
+      "MATLAB"
+    ],
+
+    "limitations": [
+      "Residual unexplained variability (RUV) excluded from simulations — deterministic PK-PD assumed; RUV introduction may require switching from tabular QL to stochastic RL or POMDP",
+      "Individual PK-PD parameters assumed fully known from treatment start — in practice, Bayesian estimation would be needed to progressively update individual parameters",
+      "Not validated on real clinical data; all results are in-silico based on a published givinostat population PK-PD model",
+      "Computational time (26–52 days) is impractical for real-time clinical deployment; efficient implementation on high-performance computing is needed",
+      "State space (487 states) and reward function are manually designed and specific to givinostat clinical context — generalizability to other drugs/biomarkers not demonstrated"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"QL-agent learned a general adaptive dosing protocol that achieved a similar CHR rate (77% vs. 83%) when compared to the actual givinostat clinical protocol on 10 simulated populations.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"These QL-based patient-specific adaptive dosing rules outperformed both the clinical protocol and QL-agent by reaching the CHR in 93% of the test patients and completely avoided severe toxicities during the whole treatment period.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"The QL-agent estimated the same dosing rules of the clinical protocol for all patient efficacy status (i.e., maintaining the current dose level) — a confirmation of the powerfulness of RL algorithms that are able to learn from scratch a set of reasonable rules close to those formulated on the basis of the clinical knowledge.\"",
+        "location": "Section 3.1 / Discussion",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"Defining a clinical trial setup that meets current regulatory standards to evaluate model-informed RL approaches for precision dosing remains one of the most important and challenging open issues.\"",
+        "location": "Section 4 Discussion (Limitations)",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "performance_metric",
+        "description": "Population-level QL-agent (QL-pop) CHR rate for givinostat, evaluated on 10 external test sets of 98 virtual PV patients",
+        "value": "77%",
+        "value_numeric": 77,
+        "unit": "%",
+        "comparison_baseline": "vs. givinostat Phase III clinical protocol (83%)",
+        "location": "Abstract; Table 2",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Givinostat Phase III clinical protocol CHR rate (benchmark for population QL-agent comparison)",
+        "value": "83%",
+        "value_numeric": 83,
+        "unit": "%",
+        "comparison_baseline": null,
+        "location": "Abstract; Table 2",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Personalized QL-agents (QL-ind) CHR rate on 98 virtual PV patients",
+        "value": "93%",
+        "value_numeric": 93,
+        "unit": "%",
+        "comparison_baseline": "vs. population QL-agent (79%) and clinical protocol (75%) on same 98 patients",
+        "location": "Abstract; Table 3",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "effect_size",
+        "description": "Severe toxicity rate with personalized QL-agents over full treatment period",
+        "value": "0%",
+        "value_numeric": 0,
+        "unit": "%",
+        "comparison_baseline": "vs. clinical protocol (12.24%) and population QL-agent (43.88%)",
+        "location": "Abstract; Table 3",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Median days until stable complete hematological response: personalized QL-agents vs. population QL-agent vs. clinical protocol",
+        "value": "47 vs. 99 vs. 105",
+        "value_numeric": 47,
+        "unit": "days (median)",
+        "comparison_baseline": "vs. population QL-agent (99 days) and clinical protocol (105 days)",
+        "location": "Table 3",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Virtual patient population size for each training and test set",
+        "value": "98",
+        "value_numeric": 98,
+        "unit": "N (virtual patients)",
+        "comparison_baseline": null,
+        "location": "Section 2.4",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "MDP state space size for the givinostat precision dosing problem",
+        "value": "487",
+        "value_numeric": 487,
+        "unit": "N (states)",
+        "comparison_baseline": null,
+        "location": "Section 2.2.2",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "computational_metric",
+        "description": "Simultaneous training time for 98 personal QL-agents on Linux (8 i7 Intel cores, 3.6 GHz)",
+        "value": "26 days",
+        "value_numeric": 26,
+        "unit": "days",
+        "comparison_baseline": "population QL-agent took 52 days",
+        "location": "Section 4 Discussion",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["optimal_control_rl", "hybrid_foundations"],
+    "gaps_addressed": [
+      "Most complete current proof-of-concept of RL+PK-PD for precision dosing — the computational cost (26–52 days) quantifies the MCS WG's Pillar 3 target: efficient RL implementations using surrogate models or faster simulation engines",
+      "The manually designed 3-endpoint reward function and 487-state MDP are exactly where MCS's mathematical expertise (optimal control theory, MDP theory, Lyapunov-based reward design) can add rigor beyond current empirical approaches"
+    ],
+    "topics": [
+      "reinforcement_learning",
+      "precision_dosing",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "polycythemia_vera",
+      "givinostat",
+      "hematology",
+      "adaptive_dosing",
+      "Markov_decision_process"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["ribba_2023", "de_carlo_2024"],
+    "cited_by": [],
+    "extends": ["de_carlo_2024"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Full text retrieved via PMC (PMC12167923, PMID 40325832, DOI 10.1002/psp4.70012). Open access in CPT: Pharmacometrics & Systems Pharmacology. Full text includes Methods (MDP formulation, reward function, state/action design), Results (Tables 2 & 3 with complete metrics), Discussion (limitations including RUV, computational cost, clinical validation gap). Authors: De Carlo A (A.D.C.), Tosca EM (E.M.T.), Magni P (P.M.) — 3 authors."
+  }
+}

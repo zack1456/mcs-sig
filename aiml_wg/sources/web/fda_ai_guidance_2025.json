@@ -1,0 +1,172 @@
+{
+  "id": "fda_ai_guidance_2025",
+  "source_type": "report",
+  "title": "Considerations for the Use of Artificial Intelligence to Support Regulatory Decision-Making for Drug and Biological Products",
+  "authors": [],
+  "year": 2025,
+  "doi": null,
+  "pmid": null,
+  "url": "https://www.fda.gov/media/184830/download",
+  "journal_or_venue": "U.S. Food and Drug Administration (FDA)",
+
+  "content": {
+    "abstract_summary": "FDA draft guidance (January 2025, docket 59502407dft) providing a 7-step risk-based credibility assessment framework for AI models used to produce data or information supporting regulatory decision-making for drug and biological products. Issued jointly by CDER, CBER, CDRH, CVM, OCE, OCP, and OII. The framework centers on two constructs: the Context of Use (COU) — the specific role and scope of the AI model — and model risk, defined as the joint product of model influence (how much the AI model drives the decision relative to other evidence) and decision consequence (severity of an adverse outcome from an incorrect decision). Credibility evidence requirements must be commensurate with model risk. The guidance explicitly excludes drug discovery and internal operational efficiencies that do not affect patient safety, drug quality, or study reliability. Life cycle maintenance of AI model credibility is required where model performance may change over time.",
+
+    "key_findings": [
+      "The guidance establishes a 7-step credibility assessment framework: (1) Define the question of interest, (2) Define the COU, (3) Assess model risk, (4) Develop a credibility assessment plan, (5) Execute the plan, (6) Document results and deviations, (7) Determine adequacy of the AI model for the COU",
+      "Model risk = model influence × decision consequence (Figure 1 risk matrix): both factors are independently assessed, and risk scales from low (both low) to high (both high) — a key operationalizable construct for the WG",
+      "The COU is the central organizing concept: it defines what the AI model will do, how its output will be used, and whether other evidence (animal studies, clinical trials) will be used in conjunction — high COU specificity is required at every step",
+      "Drug discovery is explicitly out of scope; the guidance covers nonclinical, clinical, postmarketing, and manufacturing phases only",
+      "Internal operational uses (workflows, resource allocation, drafting submissions) are out of scope as long as they do not affect patient safety, drug quality, or study reliability",
+      "Life cycle maintenance of AI model credibility is a 'special consideration' (Section IV.B), particularly critical in manufacturing where models may be self-evolving or exposed to data drift",
+      "FDA strongly encourages early engagement: sponsors should bring the question of interest, COU, and model risk assessment to FDA before completing the credibility assessment plan",
+      "The framework was informed by ASME V&V40 ('Assessing the Credibility of Computational Modeling through Verification and Validation: Application to Medical Device') — a standards-grounded foundation that aligns with MCS's computational rigor emphasis",
+      "Required model evaluation elements include: independent test data (separate from training/tuning), performance metrics with confidence intervals (AUC-ROC, F1, PPV/NPV, PLR/NLR), uncertainty quantification, and bias documentation",
+      "The guidance explicitly requires describing uncertainty and confidence level of model predictions — a direct entry point for UQ methods (WG Pillar 2)",
+      "Pre-trained models must document pre-training dataset and how the model was obtained — covering transfer learning and foundation model adaptation",
+      "Ensemble methods, federated learning, and data drift are each explicitly named as considerations in the credibility assessment plan",
+      "The guidance cites Liu et al. 2023 (Clin Pharmacol Ther 113(4):771-774) — a landscape analysis of AI in regulatory submissions 2016-2021 — as the empirical basis for the claim that AI use in submissions has increased"
+    ],
+
+    "methods_discussed": [
+      "credibility_assessment",
+      "context_of_use_framework",
+      "risk_based_framework",
+      "model_risk_matrix",
+      "uncertainty_quantification",
+      "life_cycle_maintenance",
+      "data_drift",
+      "ensemble_methods",
+      "federated_learning",
+      "transfer_learning",
+      "verification_and_validation"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Draft guidance — nonbinding, not yet finalized; positions may shift before finalization",
+      "The guidance does not endorse any specific AI technique — methodology-agnostic by design",
+      "No quantitative thresholds for model risk levels are provided; risk assessment requires sponsor and FDA subject matter expertise and judgment",
+      "Does not cover drug discovery AI (explicitly out of scope)"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The risk-based credibility assessment framework described here consists of the following 7-step process to establish and assess the credibility of an AI model output for a specific COU based on model risk.\"",
+        "location": "Section IV.A, lines 117-119",
+        "evidence_type": "regulatory"
+      },
+      {
+        "text": "\"Model risk is a combination of two factors: (a) model influence, which is the contribution of the evidence derived from the AI model relative to other contributing evidence used to inform the question of interest and (b) decision consequence, which describes the significance of an adverse outcome resulting from an incorrect decision concerning the question of interest.\"",
+        "location": "Section IV.A.3, lines 211-220",
+        "evidence_type": "regulatory"
+      },
+      {
+        "text": "\"This guidance does not address the use of AI models (1) in drug discovery or (2) when used for operational efficiencies (e.g., internal workflows, resource allocation, drafting/writing a regulatory submission) that do not impact patient safety, drug quality, or the reliability of results from a nonclinical or clinical study.\"",
+        "location": "Section II (Scope), lines 47-50",
+        "evidence_type": "regulatory"
+      },
+      {
+        "text": "\"Specify the process by which the uncertainty and confidence level of model predictions were estimated. If relevant, include any other descriptions or metrics that quantify confidence or uncertainty.\"",
+        "location": "Section IV.A.4.b (model evaluation), lines 459-461",
+        "evidence_type": "regulatory"
+      },
+      {
+        "text": "\"The high-level key concepts and principles of the risk-based credibility assessment framework described in this guidance (sections IV.A.1 through A.3) were informed by an FDA-recognized consensus standard for medical devices titled 'American Society of Mechanical Engineers Assessing Credibility of Computational Modeling through Verification and Validation: Application to Medical Device' (ASME V&V40).\"",
+        "location": "Section II footnote 13",
+        "evidence_type": "regulatory"
+      },
+      {
+        "text": "\"FDA strongly encourages sponsors and other interested parties to engage early with FDA to (1) set expectations regarding the appropriate credibility assessment activities for the proposed model based on model risk and COU and (2) help identify potential challenges and how such challenges may be addressed.\"",
+        "location": "Section IV.C (Early Engagement), lines 571-574",
+        "evidence_type": "regulatory"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Number of steps in the FDA risk-based credibility assessment framework for AI models",
+        "value": "7",
+        "value_numeric": 7,
+        "unit": "N (steps)",
+        "comparison_baseline": null,
+        "location": "Section IV.A, lines 117-119",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Number of independent factors composing model risk (model influence and decision consequence)",
+        "value": "2",
+        "value_numeric": 2,
+        "unit": "N (risk factors)",
+        "comparison_baseline": null,
+        "location": "Section IV.A.3 (Step 3), Figure 1",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "AI submissions reviewed by FDA (2016-2021), cited as empirical basis for increasing AI use in regulatory submissions",
+        "value": "not stated in document body — cited via Liu et al. 2023 (Clin Pharmacol Ther 113(4):771-774)",
+        "value_numeric": null,
+        "unit": "N (submissions)",
+        "comparison_baseline": null,
+        "location": "Section III (Background), footnote 14",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "FDA centers jointly issuing this guidance (CDER, CBER, CDRH, CVM, OCE, OCP, OII)",
+        "value": "7",
+        "value_numeric": 7,
+        "unit": "N (FDA centers/offices)",
+        "comparison_baseline": null,
+        "location": "Title page",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": [
+      "Provides the official FDA framework that the WG must operationalize for PK/PD-specific AI use cases — the COU and model risk constructs are the regulatory language pharmacometricians must speak",
+      "The mandatory uncertainty quantification requirement (Step 4.b) is a direct entry point for WG Pillar 2 (UQ/identifiability) work — no AI model passes without it",
+      "Hybrid mechanistic-ML models fall within scope (the guidance covers all AI approaches); the WG's task is to define what model influence, COU, and credibility evidence mean specifically for hybrid PK/PD models",
+      "Life cycle maintenance requirements (Section IV.B) directly apply to adaptive dosing models using RL (Pillar 3) — a model that continues learning post-deployment has special credibility challenges",
+      "Generative AI models (Pillar 4) face the highest documentation burden under Step 4 — pre-training dataset disclosure, model architecture, ensemble composition"
+    ],
+    "topics": [
+      "regulatory",
+      "FDA",
+      "credibility_framework",
+      "context_of_use",
+      "model_risk",
+      "AI_validation",
+      "uncertainty_quantification",
+      "life_cycle_maintenance",
+      "MIDD",
+      "drug_development",
+      "ASME_VV40"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["liu_2023"],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "provided_by_user",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "PDF provided by user (file: aiml_wg/background/fda_59502407dft.pdf). Full document read: cover pages, Table of Contents, Introduction (pp.1-2), Scope (p.3), Background (p.4), Section IV.A Steps 1-7 (pp.5-15), Section IV.B Life Cycle Maintenance (pp.16-17), Section IV.C Early Engagement (p.17). Footnote 14 cites Liu et al. 2023 (Clin Pharmacol Ther 113(4):771-774, doi:10.1002/cpt.2668) — a landscape analysis of AI in regulatory submissions 2016-2021 that should be added as a separate source record. A separate FDA-EMA joint AI principles document (January 2026) is also referenced in context but is not part of this guidance."
+  }
+}

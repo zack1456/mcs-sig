@@ -1,0 +1,199 @@
+{
+  "id": "aiml_claude_background",
+  "source_type": "background",
+  "title": "Novel AI/ML & Computational Science Methods in Pharmaceutical Workflows",
+  "authors": [],
+  "year": 2026,
+  "doi": null,
+  "pmid": null,
+  "url": null,
+  "journal_or_venue": null,
+
+  "content": {
+    "abstract_summary": "A Claude-generated structured review of novel AI/ML methods in pharmaceutical workflows, explicitly grounded in PubMed literature (searches conducted May 2026, all DOIs linked). Organized into four stages: Literature & Background Research, Model Building (Target ID & Lead Discovery), Implementation (Preclinical to Clinical), and Output (Safety, Monitoring & Post-Market Surveillance). More rigorously sourced than the companion ChatGPT background document.",
+
+    "key_findings": [
+      "DrugProt (BERT/BioBERT on 5,000+ PubMed abstracts) produced a knowledge graph with ~54M nodes and ~19M edges, with precision/recall 0.92–0.95 for specific chemical-protein relation types",
+      "TARGETFLOW (LLM-based mining pipeline): 56% high-potential target validation rate and 100% novel-target validation pass rate on rheumatoid arthritis and idiopathic pulmonary fibrosis",
+      "DrugCLIP (contrastive learning framework, Science 2026): virtual screening up to 10 million times faster than traditional molecular docking, tested on ~10,000 human proteins vs. 500M compounds",
+      "MM-TcoCPin GNN: AUC = 0.93, F1 = 0.92 for chemical-protein interaction prediction with ablation-validated multimodal contributions",
+      "Clinical trial optimization using persona-driven LLM frameworks: 60–70% timeline reductions reported in a 2025 Drug Discovery Today review",
+      "XGBoost + SHAP on FAERS database for pharmacovigilance: AUC = 0.738 for predicting drug-associated miscarriage; SHAP identified adalimumab and infliximab as strongest predictors",
+      "Model-informed precision dosing (MIPD) with NeuralODEs and LSTM handles sparse, irregular PK data better than classical compartmental approaches"
+    ],
+
+    "methods_discussed": [
+      "BioBERT",
+      "PubMedBERT",
+      "knowledge_graph",
+      "GNN",
+      "contrastive_learning",
+      "LLM",
+      "AlphaFold",
+      "VAE",
+      "GAN",
+      "neural_ODE",
+      "LSTM",
+      "MIPD",
+      "XGBoost",
+      "SHAP",
+      "UMAP"
+    ],
+
+    "datasets_referenced": [
+      "PubMed",
+      "FAERS",
+      "electronic_health_records"
+    ],
+
+    "tools_software": [
+      "BioBERT",
+      "NONMEM",
+      "Julia",
+      "R"
+    ],
+
+    "limitations": [
+      "Claude-generated synthesis; while grounded in PubMed literature, the framing and selection of which papers to highlight reflects Claude's judgment, not a systematic PRISMA review",
+      "Only pages 1-5 of a longer document read — post-market surveillance and manufacturing sections may contain additional relevant findings",
+      "Literature cutoff May 2026; does not include publications after that date"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The DrugProt initiative at BioCreative VII demonstrates scalability: deep learning systems built on BERT/BioBERT applied to over 5,000 PubMed abstracts generated a silver-standard knowledge graph with ~54 million nodes and ~19 million edges encoding chemical–protein interactions, with precision and recall values reaching 0.92 and 0.95 for specific relation types.\"",
+        "location": "Section 1: Literature & Background Research — Named Entity Recognition",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"A landmark 2026 paper in Science describes DrugCLIP, a contrastive learning framework enabling virtual screening up to 10 million times faster than traditional molecular docking. Tested on ~10,000 human proteins screened against 500 million compounds, it achieved a 15% hit rate against the norepinephrine transporter and a 17.5% hit rate against a target (TRIP12) using only AlphaFold2-predicted structures.\"",
+        "location": "Section 2: Model Building — Contrastive Learning for Genome-Wide Virtual Screening",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"A 2025 Drug Discovery Today review documents 60-70% timeline reductions and improved clinical trial efficiency using [persona-driven LLM] approaches, while flagging ongoing challenges in hallucination mitigation and regulatory validation.\"",
+        "location": "Section 3: Implementation — AI in Clinical Trial Optimization",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Nodes in the DrugProt knowledge graph (chemical-protein interactions, BioCreative VII)",
+        "value": "~54 million",
+        "value_numeric": 54000000,
+        "unit": "nodes",
+        "comparison_baseline": null,
+        "location": "Section 1: Literature & Background Research",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Edges in the DrugProt knowledge graph",
+        "value": "~19 million",
+        "value_numeric": 19000000,
+        "unit": "edges",
+        "comparison_baseline": null,
+        "location": "Section 1: Literature & Background Research",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "DrugProt knowledge graph precision for specific chemical-protein relation types",
+        "value": "0.92",
+        "value_numeric": 0.92,
+        "unit": "precision",
+        "comparison_baseline": null,
+        "location": "Section 1: Literature & Background Research",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "TARGETFLOW LLM mining pipeline: high-potential target validation rate",
+        "value": "56%",
+        "value_numeric": 56,
+        "unit": "%",
+        "comparison_baseline": null,
+        "location": "Section 1: Literature & Background Research — Automated Target Discovery",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "computational_metric",
+        "description": "Speed advantage of DrugCLIP contrastive learning vs. traditional molecular docking",
+        "value": "10 million times faster",
+        "value_numeric": null,
+        "unit": "fold",
+        "comparison_baseline": "vs. traditional molecular docking",
+        "location": "Section 2: Model Building — Contrastive Learning for Virtual Screening",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "MM-TcoCPin GNN: AUC for chemical-protein interaction prediction",
+        "value": "0.93",
+        "value_numeric": 0.93,
+        "unit": "AUC",
+        "comparison_baseline": null,
+        "location": "Section 2: Model Building — Graph Neural Networks",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "effect_size",
+        "description": "Clinical trial timeline reductions using persona-driven LLM frameworks (from cited 2025 Drug Discovery Today review)",
+        "value": "60-70%",
+        "value_numeric": null,
+        "unit": "%",
+        "comparison_baseline": "vs. standard trial workflow (inferred)",
+        "location": "Section 3: Implementation — AI in Clinical Trial Optimization",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "XGBoost + SHAP on FAERS database: AUC for predicting drug-associated miscarriage",
+        "value": "0.738",
+        "value_numeric": 0.738,
+        "unit": "AUC",
+        "comparison_baseline": null,
+        "location": "Section 4: Output — Explainable ML for ADR Risk Stratification",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": [
+      "Maps the current state of AI/ML across the pharma pipeline with primary literature support — provides the evidence base for the gap analysis in Section 2 of the WG plan",
+      "Identifies specific gaps including model explainability limitations, hallucination risks in LLMs, and validation gaps in hybrid PK/PD models"
+    ],
+    "topics": [
+      "literature_mining",
+      "knowledge_graph",
+      "virtual_screening",
+      "GNN",
+      "hybrid_mechanistic_ML",
+      "neural_ODE",
+      "clinical_trial_optimization",
+      "pharmacovigilance",
+      "ADMET",
+      "explainable_AI"
+    ],
+    "relevance_score": "medium"
+  },
+
+  "relationships": {
+    "cites": ["baran_gaburro_2026", "gerard_2025"],
+    "cited_by": [],
+    "extends": ["aiml_chatgpt_background"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "background_doc",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Claude-generated background document grounded in PubMed literature (searches May 2026). Read pages 1-5 of a longer document. Metrics reported are from cited primary studies, not original findings of this document itself. More reliable than the ChatGPT companion document due to explicit primary citations."
+  }
+}

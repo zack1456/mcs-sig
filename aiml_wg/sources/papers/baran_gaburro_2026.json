@@ -1,0 +1,106 @@
+{
+  "id": "baran_gaburro_2026",
+  "source_type": "paper",
+  "title": "Hybrid mechanistic-machine learning PK/PD models with digital biomarkers: from cage to clinic",
+  "authors": ["Baran SW", "Gaburro S"],
+  "year": 2026,
+  "doi": "10.3389/fphar.2026.1815118",
+  "pmid": null,
+  "url": null,
+  "journal_or_venue": "Frontiers in Pharmacology",
+
+  "content": {
+    "abstract_summary": "A review of hybrid mechanistic-ML PK/PD modeling focused on digital biomarker integration. Surveys model architectures, covariate discovery, cross-species scaling, and validation for preclinical-to-clinical extrapolation (2015–2025 literature). Concludes that model credibility depends on validation rigor and regulatory alignment, not algorithmic novelty.",
+
+    "key_findings": [
+      "Hybrid approaches improve clearance estimation, covariate discovery, and cross-species scaling when the mechanistic model is structurally sound but parametrically under-identified",
+      "Adding an ML layer risks overfitting without measurable gain when mechanistic models already fit well and sample sizes are small",
+      "Integration of multimodal (digital biomarker) datasets introduces challenges: missing data, device drift, and data leakage requiring explicit mitigation",
+      "Credibility depends on validation rigor, interpretability, and regulatory alignment rather than algorithmic novelty",
+      "Reporting and audit practices are needed to support robustness, reproducibility, and regulatory review"
+    ],
+
+    "methods_discussed": [
+      "hybrid_mechanistic_ML",
+      "neural_ODE",
+      "digital_biomarkers",
+      "cross_species_scaling",
+      "covariate_discovery"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Only abstract read; extracted claims may not capture nuance from the Methods or Results sections",
+      "Narrative (non-systematic) review; search protocol and inclusion criteria not described in abstract — potential selection bias",
+      "No quantitative synthesis of hybrid model performance across studies; conclusions are qualitative"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The credibility of hybrid models depends on validation rigor, interpretability, and regulatory alignment rather than on algorithmic novelty.\"",
+        "location": "Abstract / Conclusions",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"When mechanistic models fit well and sample sizes are small, adding an ML layer risks overfitting without measurable gain.\"",
+        "location": "Discussion",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"Models that are prospectively tested, transparently documented, and fitted to a defined context of use will be more influential than those that are merely complex.\"",
+        "location": "Conclusions",
+        "evidence_type": "review"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Publication date range covered by the review",
+        "value": "2015–2025",
+        "value_numeric": null,
+        "unit": "years",
+        "comparison_baseline": null,
+        "location": "Abstract",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "No mathematical criteria for when hybrid models add value over purely mechanistic models",
+      "Lack of validation and benchmarking standards for hybrid PK/PD models",
+      "FDA credibility framework not yet operationalized for hybrid ML-mechanistic pharmacometric models"
+    ],
+    "topics": [
+      "hybrid_mechanistic_ML",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "validation",
+      "regulatory",
+      "digital_biomarkers",
+      "cross_species"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Retrieved via PubMed search for 'machine learning pharmacokinetics pharmacodynamics hybrid model 2025'. Full abstract available. Primary evidence source for gap: no mathematical criteria for when hybrid models add value."
+  }
+}

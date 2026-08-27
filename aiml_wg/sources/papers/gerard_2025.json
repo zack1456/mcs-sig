@@ -1,0 +1,103 @@
+{
+  "id": "gerard_2025",
+  "source_type": "paper",
+  "title": "A new chapter in pharmacology: Artificial intelligence's expanding role in pharmacokinetics, pharmacodynamics, and pharmacovigilance",
+  "authors": [
+    "Gérard AO", "Lombardi R", "Merino D", "Bouveyron C",
+    "Dellamonica J", "Drici MD", "Lavrut T", "Destere A"
+  ],
+  "year": 2025,
+  "doi": "10.1016/j.therap.2025.09.002",
+  "pmid": 41093670,
+  "url": null,
+  "journal_or_venue": "Therapie",
+
+  "content": {
+    "abstract_summary": "A narrative review covering AI applications in three pharmacology domains: pharmacokinetics (individualized exposure prediction, MIPD, sparse data handling via RNNs/NeuralODEs), pharmacodynamics (precision medicine, adaptive dosing, interindividual variability), and pharmacovigilance (ADR detection, safety signal identification, EHR analysis). Also addresses pharmacology education. Uses the ARTIREV hybrid bibliometric tool. Emphasizes the 'black box' explainability problem and absent external validation as principal barriers to safe clinical deployment.",
+
+    "key_findings": [
+      "AI/ML significantly improves individualized PK prediction and supports MIPD, especially for sparse, irregular clinical data",
+      "RNNs and NeuralODEs are the primary architectures bridging mechanistic PK/PD modeling and ML for handling irregular clinical pharmacokinetic data",
+      "AI enables adaptive dosing regimens tailored to individual patient constraints; models for interindividual variability in PD are now feasible",
+      "AI enhances pharmacovigilance: automated ADR detection, safety signal identification at population level, and analysis of unstructured EHR data",
+      "Critical barriers: training data quality, 'black box' explainability, and lack of external validation are preventing safe clinical deployment of AI in pharmacology"
+    ],
+
+    "methods_discussed": [
+      "machine_learning",
+      "hybrid_mechanistic_ML",
+      "neural_ODE",
+      "LSTM",
+      "recurrent_neural_network",
+      "MIPD",
+      "natural_language_processing",
+      "bibliometric_analysis"
+    ],
+
+    "datasets_referenced": [
+      "electronic_health_records"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Only abstract read; specific studies cited, quantitative benchmarks, and ARTIREV search methodology not reviewed",
+      "Narrative (non-systematic) review using a proprietary bibliometric tool (ARTIREV); selection bias possible",
+      "Published in Therapie (French pharmacology journal); may emphasize European clinical practice context"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"In PK, machine learning and hybrid approaches improve the prediction of individualized drug exposure, support model-informed precision dosing and handle irregular and sparse data through architectures such as recurrent neural networks and NeuralODEs.\"",
+        "location": "Abstract",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"Despite their potential, AI models face several significant limitations. These include the quality of training data, limited explainability due to the 'black box' effect and a lack of external validation of the models developed.\"",
+        "location": "Abstract",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"This review emphasizes the role of AI in pharmacology and the necessity of training future professionals to ensure the safe and validated use of AI in personalized medical applications.\"",
+        "location": "Abstract — Conclusions",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Confirms the 'black box' explainability gap for AI/ML in clinical pharmacology — directly supports Pillar 2 (UQ/identifiability) need for principled uncertainty quantification",
+      "Documents that NeuralODEs and RNNs are the main architectures bridging mechanistic PK/PD and ML, consistent with Pillar 1 scope"
+    ],
+    "topics": [
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "pharmacovigilance",
+      "MIPD",
+      "neural_ODE",
+      "explainable_AI",
+      "ADR_detection",
+      "precision_dosing"
+    ],
+    "relevance_score": "medium"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["aiml_claude_background"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Retrieved via PubMed search (PMID 41093670). Not open access — Elsevier paywall (Therapie). Full text not read. No quantitative findings reported in abstract."
+  }
+}

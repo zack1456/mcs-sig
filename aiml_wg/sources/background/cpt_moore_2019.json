@@ -1,0 +1,133 @@
+{
+  "id": "cpt_moore_2019",
+  "source_type": "paper",
+  "title": "The Mathematical and Computational Sciences Special Interest Group of the International Society of Pharmacometrics",
+  "authors": ["Moore H"],
+  "year": 2019,
+  "doi": "10.1002/psp4.12410",
+  "pmid": null,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "A perspective article introducing the MCS SIG of ISoP, covering its founding in 2016, mission to bring advanced mathematical and computational techniques into drug development, leadership, early activities (ACoP sessions, poster prizes, webinars), and plans for 2019. Emphasizes the gap between cutting-edge quantitative techniques developed in academia and their adoption in the biopharma industry.",
+
+    "key_findings": [
+      "The MCS SIG was founded in 2016 by Wojciech Krzyzanski to promote mathematical and computational techniques in drug development that are not yet widely adopted by industry",
+      "The SIG's scope extends well beyond standard PK/PD to include dynamical systems, global sensitivity and identifiability analysis, optimal control, PDEs, delay DEs, stochastic methods, and ML/AI",
+      "By 2019, the SIG had ~45 members (~1/3 in academia) and was actively bridging academic math and the biopharma industry",
+      "The MCS SIG runs activities including ACoP luncheons, poster walks with prizes, webinars, and tutorials; it seeks to engage SIAM, Society for Mathematical Biology, and related math journals",
+      "Three sister SIGs at time of writing: QSP, SxP, Clin PMx — with overlapping interest in model evaluation questions (e.g., what model structure to use for a given biological question)"
+    ],
+
+    "methods_discussed": [
+      "dynamical_systems",
+      "global_sensitivity_analysis",
+      "identifiability_analysis",
+      "optimal_control",
+      "PDEs",
+      "delay_differential_equations",
+      "stochastic_methods",
+      "machine_learning"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [
+      "ADAPT",
+      "Monolix",
+      "NONMEM",
+      "Phoenix",
+      "R",
+      "Stan",
+      "StochSS"
+    ],
+
+    "limitations": [
+      "Perspective article from 2019; SIG composition, size, and activities have evolved significantly since then",
+      "Does not discuss AI/ML in technical depth; treats it as one of many MCS-relevant methods rather than a focus area"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"Although there are some quantitative techniques widely used in the biotechnology/pharmaceutical (biopharma) industry, such as pharmacokinetic/pharmacodynamic modeling, nonlinear mixed-effects modeling, covariate selection, and model selection, there are many more techniques that could be beneficial. These include dynamical systems analysis, global sensitivity and identifiability analysis, regimen optimization using optimal control, partial differential equations to incorporate spatial information, delay differential equations, stochastic methods, and machine learning and artificial intelligence for the selection of models, targets, or compounds.\"",
+        "location": "Introduction",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"The MCS SIG is working to bring relevant cutting-edge quantitative research to members. We seek to decrease the lag time between the development of techniques and their application to problems in the biopharma industry.\"",
+        "location": "Future Plans",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"The MCS SIG was recently referred to as 'the little SIG that could' by ISoP board member Peter Bonate. This is because despite having less than half the membership of any other ISoP SIG, the MCS SIG has sponsored a disproportionately large number of activities to benefit ISoP members.\"",
+        "location": "Activities to Date",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Number of ISoP members who had joined the MCS SIG at time of writing",
+        "value": "~45",
+        "value_numeric": 45,
+        "unit": "N (members)",
+        "comparison_baseline": null,
+        "location": "Introduction",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Fraction of MCS SIG members in academia",
+        "value": "~1/3",
+        "value_numeric": null,
+        "unit": "proportion",
+        "comparison_baseline": null,
+        "location": "Introduction",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Approximate attendees at the 2018 ACoP MCS SIG luncheon",
+        "value": "~80",
+        "value_numeric": 80,
+        "unit": "N (attendees)",
+        "comparison_baseline": null,
+        "location": "Activities to Date",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": [],
+    "gaps_addressed": [
+      "Foundational context for why MCS SIG exists and what distinguishes it from other ISoP SIGs — essential for WG positioning"
+    ],
+    "topics": [
+      "MCS_SIG_history",
+      "identifiability",
+      "optimal_control",
+      "stochastic_methods",
+      "pharmacometrics",
+      "MIDD"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["crosssig_fostvedt_2025"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "provided_by_user",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Open-access article; full PDF provided in background folder. All 3 pages read. Foundational for understanding MCS SIG identity and differentiators."
+  }
+}
