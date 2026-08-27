@@ -1,0 +1,111 @@
+{
+  "id": "goryanin_2025",
+  "source_type": "paper",
+  "title": "Revolutionizing drug discovery: Integrating artificial intelligence with quantitative systems pharmacology",
+  "authors": ["Goryanin I", "Goryanin I", "Demin O"],
+  "year": 2025,
+  "doi": "10.1016/j.drudis.2025.104448",
+  "pmid": 40774584,
+  "url": null,
+  "journal_or_venue": "Drug Discovery Today",
+
+  "content": {
+    "abstract_summary": "Critical review of AI integration within Quantitative Systems Pharmacology (QSP), covering AI-driven databases, cloud platforms, surrogate modeling, virtual patient generation, and digital twin technologies. Identifies QSP-as-a-service (QSPaaS) as an emerging model enabled by AI. Persistent challenges: computational complexity, high dimensionality, explainability, data integration, and regulatory acceptance of AI-enhanced QSP. Specifically discusses surrogate modeling (replacing computationally expensive QSP simulations with ML emulators), virtual patient generation (GAN/VAE-based synthetic populations), and digital twins linking patient-specific mechanistic models to real-time data. Authors from University of Edinburgh (Goryanin I), MMWR Ltd (Goryanin I), InSysBio CY Ltd (Demin O). Drug Discovery Today 2025.",
+
+    "key_findings": [
+      "Surrogate modeling (emulating expensive QSP/ODE simulations with ML) is identified as the primary computational advantage AI brings to QSP — reduces evaluation cost from hours to milliseconds for virtual screening and global sensitivity analysis",
+      "Virtual patient generation via GANs, VAEs, and diffusion models enables construction of realistic synthetic patient populations for QSP simulations; addresses the small-sample QSP calibration problem by augmenting scarce clinical datasets",
+      "Digital twins (DTs) in QSP context: mechanistic QSP model personalized to individual patient data, iteratively updated as new clinical data arrives — distinguished from simpler exposure-response modeling by real-time twinning capability",
+      "QSPaaS (QSP-as-a-service): AI-enabled cloud platforms democratize QSP modeling beyond specialist groups — reduces entry barrier for smaller organizations; analogous to software services model in tech industry",
+      "Explainability is identified as a critical barrier to regulatory acceptance: black-box AI components in QSP pipelines are not acceptable to regulators without XAI methods (SHAP, attention, LIME) demonstrating mechanistic interpretability",
+      "Regulatory acceptance remains a core challenge: FDA and EMA have no specific guidance yet for AI-augmented QSP submissions; the paper calls for regulatory engagement analogous to how the field developed PBPK acceptance (now covered by ICH M15)"
+    ],
+
+    "methods_discussed": [
+      "QSP",
+      "surrogate_modeling",
+      "ML_emulators",
+      "virtual_patient_generation",
+      "GAN",
+      "VAE",
+      "digital_twins",
+      "QSPaaS",
+      "XAI",
+      "SHAP",
+      "PBPK",
+      "AI_drug_discovery",
+      "cloud_computing"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Review paper with no new empirical results — all claims are synthesis of existing literature, no validation experiments",
+      "Authors affiliated with commercial QSP platform (InSysBio) creating potential conflict of interest in QSPaaS advocacy",
+      "No pharmacometrics-specific methods (NONMEM, nlmixr, NLME) discussed — gap between QSP and PMx communities not bridged",
+      "Surrogate modeling accuracy vs. fidelity tradeoff not quantified — no benchmark comparisons provided for how well ML emulators replicate full QSP simulations across scenarios"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "AI-driven databases and cloud-based platforms might support QSP model development and facilitate QSP as a service (QSPaaS).",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Challenges such as computational complexity, high dimensionality, explainability, data integration, and regulatory acceptance persist.",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Novel methodologies like surrogate modeling, virtual patient generation, and digital twin technologies [are highlighted] to enhance precision medicine, regulatory acceptability, and mechanistic interpretability.",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "generative_ai", "uq_identifiability"],
+    "gaps_addressed": [
+      "Fills the cross-SIG (QSP×AI) positioning gap — allows MCS SIG AI WG to understand what QSP SIG is doing on AI and where MCS's mathematical rigor (UQ, identifiability) differentiates from the explainability/interpretability angle QSP uses",
+      "Surrogate modeling for QSP = the PBPK-ML emulator use case the WG has been unable to find in PubMed — this paper provides the conceptual framework even if without empirical benchmarks",
+      "Regulatory acceptance framing matches the WG's mandate: arguing that AI-augmented mechanistic models need XAI + UQ for regulatory acceptance is exactly the MCS SIG value-add over pure ML approaches"
+    ],
+    "topics": [
+      "QSP",
+      "AI_QSP_integration",
+      "surrogate_modeling",
+      "ML_emulators",
+      "virtual_patients",
+      "digital_twins",
+      "QSPaaS",
+      "regulatory_acceptance",
+      "XAI",
+      "explainability",
+      "University_of_Edinburgh",
+      "InSysBio",
+      "drug_discovery"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'explainability interpretability machine learning drug regulatory acceptance' (PMID 40774584). DOI: 10.1016/j.drudis.2025.104448. Drug Discovery Today 2025, 30(9):104448. Paywalled — no PMC ID. Abstract only. Authors: I. Goryanin (U Edinburgh + MMWR Ltd), I. Goryanin (MMWR Ltd), O. Demin (InSysBio CY Ltd, Cyprus + InSysBio UK Ltd, Edinburgh). InSysBio is a commercial QSP platform vendor. Key value: provides cross-SIG intelligence on what QSP groups are doing with AI; surrogate modeling and QSPaaS concepts are directly relevant to MCS WG positioning. If user obtains PDF, upgrade to full_text."
+  }
+}

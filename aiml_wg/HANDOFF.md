@@ -57,6 +57,17 @@ After the meeting, the immediate focus shifts to:
 
 `sources/index.json` updated to 29 records.
 
+**Round 3 literature search** (5 new records, filling regulatory/cross-SIG gaps):
+
+- `chenel_2026` — PBPK best practices + ICH M15 regulatory framework, Pharmetheus/Bayer/Novartis/Sanofi, CPT:PSP 2026 (full_text); documents EMA gap in PBPK quality vs. regulatory expectations
+- `goryanin_2025` — AI+QSP integration: surrogate modeling, virtual patients, digital twins, regulatory acceptance; U Edinburgh/InSysBio, Drug Discovery Today 2025 (abstract_only, paywalled)
+- `krishna_2025` — state-of-the-art MIDD for pediatric rare diseases; 6 FDA approval case studies; AI future directions (synthetic controls, digital twins, generative AI); Certara/Sarepta/Takeda, CPT:PSP 2025 (sections_key, full_text retrieved PMC12625129)
+- `dette_2025` — digital twin systematic review (16 studies): no paper yet achieves true DT; generative DTs (GDTs) as next step; QSP model accepted as FDA confirmatory evidence (rADAMTS13); Saarland University, CSBJ 2025 (sections_key, full_text retrieved PMC12703978)
+- `chen_2024_amd` — AMD automated pop PK model builder in Pharmpy (open-source); AMD models lower BIC than published; Uppsala/Karlsson group, CPT:PSP 2024 (abstract_only, PMC11494844 available)
+- `janssen_2024` cited_by updated to add `dette_2025`
+
+`sources/index.json` updated to 34 records.
+
 ---
 
 ## Blocked / waiting
@@ -77,25 +88,27 @@ After the meeting, the immediate focus shifts to:
 3. `TASKS.md` — full task list with status
 4. `DECISIONS.md` — scoping decisions and rationale
 5. `WORKPLAN.md` — 18-month milestone map and methods→deliverables mapping
-6. `sources/index.json` — 29-record source library index
+6. `sources/index.json` — 34-record source library index
 
 ---
 
 ## Suggested next action
 
-**Post-kickoff (after Aug 28):**
+**Post-kickoff (after Aug 28) — PRIMARY PRIORITY:**
 
 1. Update DECISIONS.md — change all 6 decisions from `tentative` to `confirmed` (or `revised` if the group changed a stance)
 2. Update TASKS.md — fill in `Owner` fields for M1.1, M1.2, M2.1, D-SC-A after pillar leads are assigned
 3. Mark C-01 as `done` in TASKS.md
 4. Start C-02: draft `community/charter.md`
 
-**Literature search Round 3 (when ready):** Regulatory/cross-SIG coverage — FDA regulatory AI submission landscape, ICH M15, EMA AI reflection paper, SxP Bayesian regulatory approaches.
+**Literature search status (complete through Round 3):** 34 records. Library is now comprehensive across all 4 pillars + regulatory context. No further systematic rounds needed; only targeted additions if specific gaps identified at kickoff.
 
-**Pre-kickoff remaining (Aug 27):**
+**Remaining open items:**
 
 - Check FDA comment docket (R-01) — potentially time-sensitive
 - Retrieve PMID for gerard_2025 and upgrade to full_text if PDF is available
+- chen_2024_amd full text available at PMC11494844 — upgrade from abstract_only if useful
+- goryanin_2025 paywalled — upgrade from abstract_only if PDF obtained
 
 ---
 

@@ -129,7 +129,7 @@
 
   "relationships": {
     "cites": ["lu_2021"],
-    "cited_by": ["kekic_2026"],
+    "cited_by": ["kekic_2026", "dette_2025"],
     "extends": ["lu_2021"],
     "contradicts": []
   },

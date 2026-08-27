@@ -1,0 +1,125 @@
+{
+  "id": "chenel_2026",
+  "source_type": "paper",
+  "title": "Best Practices in Physiologically Based Pharmacokinetic (PBPK) Modeling",
+  "authors": ["Chenel M", "Dallmann A", "Ince I", "Meyer M", "Schlender JF", "Teutonico D", "Sjögren E"],
+  "year": 2026,
+  "doi": "10.1002/psp4.70295",
+  "pmid": 42400597,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Comprehensive best-practice guidance for PBPK model development, evaluation, and regulatory submission, explicitly aligned with the ICH M15 guideline on Model-Informed Drug Development (MIDD). Addresses a documented gap: recent EMA reviews show many submitted PBPK models are not adequately qualified for their intended application. Framework: (1) define Question of Interest (QoI) and Context of Use (CoU) prospectively; (2) develop with bottom-up/middle-out/top-down approaches; (3) verify, validate, and assess applicability; (4) document comprehensively for regulatory review. Covers DDI assessment, special populations (pediatrics, organ impairment), formulation/food effects, and first-in-human dose projections. Authors from Pharmetheus, Bayer, Boehringer Ingelheim, Novartis, Sanofi.",
+
+    "key_findings": [
+      "EMA review of PBPK models in new medicinal product approvals finds that many submitted models are not deemed adequately qualified for their intended application — a documented quality gap drives this best-practice guidance",
+      "ICH M15 core principle: the Context of Use (CoU) dictates model complexity, data requirements, and validation rigor. Risk assessment = Model Influence × Consequence of a Wrong Decision (CoWD); evaluation rigor must be proportional to model risk",
+      "Model evaluation is three-stage: (1) Verification (mathematical/computational integrity), (2) Validation (accuracy vs. experimental data, qualitative + quantitative), (3) Applicability assessment (fit-for-purpose for the specific QoI within the CoU)",
+      "Uncertainty quantification required: local sensitivity analysis (tornado plots, spider plots, one-at-a-time); global SA (Sobol indices, simultaneously varying all parameters); Bayesian hierarchical methods for population parameter uncertainty — current best practices not yet fully standardized",
+      "Sequential model development recommended: IV model first (elimination + distribution) → fix systemic parameters → develop oral absorption model. Mechanistic parameter adjustment (intrinsic clearance) preferred over adjusting composite parameters (total plasma clearance)",
+      "ICH M15 'assessment table' as documentation standard: prospectively document QoI, CoU, Model Influence, CoWD, and credibility criteria — demonstrated with vericiguat DDI case study where PBPK replaced a clinical study",
+      "Regulatory acceptance landscape: FDA and EMA maintain platform-agnostic stance (Simcyp, GastroPlus, PK-Sim/OSP all acceptable); fundamental requirement is adequate verification regardless of platform",
+      "PBPK applications in order of regulatory risk: DDI assessment (waiving clinical studies), pediatric dosing, organ impairment, formulation/food effects, first-in-human projections — each requires progressively documented credibility"
+    ],
+
+    "methods_discussed": [
+      "PBPK",
+      "ICH_M15",
+      "MIDD",
+      "sensitivity_analysis",
+      "uncertainty_quantification",
+      "Bayesian_parameter_estimation",
+      "DDI_modeling",
+      "pediatric_extrapolation",
+      "IVIVE",
+      "virtual_population",
+      "PBPK_verification_validation",
+      "context_of_use",
+      "model_risk_assessment"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["Simcyp", "GastroPlus", "PK-Sim", "MoBi", "Open Systems Pharmacology Suite"],
+
+    "limitations": [
+      "Uncertainty quantification section explicitly notes 'it is currently premature to establish definitive best practices for uncertainty quantification' — field consensus not yet reached",
+      "Paper is guidance-oriented, not validation study: no new empirical data, all recommendations based on regulatory experience and literature synthesis",
+      "ML/AI methods for PBPK are not discussed — paper focuses entirely on classical mechanistic PBPK; hybrid PBPK+ML or surrogate modeling is outside scope"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "A recent European Medicines Agency (EMA) review of PBPK models in new medicinal product approvals indicates that regulatory expectations are frequently unmet, with many submitted models not deemed adequately qualified for their intended application.",
+        "location": "Background",
+        "evidence_type": "regulatory_report"
+      },
+      {
+        "text": "The CoU dictates the necessary model complexity, data requirements, and validation rigor.",
+        "location": "Methods",
+        "evidence_type": "guideline"
+      },
+      {
+        "text": "Adhering to these practices—including systematic development, formal evaluation, and comprehensive documentation—will enhance the quality and regulatory acceptance of PBPK submissions, solidifying their role in quantitative decision-making.",
+        "location": "Conclusion",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "DDI case study: CYP3A4 fraction metabolized adjusted from 0.90 to 0.57 to align with observed clinical DDI magnitude, demonstrating middle-out parameter refinement",
+        "value": "fm_CYP3A4 = 0.57 (adjusted from 0.90)",
+        "value_numeric": 0.57,
+        "unit": "fraction metabolized",
+        "comparison_baseline": "initial bottom-up estimate: 0.90",
+        "location": "Box 1 case example",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides the most current regulatory framework for mechanistic modeling in drug submissions — directly relevant to WG positioning: hybrid mechanistic-ML models must satisfy ICH M15 CoU-based credibility criteria, not just benchmark metrics",
+      "UQ section highlights the unresolved state of uncertainty quantification best practices in PBPK — an open problem where MCS SIG's SA/UQ expertise could contribute directly to regulatory science",
+      "Identifies where AI could help: EMA gap in PBPK quality vs. regulatory expectations suggests ML-assisted automated verification, sensitivity analysis, or surrogate emulation as opportunities"
+    ],
+    "topics": [
+      "PBPK",
+      "ICH_M15",
+      "MIDD",
+      "regulatory_submissions",
+      "EMA",
+      "FDA",
+      "DDI_modeling",
+      "uncertainty_quantification",
+      "context_of_use",
+      "pediatric_pharmacology",
+      "model_credibility",
+      "Pharmetheus",
+      "Bayer",
+      "Novartis",
+      "Sanofi"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'ICH M15 model informed drug development guideline pharmacometrics' (PMID 42400597). Full text retrieved from PMC13332702 (DOI: 10.1002/psp4.70295). CPT:PSP 2026, 15(7):e70295. Open access. Authors from 7 European pharma and consultancy organizations: Pharmetheus AB (Chenel M, Sjögren E), Bayer (Dallmann A, Meyer M), Boehringer Ingelheim (Ince I), Novartis (Schlender JF), Sanofi (Teutonico D). ICH M15 is the active regulatory guideline governing MIDD submissions to FDA, EMA, PMDA. Key WG relevance: any hybrid ML-mechanistic model the WG promotes must fit within this ICH M15 CoU + credibility framework to be regulatory-relevant."
+  }
+}

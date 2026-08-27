@@ -1,0 +1,127 @@
+{
+  "id": "dette_2025",
+  "source_type": "paper",
+  "title": "Advancing rare disease therapeutics through digital twins: Opportunities in drug development and precision dosing",
+  "authors": ["Dette CMU", "Alberg V", "Rüdesheim S", "Selzer D", "Marok FZ", "Bragazzi NL", "Fuhr LM", "Brunak S", "Pearson ER", "Zahn T", "Kiritsi D", "Schwab M", "Lehr T"],
+  "year": 2025,
+  "doi": "10.1016/j.csbj.2025.11.047",
+  "pmid": 41404110,
+  "url": null,
+  "journal_or_venue": "Computational and Structural Biotechnology Journal",
+
+  "content": {
+    "abstract_summary": "Systematic review (16 studies from 49 identified) of digital twin (DT) implementations in rare disease (RD) drug development, analyzing PBPK, PopPK, QSP, physiome modeling, and combined approaches. Key finding: no published paper implements a true DT as defined by three criteria — (1) individual patient representation, (2) fusion of heterogeneous data sources, (3) real-time iterative updating. Current implementations are DT precursors, not full DTs. Reviews disease progression modeling, preclinical-to-FIH scaling, pediatric extrapolation, scarce-data scenarios, DDI modeling, and clinical accessibility. Forward-looking: generative AI (GANs, VAEs, diffusion models) and generative digital twins (GDTs) integrating spatial omics + mechanistic models as the next step. Use case: epidermolysis bullosa (EB). Saarland University, Saarbrücken (Lehr group).",
+
+    "key_findings": [
+      "True DT definition (from authors): dynamic, continuously updateable computational representation of an individual patient, integrating mechanistic + empirical + population models with patient-specific real-world data — NONE of the 16 reviewed papers fully satisfy this definition because all lack real-time iterative updating",
+      "Three closest DT precursors: Susilo et al. (QSP for NHL mosunetuzumab — per-patient parameter estimation), Kaddi et al. (QSP/PBPK for Pompe disease — calibrated to individual patients), Yıldırım et al. (cardiovascular hemodynamic DT for congenital heart disease) — all fail the real-time updating criterion",
+      "FDA and EMA regulatory context: FDA CDER AI discussion paper describes DTs as a coming technology; EMA multi-annual AI workplan includes DT pilot studies in 2024 and 2026 — specific DT regulatory framework does not yet exist",
+      "Generative digital twins (GDTs): emerging concept integrating generative AI (spatial omics, multiplexed imaging, diffusion models, GANs) with mechanistic models — enables multi-scale DTs that reproduce tissue/organ-level phenotypes and can be interrogated causally ('what-if' simulations)",
+      "QSP model accepted as confirmatory FDA evidence: McBride et al. QSP model for rADAMTS13 in congenital TTP was submitted to and accepted by FDA as confirmatory evidence for rADAMTS131 efficacy over plasma — first QSP-for-regulatory-approval case",
+      "Key barriers for DT clinical adoption: data interoperability (FHIR, DICOM, OMOP not uniformly implemented), computational cost, interpretability/clinician trust, validation against clinical outcomes, ethical issues (federated learning, dynamic consent, patient data ownership)",
+      "Generative approaches for RD data augmentation: GANs, VAEs, diffusion models can generate synthetic yet biologically plausible datasets; ontology-enhanced or knowledge-guided versions improve biological consistency and fairness in underrepresented populations"
+    ],
+
+    "methods_discussed": [
+      "digital_twins",
+      "PBPK",
+      "PopPK",
+      "QSP",
+      "physiome_modeling",
+      "disease_progression_modeling",
+      "GAN",
+      "VAE",
+      "diffusion_models",
+      "generative_digital_twins",
+      "spatial_omics",
+      "federated_learning",
+      "virtual_clinical_trials",
+      "virtual_control_arms"
+    ],
+
+    "datasets_referenced": [
+      "QSP_models_16_studies_rare_diseases_PubMed"
+    ],
+
+    "tools_software": ["FHIR", "DICOM", "OMOP", "WAPPS-Hemo", "Simcyp"],
+
+    "limitations": [
+      "16 studies reviewed is a small sample — rare disease DT publications are too few for robust conclusions; findings reflect early-stage field, not mature technology",
+      "DT definition is stricter than many papers use — creates gap between authors' 'true DT' and what most publications call a DT; practical guidance for the field may be different from the strict theoretical definition",
+      "Generative DTs section is forward-looking with minimal empirical support — Wu & Koelzer reference is cited but not critically reviewed; actual performance of GDTs in rare disease settings not yet documented"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "In general, all assessed manuscripts do not align with the DT definition stated [here] because they lack more than one of the following essential elements: (i) representation of an individual patient, (ii) fusion of heterogeneous data sources, and (iii) iterative updating via real-time data transfer.",
+        "location": "Section 2.8",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "FDA accepted the results from the QSP model as confirmative evidence proving the advantages of rADAMTS13 compared to plasma-based therapy.",
+        "location": "Section 2.3",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "GDTs integrate generative AI with omics and imaging-derived data, including spatial omics and multiplexed imaging, to create high-fidelity, spatially resolved virtual representations of biological systems.",
+        "location": "Section 4.2",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Systematic literature review scope: 16 included studies from 49 identified via PubMed search on digital twins in rare diseases",
+        "value": "16/49",
+        "value_numeric": 16,
+        "unit": "N (included studies / identified)",
+        "comparison_baseline": "49 total identified",
+        "location": "Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "generative_ai", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides the most rigorous definition of digital twin in the pharmacology context — anchors WG discussion so members do not conflate a population model with a true DT; the 'three criteria' framework is directly usable in the scoping paper",
+      "QSP model accepted as regulatory evidence (McBride et al. rADAMTS13 FDA case) is the most concrete cross-SIG (QSP×regulatory) example in the library — directly supports WG argument that mechanistic models enhance regulatory trust",
+      "Generative DT concept (GDTs) bridges generative_ai pillar and hybrid_foundations: integrating spatial omics + diffusion models + mechanistic QSP is the direction that extends beyond current neural-ODE pharmacokinetics work"
+    ],
+    "topics": [
+      "digital_twins",
+      "rare_diseases",
+      "QSP",
+      "PBPK",
+      "PopPK",
+      "generative_AI",
+      "GAN",
+      "VAE",
+      "diffusion_models",
+      "regulatory_evidence",
+      "FDA",
+      "EMA",
+      "Saarland_University",
+      "precision_dosing",
+      "synthetic_data"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["janssen_2024"],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Found via PubMed search 'digital twin patient pharmacokinetics pharmacodynamics personalized medicine' (PMID 41404110). Full text retrieved from PMC12703978 (DOI: 10.1016/j.csbj.2025.11.047). CSBJ 2025, 28:592-608. Open access. Lead institution: Clinical Pharmacy, Saarland University (Lehr group); co-authors from Novo Nordisk Foundation (Brunak S, Copenhagen), U Dundee (Pearson ER), U Freiburg (Kiritsi D), Crowd Pharma (Zahn T). Full text is 78.4KB — key sections extracted: DT definition (1.5), regulatory perspective (1.3), 16-study evaluation (2.2-2.8), generative DTs (4.2). Note: dette_2025 cites janssen_2024 (haemophilia A DCM paper) in Section 2.5 as a scarce-data modeling example."
+  }
+}

@@ -1,0 +1,128 @@
+{
+  "id": "krishna_2025",
+  "source_type": "paper",
+  "title": "State-of-the-Art on Model-Informed Drug Development Approaches for Pediatric Rare Diseases",
+  "authors": ["Krishna R", "Mitra A", "Zierhut ML", "East L", "Durairaj C"],
+  "year": 2025,
+  "doi": "10.1002/psp4.70083",
+  "pmid": 40697166,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Comprehensive state-of-the-art review of MIDD approaches in pediatric rare disease drug development, illustrating growing regulatory acceptance of pharmacometric modeling in submissions with limited trial data. Six detailed case studies from FDA-approved drugs (risdiplam/SMA, nusinersen/SMA, maribavir/CMV, pozelimab/CHAPLE, mirdametinib/NF1, eteplirsen+delandistrogene/DMD) show how PopPK, PBPK, disease progression models, and exposure-response relationships substitute for traditional RCTs. Future directions include Bayesian trial design, synthetic control arms (including digital twins and generative AI-based approaches), and longitudinal clustering for patient stratification. Authors from Certara, Kura Oncology, Sarepta Therapeutics, Takeda Pharmaceuticals. CPT:PSP 2025.",
+
+    "key_findings": [
+      "Six regulatory approval case studies: MIDD replaced or supplemented clinical trials in all cases — risdiplam (PBPK for DDI bridging adult→pediatric), maribavir (PopPK simulation of adolescent exposure-matching), pozelimab (single-arm trial + E-R modeling), mirdametinib (PopPK-based pediatric dose selection), eteplirsen and delandistrogene (disease progression + vector load-expression-response analysis)",
+      "PBPK + PopPK integration strategy validated in risdiplam: PBPK predicted DDI liability; separate mechanistic PopPK model estimated in vivo FMO3 ontogeny from data across ages 2 months–61 years — enabling a dosing strategy recommendation without additional pediatric DDI trials",
+      "Digital twins and synthetic data explicitly listed as 'reduced RCT' approaches: AI/ML-trained virtual control arms, Bayesian hybrid designs, patient-generated health data from wearables — FDA and EMA increasingly accept external controls and real-world evidence for rare diseases",
+      "Longitudinal clustering identified as an emerging AI method for rare disease: temporal clustering of disease trajectories identifies patient subgroups missed by cross-sectional analysis; handles irregular visit schedules and missing data common in rare disease registries",
+      "MBMA limitations in rare disease: insufficient data, heterogeneous endpoints, limited comparative trials — calls for innovative data sharing and standardization; MIDD fills gaps where MBMA cannot",
+      "FDA MIDD paired meeting program: formal pathway to engage agency proactively on MIDD strategy — WG can leverage this as an example of regulatory engagement for AI/pharmacometrics topics",
+      "AAV gene therapy (delandistrogene): first application of PK/PD evaluation to AAV-based gene transfer — vector load-expression-response analysis as a new form of MIDD beyond traditional small molecule PK"
+    ],
+
+    "methods_discussed": [
+      "MIDD",
+      "PopPK",
+      "PBPK",
+      "disease_progression_modeling",
+      "exposure_response",
+      "Bayesian_trial_design",
+      "clinical_trial_simulation",
+      "digital_twins_synthetic_control",
+      "longitudinal_clustering",
+      "MBMA",
+      "pediatric_extrapolation",
+      "allometric_scaling",
+      "natural_history_data",
+      "biomarker_modeling"
+    ],
+
+    "datasets_referenced": [
+      "FDA_summary_basis_of_approval_multiple_drugs",
+      "SMA_natural_history_registries",
+      "DMD_natural_history_data"
+    ],
+
+    "tools_software": ["NONMEM", "DoseMeRx", "WAPPS-Hemo"],
+
+    "limitations": [
+      "Review focuses on regulatory success stories — selection bias toward approved drugs where MIDD worked; failures where MIDD was insufficient are not discussed",
+      "AI/ML methods are mentioned only in the forward-looking section (synthetic data, digital twins, clustering) — not yet in the regulatory submission case studies; AI+MIDD is still aspirational not standard practice",
+      "MBMA criticism is acknowledged as limited to rare disease context — in common diseases MBMA is well-established; the rare disease limitations do not generalize"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Digital twins/simulated control arms: AI/machine learning trained on historical or observational data; model the disease trajectory without intervention for a virtual control arm; no need to withhold treatment from real patients.",
+        "location": "Table 2",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Longitudinal clustering represents a transformative approach in pediatric rare disease research, allowing the detection of distinct disease progression phenotypes from complex, temporal clinical data.",
+        "location": "Section 5.4",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Our vision remains that RCTs are replaced by responsible data-integrated alternatives.",
+        "location": "Summary",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Risdiplam PopPK: data from 26 healthy volunteers and 301 SMA patients across infants, adolescents, and adults; weight-based dosing ≤2yr and <20kg, fixed dose ≥2yr >20kg",
+        "value": "327",
+        "value_numeric": 327,
+        "unit": "N (subjects in PopPK model)",
+        "comparison_baseline": null,
+        "location": "Case Study 1",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "generative_ai"],
+    "gaps_addressed": [
+      "Documents the current regulatory acceptance landscape for MIDD in detail — gives WG a concrete picture of what FDA and EMA already accept and where AI/ML submissions are being positioned",
+      "Explicitly bridges AI/ML (digital twins, generative synthetic controls, longitudinal clustering) with the MIDD regulatory framework — provides the connective tissue between what WG is researching and why regulators care",
+      "Bayesian hybrid trial designs and external control arms are the pathway through which AI-generated synthetic data enters regulatory submissions — case studies show the regulatory logic chain"
+    ],
+    "topics": [
+      "MIDD",
+      "regulatory_pharmacometrics",
+      "pediatric_rare_diseases",
+      "PBPK",
+      "PopPK",
+      "Bayesian_trial_design",
+      "digital_twins",
+      "synthetic_control_arms",
+      "FDA",
+      "EMA",
+      "Certara",
+      "Sarepta",
+      "Takeda",
+      "gene_therapy_PK"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Found via PubMed search 'Bayesian pharmacokinetics regulatory pharmacometrics model informed drug development' (PMID 40697166). Full text retrieved from PMC12625129 (DOI: 10.1002/psp4.70083). CPT:PSP 2025, 14(11):1743-1759. Open access. Authors: industry perspective (Certara, Kura Oncology, Sarepta, Takeda). Full text is 74.8KB — key sections extracted: introduction, case studies summary, Table 1 (selected drugs), Table 2 (synthetic data approaches), future directions (sections 5.4-6.3). The AI/ML section is forward-looking (not yet implemented in submissions) but the regulatory logic chain (MIDD → external controls → synthetic data → digital twins) is well-documented through real approval cases."
+  }
+}

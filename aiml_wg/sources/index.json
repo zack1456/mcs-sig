@@ -233,6 +233,46 @@
       "title_short": "DQN for infliximab dosing in pediatric Crohn's: first RL real-world validation (Irie et al., CPT 2025)",
       "pillars": ["optimal_control_rl"],
       "relevance": "high"
+    },
+    {
+      "id": "chenel_2026",
+      "file": "papers/chenel_2026.json",
+      "source_type": "paper",
+      "title_short": "PBPK best practices aligned with ICH M15 MIDD guideline (Chenel et al., CPT:PSP 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "goryanin_2025",
+      "file": "papers/goryanin_2025.json",
+      "source_type": "paper",
+      "title_short": "AI+QSP integration: surrogate modeling, virtual patients, digital twins, regulatory acceptance (Goryanin et al. 2025)",
+      "pillars": ["hybrid_foundations", "generative_ai", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "krishna_2025",
+      "file": "papers/krishna_2025.json",
+      "source_type": "paper",
+      "title_short": "State-of-the-art MIDD for pediatric rare diseases: regulatory case studies + AI future directions (Krishna et al. 2025)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "dette_2025",
+      "file": "papers/dette_2025.json",
+      "source_type": "paper",
+      "title_short": "Digital twins for rare disease therapeutics: 16-study review; generative DTs (Dette et al., Lehr group, CSBJ 2025)",
+      "pillars": ["hybrid_foundations", "generative_ai", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "chen_2024_amd",
+      "file": "papers/chen_2024_amd.json",
+      "source_type": "paper",
+      "title_short": "AMD: fully automated population PK model building tool in Pharmpy (Chen et al., Uppsala, CPT:PSP 2024)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
     }
   ]
 }

@@ -1,0 +1,112 @@
+{
+  "id": "chen_2024_amd",
+  "source_type": "paper",
+  "title": "A fully automatic tool for development of population pharmacokinetic models",
+  "authors": ["Chen X", "Nordgren R", "Belin S", "Hamdan A", "Wang S", "Yang T", "Huang Z", "Carter SJ", "Buatois S", "Abrantes JA", "Hooker AC", "Karlsson MO"],
+  "year": 2024,
+  "doi": "10.1002/psp4.13222",
+  "pmid": 39190006,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Presents AMD (Automated Model Development), a fully automated tool for population PK model building implemented in Pharmpy, an open-source Python-based pharmacometrics library. AMD iterates through six modeling components: structural model, IIV model, IOV model, RUV model, covariate model, and allometry model. Evaluated on 10 real PK datasets. AMD produces models with lower BIC than published models while achieving similar VPC performance. Run time is reasonable. From the Uppsala pharmacometrics group (Karlsson MO, Hooker AC), with Roche co-authors (Buatois S, Abrantes JA). CPT:PSP 2024.",
+
+    "key_findings": [
+      "AMD automates the entire population PK model building workflow: structural model selection (1/2/3-compartment), IIV model (full/diagonal), IOV model, RUV model (proportional/additive/combined), covariate model, and allometry — all without user intervention after dataset specification",
+      "10 real PK datasets evaluated across three module sequences: generally consistent structural models across sequences, but variations in IIV and RUV model results — suggesting covariate and IIV estimation remain sources of variability even in automated pipelines",
+      "AMD final models show lower BIC values than published manually-developed models, indicating better statistical fit; visual predictive check plots are similar — automated pipeline achieves competitive quality without human expert iteration",
+      "Pharmpy is the implementation platform: open-source Python library for pharmacometrics, providing access to NONMEM and other backends; AMD is available as a reproducible, version-controlled open-source tool from Uppsala",
+      "Limitation acknowledged: covariate selection variability across sequences remains; the fully automated covariate step may not match expert judgment for all cases — consistent with the challenge documented in karlsen_2025 (no consensus on covariate benchmarking)"
+    ],
+
+    "methods_discussed": [
+      "automated_model_development",
+      "population_PK",
+      "NONMEM",
+      "BIC",
+      "IIV_modeling",
+      "covariate_modeling",
+      "allometric_scaling",
+      "RUV_modeling",
+      "VPC",
+      "open_source_pharmacometrics"
+    ],
+
+    "datasets_referenced": [
+      "10_real_PK_datasets_Uppsala_evaluation"
+    ],
+
+    "tools_software": ["Pharmpy", "NONMEM"],
+
+    "limitations": [
+      "IIV and RUV model selection shows variability across three AMD sequences — not fully reproducible at the component level, only consistent at the structural model level",
+      "Covariate step may not match pharmacometrician expert judgment — automated covariate selection does not encode domain knowledge about which covariates are clinically meaningful vs. statistically significant",
+      "Evaluated only on 10 datasets — limited generalizability; complex PK situations (nonlinearity, flip-flop, enterohepatic recirculation) not specifically assessed"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "The final models of the AMD tool showed lower Bayesian Information Criterion (BIC) values and similar visual predictive check plots compared with the available published models, indicating reasonable quality, in addition to reasonable run time.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "The developed AMD tool serves as a promising tool for fast and fully automatic population PK model building with the potential to facilitate the use of modeling and simulation in drug development.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Number of real PK datasets used to evaluate AMD tool across three module sequences",
+        "value": "10",
+        "value_numeric": 10,
+        "unit": "N (PK datasets)",
+        "comparison_baseline": null,
+        "location": "Methods / Results",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Fills the M1.3 gap for automated pop PK model building — complementary to karlsen_2025 (systematic review of covariate selection methods) and kekic_2026 (stochastic gates): AMD automates the full pipeline, not just covariate selection",
+      "Pharmpy open-source toolchain is an actionable WG deliverable to reference: demonstrates that automation of pharmacometrics is not theoretical but implemented and open-access — sets a benchmark for what the WG could recommend or build upon",
+      "BIC-based comparison vs. published models provides a concrete benchmark methodology — relevant to karlsen_2025's call for standardized benchmarking metrics"
+    ],
+    "topics": [
+      "automated_model_development",
+      "population_PK",
+      "Pharmpy",
+      "NONMEM",
+      "open_source_pharmacometrics",
+      "covariate_modeling",
+      "model_building_automation",
+      "Uppsala_pharmacometrics",
+      "Karlsson",
+      "Hooker",
+      "Roche"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'Bayesian pharmacokinetics regulatory pharmacometrics model informed drug development' (PMID 39190006). Full text available from PMC11494844 (DOI: 10.1002/psp4.13222). CPT:PSP 2024, 13(10):1784-1797. Open access. Uppsala University (Karlsson MO corresponding + 9 co-authors), Roche Innovation Center Basel (Buatois S, Abrantes JA). Pharmpy is maintained at https://github.com/pharmpy/pharmpy. AMD is listed as cited_by karlsen_2025 based on position in the covariate selection review; confirm when reading karlsen_2025 full text. Note: citation direction may be reverse — karlsen_2025 (2025) published after chen_2024 — karlsen_2025 likely cites chen_2024_amd."
+  }
+}
