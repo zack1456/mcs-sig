@@ -18,6 +18,16 @@ There is no software to build or test. Work here is primarily reading, synthesiz
 - **ACoP**: American Conference on Pharmacometrics (annual ISoP conference)
 - **MCS SIG working groups**: Modeling Delays in PKPD; Optimal Control; Sensitivity Analysis/Uncertainty Quantification; AI/Machine Learning (this project's focus)
 
+## Session Start Protocol
+
+At the start of any session, read these files in order before doing any other work:
+
+1. `aiml_wg/HANDOFF.md` — current focus, what's blocked, and the suggested next action
+2. `aiml_wg/TASKS.md` — full task list with status and owners
+3. `aiml_wg/DECISIONS.md` — scoping decisions already made (do not re-litigate)
+
+Update `HANDOFF.md` at the end of each session (completed work, new blockers, next action).
+
 ## Document Structure
 
 ```
