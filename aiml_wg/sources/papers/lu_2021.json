@@ -1,0 +1,90 @@
+{
+  "id": "lu_2021",
+  "source_type": "paper",
+  "title": "Neural-ODE for pharmacokinetics modeling and its advantage to alternative machine learning models in predicting new dosing regimens",
+  "authors": ["Lu J", "Deng K", "Zhang X", "Liu G", "Guan Y"],
+  "year": 2021,
+  "doi": "10.1016/j.isci.2021.102804",
+  "pmid": 34308294,
+  "url": null,
+  "journal_or_venue": "iScience",
+
+  "content": {
+    "abstract_summary": "First application of neural-ODE to pharmacokinetic modeling, using trastuzumab emtansine PK data from two dosing regimens. Neural-ODE substantially outperforms alternative ML models (LSTM, transformer, etc.) when predicting an unseen dosing regimen, while performing comparably to alternatives within the training regimen. Establishes neural-ODE as the most accurate PK model for extrapolating to untested treatment regimens at the time of publication (Genentech / U Michigan, 2021).",
+
+    "key_findings": [
+      "First study to apply neural-ODE to PK modeling — establishes feasibility and provides a benchmark for all subsequent neural ODE pharmacometrics papers",
+      "Neural-ODE showed substantially better performance than LSTM and other alternatives specifically for predicting an unseen dosing regimen (generalization beyond training conditions) — the clinically critical capability",
+      "Models performed similarly across methods when training and test sets come from the same dosing regimen — the key differentiation is extrapolation, not interpolation",
+      "Trastuzumab emtansine (T-DM1) used as case study — two clinical dosing regimens, antibody-drug conjugate oncology PK"
+    ],
+
+    "methods_discussed": [
+      "neural_ODE",
+      "LSTM",
+      "pharmacokinetics",
+      "deep_learning",
+      "dosing_regimen_extrapolation"
+    ],
+
+    "datasets_referenced": [
+      "trastuzumab_emtansine_PK_two_dosing_regimens"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Case study uses a single drug (T-DM1) and two dosing regimens — generalizability to other drugs and more complex PK/PD structures is not demonstrated",
+      "No mechanistic hybrid — the neural ODE replaces the ODE system entirely rather than augmenting a known compartmental structure; identifiability not assessed",
+      "No population-level (NLME) modeling — individual-level only; IIV not addressed"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"To date, neural-ODE is the most accurate PK model in predicting untested treatment regimens.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"This study represents the first time neural-ODE has been applied to PK modeling and the results suggest it is a widely applicable algorithm with the potential to impact future studies.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations"],
+    "gaps_addressed": [
+      "Provides the foundational benchmark for M1.1 — establishes that neural-ODE outperforms alternative ML models for dosing regimen extrapolation, motivating hybrid mechanistic-ML over pure-ML approaches",
+      "Defines the key evaluation criterion for neural ODE PK models: prediction of unseen dosing regimens (not just held-out patients from the same protocol) — this should be the WG's standard benchmark for M1.4"
+    ],
+    "topics": [
+      "neural_ODE",
+      "pharmacokinetics",
+      "trastuzumab_emtansine",
+      "dosing_regimen_extrapolation",
+      "deep_learning",
+      "oncology",
+      "Genentech"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 34308294). Open access (PMC8283337). iScience 2021, 24(7):102804. Authors: Lu J (Genentech), Deng K & Zhang X (Ann Arbor Algorithms), Liu G (Genentech), Guan Y (U Michigan). Upgrade to full_text recommended — this is the foundational paper for M1.1 and the starting point for any WG review of neural ODE PK literature."
+  }
+}

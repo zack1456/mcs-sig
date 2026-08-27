@@ -1,0 +1,114 @@
+{
+  "id": "janssen_2024",
+  "source_type": "paper",
+  "title": "On inductive biases for the robust and interpretable prediction of drug concentrations using deep compartment models",
+  "authors": ["Janssen A", "Bennis FC", "Cnossen MH", "Mathôt RAA"],
+  "year": 2024,
+  "doi": "10.1007/s10928-024-09906-x",
+  "pmid": 38532084,
+  "url": null,
+  "journal_or_venue": "Journal of pharmacokinetics and pharmacodynamics",
+
+  "content": {
+    "abstract_summary": "Extends the deep compartment model (DCM) architecture — a hybrid mechanistic-ML PK model — by introducing physiological constraints (inductive biases) that guide neural network optimization toward pharmacologically realistic solutions. Introduces multi-branch networks to isolate individual covariate effects and enable interpretability through visualization. Validates on 69 haemophilia A patients, outperforming standard DCM and previous population PK models. Addresses the practical identifiability challenge from the architecture side: constraints + multi-branch design reduce spurious covariate effects and improve robustness in sparse data settings.",
+
+    "key_findings": [
+      "Physiological constraints on the neural network (positivity constraints, rate constant monotonicity) substantially improve model robustness in sparse data settings — constrained models converge to more realistic concentration-time curves compared to unconstrained models",
+      "Multi-branch network architecture — separate network branches per covariate, each connected to specific PK parameters — reduces learning of false covariate effects and enables interpretability through visualization of learned covariate-parameter functions",
+      "All models (constrained and unconstrained) were sensitive to learning spurious covariate effects when trained with unimportant covariates — highlights importance of covariate selection before fitting deep compartment models",
+      "Real-world validation on 69 haemophilia A patients: constrained multi-branch model outperformed previous published population PK models and standard DCM; multi-branch architecture gave highest accuracy",
+      "SHAP values used to analyze covariate contributions — demonstrates interpretability is achievable in DCM framework, relevant to regulatory acceptance"
+    ],
+
+    "methods_discussed": [
+      "deep_compartment_model",
+      "physics_constrained_neural_network",
+      "inductive_biases",
+      "multi_branch_network",
+      "SHAP",
+      "pharmacokinetics",
+      "covariate_modeling",
+      "population_PK"
+    ],
+
+    "datasets_referenced": [
+      "haemophilia_A_patients_n69_real_world"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Validated on a single therapeutic area (haemophilia A) and single drug — generalizability to other PK/PD contexts requires demonstration",
+      "Covariate selection must precede model fitting — the framework does not automate covariate selection, and including spurious covariates degrades performance",
+      "Identifiability of the neural components is not formally analyzed — the paper addresses practical robustness through architectural constraints rather than theoretical identifiability"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"Implementing similar biases in standard neural networks can be challenging, but might be fundamental for model robustness and predictive performance.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"We show that all models were sensitive to learning false effects when trained in the presence of unimportant covariates, indicating the importance of selecting an appropriate set of covariates to link to the PK parameters.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"We conclude that physiological-based constraints can improve model robustness. We describe an interpretable architecture which aids model trust, which will be key for the adoption of machine learning-based models in clinical practice.\"",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Size of real-world clinical validation dataset (haemophilia A patients)",
+        "value": "69",
+        "value_numeric": 69,
+        "unit": "N (patients)",
+        "comparison_baseline": null,
+        "location": "Methods / Abstract",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly addresses M1.4 (when do hybrids help?) by showing that constrained DCM outperforms standard population PK on real clinical data — the most concrete empirical evidence in the library that hybrid models + constraints outperform traditional approaches",
+      "Provides the architectural solution to the practical identifiability problem from the M1.3 side: physiological constraints reduce the parameter space to realistic regions, improving robustness in sparse data",
+      "The multi-branch + SHAP interpretability approach is directly relevant to regulatory acceptance (FDA 7-step credibility framework) — provides a template for Pillar 1 regulatory translation"
+    ],
+    "topics": [
+      "deep_compartment_model",
+      "physics_constrained_neural_network",
+      "inductive_biases",
+      "haemophilia_A",
+      "pharmacokinetics",
+      "interpretability",
+      "SHAP",
+      "population_PK",
+      "Amsterdam_UMC",
+      "JPKPD"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 38532084). PMC available: PMC11255087. JPKPD 2024, 51(4):355-366. Amsterdam UMC (Janssen A = corresponding author, a.janssen@amsterdamumc.nl). Open access. This is a strong candidate for the M1.4 journal club session. Upgrade to full_text recommended — PMC access available."
+  }
+}

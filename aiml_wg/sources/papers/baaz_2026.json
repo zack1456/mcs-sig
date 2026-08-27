@@ -1,0 +1,98 @@
+{
+  "id": "baaz_2026",
+  "source_type": "paper",
+  "title": "The Empirical Bayes Variational Autoencoder — A Neural ODE Approach for Population Modeling in Pharmacology",
+  "authors": ["Baaz M", "Sjöberg A", "Jirstrand M"],
+  "year": 2026,
+  "doi": "10.1002/psp4.70280",
+  "pmid": 42310401,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Proposes an empirical Bayes VAE (EB-VAE) framework combining variational autoencoder encoder-decoder architecture with neural ODE decoders for population pharmacokinetic modeling. Integrates covariate-dependent population priors and correlated latent representations to enable probabilistic inference of individual PK parameters. Validated on simulation studies and a small clinical benchmark. Shows that the EB-VAE captures population-level variability correctly where a fixed-prior VAE exhibits systematic bias, and demonstrates comparable predictive performance to prior neural ODE approaches in cross-validation. Fraunhofer-Chalmers Centre, Sweden, 2026.",
+
+    "key_findings": [
+      "Empirical Bayes VAE integrates encoder-decoder architecture with covariate-dependent population priors — enabling correlated latent representations and probabilistic inference of individual parameters; this places it squarely in the VAE-for-NLME category (M1.1)",
+      "In simulation with correlated individual parameters, EB-VAE correctly captured population-level variability, while fixed-prior VAE showed systematic biases — demonstrates that population prior structure matters for correctness of IIV estimation",
+      "Input-response normalization improved extrapolation beyond training dosing schedules compared to models without normalization — a practical finding for generalizability",
+      "Latent variables showed clear relationships with true underlying parameters in diagnostic analysis — interpretability of latent space achieved, relevant for regulatory trust",
+      "Cross-validation on small clinical benchmark: predictive performance comparable to previously reported neural ODE approaches",
+      "The paper explicitly frames this as a 'methodological proof-of-concept' highlighting 'both the potential and the current limitations of variational neural approaches in pharmacometric applications'"
+    ],
+
+    "methods_discussed": [
+      "variational_autoencoder",
+      "neural_ODE",
+      "empirical_Bayes",
+      "population_PK",
+      "probabilistic_inference",
+      "latent_variable_model",
+      "covariate_modeling"
+    ],
+
+    "datasets_referenced": [
+      "simulation_correlated_individual_parameters",
+      "small_clinical_benchmark_dataset"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Small clinical dataset used for validation — 'methodological proof-of-concept' by authors' own assessment; larger clinical validation is needed",
+      "Extrapolation beyond training dosing schedules showed 'stable predictive behavior' only within a 'limited range' with normalization — not demonstrated for large extrapolations",
+      "Identifiability of neural ODE decoder components is not formally assessed — the probabilistic inference handles parameter uncertainty but not structural identifiability of the architecture"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"The proposed framework should be viewed as a methodological proof-of-concept, highlighting both the potential and the current limitations of variational neural approaches in pharmacometric applications.\"",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "In simulation experiments with correlated individual parameters, the empirical Bayes VAE consistently captured population-level variability, whereas a fixed-prior VAE baseline exhibited systematic biases.",
+        "location": "Abstract / Results",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Fills the VAE-for-NLME slot in M1.1 architecture taxonomy — the only published paper applying a Bayesian VAE + neural ODE framework specifically for population PK inference, making it the most direct reference for this hybrid category",
+      "Directly relevant to M2.1 (Bayesian UQ for hybrid models): the probabilistic inference via variational autoencoder is a concrete UQ implementation for neural ODE PK models",
+      "Published in CPT:PSP — the WG's target journal for the white paper; demonstrates this research direction is publishable there and provides a benchmark for the WG's own contributions"
+    ],
+    "topics": [
+      "variational_autoencoder",
+      "neural_ODE",
+      "empirical_Bayes",
+      "population_pharmacokinetics",
+      "probabilistic_inference",
+      "NLME",
+      "Fraunhofer_Chalmers",
+      "CPT_PSP",
+      "VAE_for_NLME"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": ["lu_2021"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 42310401). CPT:PSP 2026, 15(7):e70280. Fraunhofer-Chalmers Centre Gothenburg, Sweden (Jirstrand M group). Very recent (2026). No PMC listed in metadata. Upgrade to full_text recommended — published in the WG's target journal and directly fills the VAE-for-NLME M1.1 slot."
+  }
+}

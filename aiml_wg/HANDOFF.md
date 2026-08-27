@@ -23,13 +23,22 @@ After the meeting, the immediate focus shifts to:
 ## What was completed this session
 - `zhang_2022.json` upgraded from `abstract_only` → `full_text` (PDF provided by user; 14 pages read in full)
 - `campo_manzanares_2026.json` created (`sections_key`, arXiv 2608.13044, iNODE framework)
-- `zhang_2022` added to `sources/index.json`
-- `campo_manzanares_2026` added to `sources/index.json`
+- `zhang_2022` and `campo_manzanares_2026` added to `sources/index.json`
 - `community/kickoff_agenda.md` written (90-min agenda with 6 scoping decisions + recommended stances)
 - `community/kickoff_preread.md` written (~15-min participant pre-read)
 - `TASKS.md`, `HANDOFF.md`, `DECISIONS.md` created (this session)
 - `CLAUDE.md` updated to reference HANDOFF.md
-- All changes committed (7 commits total across the two sessions)
+- **Round 1 literature search completed** (9 new records, filling M1.1/M1.2/M2/M4.1 gaps):
+  - `lu_2021` — first neural ODE for PK (trastuzumab emtansine, Genentech)
+  - `raue_2009` — profile likelihood identifiability (structural vs. practical), foundational reference
+  - `janssen_2024` — deep compartment models + physiological inductive biases (haemophilia A, SHAP)
+  - `baaz_2026` — empirical Bayes VAE + neural ODE for population PK (CPT:PSP 2026)
+  - `aslanimoghankou_2026` — latent neural SDEs for clinical time series + uncertainty calibration (J Biomed Inform)
+  - `giacometti_2025` — neural ODE vs. NLME head-to-head on real dalbavancin PK data (218 patients)
+  - `cminns_2024` — CMINNs with fractional calculus, Karniadakis/Brown (Comput Biol Med 2024)
+  - `chhetri_2026` — CBINN with FIM-based structural + practical identifiability (Bull Math Biol 2026)
+  - `upinn_2025` — UPINNs for chemotherapy drug action, gray-box ODE identification (Pharm Res 2025)
+- `sources/index.json` updated to 25 records
 
 ---
 
@@ -49,7 +58,7 @@ After the meeting, the immediate focus shifts to:
 3. `TASKS.md` — full task list with status
 4. `DECISIONS.md` — scoping decisions and rationale
 5. `WORKPLAN.md` — 18-month milestone map and methods→deliverables mapping
-6. `sources/index.json` — 16-record source library index
+6. `sources/index.json` — 25-record source library index
 
 ---
 
@@ -60,7 +69,9 @@ After the meeting, the immediate focus shifts to:
 3. Mark C-01 as `done` in TASKS.md
 4. Start C-02: draft `community/charter.md`
 
-**Pre-kickoff (if anything is needed today Aug 27):**
+**Literature search Round 2 (when ready):** Deepen Pillar 1 and 3 coverage — PBPK-ML surrogates, ML covariate pharmacometrics, VAE for NLME, POMDP dosing, HJB optimal control, RL drug dosing case studies.
+
+**Pre-kickoff remaining (Aug 27):**
 - Check FDA comment docket (R-01) — potentially time-sensitive
 - Retrieve PMID for gerard_2025 and upgrade to full_text if PDF is available
 

@@ -1,0 +1,102 @@
+{
+  "id": "chhetri_2026",
+  "source_type": "paper",
+  "title": "CBINN: Cancer Biology-Informed Neural Network for Unknown Parameter Estimation and Missing Physics Identification",
+  "authors": ["Chhetri B", "Kumar BVR"],
+  "year": 2026,
+  "doi": "10.1007/s11538-026-01698-0",
+  "pmid": 42365212,
+  "url": null,
+  "journal_or_venue": "Bulletin of Mathematical Biology",
+
+  "content": {
+    "abstract_summary": "Develops CBINN (Cancer Biology-Informed Neural Network) for simultaneous unknown parameter estimation and missing physics identification in tumor-immune ODE systems — the 'gray-box identification' problem where partial mechanistic structure is known but some ODE terms or parameters are missing. Addresses both (i) accurate parameter estimation and (ii) discovery of missing mathematical equations governing biological systems. Validates on three nonlinear compartmental tumor-immune models. Explicitly discusses structural and practical identifiability using computational and Fisher Information Matrix-based analysis. IIT Kanpur, 2026.",
+
+    "key_findings": [
+      "Addresses the gray-box identification problem: given partial ODE structure + data, simultaneously estimate unknown parameters AND discover missing ODE terms — directly relevant to M1.1 (hybrid architectures with partially known structure)",
+      "Structural and practical identifiability are explicitly analyzed using computational methods and Fisher Information Matrix — makes this one of the few PINN papers that directly addresses identifiability of the neural components",
+      "Validated on three distinct nonlinear compartmental tumor-immune models with multiple synthetic noise levels — demonstrates robustness of CBINN across different model structures",
+      "The three benchmark models represent dynamic patterns in compartmental tumor-immune interaction — relevant to pharmacodynamics of immunotherapy drugs"
+    ],
+
+    "methods_discussed": [
+      "physics_informed_neural_networks",
+      "Fisher_Information_Matrix",
+      "structural_identifiability",
+      "practical_identifiability",
+      "gray_box_identification",
+      "missing_physics_discovery",
+      "tumor_immune_dynamics",
+      "ODE_parameter_estimation"
+    ],
+
+    "datasets_referenced": [
+      "synthetic_tumor_immune_model_1",
+      "synthetic_tumor_immune_model_2",
+      "synthetic_tumor_immune_model_3"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Validated only on synthetic data — real clinical tumor-immune data not used",
+      "Tumor-immune models are more QSP-scale than standard pharmacometric (NLME) scale — direct translation to population PK/PD requires adaptation",
+      "Fisher Information Matrix-based identifiability is an approximation (assumes local quadratic likelihood) — for highly nonlinear neural components, this may underestimate uncertainty"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Structural and practical identifiability of the model parameters are also discussed using computational and Fisher information matrix based analysis.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Number of distinct tumor-immune compartmental models tested",
+        "value": "3",
+        "value_numeric": 3,
+        "unit": "N (models)",
+        "comparison_baseline": null,
+        "location": "Abstract / Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly addresses M1.2 (structural identifiability of neural ODE/PINN components) — one of the few papers that explicitly applies FIM-based identifiability analysis to biology-informed neural networks rather than treating identifiability as a post-hoc concern",
+      "The gray-box identification framing (partial known structure + missing terms) is the most accurate description of the scientific problem in hybrid pharmacometric models — a key framing the WG should adopt in the scoping paper"
+    ],
+    "topics": [
+      "cancer_biology_informed_neural_networks",
+      "physics_informed_neural_networks",
+      "structural_identifiability",
+      "practical_identifiability",
+      "Fisher_Information_Matrix",
+      "tumor_immune_dynamics",
+      "gray_box_identification",
+      "IIT_Kanpur"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'structural identifiability neural ordinary differential equations dynamical systems' (PMID 42365212). Bull Math Biol 2026, 88(7). IIT Kanpur (Chhetri B, Kumar BVR = kumarrathish0123@gmail.com). Published June 2026. Note: cites campo_manzanares_2026 tentatively — need to verify if arXiv 2608.13044 was submitted before this paper's final revision date (June 27, 2026) to confirm the citation; it was submitted Aug 13, 2026, so unlikely to be cited. Remove the cites relationship if unverified."
+  }
+}

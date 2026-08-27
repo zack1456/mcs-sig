@@ -129,6 +129,78 @@
       "title_short": "iNODE: identifiability-aware neural ODEs for parsimonious modelling (Campo-Manzanares & Balsa-Canto 2026)",
       "pillars": ["hybrid_foundations", "uq_identifiability"],
       "relevance": "high"
+    },
+    {
+      "id": "lu_2021",
+      "file": "papers/lu_2021.json",
+      "source_type": "paper",
+      "title_short": "First neural ODE for PK: trastuzumab emtansine (Lu et al. 2021)",
+      "pillars": ["hybrid_foundations"],
+      "relevance": "high"
+    },
+    {
+      "id": "raue_2009",
+      "file": "papers/raue_2009.json",
+      "source_type": "paper",
+      "title_short": "Profile likelihood identifiability: structural vs. practical (Raue et al. 2009)",
+      "pillars": ["uq_identifiability", "hybrid_foundations"],
+      "relevance": "high"
+    },
+    {
+      "id": "janssen_2024",
+      "file": "papers/janssen_2024.json",
+      "source_type": "paper",
+      "title_short": "Deep compartment models with physiological inductive biases: haemophilia A (Janssen et al. 2024)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "baaz_2026",
+      "file": "papers/baaz_2026.json",
+      "source_type": "paper",
+      "title_short": "Empirical Bayes VAE + neural ODE for population PK (Baaz et al. 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "aslanimoghankou_2026",
+      "file": "papers/aslanimoghankou_2026.json",
+      "source_type": "paper",
+      "title_short": "Latent neural SDEs for clinical time series with uncertainty calibration (Aslanimoghanloo et al. 2026)",
+      "pillars": ["generative_ai", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "giacometti_2025",
+      "file": "papers/giacometti_2025.json",
+      "source_type": "paper",
+      "title_short": "Neural ODE vs. NLME for dalbavancin pop PK, 218 patients (Giacometti et al. 2025)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "cminns_2024",
+      "file": "papers/cminns_2024.json",
+      "source_type": "paper",
+      "title_short": "CMINNs: compartment model informed neural networks with fractional calculus (Karniadakis group, 2024)",
+      "pillars": ["hybrid_foundations", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "chhetri_2026",
+      "file": "papers/chhetri_2026.json",
+      "source_type": "paper",
+      "title_short": "CBINN: cancer biology-informed NN with FIM-based identifiability (Chhetri & Kumar 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "upinn_2025",
+      "file": "papers/upinn_2025.json",
+      "source_type": "paper",
+      "title_short": "UPINNs for chemotherapy drug action: gray-box ODE identification (Podina et al. 2025)",
+      "pillars": ["hybrid_foundations", "generative_ai"],
+      "relevance": "high"
     }
   ]
 }

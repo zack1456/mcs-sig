@@ -1,0 +1,103 @@
+{
+  "id": "giacometti_2025",
+  "source_type": "paper",
+  "title": "Leveraging Neural ODEs for Population Pharmacokinetics of Dalbavancin in Sparse Clinical Data",
+  "authors": ["Giacometti T", "Rocchi E", "Cojutti PG", "Magnani F", "Remondini D", "Pea F", "Castellani G"],
+  "year": 2025,
+  "doi": "10.3390/e27060602",
+  "pmid": 40566189,
+  "url": null,
+  "journal_or_venue": "Entropy (Basel)",
+
+  "content": {
+    "abstract_summary": "Applies neural ODEs to population pharmacokinetics of dalbavancin (a long-acting lipoglycopeptide antibiotic) in 218 patients with sparse clinical data, comparing against a two-compartment model and NLME (nonlinear mixed-effects) model using cross-validation. Uses data augmentation to pre-train NODEs given the challenge of limited data. With covariates, NODEs demonstrated superior predictive accuracy over NLME; without covariates, comparable performance. SHAP analysis reveals how NODEs use covariates.",
+
+    "key_findings": [
+      "Head-to-head comparison of NODE vs. two-compartment model vs. NLME on real clinical PK data (218 patients, dalbavancin) — one of the most direct benchmarks of neural ODE vs. classical pharmacometrics on real data",
+      "Without covariates: NODEs performed comparably to NLME models — neither clearly superior in the data-poor regime",
+      "With covariates: NODEs demonstrated superior predictive accuracy — the key advantage of neural ODE is learning complex nonlinear covariate relationships that NLME with fixed covariate structure cannot capture",
+      "Data augmentation strategy (pre-training) was required to handle limited data availability — NODE training instability in sparse data is a practical limitation requiring workaround",
+      "SHAP analysis reveals NODE covariate contributions — interpretability demonstrated using an attribution method, directly relevant to regulatory acceptance"
+    ],
+
+    "methods_discussed": [
+      "neural_ODE",
+      "population_PK",
+      "NLME",
+      "SHAP",
+      "data_augmentation",
+      "cross_validation",
+      "dalbavancin",
+      "sparse_data"
+    ],
+
+    "datasets_referenced": [
+      "dalbavancin_clinical_PK_n218_patients"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Data augmentation required for stable NODE training — indicates NODEs are more data-hungry than NLME in sparse clinical settings, which is the typical pharmacometric scenario",
+      "Without covariates NODEs do not outperform NLME — the advantage is covariate-dependent and may not hold for drugs where covariate effects are well-characterized by the mechanistic model",
+      "Identifiability not formally assessed — the comparison is predictive performance only"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "In the absence of covariates, NODEs performed comparably to state-of-the-art NLME models. However, when covariates were incorporated, NODEs demonstrated superior predictive accuracy.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Clinical PK dataset size (dalbavancin, real-world patients)",
+        "value": "218",
+        "value_numeric": 218,
+        "unit": "N (patients)",
+        "comparison_baseline": null,
+        "location": "Abstract / Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides direct empirical evidence for M1.4 (when do hybrids help?): neural ODE outperforms NLME when covariate relationships are complex, but not otherwise — a concrete decision criterion",
+      "The data augmentation requirement for sparse data is a direct challenge to M1.3 (practical identifiability) — NODEs require more data than NLME for reliable estimation, which is a practically important limitation for typical Phase II/III datasets"
+    ],
+    "topics": [
+      "neural_ODE",
+      "population_PK",
+      "NLME",
+      "dalbavancin",
+      "antibiotic",
+      "sparse_data",
+      "covariate_modeling",
+      "SHAP",
+      "interpretability",
+      "University_of_Bologna"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["lu_2021"],
+    "cited_by": [],
+    "extends": ["lu_2021"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 40566189). Open access: PMC12192077. Entropy (Basel) 2025, 27(6):602. University of Bologna (Physics + Medical Sciences, with clinical pharmacology unit IRCCS). Upgrade to full_text recommended — PMC available; the head-to-head NODE vs NLME comparison on real clinical data makes this a key M1.4 reference."
+  }
+}

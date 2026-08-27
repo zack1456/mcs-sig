@@ -1,0 +1,115 @@
+{
+  "id": "aslanimoghankou_2026",
+  "source_type": "paper",
+  "title": "Generative modeling of clinical time series via latent stochastic differential equations",
+  "authors": ["Aslanimoghanloo M", "ElGazzar A", "van Gerven M"],
+  "year": 2026,
+  "doi": "10.1016/j.jbi.2026.105043",
+  "pmid": 42000010,
+  "url": null,
+  "journal_or_venue": "Journal of Biomedical Informatics",
+
+  "content": {
+    "abstract_summary": "Proposes a generative framework based on latent neural stochastic differential equations (neural SDEs) for modeling irregularly sampled clinical time series as discrete observations of an underlying controlled stochastic dynamical system. Combines neural SDE latent dynamics with modality-dependent emission models and variational inference. Validates on three tasks: individual treatment effect estimation (simulated PKPD of lung cancer), probabilistic glucose forecasting (Bergman Minimal Model synthetic data), and physiological signal forecasting (real-world ICU data, 12,000 patients). Outperforms latent ODE, controlled DE, and LSTM baselines, with consistent advantages in uncertainty calibration.",
+
+    "key_findings": [
+      "Latent neural SDEs model disease progression and measurement noise as a controlled stochastic dynamical system — the SDE formulation naturally captures stochasticity of disease progression, unlike deterministic neural ODEs",
+      "Validated on simulated PKPD of lung cancer: individual treatment effect estimation — demonstrates the framework's applicability to pharmacological decision-making scenarios",
+      "Bergman Minimal Model (glucose-insulin) used as a physics-grounded synthetic benchmark — the mechanistic model provides ground truth for evaluating generative model calibration",
+      "Real-world ICU data from 12,000 patients: probabilistic forecasting of physiological signals — the largest real-world validation in the paper",
+      "Consistent advantages in uncertainty calibration across all three datasets vs. latent ODE, CDE, and LSTM baselines — UQ improvement is the primary headline contribution",
+      "Framework handles irregularly sampled observations natively, learns complex nonlinear interactions, and captures stochasticity within a unified scalable probabilistic framework"
+    ],
+
+    "methods_discussed": [
+      "neural_stochastic_differential_equations",
+      "latent_variable_model",
+      "variational_inference",
+      "generative_model",
+      "uncertainty_quantification",
+      "calibration",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "Bergman_minimal_model"
+    ],
+
+    "datasets_referenced": [
+      "simulated_PKPD_lung_cancer_treatment_effect",
+      "Bergman_Minimal_Model_glucose_synthetic",
+      "ICU_real_world_12000_patients"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "PKPD validation is on simulated data only — the lung cancer treatment effect task uses a simulator, not real clinical trial data",
+      "The SDE formulation adds stochastic complexity vs. neural ODE — whether the additional complexity is justified for standard PK/PD (where residual variability is already captured by NLME) is not addressed",
+      "Structural identifiability of the latent SDE components is not assessed",
+      "Scalability to NLME-style population modeling (multiple individuals, hierarchical parameters) is not demonstrated"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "The framework achieves consistent advantages in uncertainty calibration across all datasets compared to latent ODE, controlled differential equation, and LSTM baselines.",
+        "location": "Abstract / Results",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "The formulation naturally handles irregularly sampled observations, learns complex nonlinear interactions, and captures the stochasticity of disease progression and measurement noise within a unified scalable probabilistic framework.",
+        "location": "Abstract",
+        "evidence_type": "theoretical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Real-world ICU dataset size for physiological signal forecasting validation",
+        "value": "12,000",
+        "value_numeric": 12000,
+        "unit": "N (patients)",
+        "comparison_baseline": null,
+        "location": "Abstract / Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly fills the M4.1 gap: a physics-grounded generative model (latent SDE with Bergman model as benchmark) for clinical time series — provides a concrete example of how ODE-prior knowledge can be embedded in generative model validation frameworks",
+      "The uncertainty calibration results (consistent advantages across all datasets) address M2.3 (ensemble/stochastic uncertainty) — latent SDEs are an alternative to ensemble methods for UQ",
+      "The Bergman Minimal Model benchmark is directly usable by the WG: it provides a controlled validation framework that any proposed generative PK/PD method could be tested against"
+    ],
+    "topics": [
+      "neural_SDE",
+      "generative_model",
+      "uncertainty_calibration",
+      "clinical_time_series",
+      "PKPD",
+      "lung_cancer",
+      "Bergman_model",
+      "glucose_insulin",
+      "ICU",
+      "stochastic_differential_equations",
+      "Radboud_University"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": ["lu_2021"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 42000010). J Biomed Informatics 2026, 179:105043. Radboud University Nijmegen (Donders Institute, van Gerven M group). Published April 2026. No PMC entry in metadata. Upgrade to full_text recommended — fills both M4.1 and M2.3 gaps, and the Bergman benchmark is directly usable for WG validation framework design."
+  }
+}

@@ -1,0 +1,96 @@
+{
+  "id": "upinn_2025",
+  "source_type": "paper",
+  "title": "Learning Chemotherapy Drug Action via Universal Physics-Informed Neural Networks",
+  "authors": ["Podina L", "Ghodsi A", "Kohandel M"],
+  "year": 2025,
+  "doi": "10.1007/s11095-025-03858-8",
+  "pmid": 40244511,
+  "url": null,
+  "journal_or_venue": "Pharmaceutical Research",
+
+  "content": {
+    "abstract_summary": "Applies Universal Physics-Informed Neural Networks (UPINNs) to learn unknown components of pharmacodynamic ODE models for chemotherapy — the gray-box identification problem in oncology PK/PD. Demonstrates on three standard chemotherapeutic drug action models (log-kill, Norton-Simon, and a third model) using synthetic data, then learns the net proliferation rate in a doxorubicin pharmacodynamics model. The UPINN framework uses the neural network as a universal approximator for unknown ODE terms while the known mechanistic structure constrains the solution space. University of Waterloo, 2025.",
+
+    "key_findings": [
+      "UPINN successfully learns three standard chemotherapeutic drug action terms (log-kill, Norton-Simon, and a third form) from synthetic data — demonstrates that physics-informed ML can recover known ODE structure from data without a priori specification",
+      "Parameter fitting for multiple synthetic datasets simultaneously is demonstrated — multi-experiment training with shared mechanistic structure",
+      "Net proliferation rate in doxorubicin PD model successfully learned — a real pharmacological unknown that standard ODE parameterization cannot capture",
+      "The approach occupies the exact gray-box niche: known mechanistic ODE scaffold (cell kill kinetics) + neural network to learn unknown term (proliferation rate function)",
+      "Authors explicitly frame these as 'toy examples' and 'highlight the usefulness' rather than clinical validation — honest scope statement"
+    ],
+
+    "methods_discussed": [
+      "universal_physics_informed_neural_networks",
+      "gray_box_identification",
+      "pharmacodynamics",
+      "ODE_learning",
+      "doxorubicin",
+      "chemotherapy_drug_action",
+      "mechanistic_ML_hybrid"
+    ],
+
+    "datasets_referenced": [
+      "synthetic_log_kill_model",
+      "synthetic_Norton_Simon_model",
+      "doxorubicin_pharmacodynamics_synthetic"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "All validation is on synthetic data — 'toy examples' by authors' own description; clinical validation is not provided",
+      "Does not address identifiability of the learned neural network term — the UPINN may fit multiple solutions equally well",
+      "No comparison against standard ODE parameter estimation (e.g., NONMEM/Monolix) on the same data — only internal UPINN performance reported"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"As the examples we study are only toy examples, we highlight the usefulness of UPINNs in learning unknown terms in pharmacodynamic and pharmacokinetic models.\"",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "We show that the UPINN can successfully learn the hidden terms and unknown parameters in a variety of differential equations (with differing time and variable scales) that model the effect of chemotherapeutics on cancer cells.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "generative_ai"],
+    "gaps_addressed": [
+      "Fills the UPINN slot in M1.1 — a specific form of physics-informed hybrid where a neural network learns an unknown ODE term while the rest of the mechanistic structure is fixed; directly relevant to M1.4 (when do hybrids help: when a term in the ODE is unknown but the scaffold is known)",
+      "Doxorubicin application connects to M4.1 (generative AI for pharmacometrics): UPINNs can be viewed as constrained generative models for ODE terms, where the physics constraint is the known mechanistic scaffold"
+    ],
+    "topics": [
+      "universal_PINNs",
+      "physics_informed_neural_networks",
+      "chemotherapy",
+      "pharmacodynamics",
+      "doxorubicin",
+      "gray_box_identification",
+      "ODE_learning",
+      "University_of_Waterloo"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'physics-informed neural network drug pharmacology' (PMID 40244511). Pharmaceutical Research 2025, 42(4):593-612. University of Waterloo (Podina L, Ghodsi A, Kohandel M). Authors are upfront that validation is on toy/synthetic examples — honest scope statement is a positive signal for scientific quality. Upgrade to full_text only if the WG specifically pursues gray-box ODE identification as a M4.1 sub-task."
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "id": "cminns_2024",
+  "source_type": "paper",
+  "title": "CMINNs: Compartment model informed neural networks — Unlocking drug dynamics",
+  "authors": ["Ahmadi Daryakenari N", "Wang S", "Karniadakis G"],
+  "year": 2024,
+  "doi": "10.1016/j.compbiomed.2024.109392",
+  "pmid": 39608036,
+  "url": null,
+  "journal_or_venue": "Computers in Biology and Medicine",
+
+  "content": {
+    "abstract_summary": "Proposes CMINNs (Compartment Model Informed Neural Networks), a physics-informed neural network framework that embeds fractional calculus and time-varying parameters into compartmental PK/PD models. Uses PINNs and fractional PINNs (fPINNs) to simultaneously model anomalous diffusion, drug resistance, tolerance, and time-varying PK parameters within systems of two (fractional) ODEs. Demonstrates on cancer pharmacodynamics with multi-dose regimens. From the Karniadakis group at Brown University — the leading academic group in physics-informed ML for scientific computing.",
+
+    "key_findings": [
+      "CMINNs integrate fractional calculus (anomalous diffusion, drug trapping/escape in heterogeneous tissues) with compartmental PK/PD models using PINNs — extends standard integer-order compartmental models to capture non-Fickian diffusion phenomena",
+      "Achieves modeling of drug resistance, persistence, tolerance, and absorption anomalies within a system of just 2 (fractional) ODEs — demonstrates that physics-constrained neural approaches can uncover dynamics inaccessible to standard compartmental forms",
+      "Time-varying parameters (piecewise constant or continuous) are learned by the neural network, enabling adaptation to changing patient physiology during treatment",
+      "Multi-dose administration modeled explicitly — relevant to oncology protocols (doxorubicin) where dose-response history affects cell death dynamics",
+      "Karniadakis group (Brown/NIH) involvement signals connection to the broader SciML ecosystem and potential for tool integration"
+    ],
+
+    "methods_discussed": [
+      "physics_informed_neural_networks",
+      "fractional_PINNs",
+      "fractional_calculus",
+      "compartmental_model",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "anomalous_diffusion",
+      "multi_dose_modeling",
+      "time_varying_parameters"
+    ],
+
+    "datasets_referenced": [
+      "doxorubicin_cancer_pharmacodynamics_multi_dose"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Demonstrated on synthetic/simulated cancer PD data — clinical validation on real patient data is not presented",
+      "Fractional differential equations are computationally more expensive than integer ODEs and have less established estimation theory in pharmacometrics",
+      "Identifiability of fractional order parameter and neural components is not addressed — adding fractional calculus increases the identifiability challenge beyond standard hybrid models"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "CMINNs uncover different drug-effect dynamics, providing new insights into absorption rates, anomalous diffusion, drug resistance, persistence, and pharmacokinetic tolerance, all within a system of just two (fractional) ODEs with explainable results.",
+        "location": "Abstract / Results",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "generative_ai"],
+    "gaps_addressed": [
+      "Fills the PINN-based hybrid category in M1.1 architecture taxonomy — CMINNs represent the physics-informed approach (constraints from known ODE structure) rather than the data-driven neural ODE approach, giving a third architectural option alongside serial and embedded hybrids",
+      "The fractional calculus extension is directly relevant to M4.1 — physics-constrained generative models where the physics constraint is a fractional ODE rather than an integer ODE; this is an underexplored area the WG could carve out"
+    ],
+    "topics": [
+      "compartment_model_informed_neural_networks",
+      "physics_informed_neural_networks",
+      "fractional_calculus",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "doxorubicin",
+      "cancer",
+      "Karniadakis_group",
+      "Brown_University",
+      "SciML"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'physics-informed neural network drug pharmacology' (PMID 39608036). Computers in Biology and Medicine 2024, 184:109392. Brown University (Karniadakis G = corresponding, george_karniadakis@brown.edu). NIH-funded (R01). Note: this is a Research Support, N.I.H., Extramural paper. Upgrade to full_text recommended if the WG pursues fractional PDE extensions as part of M4.1 scope."
+  }
+}
