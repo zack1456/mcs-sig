@@ -1,0 +1,42 @@
+# OS Generated Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor/IDE Settings
+.vscode/
+.idea/
+*.swp
+
+# Claude Code
+.claude/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+
+# Build and Compiled Files
+dist/
+build/
+*.egg-info/
+.eggs/
+
+# Logs and Temporary Files
+*.log
+npm-debug.log*
+tmp/
+
+# Project-specific
+outputs/
+plots_csv/
+scratch/
+scratch_*.py
+.pytest_cache/
+
+# Word/Office temp files
+~$*
