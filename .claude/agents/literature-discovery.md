@@ -31,9 +31,9 @@ After collecting all results:
 2. Read `aiml_wg/sources/**/*.json` (Glob + Read) and cross-reference all found DOIs and PMIDs against the existing library. Remove any papers already in the library.
 
 ## Relevance scoring
-For each remaining candidate, assign a relevance score:
-- **High:** directly addresses a core gap in a WG pillar; would likely become a `full_text` record
-- **Medium:** relevant context; worth tracking as `abstract_only`
+For each remaining candidate, assign a relevance score using this rubric (mirrors `relevance_score` in the schema):
+- **High:** directly informs a specific WG deliverable or method workstream; would justify a white paper citation or journal club session
+- **Medium:** relevant context or adjacent method; useful background but unlikely to be cited in a primary output
 - **Low:** tangentially related; skip unless the user specifically asks
 
 Only report High and Medium candidates.
@@ -73,3 +73,15 @@ Searches run: [list] · Papers found: X · Already in library: Y · New candidat
 Ask the user: "Should I add any of these to the library now? Provide the numbers or 'all high-relevance' and I'll run `/add-source` for each."
 
 If yes, for each selected paper: fetch metadata, attempt PMC full text, and write the JSON record to `aiml_wg/sources/papers/`.
+
+## Record-writing discipline (apply when writing JSON records)
+
+These rules apply regardless of read depth:
+
+1. **No hallucinated numerics.** Values in `numerical_findings` may only be written if they appear in the retrieved abstract or full text. If a specific number is not present, omit the entry — do not estimate or infer a plausible value.
+
+2. **Tag inferred claims.** In `key_findings`, append `[inferred]` to any claim not explicitly stated in the source text (e.g., an implication the paper likely supports but does not say). Directly extracted statements need no tag.
+
+3. **State the evidence base in notes.** In `provenance.notes`, always include a sentence describing what was read, e.g.: `"Key findings from PubMed abstract only; numerical claims not independently confirmed."` or `"Full text read via PMC; all findings directly extracted."`
+
+4. **Apply the relevance_score rubric.** Use the same rubric as the report: high = would justify a white paper citation or journal club session; medium = useful background; low = tangential. Do not default to high.

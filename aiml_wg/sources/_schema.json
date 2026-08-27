@@ -223,7 +223,7 @@
         "relevance_score": {
           "type": "string",
           "enum": ["high", "medium", "low"],
-          "description": "How directly this source informs the WG plan and outputs"
+          "description": "How directly this source informs the WG plan and outputs. Rubric — high: directly informs a specific WG deliverable or method workstream; would justify a white paper citation or journal club session. medium: relevant context or adjacent method; useful background but unlikely to be cited in a primary output. low: tangentially related; captured for completeness only."
         }
       }
     },
