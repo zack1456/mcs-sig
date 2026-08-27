@@ -1,0 +1,165 @@
+{
+  "id": "campo_manzanares_2026",
+  "source_type": "preprint",
+  "title": "Identifiability-aware neural ordinary differential equations for parsimonious and reliable dynamic modelling",
+  "authors": ["Campo-Manzanares JL", "Balsa-Canto E"],
+  "year": 2026,
+  "doi": null,
+  "pmid": null,
+  "url": "https://arxiv.org/abs/2608.13044",
+  "journal_or_venue": "arXiv (q-bio.QM)",
+
+  "content": {
+    "abstract_summary": "Proposes iNODE (identifiability-aware neural ODE), a framework that embeds structural and practical identifiability diagnostics directly into the neural ODE architecture selection and training process. Uses the Model Quality Ranking Index (MQRI) — a composite score combining Fisher Information Matrix-based identifiability, prediction confidence intervals, and validation error — to select parsimonious architectures. Demonstrates on four pharmacological benchmarks that iNODE produces models 20–50× smaller than conventional NODEs while achieving 3–6× lower validation errors and reducing maximum parameter confidence intervals from 881% to 84%.",
+
+    "key_findings": [
+      "iNODE integrates structural identifiability analysis (via symbolic tools) and practical identifiability (Fisher Information Matrix + profile likelihood) directly into architecture search, not as a post-hoc check",
+      "Model Quality Ranking Index (MQRI) is a composite metric weighting identifiability, parameter confidence intervals, and held-out validation error — enables systematic model selection across architectures without manual tuning",
+      "Benchmark 1 (PK/PD system): iNODE achieved 32 parameters vs. 1,362 in conventional NODE (42× smaller), with 3× lower validation error and dramatically tighter CIs",
+      "Benchmark results across 4 pharmacological case studies: maximum parameter CI reduced from 881% to 84% (representative benchmark) — non-identifiable conventional NODE parameters rendered practically useless for dose optimization or simulation",
+      "Architecture selection: iNODE prunes network width and depth based on identifiability metrics, converging on sparse architectures that are interpretable and reliably estimated from clinical trial-sized datasets",
+      "The iNODE framework is directly applicable to hybrid mechanistic-ML models (NLME context) where the mechanistic compartments are known but ML augmentation modules are unconstrained — a gap the MCS WG has identified for Pillar 1",
+      "Submitted August 13, 2026 — very recent preprint, not yet peer-reviewed; findings need independent replication across more complex model structures"
+    ],
+
+    "methods_discussed": [
+      "neural_ODE",
+      "structural_identifiability",
+      "practical_identifiability",
+      "Fisher_Information_Matrix",
+      "profile_likelihood",
+      "architecture_search",
+      "model_selection",
+      "hybrid_mechanistic_ML",
+      "pharmacokinetics",
+      "pharmacodynamics"
+    ],
+
+    "datasets_referenced": [
+      "pharmacological_benchmark_1_PK_PD_system",
+      "pharmacological_benchmark_2",
+      "pharmacological_benchmark_3",
+      "pharmacological_benchmark_4"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Preprint — not yet peer-reviewed; identifiability claims need independent replication",
+      "Benchmarks are pharmacological but may not capture the full complexity of NLME population models with inter-individual variability (IIV) — a critical dimension for PMx applications",
+      "MQRI weights (identifiability vs. validation error vs. CI width) are heuristically set — sensitivity of architecture selection to these weights is not fully characterized",
+      "Symbolic structural identifiability analysis does not scale well to very high-dimensional systems (e.g., QSP-scale models with 100+ ODEs); the practical scope is compartmental-to-moderate hybrid models",
+      "The 4 benchmarks are described as 'pharmacological' but case study specifics (drug, disease, data source) not fully detailed in the arXiv abstract — full-text read needed"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "iNODE produces architectures 20–50× smaller than conventional NODE while achieving 3–6× lower validation errors",
+        "location": "Abstract / Results summary",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "Maximum parameter confidence intervals reduced from 881% to 84% — non-identifiable conventional NODE parameters are practically useless for downstream inference and decision-making",
+        "location": "Results (representative benchmark)",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "Identifiability analysis integrated as an architectural constraint, not a post-hoc diagnostic — this is the key methodological departure from prior neural ODE work",
+        "location": "Methods",
+        "evidence_type": "theoretical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "computational_metric",
+        "description": "Parameter count: iNODE vs. conventional NODE (Benchmark 1, PK/PD system)",
+        "value": "32 vs. 1,362",
+        "value_numeric": 32,
+        "unit": "N (parameters)",
+        "comparison_baseline": "vs. conventional NODE (1,362 parameters)",
+        "location": "Results, Benchmark 1",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Validation error reduction: iNODE vs. conventional NODE across benchmarks",
+        "value": "3–6× lower",
+        "value_numeric": null,
+        "unit": "fold improvement",
+        "comparison_baseline": "vs. conventional NODE",
+        "location": "Results summary",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "effect_size",
+        "description": "Maximum parameter confidence interval width: conventional NODE vs. iNODE (representative benchmark)",
+        "value": "881% → 84%",
+        "value_numeric": 84,
+        "unit": "% CI width",
+        "comparison_baseline": "conventional NODE (881%)",
+        "location": "Results (representative benchmark)",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "computational_metric",
+        "description": "Architecture size reduction: iNODE vs. conventional NODE across benchmarks",
+        "value": "20–50×",
+        "value_numeric": null,
+        "unit": "fold reduction in parameters",
+        "comparison_baseline": "vs. conventional NODE",
+        "location": "Abstract / Results summary",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Number of pharmacological benchmarks evaluated",
+        "value": "4",
+        "value_numeric": 4,
+        "unit": "N (benchmarks)",
+        "comparison_baseline": null,
+        "location": "Methods / Results",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly fills the WG's Pillar 1 gap: the field lacks systematic methods to ensure neural ODE components in hybrid models are identifiable from clinical data — iNODE proposes the first architecture-level solution",
+      "MQRI provides a concrete model selection criterion for hybrid models that incorporates identifiability alongside predictive performance — exactly what M1.2 (structural identifiability of neural ODE components) and M1.4 (when do hybrids help?) need",
+      "Pillar 2 (UQ): the CI reduction results (881%→84%) quantify the practical cost of ignoring identifiability in UQ — a compelling motivating example for the WG's uncertainty quantification workstream",
+      "The 20–50× parameter reduction has regulatory implications — smaller, identifiable models are easier to inspect and validate under FDA's credibility assessment framework"
+    ],
+    "topics": [
+      "neural_ODE",
+      "identifiability",
+      "structural_identifiability",
+      "practical_identifiability",
+      "Fisher_Information_Matrix",
+      "model_selection",
+      "hybrid_mechanistic_ML",
+      "pharmacokinetics",
+      "pharmacodynamics",
+      "arXiv_preprint",
+      "parsimonious_modeling"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "web_fetch",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Fetched from https://arxiv.org/html/2608.13044v1 (HTML version). arXiv submission date: August 13, 2026 (very recent). Authors: Campo-Manzanares JL and Balsa-Canto E — affiliation likely IIM-CSIC (Vigo, Spain, Balsa-Canto group). Preprint not yet peer-reviewed. Key sections read: abstract, methods (iNODE architecture, MQRI definition), results (4 benchmark tables), discussion/limitations. Full-text read is 'sections_key' — some benchmark details may be incomplete. Upgrade to full_text recommended once paper is published or if deeper analysis of MQRI weighting is needed."
+  }
+}

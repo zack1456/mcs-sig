@@ -47,8 +47,8 @@
       "file": "papers/dermawan_2026.json",
       "source_type": "paper",
       "title_short": "Global trends: ML with MIDD bibliometric review (Dermawan et al. 2026)",
-      "pillars": ["hybrid_foundations"],
-      "relevance": "medium"
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
     },
     {
       "id": "gerard_2025",
@@ -99,11 +99,35 @@
       "relevance": "high"
     },
     {
+      "id": "liu_2023",
+      "file": "papers/liu_2023.json",
+      "source_type": "paper",
+      "title_short": "FDA landscape: AI/ML in regulatory submissions 2016–2021 (Liu et al. 2023)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
+    },
+    {
       "id": "mcs_wg_2026v03",
       "file": "working_docs/mcs_wg_2026v03.json",
       "source_type": "working_doc",
       "title_short": "MCS SIG AI working group 2026 v0.3 (primary planning doc)",
       "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "zhang_2022",
+      "file": "papers/zhang_2022.json",
+      "source_type": "paper",
+      "title_short": "Two heads are better than one: QSP+ML integration white paper (Zhang et al. 2022)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "campo_manzanares_2026",
+      "file": "papers/campo_manzanares_2026.json",
+      "source_type": "preprint",
+      "title_short": "iNODE: identifiability-aware neural ODEs for parsimonious modelling (Campo-Manzanares & Balsa-Canto 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
       "relevance": "high"
     }
   ]

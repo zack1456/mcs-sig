@@ -1,0 +1,105 @@
+{
+  "id": "zhang_2022",
+  "source_type": "paper",
+  "title": "Two heads are better than one: current landscape of integrating QSP and machine learning — An ISoP QSP SIG white paper by the working group on the integration of quantitative systems pharmacology and machine learning",
+  "authors": ["Zhang T", "Androulakis IP", "Bonate P", "Cheng L", "Helikar T", "Parikh J", "Rackauckas C", "Subramanian K", "Cho CR"],
+  "year": 2022,
+  "doi": "10.1007/s10928-022-09805-z",
+  "pmid": 35103884,
+  "url": null,
+  "journal_or_venue": "Journal of pharmacokinetics and pharmacodynamics",
+
+  "content": {
+    "abstract_summary": "ISoP QSP SIG white paper from a 21-member working group (18 academic/industry organizations) convened in September 2019 to identify opportunities for integrating QSP modeling and machine learning. Identifies four categories of current QSP+ML research activity, presents drug development case studies, and concludes that QSP+ML integration is in its early stages — moving from evaluating tools to building case studies — and serves as a foundation for future best-practices codification.",
+
+    "key_findings": [
+      "Four integration categories identified: (1) ML applied to components of QSP models, (2) QSP used to generate training data for ML, (3) ML used to analyze QSP model outputs (sensitivity analysis, UQ), (4) hybrid QSP-ML architectures for mechanism + data-driven learning",
+      "Both QSP and ML are powerful individually; integration aims to overcome each approach's limitations — QSP's data hunger for parameterization vs. ML's lack of mechanistic interpretability",
+      "Multi-layer omics data (gene expression, proteomics, metabolomics, imaging) is the primary data source where ML adds value to QSP workflows",
+      "Working group concluded that the field was in early stages at time of writing (2019–2021 scoping): case study building phase, not yet best-practices codification",
+      "Rackauckas C (Pumas-AI / MIT) is listed as co-author — signals connection to Julia/Pumas-AI scientific ML ecosystem relevant to WG Pillar 1 (neural ODEs, SciML)"
+    ],
+
+    "methods_discussed": [
+      "quantitative_systems_pharmacology",
+      "machine_learning",
+      "hybrid_mechanistic_ML",
+      "omics_data_integration",
+      "sensitivity_analysis",
+      "uncertainty_quantification",
+      "neural_ODE"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Scoped entirely within QSP (systems-scale mechanistic models) rather than pharmacometrics (NLME/compartmental PK/PD) — the MCS WG operates more in the PMx space, so direct overlap is partial",
+      "Published 2022 based on 2019–2021 work — landscape has shifted substantially with foundation models and SciML advances since then",
+      "Abstract-only read; four integration categories and case study details require full text to evaluate rigorously"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "\"Both approaches are powerful tools and there is considerable interest in integrating QSP modeling and ML. So far, a few successful implementations have been carried out from which we have learned about how each approach can overcome unique limitations of the other.\"",
+        "location": "Abstract",
+        "evidence_type": "review"
+      },
+      {
+        "text": "\"The working group also concluded that the integration of QSP and ML is still in its early stages of moving from evaluating available technical tools to building case studies.\"",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "count",
+        "description": "Working group membership size at time of writing",
+        "value": "21 members representing 18 academic and industry organizations",
+        "value_numeric": 21,
+        "unit": "N (members)",
+        "comparison_baseline": null,
+        "location": "Abstract",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides the sister SIG (QSP) perspective on hybrid mechanistic-ML integration — directly relevant to differentiating MCS WG scope from QSP WG scope (QSP operates at network/systems scale; PMx at NLME/compartmental scale)",
+      "The four integration categories framework is a useful taxonomy for Pillar 1 scoping paper — MCS WG should reference this QSP categorization and clarify which categories apply to pharmacometrics vs. QSP contexts",
+      "Rackauckas (Julia SciML / neural ODEs) co-authorship signals that the Julia/SciML ecosystem is QSP-adjacent — MCS WG should be aware when evaluating tool recommendations"
+    ],
+    "topics": [
+      "quantitative_systems_pharmacology",
+      "machine_learning",
+      "hybrid_models",
+      "omics",
+      "drug_development",
+      "ISoP",
+      "QSP_SIG",
+      "white_paper",
+      "cross_SIG"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-26",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search for 'two heads better than one QSP machine learning' (PMID 35103884, PMC8837505). PMC full text fetch failed — parameter error on mcp__claude_ai_PubMed__get_full_text_article. Abstract only processed. DOI: 10.1007/s10928-022-09805-z. J Pharmacokinet Pharmacodyn 49(1):5-18. Upgrade to full_text recommended — this is the sister SIG white paper and the most direct comparator to the MCS WG mission document."
+  }
+}
