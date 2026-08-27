@@ -6,20 +6,25 @@
 
 ## Last updated
 
-**Date:** 2026-08-27 (Round 4 complete)
-**By:** Claude (Sonnet 4.6) + Zack Kenz
+**Date:** 2026-08-27 (pre-kickoff review + founding-team rescope)
+**By:** Claude (Opus 4.8) + Zack Kenz
 
 ---
 
 ## Current focus
 
-Pre-kickoff preparation is complete. The kickoff meeting is **tomorrow, August 28, 2026**. No further pre-meeting work needed unless the user requests it.
+Kickoff is **tomorrow, Aug 28, 2026**. Confirmed reality: **3 active people** (co-chairs SK + ZK, plus one highly involved member MC); recruiting to grow the group over the next ~2 months. Phase 1 has been right-sized to that team.
 
-After the meeting, the immediate focus shifts to:
+**Read before the meeting:** `community/phase1_scope.md` (the operative near-term plan) and `community/kickoff_facilitation_notes.md` (chair run-of-show).
 
-1. Locking the 6 scoping decisions (update DECISIONS.md with confirmed stances)
-2. Assigning pillar leads and workstream owners (update TASKS.md)
-3. Drafting the WG charter (`community/charter.md`)
+Key reframes this session:
+
+1. **3 people = 1 pillar at depth** (Pillar 1) + 1 seed note, not 4 pillars. Growing to 6–8 members is the primary Phase 1 deliverable. (DECISION-7)
+2. **Only Decisions 1 & 4 are genuinely open** at kickoff (depend on MC's expertise); 3/5/6 are forced by headcount; 2 is a fast default.
+3. **8-week deliverables:** Scope & Call brief (SK), one technical seed note (ZK/MC), journal club as recruiting funnel (MC).
+4. **FDA docket resolved (R-01):** comment period closed April 7, 2025; no open docket. Regulatory work reframed to untimed operationalization → white-paper §E. (DECISION-8)
+
+After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), start the Scope & Call brief (C-09).
 
 ---
 

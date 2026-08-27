@@ -15,7 +15,11 @@
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
 | C-01 | active | Kickoff meeting (Aug 28 2026) — resolve 6 scoping decisions, assign pillar leads | SK, ZK | Agenda: `community/kickoff_agenda.md`; pre-read: `community/kickoff_preread.md` |
-| C-02 | todo | Draft WG charter (mission, pillars, out-of-scope, membership, cadence) | SK, ZK | Blocked until C-01. Due: Month 2. Deliverable: `community/charter.md` |
+| C-01b | active | Right-size Phase 1 for 3-person founding team | SK, ZK | Scope doc: `community/phase1_scope.md`; chair notes: `community/kickoff_facilitation_notes.md`. See DECISION-7. |
+| C-02 | todo | Draft WG charter (mission, pillars, out-of-scope, membership, cadence) | SK, ZK | Blocked until C-01. Due: Month 2. Deliverable: `community/charter.md`. Mission one-liner drafted in `phase1_scope.md §6` |
+| C-08 | todo | **Recruiting: grow 3 → 6+ active members by Month 2** (primary Phase 1 deliverable) | Owner TBD at kickoff | Channels + plan in `phase1_scope.md §4`. Tool = Scope & Call brief; funnel = journal club |
+| C-09 | todo | Draft "Scope & Call for Participation" brief (2–4 pp) | SK | Recruiting magnet; becomes front half of scoping paper. See `phase1_scope.md §3a` |
+| C-10 | todo | Draft technical seed note (conformal-prediction OR neural-ODE identifiability — pick one) | ZK or MC | `phase1_scope.md §3b`. Decided by kickoff Decisions 1 & 4 (MC expertise) |
 | C-03 | todo | Submit charter to ISoP MCS SIG steering committee | SK | Blocked until C-02 |
 | C-04 | todo | Schedule cross-SIG alignment meetings (AI/ML SIG, QSP SIG, SxP, Optimal Control WG, SAUQ WG) | ZK | Blocked until C-01. See `community/PLAN.md` for specific scope boundary per SIG |
 | C-05 | todo | Journal club: confirm format (sync/async) and launch Month 3 | WG | First session: `baran_gaburro_2026`. Deliverable: `community/journal_club/schedule.md` |
@@ -77,8 +81,8 @@
 
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
-| R-01 | active | Check FDA AI/ML docket for open comment periods | ZK/Claude | **Potentially time-sensitive.** Guidance published 2025; comment window may still be open |
-| R-02 | todo | Draft FDA comment (if docket open) | ZK + WG | Due: Month 10. Depends on R-01 |
+| R-01 | done | Check FDA AI/ML docket for open comment periods | ZK/Claude | **Resolved 2026-08-27:** comment period (Docket FDA-2024-D-4689) closed April 7, 2025; final guidance expected Q2 2026 (now finalized/imminent). No open docket. See DECISION-8. |
+| R-02 | todo | ~~Draft FDA comment~~ → Operationalize finalized 7-step credibility framework + FDA–EMA Joint Principles for hybrid models | ZK + WG | Reframed per DECISION-8: untimed; folds into white-paper §E / D-SC-E. No deadline pressure. |
 
 ---
 

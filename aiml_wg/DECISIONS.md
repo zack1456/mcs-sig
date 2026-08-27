@@ -91,6 +91,34 @@
 
 ---
 
+## DECISION-7 · Founding-team scope (3 people)
+
+| Field | Value |
+| --- | --- |
+| **ID** | DECISION-7 |
+| **Date** | 2026-08-27 (proposed) |
+| **Status** | tentative — confirm at kickoff (Aug 28) |
+| **Decision** | Run **one pillar at depth** (Pillar 1, neural-ODE identifiability) plus one Pillar 2 seed note while the team is 3 people; treat growing to ~6–8 active members as the primary Phase 1 deliverable. Expand pillars per the scaling table in `community/phase1_scope.md §2`. |
+| **Rationale** | Four pillars cannot be run by three people without producing four stalled workstreams that make the WG look inactive to the exact people it wants to recruit. Depth in one place is the recruiting signal. Decisions 3/5/6 (RL light, coordinate-not-co-author, defer benchmarks) are forced by headcount, not independent choices. |
+| **What would change this** | Faster-than-expected recruiting (hit 6+ active members before Month 2) unlocks Pillar 2 at depth sooner. |
+| **Affects tasks** | All M-series; C-05 (journal club as funnel); new recruiting task |
+
+---
+
+## DECISION-8 · Regulatory workstream reframe
+
+| Field | Value |
+| --- | --- |
+| **ID** | DECISION-8 |
+| **Date** | 2026-08-27 (proposed) |
+| **Status** | tentative — confirm at kickoff (Aug 28) |
+| **Decision** | Reframe the regulatory workstream from an FDA docket comment to an **untimed operationalization** of the finalized 7-step credibility framework + Jan 2026 FDA–EMA Joint Principles, folded into white-paper §E. |
+| **Rationale** | Confirmed 2026-08-27: comment period on the AI draft guidance (Docket FDA-2024-D-4689) closed April 7, 2025; final guidance expected Q2 2026 (now finalized/imminent). No open docket exists. Removes an artificial deadline and produces a more durable, citable contribution. |
+| **What would change this** | FDA opens a new docket (e.g., on a revised or companion guidance) with a live comment window. |
+| **Affects tasks** | R-01, R-02, D-SC-E, D-WP (§E) |
+
+---
+
 ## Template for new decisions
 
 ```
