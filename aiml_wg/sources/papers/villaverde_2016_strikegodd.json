@@ -1,0 +1,104 @@
+{
+  "id": "villaverde_2016_strikegodd",
+  "source_type": "paper",
+  "title": "Structural Identifiability of Dynamic Systems Biology Models",
+  "authors": ["Villaverde AF", "Barreiro A", "Papachristodoulou A"],
+  "year": 2016,
+  "doi": "10.1371/journal.pcbi.1005153",
+  "pmid": 27792726,
+  "url": null,
+  "journal_or_venue": "PLoS Computational Biology",
+
+  "content": {
+    "abstract_summary": "Introduces STRIKE-GOLDD (STRuctural Identifiability taKen as Extended-Generalized Observability with Lie Derivatives and Decomposition), a MATLAB toolbox for structural identifiability and observability analysis of general nonlinear ODE models. The key innovation: extends observability methods (Lie derivatives, generalized observability) to analyze structural identifiability, enabling analysis of non-rational and non-linear models that algebraic differential elimination cannot handle. Identifies unidentifiable models and shows how to modify them to become identifiable. Reports identifiability results for models where none had been established before. U Oxford + U Vigo. PLoS Comp Biol 2016.",
+
+    "key_findings": [
+      "Structural identifiability is a prerequisite for parameter estimation and model-based optimization, but 'this analysis is seldom performed due to the high computational cost involved in the necessary symbolic calculations, which quickly becomes prohibitive as the problem size increases'",
+      "STRIKE-GOLDD approach: reformulates structural identifiability as an extended observability problem; applies Lie derivatives to generate the observability-identifiability matrix (OIM); tests rank of OIM symbolically to determine identifiability of each parameter",
+      "Broad applicability: handles non-rational, non-linear ODE models with known and unknown inputs — more general than DAISY (which requires rational systems) or SIAN (algebraic approach) at the cost of higher computational expense",
+      "Demonstrates results on systems biology models where structural identifiability was previously undetermined; reports previously unknown unidentifiabilities",
+      "Provides procedure to make unidentifiable models identifiable: fix subset of parameters, reparametrize, add outputs, or add inputs — directly actionable for pharmacometric model design",
+      "Open source MATLAB implementation available on GitHub — directly usable by WG members"
+    ],
+
+    "methods_discussed": [
+      "structural_identifiability",
+      "observability",
+      "Lie_derivatives",
+      "STRIKE-GOLDD",
+      "nonlinear_ODE",
+      "systems_biology",
+      "symbolic_computation"
+    ],
+
+    "datasets_referenced": [
+      "systems_biology_ODE_models_illustrative"
+    ],
+
+    "tools_software": ["STRIKE-GOLDD", "MATLAB"],
+
+    "limitations": [
+      "Computational cost: Lie derivative approach scales poorly with model size; symbolic calculations become prohibitive for large systems",
+      "Requires MATLAB — not accessible to R or Python users without interfacing",
+      "Does not analyze practical identifiability (parameter uncertainty given finite data, noise) — only structural identifiability (theoretical parameter recoverability)"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "A powerful way of gaining insight into biological systems is by creating a nonlinear differential equation model, which usually contains many unknown parameters. Such a model is called structurally identifiable if it is possible to determine the values of its parameters from measurements of the model outputs.",
+        "location": "Abstract",
+        "evidence_type": "methodological"
+      },
+      {
+        "text": "This method helps prevent problems caused by lack of identifiability analysis, which can compromise the success of tasks such as experiment design, parameter estimation, and model-based optimization.",
+        "location": "Abstract",
+        "evidence_type": "methodological"
+      },
+      {
+        "text": "The broad applicability of this approach facilitates the analysis of the increasingly complex models used in systems biology and other areas.",
+        "location": "Abstract",
+        "evidence_type": "methodological"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability"],
+    "gaps_addressed": [
+      "Foundational M1.2 paper: provides the core algorithmic approach (Lie derivatives + observability) that STRIKE-GOLDD is built on — WG members need to understand this to use the tool and to discuss structural identifiability authoritatively in the scoping paper",
+      "Directly extends to hybrid/neural ODE context: campo_manzanares_2026 (iNODE) applies identifiability-aware design to neural ODEs — understanding how STRIKE-GOLDD works is prerequisite for the iNODE approach's contribution",
+      "Connects structural identifiability (villaverde_2016) → practical identifiability (raue_2009) → mixed-effects identifiability (janzen_2017): together these three papers define the identifiability landscape for the WG's M1.2 work stream"
+    ],
+    "topics": [
+      "structural_identifiability",
+      "STRIKE-GOLDD",
+      "Lie_derivatives",
+      "observability",
+      "nonlinear_ODE",
+      "systems_biology",
+      "MATLAB",
+      "Villaverde",
+      "U_Vigo",
+      "U_Oxford",
+      "Papachristodoulou"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["diazseoane_2023_strikegodd4"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'STRIKE-GOLDD structural identifiability nonlinear systems' (PMID 27792726). Full text available from PMC5085250 (DOI: 10.1371/journal.pcbi.1005153). PLoS Comp Biol 2016, 12(10):e1005153. Open access. Villaverde AF = U Oxford (now U Vigo, corresponding); Barreiro A = U Vigo; Papachristodoulou A = U Oxford. Code at https://github.com/afvillaverde/strike-goldd. campo_manzanares_2026 (iNODE) cites this work as part of its identifiability-aware design. Upgrade to full_text from PMC5085250 if needed for scoping paper writing."
+  }
+}

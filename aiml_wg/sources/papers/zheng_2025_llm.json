@@ -1,0 +1,134 @@
+{
+  "id": "zheng_2025_llm",
+  "source_type": "paper",
+  "title": "AI for NONMEM Coding in Pharmacometrics Research and Education: Shortcut or Pitfall?",
+  "authors": ["Zheng W", "Wang W", "Kirkpatrick CMJ", "Landersdorfer CB", "Yao H", "Zhou J"],
+  "year": 2025,
+  "doi": "10.1002/psp4.70125",
+  "pmid": 41187068,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Most comprehensive evaluation to date of LLMs for NONMEM coding in pharmacometrics: 7 LLMs tested (including OpenAI o1 and gpt-4.1) on 13 pharmacometrics tasks spanning a range of population PK and PD models. Developed a standardized scoring rubric for code accuracy assessment and created an optimized prompt. o1 and gpt-4.1 achieved 'great accuracy for all tasks when using our optimized prompt.' User review still essential for complex models. Discusses AI in pharmacometrics education and overreliance prevention. UNC Chapel Hill (CS + Pharmacy) + Monash Institute of Pharmaceutical Sciences (Kirkpatrick, Landersdorfer). CPT:PSP 2025.",
+
+    "key_findings": [
+      "7 LLMs evaluated on 13 NONMEM tasks — most comprehensive pharmacometrics LLM benchmark to date; tasks span basic structural PK/PD models to complex population models",
+      "OpenAI o1 and gpt-4.1 achieved best performance, generating 'codes with great accuracy for all tasks when using our optimized prompt' — substantial improvement over shin_2024_llm (ChatGPT 4.0/Gemini, which still required expert correction)",
+      "Standardized scoring rubric developed for assessing NONMEM code accuracy — provides a reusable benchmark methodology for future LLM comparisons in pharmacometrics",
+      "Optimized prompt development: prompt engineering substantially improved LLM performance — suggests that raw LLM capability is not the only variable; prompt strategy matters as much as model choice",
+      "LLMs performed well for basic NONMEM structures; 'user review and refinement remain essential, especially for complex models with special dataset alignment or advanced coding techniques'",
+      "Education dimension: discusses preventing overreliance on AI for pharmacometrics coding — frames LLMs as scaffolding tools in educational settings, with attention to learning risks from uncritical adoption"
+    ],
+
+    "methods_discussed": [
+      "LLM_code_generation",
+      "NONMEM",
+      "prompt_engineering",
+      "pharmacometrics_benchmarking",
+      "population_PK",
+      "population_PD"
+    ],
+
+    "datasets_referenced": [
+      "13_pharmacometrics_NONMEM_tasks_custom_benchmark"
+    ],
+
+    "tools_software": [
+      "NONMEM",
+      "OpenAI_o1",
+      "gpt-4.1",
+      "ChatGPT",
+      "7_LLMs_total"
+    ],
+
+    "limitations": [
+      "Full text not yet read — abstract_only; PMC12706393 available for upgrade",
+      "Task set of 13 may not cover all complex NONMEM use cases (e.g., SAEM estimation, complex covariates, M3 method for BLQ, time-varying covariates)",
+      "Scoring rubric is new — not validated against expert review panels or clinical impact criteria",
+      "Does not evaluate LLMs for model interpretation, diagnostics, or simulation — only code generation"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "The OpenAI o1 and gpt-4.1 models achieved the best performance, both generating codes with great accuracy for all tasks when using our optimized prompt.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "Overall, LLMs performed well in writing basic NONMEM model structures, providing a useful foundation for pharmacometrics model coding. However, user review and refinement remain essential, especially for complex models with special dataset alignment or advanced coding techniques.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "This work provides a benchmark for current LLMs' performance in NONMEM coding and introduces a practical prompt that can facilitate more accurate and efficient use of AI in pharmacometrics research and education.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Number of LLMs evaluated",
+        "value": "7",
+        "value_numeric": 7,
+        "unit": "N (LLMs)",
+        "comparison_baseline": "shin_2024_llm evaluated 2 LLMs (ChatGPT 4.0, Gemini Ultra 1.0)",
+        "location": "Abstract / Methods",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Number of NONMEM pharmacometrics tasks in benchmark",
+        "value": "13",
+        "value_numeric": 13,
+        "unit": "N (tasks)",
+        "comparison_baseline": "shin_2024_llm evaluated 2 tasks",
+        "location": "Abstract / Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": [
+      "Updates and substantially supersedes shin_2024_llm for M4.4: shows that newer LLMs (o1, gpt-4.1) with prompt engineering achieve near-perfect NONMEM code accuracy — the capability gap documented by shin_2024_llm has largely closed for standard tasks",
+      "Prompt engineering as a pharmacometrics skill: optimized prompt development is a concrete, actionable WG recommendation — provides scaffolding the WG could publish or distribute to members",
+      "Education framing: LLMs as tools in pharmacometrics training, including overreliance prevention — relevant to WG's community-building role beyond research",
+      "Benchmark methodology: standardized scoring rubric is reusable infrastructure the WG could build on for future LLM comparisons"
+    ],
+    "topics": [
+      "LLM",
+      "NONMEM",
+      "pharmacometrics",
+      "OpenAI_o1",
+      "gpt-4.1",
+      "prompt_engineering",
+      "benchmark",
+      "education",
+      "code_generation",
+      "UNC_Chapel_Hill",
+      "Monash",
+      "Kirkpatrick",
+      "Landersdorfer"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["shin_2024_llm"],
+    "cited_by": [],
+    "extends": ["shin_2024_llm"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'GPT artificial intelligence pharmacokinetics population model pharmacometrics' (PMID 41187068). Full text available from PMC12706393 (DOI: 10.1002/psp4.70125). CPT:PSP 2025, 14(12):1965-1969. Open access. Zheng W + Yao H = UNC CS; Wang W + Zhou J = UNC Eshelman School of Pharmacy; Kirkpatrick CMJ + Landersdorfer CB = Monash MIPS. Key contrast with shin_2024_llm: shin used 2 LLMs, 2 tasks, 2024; zheng uses 7 LLMs, 13 tasks, 2025 — and finds o1/gpt-4.1 with optimized prompts now achieve near-perfect accuracy. The pharmacometrics LLM capability trajectory has been steep. Update when upgraded to full_text."
+  }
+}

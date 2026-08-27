@@ -1,0 +1,94 @@
+{
+  "id": "diazseoane_2023_strikegodd4",
+  "source_type": "paper",
+  "title": "STRIKE-GOLDD 4.0: user-friendly, efficient analysis of structural identifiability and observability",
+  "authors": ["Díaz-Seoane S", "Rey Barreiro X", "Villaverde AF"],
+  "year": 2023,
+  "doi": "10.1093/bioinformatics/btac748",
+  "pmid": 36398887,
+  "url": null,
+  "journal_or_venue": "Bioinformatics",
+
+  "content": {
+    "abstract_summary": "STRIKE-GOLDD 4.0 update: adds ProbObsTest, a new algorithm specifically designed for rational ODE models that is 'significantly faster than the previously available FISPO algorithm when applied to computationally expensive models.' The toolbox now provides both FISPO (general, handles non-rational models) and ProbObsTest (faster, for rational models) — combining generality and computational efficiency. Implemented as MATLAB toolbox with user-friendly graphical interface. Open source (GPLv3). Available on GitHub. U Vigo (Villaverde group). Bioinformatics 2023.",
+
+    "key_findings": [
+      "ProbObsTest is a new probabilistic algorithm for structural identifiability analysis of rational ODE models — significantly faster than the FISPO algorithm for computationally expensive models",
+      "STRIKE-GOLDD 4.0 provides both FISPO (general, handles non-rational models) and ProbObsTest (fast, for rational models) in the same toolbox — users can choose based on model type and computational constraints",
+      "User-friendly graphical interface added in 4.0 — lowers barrier to use for pharmacometricians without MATLAB programming expertise",
+      "Handles models with known and unknown inputs — broader than algebraic tools like SIAN or DAISY, which require additional constraints",
+      "Open source under GPLv3; available at https://github.com/afvillaverde/strike-goldd"
+    ],
+
+    "methods_discussed": [
+      "structural_identifiability",
+      "observability",
+      "ProbObsTest",
+      "FISPO",
+      "STRIKE-GOLDD",
+      "rational_ODE",
+      "nonlinear_ODE",
+      "MATLAB"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["STRIKE-GOLDD_4.0", "MATLAB"],
+
+    "limitations": [
+      "Still requires MATLAB — not accessible to Python/R users without interfacing",
+      "ProbObsTest is probabilistic — may not give deterministic guarantees for all models (name implies probabilistic approach)",
+      "Full text not read — abstract_only; PMC9805590 available for upgrade"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "ProbObsTest is significantly faster than the previously available FISPO algorithm when applied to computationally expensive models.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "Providing both algorithms in the same toolbox allows combining generality and computational efficiency.",
+        "location": "Abstract",
+        "evidence_type": "methodological"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability"],
+    "gaps_addressed": [
+      "Fills M1.2 structural identifiability software gap: STRIKE-GOLDD 4.0 is the current state-of-the-art tool for structural identifiability analysis of nonlinear ODE models; the GUI makes it accessible to pharmacometricians; the ProbObsTest algorithm addresses the computational bottleneck of FISPO",
+      "Directly actionable for WG members: WG could recommend STRIKE-GOLDD 4.0 as the standard identifiability analysis tool for hybrid mechanistic-ML PK/PD model development, especially when building neural ODE or iNODE models (campo_manzanares_2026)"
+    ],
+    "topics": [
+      "structural_identifiability",
+      "STRIKE-GOLDD",
+      "MATLAB",
+      "observability",
+      "ProbObsTest",
+      "FISPO",
+      "U_Vigo",
+      "Villaverde",
+      "open_source"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["villaverde_2016_strikegodd"],
+    "cited_by": [],
+    "extends": ["villaverde_2016_strikegodd"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'STRIKE-GOLDD structural identifiability nonlinear systems' (PMID 36398887). Full text available from PMC9805590 (DOI: 10.1093/bioinformatics/btac748). Bioinformatics 2023, 39(1). Open access. All 3 authors from Departamento de Enxeñaría de Sistemas e Automática, Universidade de Vigo, Galicia, Spain; Villaverde AF = corresponding (a.f.villaverde@uvigo.gal). Code at https://github.com/afvillaverde/strike-goldd. Together with villaverde_2016_strikegodd, these two papers define the STRIKE-GOLDD tool suite for the identifiability work stream."
+  }
+}
