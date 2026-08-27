@@ -1,0 +1,127 @@
+{
+  "id": "kekic_2026",
+  "source_type": "paper",
+  "title": "Stochastic Gates for Covariate Selection in Population Pharmacokinetics Modeling",
+  "authors": ["Kekic M", "Stepanov O", "Wang W", "Richardson S", "Olabode D", "Traynor C", "Dearden R", "Zhou D", "Tang W", "Gibbs M", "Nowojewski A"],
+  "year": 2026,
+  "doi": "10.1002/psp4.70147",
+  "pmid": 41637692,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Proposes Stochastic Gates (SG), an embedded neural network feature selection method, for automated covariate prescreening in population pharmacokinetics. Unlike wrapped approaches (SHAP + XGBoost), SG simultaneously trains the model and selects covariates via a penalized gate layer — eliminating the need for post-hoc feature removal and separate retraining. Evaluated on synthetic datasets (correlated covariates, low-frequency categorical, high IIV, small population, XOR nonlinear dependency) and on two clinical datasets: monalizumab (507 subjects) and tixagevimab/cilgavimab (4940 participants). From AstraZeneca (Barcelona/Cambridge/Gaithersburg/Waltham), published in the WG's target journal CPT:PSP.",
+
+    "key_findings": [
+      "Stochastic Gates exactly match expert-identified covariates for monalizumab CL (BWT, BALB) and Vc (BWT, BALB, SMK, SEX) — demonstrates ML covariate prescreening can achieve expert-level accuracy on a real industry dataset",
+      "For tixagevimab/cilgavimab, SG identifies a superset of expert covariates (all expert covariates included plus additional ones) — backward elimination recommended after SG prescreening; XGBoost identifies fewer spurious covariates than BorutaShap but more than SG",
+      "SG outperforms XGBoost/BorutaShap specifically for highly correlated covariates — correctly identifies BWT (not correlated BBSA) in reference scenario where XGBoost cannot distinguish them",
+      "Warm start capability: initializing μ-gate parameters for preferred covariates allows domain knowledge priors to influence selection — useful when biologically meaningful and synthetic covariates are linearly dependent (data cannot distinguish them alone)",
+      "XOR nonlinear covariate dependency successfully recovered — key advantage of ML over linear SCM; stepwise approaches cannot detect nonlinear covariate interactions",
+      "Limitation explicitly flagged: SG relies on EBE, which can be biased under high shrinkage; peripheral compartment parameters with >30% shrinkage excluded from analysis"
+    ],
+
+    "methods_discussed": [
+      "stochastic_gates",
+      "embedded_feature_selection",
+      "empirical_Bayes_estimates",
+      "neural_network_covariate_selection",
+      "SCM",
+      "LASSO",
+      "SHAP",
+      "XGBoost",
+      "BorutaShap",
+      "NONMEM",
+      "population_pharmacokinetics",
+      "covariate_modeling"
+    ],
+
+    "datasets_referenced": [
+      "monalizumab_pop_PK_n507_subjects",
+      "tixagevimab_cilgavimab_n4940_participants",
+      "synthetic_covariate_scenarios_6"
+    ],
+
+    "tools_software": ["NONMEM", "XGBoost", "BorutaShap"],
+
+    "limitations": [
+      "SG relies on EBE which is biased under high shrinkage (>30%) — peripheral compartment parameters must be excluded, limiting scope to identifiable parameters",
+      "Does not specify the functional form of covariate-parameter relationships; visual inspection (SHAP, symbolic regression) is still needed after covariate selection",
+      "High IIV (120% CV) narrows the range of penalty hyperparameter λ over which correct covariate selection occurs — fine-tuning becomes harder",
+      "Small populations (N=100) cause overfitting; only medium-effect covariates (30% effect size) reliably found",
+      "Covariate 'leakage' across PK parameters when correlations between random effects are high (>40%) — backward elimination step required"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "For monalizumab, the covariates found on clearance and volume of distribution corresponded exactly to the covariates found by the expert.",
+        "location": "Discussion",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "This machine learning-based method enhances the covariate preselection process in population pharmacokinetics model development, offering significant time savings and improving efficiency even under challenging scenarios.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Monalizumab clinical dataset size (pooled from 2 studies)",
+        "value": "507",
+        "value_numeric": 507,
+        "unit": "N (subjects)",
+        "comparison_baseline": null,
+        "location": "Methods / Datasets",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Tixagevimab/cilgavimab clinical dataset size (pooled from 8 clinical trials)",
+        "value": "4940",
+        "value_numeric": 4940,
+        "unit": "N (participants)",
+        "comparison_baseline": null,
+        "location": "Methods / Datasets",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly fills M1.3 (ML for covariate selection in pop PK) — the dominant practical use of ML in industry pharmacometrics; provides a state-of-the-art embedded method that outperforms wrapped SHAP/XGBoost approaches for correlated and nonlinear covariate effects",
+      "The XOR scenario result is a key argument for ML in the WG scoping paper: standard SCM/LASSO cannot detect nonlinear covariate interactions that neural networks recover"
+    ],
+    "topics": [
+      "covariate_selection",
+      "stochastic_gates",
+      "population_pharmacokinetics",
+      "NONMEM",
+      "EBE",
+      "SHAP",
+      "XGBoost",
+      "AstraZeneca",
+      "monalizumab",
+      "tixagevimab"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["janssen_2024"],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'machine learning covariate selection population pharmacokinetics' (PMID 41637692). PMC12872115 (open access). CPT:PSP 2026, 15(2):e70147. AstraZeneca (all authors). Industry-funded. All authors are or were AstraZeneca employees. Retrieved full text via PMC. The 'warm start for preferred covariates' capability is a novel contribution not available in XGBoost/SHAP approaches and would be useful when WG needs to prioritize physiologically interpretable covariates over correlated alternatives."
+  }
+}

@@ -201,6 +201,38 @@
       "title_short": "UPINNs for chemotherapy drug action: gray-box ODE identification (Podina et al. 2025)",
       "pillars": ["hybrid_foundations", "generative_ai"],
       "relevance": "high"
+    },
+    {
+      "id": "karlsen_2025",
+      "file": "papers/karlsen_2025.json",
+      "source_type": "paper",
+      "title_short": "Systematic review: pop PK covariate modeling from SCM to AI (Karlsen et al., Sanofi, CPT:PSP 2025)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "kekic_2026",
+      "file": "papers/kekic_2026.json",
+      "source_type": "paper",
+      "title_short": "Stochastic gates for ML covariate selection in pop PK (Kekic et al., AstraZeneca, CPT:PSP 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "tosca_2024",
+      "file": "papers/tosca_2024.json",
+      "source_type": "paper",
+      "title_short": "Model-informed RL for precision dosing: tutorial review (Tosca/De Carlo/Magni, CPT 2024)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "irie_2025",
+      "file": "papers/irie_2025.json",
+      "source_type": "paper",
+      "title_short": "DQN for infliximab dosing in pediatric Crohn's: first RL real-world validation (Irie et al., CPT 2025)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
     }
   ]
 }

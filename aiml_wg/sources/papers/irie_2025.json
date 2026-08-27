@@ -1,0 +1,139 @@
+{
+  "id": "irie_2025",
+  "source_type": "paper",
+  "title": "Model-Informed Deep Q-Networks to Guide Infliximab Dosing in Pediatric Crohn's Disease",
+  "authors": ["Irie K", "Minar P", "Reifenberg J", "Boyle BM", "Noe JD", "Hyams JS", "Mizuno T"],
+  "year": 2025,
+  "doi": "10.1002/cpt.70118",
+  "pmid": 41189499,
+  "url": null,
+  "journal_or_venue": "Clinical Pharmacology and Therapeutics",
+
+  "content": {
+    "abstract_summary": "Develops a model-informed Deep Q-Network (DQN) to automate and personalize infliximab dosing in pediatric Crohn's disease. The DQN is trained in a simulation environment using a population PK model and virtual pediatric patients over 80,000 episodes. Retrospectively validated against real clinical data from REFINE + APPDASH studies. First application of Q-learning to infliximab and first real-world validation of an RL-based precision dosing framework for biologics in pediatrics. From Cincinnati Children's Hospital Medical Center, NIH-funded.",
+
+    "key_findings": [
+      "DQN achieves 92.9% target attainment probability (PTA) at Infusion 4 and 98.4% at Infusion 5 vs 27.8% and 22.4% with standard 5 mg/kg weight-based dosing — a 3-4× improvement in target attainment",
+      "High doses (11-20 mg/kg) selected in only 0.2% of virtual patients with decision-based reward function — the reward structure successfully penalizes unnecessary dose escalation, a clinically critical safety constraint",
+      "Standard 8-week dosing interval maintained for 66.8% of patients at Infusion 4 and 57.3% at Infusion 5 — RL learns clinically preferred dosing behaviors when embedded in the reward function",
+      "Retrospective real-world validation: patients whose actual doses aligned with DQN recommendations had trough concentrations significantly closer to target ranges (Spearman correlation at Infusions 4 and 5) — first real-world validation of RL dosing for a biologic",
+      "No correlation at Infusion 1 (baseline covariates only): DQN cannot outperform population predictions for initial dosing without concentration data — a fundamental PK uncertainty that RL cannot overcome without feedback",
+      "DQN converged after 80,000 training episodes using double DQN with dueling architecture and prioritized experience replay — standard deep RL components enable stable learning in continuous covariate space"
+    ],
+
+    "methods_discussed": [
+      "deep_Q_network",
+      "double_DQN",
+      "dueling_network_architecture",
+      "prioritized_experience_replay",
+      "model_informed_precision_dosing",
+      "population_PK",
+      "virtual_patient_simulation",
+      "reward_function_design",
+      "reinforcement_learning",
+      "therapeutic_drug_monitoring"
+    ],
+
+    "datasets_referenced": [
+      "REFINE_study_infliximab_pediatric_Crohn",
+      "APPDASH_study_infliximab_CCHMC",
+      "virtual_pediatric_patients_PK_simulation"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "PK model trained on only 78 pediatric patients (Xiong) — small training set limits generalizability of the underlying PK model driving the simulation environment",
+      "Limited PD biomarkers (no fecal calprotectin, clinical remission status) — DQN can only optimize PK exposure targets, not disease outcomes directly",
+      "Initial dosing (Infusion 1) limited by absence of concentration feedback — RL cannot improve over population-level predictions without any observed drug levels",
+      "Real-world validation is retrospective and associational, not prospective causal — DQN concordance correlates with target attainment partly because both reflect accurate PK model predictions"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "This is the first study to apply Q-learning to infliximab therapy and to validate an RL-based precision dosing framework using clinical data.",
+        "location": "Study Highlights",
+        "evidence_type": "theoretical"
+      },
+      {
+        "text": "Target attainment probabilities (PTAs) of 92.9% and 98.4% at Infusions 4 and 5, respectively, in 1000 virtual patients.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "High doses (11-20 mg/kg) were selected in only 0.2% of cases.",
+        "location": "Abstract / Results",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "performance_metric",
+        "description": "Target attainment probability (PTA) at Infusion 4: DQN vs standard 5 mg/kg",
+        "value": "92.9% vs 27.8%",
+        "value_numeric": 92.9,
+        "unit": "% (PTA)",
+        "comparison_baseline": "27.8% standard weight-based dosing",
+        "location": "Results / Table 2",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Target attainment probability (PTA) at Infusion 5: DQN vs standard 5 mg/kg",
+        "value": "98.4% vs 22.4%",
+        "value_numeric": 98.4,
+        "unit": "% (PTA)",
+        "comparison_baseline": "22.4% standard weight-based dosing",
+        "location": "Results / Table 2",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "model_parameter",
+        "description": "DQN training episodes to convergence",
+        "value": "80,000",
+        "value_numeric": 80000,
+        "unit": "N (episodes)",
+        "comparison_baseline": null,
+        "location": "Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["optimal_control_rl"],
+    "gaps_addressed": [
+      "Fills M3.2 (deep RL for model-informed precision dosing) with a concrete biologic/immunology application — a different drug class (mAb vs the HDAC inhibitor givinostat and kinase inhibitor erdafitinib in the de_carlo papers)",
+      "First real-world retrospective validation of RL-based dosing (the de_carlo papers use only virtual populations) — directly relevant to the M3 question of translational readiness",
+      "The reward function design (penalizing high doses and extra clinic visits) illustrates how clinical constraints and safety preferences can be encoded in RL without changing the PK model — a practical contribution for the WG tutorial"
+    ],
+    "topics": [
+      "deep_Q_network",
+      "reinforcement_learning",
+      "infliximab",
+      "pediatric_Crohn_disease",
+      "model_informed_precision_dosing",
+      "biologic_dosing",
+      "therapeutic_drug_monitoring",
+      "Cincinnati_Childrens_Hospital",
+      "MIPD"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["de_carlo_2024"],
+    "cited_by": [],
+    "extends": ["de_carlo_2024"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'reinforcement learning drug dosing pharmacokinetics optimal' (PMID 41189499). PMC12816428 (open access). CPT 2025, 119(2):555-563. Cincinnati Children's Hospital Medical Center (Mizuno T = corresponding). NIH-funded (DK132408 from NIDDK). Crohn's and Colitis Foundation. The first ML/RL paper from a purely clinical translational team (not a methods group like U Pavia) — adds credibility for clinical adoption angle. The CCHMC clinical dashboards (RoadMAB platform) mentioned as integration target."
+  }
+}

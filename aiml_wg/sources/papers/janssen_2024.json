@@ -7,56 +7,64 @@
   "doi": "10.1007/s10928-024-09906-x",
   "pmid": 38532084,
   "url": null,
-  "journal_or_venue": "Journal of pharmacokinetics and pharmacodynamics",
+  "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
 
   "content": {
-    "abstract_summary": "Extends the deep compartment model (DCM) architecture — a hybrid mechanistic-ML PK model — by introducing physiological constraints (inductive biases) that guide neural network optimization toward pharmacologically realistic solutions. Introduces multi-branch networks to isolate individual covariate effects and enable interpretability through visualization. Validates on 69 haemophilia A patients, outperforming standard DCM and previous population PK models. Addresses the practical identifiability challenge from the architecture side: constraints + multi-branch design reduce spurious covariate effects and improve robustness in sparse data settings.",
+    "abstract_summary": "Extends the deep compartment model (DCM) architecture — a hybrid mechanistic-ML PK model — by introducing physiological inductive biases (boundary constraints, global parameter estimation, multi-branch networks) to improve robustness in sparse data settings. Validates on simulated haemophilia A data (756 patients from NHANES covariates) and real clinical data (69 patients, standard half-life FVIII). The multi-branch network architecture enables model interpretability through visualization of learned covariate functions, eliminating the need for post-hoc SHAP. Key finding: naive neural-ODE achieves the WORST performance on sparse real data; physiological constraints are necessary. Amsterdam UMC, published in JPKPD 2024.",
 
     "key_findings": [
-      "Physiological constraints on the neural network (positivity constraints, rate constant monotonicity) substantially improve model robustness in sparse data settings — constrained models converge to more realistic concentration-time curves compared to unconstrained models",
-      "Multi-branch network architecture — separate network branches per covariate, each connected to specific PK parameters — reduces learning of false covariate effects and enables interpretability through visualization of learned covariate-parameter functions",
-      "All models (constrained and unconstrained) were sensitive to learning spurious covariate effects when trained with unimportant covariates — highlights importance of covariate selection before fitting deep compartment models",
-      "Real-world validation on 69 haemophilia A patients: constrained multi-branch model outperformed previous published population PK models and standard DCM; multi-branch architecture gave highest accuracy",
-      "SHAP values used to analyze covariate contributions — demonstrates interpretability is achievable in DCM framework, relevant to regulatory acceptance"
+      "Naive DCM without constraints: 18% of models diverge on small data (N=20) producing physiologically implausible curves (peak FVIII up to 1340 IU/dL); global parameter constraints reduce divergence to 0.33% — constraints are not optional in sparse clinical settings",
+      "Neural-ODE (Lu et al. architecture) achieves the HIGHEST RMSE (worst performance) on real 69-patient sparse data (RMSE 19.5 IU/dL) vs multi-branch DCM 13.0 IU/dL and best NLME 13.7 IU/dL — contradict the narrative that neural-ODEs always outperform traditional methods; they fail with sparse data",
+      "Multi-branch network (separate sub-models per covariate) achieves lowest RMSE overall (13.0 IU/dL), outperforming the best previously published NLME model (13.7 IU/dL) — the only architecture that outperforms traditional pharmacometrics on this dataset",
+      "False covariates degrade performance: fully-connected DCM RMSE increases from 13.3 to 18.1 IU/dL when unimportant covariates added; multi-branch network less affected (15.6 IU/dL) — covariate selection is essential before fitting any DCM",
+      "Multi-branch architecture makes post-hoc explainability methods (SHAP) unnecessary: covariate effects are isolated by design and can be visualized directly — a cleaner approach to interpretability for regulatory purposes",
+      "Simulation study: 756 male NHANES individuals; 20-fold Monte Carlo CV × 5 model replicates = 100 replicates per condition; boundary constraints reduce divergence more than initialization but less than global parameter estimation"
     ],
 
     "methods_discussed": [
       "deep_compartment_model",
-      "physics_constrained_neural_network",
       "inductive_biases",
+      "boundary_constraints",
+      "global_parameter_estimation",
       "multi_branch_network",
+      "neural_ODE",
+      "NLME",
+      "haemophilia_A",
       "SHAP",
       "pharmacokinetics",
       "covariate_modeling",
-      "population_PK"
+      "population_PK",
+      "NONMEM"
     ],
 
     "datasets_referenced": [
-      "haemophilia_A_patients_n69_real_world"
+      "NHANES_756_male_simulated_haemophilia_A",
+      "haemophilia_A_real_world_n69_FVIII"
     ],
 
-    "tools_software": [],
+    "tools_software": ["NONMEM"],
 
     "limitations": [
-      "Validated on a single therapeutic area (haemophilia A) and single drug — generalizability to other PK/PD contexts requires demonstration",
-      "Covariate selection must precede model fitting — the framework does not automate covariate selection, and including spurious covariates degrades performance",
-      "Identifiability of the neural components is not formally analyzed — the paper addresses practical robustness through architectural constraints rather than theoretical identifiability"
+      "Haemophilia A with only 3 measurements per patient (4h, 24h, 48h) — extremely sparse; results may not generalize to drugs with richer PK sampling",
+      "Neural-ODE failure may be specific to the very sparse data setting (N=69, 3 obs/patient) — does not mean neural-ODE underperforms in general",
+      "Multi-branch architecture requires a priori specification of which covariates connect to which PK parameters — shifts complexity from model fitting to study design; in practice still requires pharmacometric expertise",
+      "Identifiability of neural components not formally analyzed; practical robustness is addressed via constraints but theoretical identifiability is not"
     ],
 
     "extracted_claims": [
       {
-        "text": "\"Implementing similar biases in standard neural networks can be challenging, but might be fundamental for model robustness and predictive performance.\"",
+        "text": "We conclude that physiological-based constraints can improve model robustness. We describe an interpretable architecture which aids model trust, which will be key for the adoption of machine learning-based models in clinical practice.",
+        "location": "Abstract / Conclusion",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "We show that all models were sensitive to learning false effects when trained in the presence of unimportant covariates, indicating the importance of selecting an appropriate set of covariates to link to the PK parameters.",
         "location": "Abstract",
         "evidence_type": "empirical"
       },
       {
-        "text": "\"We show that all models were sensitive to learning false effects when trained in the presence of unimportant covariates, indicating the importance of selecting an appropriate set of covariates to link to the PK parameters.\"",
-        "location": "Abstract",
-        "evidence_type": "empirical"
-      },
-      {
-        "text": "\"We conclude that physiological-based constraints can improve model robustness. We describe an interpretable architecture which aids model trust, which will be key for the adoption of machine learning-based models in clinical practice.\"",
-        "location": "Abstract",
+        "text": "Fully ML-based architectures, such as the Neural-ODE, greatly simplify model development but suffer when data is sparse.",
+        "location": "Discussion",
         "evidence_type": "empirical"
       }
     ],
@@ -64,13 +72,33 @@
     "numerical_findings": [
       {
         "metric_type": "study_statistic",
-        "description": "Size of real-world clinical validation dataset (haemophilia A patients)",
+        "description": "Real-world clinical validation dataset size (haemophilia A, 3 obs/patient)",
         "value": "69",
         "value_numeric": 69,
         "unit": "N (patients)",
         "comparison_baseline": null,
-        "location": "Methods / Abstract",
+        "location": "Methods",
         "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "RMSE on real data: multi-branch DCM vs best NLME vs naive DCM vs neural-ODE",
+        "value": "13.0 vs 13.7 vs >14 vs 19.5 IU/dL",
+        "value_numeric": 13.0,
+        "unit": "RMSE (IU/dL)",
+        "comparison_baseline": "best NLME 13.7, naive DCM >14, neural-ODE 19.5",
+        "location": "Results / Table",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Naive DCM divergence rate on small data (N=20)",
+        "value": "18%",
+        "value_numeric": 18,
+        "unit": "% divergent models",
+        "comparison_baseline": "global parameter constraint: 0.33%",
+        "location": "Results",
+        "is_primary_finding": true
       }
     ]
   },
@@ -78,18 +106,20 @@
   "relevance": {
     "pillars": ["hybrid_foundations", "uq_identifiability"],
     "gaps_addressed": [
-      "Directly addresses M1.4 (when do hybrids help?) by showing that constrained DCM outperforms standard population PK on real clinical data — the most concrete empirical evidence in the library that hybrid models + constraints outperform traditional approaches",
-      "Provides the architectural solution to the practical identifiability problem from the M1.3 side: physiological constraints reduce the parameter space to realistic regions, improving robustness in sparse data",
-      "The multi-branch + SHAP interpretability approach is directly relevant to regulatory acceptance (FDA 7-step credibility framework) — provides a template for Pillar 1 regulatory translation"
+      "Critical counter-evidence for M1.4 (when do hybrids NOT help?): neural-ODE underperforms traditional pharmacometrics on sparse real data — this nuanced finding is essential for a balanced WG scoping paper",
+      "Provides the architectural solution to practical identifiability in M1.3: physiological constraints reduce the solution space to realistic regions, directly analogous to prior distributions in Bayesian estimation",
+      "Multi-branch interpretability without SHAP is a concrete regulatory-readiness contribution — shows that hybrid models can be designed to be intrinsically interpretable rather than relying on post-hoc approximations"
     ],
     "topics": [
       "deep_compartment_model",
-      "physics_constrained_neural_network",
       "inductive_biases",
+      "physiological_constraints",
       "haemophilia_A",
+      "FVIII",
       "pharmacokinetics",
       "interpretability",
-      "SHAP",
+      "neural_ODE_failure",
+      "sparse_data",
       "population_PK",
       "Amsterdam_UMC",
       "JPKPD"
@@ -98,9 +128,9 @@
   },
 
   "relationships": {
-    "cites": [],
-    "cited_by": [],
-    "extends": [],
+    "cites": ["lu_2021"],
+    "cited_by": ["kekic_2026"],
+    "extends": ["lu_2021"],
     "contradicts": []
   },
 
@@ -108,7 +138,7 @@
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-27",
     "read_by": "claude",
-    "read_depth": "abstract_only",
-    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 38532084). PMC available: PMC11255087. JPKPD 2024, 51(4):355-366. Amsterdam UMC (Janssen A = corresponding author, a.janssen@amsterdamumc.nl). Open access. This is a strong candidate for the M1.4 journal club session. Upgrade to full_text recommended — PMC access available."
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 38532084). Full text retrieved from PMC11255087 (DOI: 10.1007/s10928-024-09906-x). JPKPD 2024, 51(4):355-366. Amsterdam UMC (Janssen A = corresponding, a.janssen@amsterdamumc.nl). Open access. The neural-ODE underperformance finding (19.5 vs 13.0 RMSE) is the most important counter-example in the library — essential for balanced WG messaging that avoids overclaiming. Upgraded from abstract_only → full_text."
   }
 }

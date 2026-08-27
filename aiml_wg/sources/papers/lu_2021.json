@@ -10,56 +10,96 @@
   "journal_or_venue": "iScience",
 
   "content": {
-    "abstract_summary": "First application of neural-ODE to pharmacokinetic modeling, using trastuzumab emtansine PK data from two dosing regimens. Neural-ODE substantially outperforms alternative ML models (LSTM, transformer, etc.) when predicting an unseen dosing regimen, while performing comparably to alternatives within the training regimen. Establishes neural-ODE as the most accurate PK model for extrapolating to untested treatment regimens at the time of publication (Genentech / U Michigan, 2021).",
+    "abstract_summary": "First application of neural-ODE to pharmacokinetics modeling, using clinical PK data from trastuzumab emtansine (T-DM1, HER2+ breast cancer mAb-drug conjugate). Compares neural-ODE, lightGBM, LSTM, and NLME (two-compartment nonlinear mixed-effects) on 675 patients from two dosing regimens (Q3W n=647, Q1W n=28). Cross-regimen validation — training on Q3W, predicting Q1W — is the key evaluation. Neural-ODE substantially outperforms all alternatives on cross-regimen generalization; all models perform similarly within-regimen. Genentech (Lu J), published in iScience 2021.",
 
     "key_findings": [
-      "First study to apply neural-ODE to PK modeling — establishes feasibility and provides a benchmark for all subsequent neural ODE pharmacometrics papers",
-      "Neural-ODE showed substantially better performance than LSTM and other alternatives specifically for predicting an unseen dosing regimen (generalization beyond training conditions) — the clinically critical capability",
-      "Models performed similarly across methods when training and test sets come from the same dosing regimen — the key differentiation is extrapolation, not interpolation",
-      "Trastuzumab emtansine (T-DM1) used as case study — two clinical dosing regimens, antibody-drug conjugate oncology PK"
+      "First study to apply neural-ODE to PK modeling — establishes neural-ODE as the foundational architecture for all subsequent neural ODE pharmacometrics work",
+      "Cross-regimen validation: neural-ODE RMSE 10.61 / R² 0.76 / Pearson 0.89 vs lightGBM RMSE 18.50 / R² 0.27, LSTM RMSE 19.56 / R² 0.15, NLME RMSE 15.21 / R² 0.68 — all bootstrap p < 0.05",
+      "Within-regimen validation: all models similar — neural-ODE RMSE 13.50 / R² 0.88; NLME 18.64 / 0.79 (only significant difference). Key message: neural-ODE advantage is extrapolation not interpolation",
+      "Neural-ODE correctly predicts PK falling to zero when dosing stops; LSTM and lightGBM predict nonzero values — LSTM learns from TIME not explicit dosing; neural-ODE directly incorporates dosing into state via ODE integration",
+      "Data augmentation (time-series truncation at 1008/1512/2016 hr) was required to prevent overfitting — real-world datasets are too small without augmentation; Q1W has only 28 patients",
+      "Architecture: GRU encoder → 12-element latent (6 mean + 6 std, variational) → ODE solver (4-layer FC, 16 hidden) → decoder. ODE directly incorporates dose events; code at zenodo + GitHub"
     ],
 
     "methods_discussed": [
       "neural_ODE",
       "LSTM",
+      "lightGBM",
+      "NLME",
       "pharmacokinetics",
+      "two_compartment_model",
       "deep_learning",
-      "dosing_regimen_extrapolation"
+      "dosing_regimen_extrapolation",
+      "cross_regimen_validation",
+      "data_augmentation"
     ],
 
     "datasets_referenced": [
-      "trastuzumab_emtansine_PK_two_dosing_regimens"
+      "trastuzumab_emtansine_PK_n675_patients_5_trials"
     ],
 
-    "tools_software": [],
+    "tools_software": ["torchdiffeq", "nlmixr", "LightGBM", "PyTorch"],
 
     "limitations": [
-      "Case study uses a single drug (T-DM1) and two dosing regimens — generalizability to other drugs and more complex PK/PD structures is not demonstrated",
-      "No mechanistic hybrid — the neural ODE replaces the ODE system entirely rather than augmenting a known compartmental structure; identifiability not assessed",
-      "No population-level (NLME) modeling — individual-level only; IIV not addressed"
+      "Single drug (T-DM1, conjugated mAb) — generalizability to small molecules, different PK structures (e.g., flip-flop, enterohepatic recirculation) not demonstrated",
+      "Q1W cohort very small (n=28) — cross-regimen test set is underpowered for robust performance comparison",
+      "No mechanistic hybrid: the neural ODE replaces the entire ODE RHS rather than augmenting a known compartmental structure — identifiability and parameter interpretability not addressed",
+      "Individual-level only (not population NLME): IIV and between-subject variability not modeled by neural-ODE in this paper",
+      "Data augmentation required — implies NODEs cannot be trained on sparse clinical data without model-based simulation pre-training"
     ],
 
     "extracted_claims": [
       {
-        "text": "\"To date, neural-ODE is the most accurate PK model in predicting untested treatment regimens.\"",
+        "text": "To date, neural-ODE is the most accurate PK model in predicting untested treatment regimens.",
         "location": "Abstract",
         "evidence_type": "empirical"
       },
       {
-        "text": "\"This study represents the first time neural-ODE has been applied to PK modeling and the results suggest it is a widely applicable algorithm with the potential to impact future studies.\"",
-        "location": "Abstract",
+        "text": "The advantage of the neural-ODE model may come from its ability to deal with unevenly sampled data points. The alternative deep learning models such as LSTM tend to assume even sampling. Neural-ODE directly incorporates dosing and timing data into the model at the decoder stage.",
+        "location": "Discussion",
         "evidence_type": "empirical"
       }
     ],
 
-    "numerical_findings": []
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Total T-DM1 patients (Q3W: 647, Q1W: 28, total: 675); records: 16,472",
+        "value": "675",
+        "value_numeric": 675,
+        "unit": "N (patients)",
+        "comparison_baseline": null,
+        "location": "Methods / Data",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Cross-regimen RMSE: neural-ODE vs lightGBM vs LSTM vs NLME",
+        "value": "10.61 vs 18.50 vs 19.56 vs 15.21",
+        "value_numeric": 10.61,
+        "unit": "RMSE (ng/mL)",
+        "comparison_baseline": "lightGBM 18.50, LSTM 19.56, NLME 15.21",
+        "location": "Results",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Cross-regimen R²: neural-ODE vs lightGBM vs LSTM vs NLME",
+        "value": "0.76 vs 0.27 vs 0.15 vs 0.68",
+        "value_numeric": 0.76,
+        "unit": "R²",
+        "comparison_baseline": "lightGBM 0.27, LSTM 0.15, NLME 0.68",
+        "location": "Results",
+        "is_primary_finding": true
+      }
+    ]
   },
 
   "relevance": {
     "pillars": ["hybrid_foundations"],
     "gaps_addressed": [
-      "Provides the foundational benchmark for M1.1 — establishes that neural-ODE outperforms alternative ML models for dosing regimen extrapolation, motivating hybrid mechanistic-ML over pure-ML approaches",
-      "Defines the key evaluation criterion for neural ODE PK models: prediction of unseen dosing regimens (not just held-out patients from the same protocol) — this should be the WG's standard benchmark for M1.4"
+      "The foundational benchmark for M1.1 — any WG review of neural ODE PK must cite this as the origin. Establishes the key evaluation criterion: cross-regimen generalization (not held-out patients from same protocol)",
+      "The LSTM/lightGBM dosing-stop failure is a concrete pedagogical example of why the ODE structure matters — directly usable in the WG scoping paper's argument for mechanistic-constrained architectures over pure deep learning"
     ],
     "topics": [
       "neural_ODE",
@@ -68,14 +108,15 @@
       "dosing_regimen_extrapolation",
       "deep_learning",
       "oncology",
-      "Genentech"
+      "Genentech",
+      "cross_regimen_validation"
     ],
     "relevance_score": "high"
   },
 
   "relationships": {
     "cites": [],
-    "cited_by": [],
+    "cited_by": ["janssen_2024", "giacometti_2025", "baaz_2026", "aslanimoghankou_2026"],
     "extends": [],
     "contradicts": []
   },
@@ -84,7 +125,7 @@
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-27",
     "read_by": "claude",
-    "read_depth": "abstract_only",
-    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 34308294). Open access (PMC8283337). iScience 2021, 24(7):102804. Authors: Lu J (Genentech), Deng K & Zhang X (Ann Arbor Algorithms), Liu G (Genentech), Guan Y (U Michigan). Upgrade to full_text recommended — this is the foundational paper for M1.1 and the starting point for any WG review of neural ODE PK literature."
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'neural ODE pharmacokinetics pharmacodynamics' (PMID 34308294). Full text retrieved from PMC8283337 (DOI: 10.1016/j.isci.2021.102804). iScience 2021, 24(9):102804. Genentech (Lu J = lead contact), Ann Arbor Algorithms (Deng K, Zhang X), U Michigan (Guan Y). T-DM1 data from 5 clinical trials (TDM3569g, TDM4258g, TDM4370g, TDM4374g, TDM4450g) — not public but available from Genentech on request. Code at zenodo + GitHub. Upgraded from abstract_only → full_text."
   }
 }

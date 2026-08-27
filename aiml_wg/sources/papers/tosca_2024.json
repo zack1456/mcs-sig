@@ -1,0 +1,101 @@
+{
+  "id": "tosca_2024",
+  "source_type": "paper",
+  "title": "Model-Informed Reinforcement Learning for Enabling Precision Dosing Via Adaptive Dosing",
+  "authors": ["Tosca EM", "De Carlo A", "Ronchi D", "Magni P"],
+  "year": 2024,
+  "doi": "10.1002/cpt.3356",
+  "pmid": 38989560,
+  "url": null,
+  "journal_or_venue": "Clinical Pharmacology and Therapeutics",
+
+  "content": {
+    "abstract_summary": "Tutorial review of reinforcement learning (RL) coupled with population PK/PD models for precision dosing. Covers: RL framework components (state, action, reward) for dosing problems; case studies including propofol-induced anesthesia, warfarin anticoagulation, and anticancer treatments; how PK/PD models serve as the simulation engine for RL training. Identifies heterogeneity in approaches and proposes a standard problem formulation. From the U Pavia group (Tosca, De Carlo, Magni) — the leading academic group developing model-informed RL for precision dosing. Published in Clinical Pharmacology and Therapeutics.",
+
+    "key_findings": [
+      "RL naturally fits the sequential decision-making paradigm of adaptive dosing: clinicians adapt doses based on patient response and evolution monitoring, exactly the structure RL is designed for",
+      "PK/PD models as simulation engines for RL training enable safe, data-rich training environments: virtual patient populations can be simulated without patient risk, enabling RL to explore suboptimal or dangerous dosing that could never be ethically tested clinically",
+      "Case studies cover: (1) propofol anesthesia — one of the earliest and most developed RL dosing applications; (2) warfarin anticoagulation — narrow therapeutic window, INR feedback; (3) anticancer treatments — most diverse, covering agents with different PD biomarkers",
+      "Identified heterogeneity in: precision dosing approaches, RL methodologies used, and degree of adherence to clinical domain — the field lacks standardization comparable to population PK modeling",
+      "Tutorial on problem formulation: state space (patient biomarkers, PK parameters, drug concentrations), action space (dose amounts and intervals), reward function design (target concentration ranges, safety penalties)",
+      "Integration of PK/PD models into RL holds great promise but further investigation is needed — identifies the translational gap between simulation results and clinical deployment"
+    ],
+
+    "methods_discussed": [
+      "reinforcement_learning",
+      "Q_learning",
+      "deep_Q_network",
+      "population_PK",
+      "population_PK_PD",
+      "model_informed_precision_dosing",
+      "propofol_TCI",
+      "warfarin_dosing",
+      "anticancer_dosing",
+      "reward_function_design",
+      "state_action_formulation"
+    ],
+
+    "datasets_referenced": [
+      "virtual_patient_populations_general"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Current heterogeneity in RL dosing methodology and clinical adherence means results across studies are not directly comparable — an identified gap the review calls for the field to address",
+      "Further investigations needed to address current limitations and extend applicability to drugs requiring adaptive dosing — the review acknowledges the field is still pre-clinical for most applications",
+      "No new primary results — this is a review and tutorial, not a methods paper with novel experiments"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Reinforcement learning naturally fits this paradigm: it perfectly mimics the sequential decision-making process where clinicians adapt dose administration based on patient response and evolution monitoring.",
+        "location": "Abstract",
+        "evidence_type": "theoretical"
+      },
+      {
+        "text": "The integration of PK/PD models into a RL-framework holds great promise for precision dosing, but further investigations and advancements are still needed to address current limitations.",
+        "location": "Abstract / Conclusions",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["optimal_control_rl"],
+    "gaps_addressed": [
+      "The definitive tutorial/review for M3 (RL for precision dosing) from the leading group in this area — a WG scoping paper or tutorial on RL+pharmacometrics should cite this as the primary review of the field",
+      "The standard problem formulation (state/action/reward structure for dosing) is directly usable as a template for the WG's RL tutorial component of the scoping paper",
+      "The heterogeneity finding creates a clear gap for the WG to address: proposing standardized RL+PKPD benchmarking is a concrete contribution analogous to karlsen_2025's call for standardized covariate selection benchmarks"
+    ],
+    "topics": [
+      "reinforcement_learning",
+      "model_informed_precision_dosing",
+      "propofol",
+      "warfarin",
+      "anticancer",
+      "population_PK_PD",
+      "tutorial_review",
+      "University_of_Pavia",
+      "Magni_group"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["de_carlo_2024"],
+    "cited_by": ["irie_2025"],
+    "extends": ["de_carlo_2024"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'reinforcement learning drug dosing pharmacokinetics optimal' (PMID 38989560). CPT 2024, 116(3):619-636. University of Pavia (Tosca EM, De Carlo A, Ronchi D, Magni P). This is the review companion to de_carlo_2024 and de_carlo_2025 from the same group. No PMC entry found — not open access. Upgrade to full_text if the WG writes a tutorial on RL+pharmacometrics as part of the M3 workstream."
+  }
+}

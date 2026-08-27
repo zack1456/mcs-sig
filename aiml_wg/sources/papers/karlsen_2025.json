@@ -1,0 +1,107 @@
+{
+  "id": "karlsen_2025",
+  "source_type": "paper",
+  "title": "Covariate Model Selection Approaches for Population Pharmacokinetics: A Systematic Review of Existing Methods, From SCM to AI",
+  "authors": ["Karlsen M", "Khier S", "Fabre D", "Marchionni D", "Azé J", "Bringay S", "Poncelet P", "Calvier E"],
+  "year": 2025,
+  "doi": "10.1002/psp4.13306",
+  "pmid": 39831409,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Systematic review of all covariate modeling methods in population pharmacokinetics, from traditional stepwise covariate modeling (SCM) through modern AI/ML alternatives. Reviews evaluation settings, performance metrics, and computational times for each method across the literature. Main conclusion: EBE-based ML methods stood out as the best covariate selection methods for prescreening; AALASSO (a hybrid genetic algorithm) was the overall best covariate model selection technique. Proposes standardized benchmarking and reporting practices for future method comparisons. From Montpellier University + Sanofi R&D, published in CPT:PSP.",
+
+    "key_findings": [
+      "EBE-based ML methods (using Empirical Bayes Estimates as targets for ML covariate selection) are the best covariate prescreening approach across the methods reviewed — faster and more accurate than traditional graphical correlations or GAM",
+      "AALASSO (Adaptive LASSO hybrid with genetic algorithm) is the best overall covariate model selection technique — outperforms standard SCM, SCM+, SAMBA, LASSO, Wald's approximation, and FREM in systematic comparison",
+      "FREM (full random effects model with clinical significance criterion) and SCM+ with stagewise filtering are the next best approaches after AALASSO",
+      "No consensus on how to benchmark simulated datasets across scenarios or which performance metrics to use — the field lacks standardized evaluation, making method comparisons unreliable",
+      "Proposed standardized metrics: TPR (sensitivity), FPR (Type I error), FNR (Type II error), TNR (specificity), covariate parameter error bias (MPE), and precision (RMSE), plus model fitness by BIC and concentration prediction error",
+      "Recommendation: new methods should always be compared against SCM as a baseline; covariate selection techniques should be combined with SCM or FFEM for head-to-head comparison"
+    ],
+
+    "methods_discussed": [
+      "SCM",
+      "SCM_plus",
+      "SAMBA",
+      "LASSO",
+      "AALASSO",
+      "Wald_approximation",
+      "FREM",
+      "COSSAC",
+      "EBE_based_ML",
+      "XGBoost",
+      "random_forest",
+      "neural_network",
+      "SHAP",
+      "genetic_algorithm",
+      "population_pharmacokinetics",
+      "covariate_modeling"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["NONMEM"],
+
+    "limitations": [
+      "Review is limited to published comparisons of method performance — unpublished industry practice (likely dominated by SCM) is not captured",
+      "Lack of standardized benchmarking datasets makes quantitative cross-study comparison difficult; the review identifies this as the main obstacle to progress in the field",
+      "Most comparisons lack external validation — performance rankings may be simulation-scenario-specific"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "EBEs-based ML methods stood out as the best covariate selection methods. AALASSO, a hybrid genetic algorithm, FREM with a clinical significance criterion and SCM+ with stagewise filtering were the best covariate model selection techniques — AALASSO being the very best one.",
+        "location": "Abstract / Results",
+        "evidence_type": "theoretical"
+      },
+      {
+        "text": "We also highlight the need for an open-source benchmark of simulated datasets on a representative set of scenarios.",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides the definitive landscape map for M1.3 (ML for covariate selection in pop PK) — any WG tutorial or scoping paper covering ML in pharmacometrics should cite this systematic review as the reference for covariate selection methods",
+      "The AALASSO finding (best overall method) vs EBE-ML (best prescreening) is a concrete recommendation the WG can build on for hybrid pharmacometric workflows",
+      "The call for open-source benchmarks maps directly to the WG's potential contribution: creating benchmark datasets for hybrid methods is a concrete, achievable WG deliverable"
+    ],
+    "topics": [
+      "systematic_review",
+      "covariate_selection",
+      "population_pharmacokinetics",
+      "SCM",
+      "LASSO",
+      "AALASSO",
+      "FREM",
+      "EBE",
+      "ML_prescreening",
+      "benchmarking",
+      "Sanofi",
+      "Montpellier_University"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["kekic_2026"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Found via PubMed search 'machine learning covariate selection population pharmacokinetics' (PMID 39831409). PMC12001260 (open access). CPT:PSP 2025, 14(4):621-639. Montpellier University (LIRMM + IMAG) and Sanofi R&D Montpellier. Full text retrieved via PMC but is 71KB — stored to disk; key findings extracted from abstract and executive summary. The open-source benchmark recommendation is a direct WG opportunity. The companion to kekic_2026 for providing context on the covariate selection landscape."
+  }
+}
