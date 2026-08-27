@@ -1,5 +1,5 @@
 ---
-description: Draft a Model Analysis Report (MAR) structured per ICH M15 / ASME V&V 40 for a source record in the library. Example mode (default) produces a worked MAR suitable for white paper inclusion; guidance mode drafts white paper Section E (regulatory alignment).
+description: Assess the credibility of a hybrid pharmacometric model using ICH M15 / ASME V&V 40, drawing from the source library. Example mode (default) produces a worked Model Analysis Report (MAR) suitable for white paper inclusion; guidance mode drafts white paper Section E (regulatory alignment).
 ---
 
 Draft a Model Analysis Report for a source in `aiml_wg/sources/`.
