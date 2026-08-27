@@ -8,8 +8,12 @@ desktop.ini
 .idea/
 *.swp
 
-# Claude Code
-.claude/
+# Claude Code — ignore runtime state, track project commands and agents
+.claude/*
+!.claude/commands/
+!.claude/commands/**
+!.claude/agents/
+!.claude/agents/**
 
 # Python
 __pycache__/
