@@ -17,6 +17,13 @@ If `read_depth` is `abstract_only`, note this prominently in the output — disc
 **2. Read related records**
 Read any records listed in `relationships.cites`, `relationships.cited_by`, and `relationships.extends` to understand how this source connects to the rest of the library.
 
+**2b. Check read depth**
+If `read_depth` is `abstract_only` or `sections_key`, add a prominent warning at the top of the guide:
+
+> **Note: this record was read at `[read_depth]` depth. The "Quantitative results worth scrutinizing" section is based on limited source text and may be incomplete. Consider running `/upgrade-source [id]` before the session.**
+
+Frame quantitative scrutiny questions as "The abstract reports X — is this plausible and sufficient to evaluate?" rather than assuming full access to tables and figures.
+
 **3. Generate the discussion guide**
 
 Output a markdown document with these sections:

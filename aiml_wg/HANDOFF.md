@@ -129,7 +129,7 @@ After the meeting, the immediate focus shifts to:
 3. Mark C-01 as `done` in TASKS.md
 4. Start C-02: draft `community/charter.md`
 
-**Literature search status (complete through Round 4):** 40 records. Library is now comprehensive across all 4 pillars + regulatory context + work stream technical foundations. No further systematic rounds needed; only targeted additions if specific gaps identified at kickoff.
+**Literature search status (complete through Round 5):** 43 records. Library is comprehensive across all 4 pillars + regulatory context + identifiability tools. No further systematic rounds needed; only targeted additions (ASME V&V 40, transfer learning foundation models) flagged for next session.
 
 **Round 4 coverage summary by work stream:**
 

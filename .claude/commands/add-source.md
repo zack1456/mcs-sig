@@ -46,16 +46,28 @@ Read `aiml_wg/sources/_schema.json` to confirm the current schema. Then extract:
 - `date_read`: today's date (YYYY-MM-DD)
 
 **5. Determine target folder**
+
 - `aiml_wg/sources/papers/` — peer-reviewed journal articles and preprints
 - `aiml_wg/sources/web/` — web pages, guidance documents, SIG pages
 - `aiml_wg/sources/background/` — broad survey or context documents
 - `aiml_wg/sources/working_docs/` — internal WG documents
 
 **6. Write the record**
+
 Write to `aiml_wg/sources/{folder}/{id}.json`. Use the exact schema structure — do not add or omit top-level fields.
 
-**7. Update relationships in existing records**
+Apply these record-writing discipline rules before writing:
+
+- **No hallucinated numerics.** Values in `numerical_findings` may only be written if they appear in the retrieved text. Omit any entry where the specific number is absent — do not estimate.
+- **Tag inferred claims.** In `key_findings`, append `[inferred]` to any claim not explicitly stated in the source text.
+- **State the evidence base in notes.** In `provenance.notes`, include a sentence describing what was read, e.g. `"Key findings from PubMed abstract only; numerical claims not independently confirmed."` or `"Full text read via PMC; all findings directly extracted."`
+- **Apply the relevance_score rubric.** `high` = would justify a white paper citation or journal club session; `medium` = useful background; `low` = tangential. Do not default to high.
+
+**7. Update index**
+Read `aiml_wg/sources/index.json`. Append a new entry for this record with at minimum: `id`, `source_type`, `title`, `year`, `pillars`, `relevance_score`, `read_depth`. Write the updated index back.
+
+**8. Update relationships in existing records**
 For any existing record that should now reference this new record (e.g., it was already in `cites` of another record), read and update that record's `cited_by` or other relationship field to include the new `id`.
 
-**8. Confirm**
-Report: the new file path, `read_depth`, `relevance_score`, pillars, and any cross-references updated.
+**9. Confirm**
+Report: the new file path, `read_depth`, `relevance_score`, pillars, any cross-references updated, and confirmation that `index.json` was updated.

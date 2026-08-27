@@ -37,6 +37,13 @@ For each paper, extract all schema fields (same as `/add-source` step 4). Determ
 | `optimal_control_rl` | reinforcement learning, Q-learning, MDP, optimal control, precision dosing, adaptive dosing |
 | `generative_ai` | generative model, VAE, diffusion, LLM, synthetic data, physics-constrained |
 
+Apply these record-writing discipline rules:
+
+- **No hallucinated numerics.** Values in `numerical_findings` may only be written if they appear in the retrieved text. Omit any entry where the specific number is absent — do not estimate.
+- **Tag inferred claims.** In `key_findings`, append `[inferred]` to any claim not explicitly stated in the source text.
+- **State the evidence base in notes.** In `provenance.notes`, include a sentence describing what was read, e.g. `"Key findings from PubMed abstract only; numerical claims not independently confirmed."`
+- **Apply the relevance_score rubric.** `high` = would justify a white paper citation or journal club session; `medium` = useful background; `low` = tangential. Do not default to high.
+
 **6. Check cross-references**
 For each new paper, scan its reference list (if full text was obtained) for DOIs/titles matching existing library records. Add appropriate `cites` entries and update `cited_by` in referenced records.
 

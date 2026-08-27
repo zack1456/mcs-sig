@@ -100,7 +100,7 @@
         "extracted_claims": {
           "type": "array",
           "minItems": 0,
-          "maxItems": 5,
+          "maxItems": 6,
           "description": "Key direct quotes or paraphrased claims worth preserving verbatim",
           "items": {
             "type": "object",

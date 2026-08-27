@@ -57,7 +57,7 @@
 | **Date** | 2026-08-26 (proposed) |
 | **Status** | tentative — confirm at kickoff (Aug 28) |
 | **Decision** | Physics-constrained generative models first (VAEs, diffusion with ODE constraints, synthetic patient validation); LLMs scoped to a position paper only |
-| **Rationale** | LLMs for pharmacometrics is crowded and hard to differentiate mathematically. Physics-constrained generative models are closer to WG core competency and have a clear gap: synthetic patient validation frameworks are essentially missing from the literature |
+| **Rationale** | Physics-constrained generative models are closer to WG core competency and have a clear gap: synthetic patient validation frameworks are essentially missing from the literature. For LLMs: the 2024–2025 capability trajectory (shin_2024_llm → zheng_2025_llm) shows standard NONMEM coding is now near-solved; remaining failure modes are causal reasoning and complex ODE structure — exactly where MCS mathematical rigor adds value. A position paper scoped to these failure modes is more differentiating than broad LLM coverage. |
 | **What would change this** | Member expertise concentrated in LLMs and no one available to drive physics-constrained work |
 | **Affects tasks** | M4.1, M4.4, D-GEN-A |
 

@@ -44,7 +44,7 @@
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
 | M2.1 | todo | Bayesian UQ framework literature review for hybrid models | WG lead TBD | Key sources: `elmokadem_2024` (HDCM: Bayesian IIV+RUV+UQ for hybrid PK), `aslanimoghankou_2026` (neural SDEs + uncertainty), `baaz_2026` (VAE+neural ODE population PK) |
-| M2.2 | todo | Conformal prediction in PK/PD — feasibility assessment | WG lead TBD | **Confirmed white space**: zero papers found across 3 PubMed search strategies — this is a genuine first-mover opportunity for the WG, not a gap to fill with existing papers |
+| M2.2 | todo | Conformal prediction in PK/PD — concept note | WG lead TBD | **Confirmed white space**: zero papers found across 3 PubMed search strategies. Task: write a 1–2 page concept note answering (1) what conformal prediction is, (2) where it fits relative to profile likelihood (raue_2009) and Bayesian UQ (elmokadem_2024), (3) what a PK/PD application would look like. This note becomes the seed of a WG-original contribution, not a literature synthesis. |
 | M2.3 | todo | Ensemble uncertainty for pharmacometric applications | WG lead TBD | After M2.1 |
 | M2.4 | todo | Comparative assessment of UQ methods | WG | Feeds white paper §C |
 | M2.5 | todo | Coordinate with SAUQ WG on overlapping scope | ZK | Depends on C-04 |
