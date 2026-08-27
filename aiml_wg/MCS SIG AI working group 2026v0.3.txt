@@ -1,0 +1,14 @@
+MCS SIG AI working group 
+Co-Chairs: Sourish Chakravarty, Zackary Kenz
+Active members: Cameron Meaney
+
+The MCS SIG focuses on the mathematical and computational techniques underpinning AI/ML, with the goal of advancing community awareness and improved understanding of methodologies that complement and extend traditional pharmacometrics. Recognizing the need to improve community understanding and coordination on methodologies, the SIG leadership and steering committee initiated a working group on AI/ML techniques and methods. Aligned with the broader mission of the MCS SIG and its methodological-orientation, this AI working group will drive MCS SIG’s effort to serve the broader PMX community by identifying, examining, and highlighting relevant information on how predictive and generative AI methods work and how they are being implemented in model-informed drug development, particularly to improve on traditional PMx workflows.
+A key focus of this MCS SIG AI working group is on testing and comparing generative AI methods and novel ML techniques (e.g., different neural network applications) to better assess how tools can be applied in existing and novel workflows, sharing the best MCS AI/ML practices to the wider community. Complementary to this key focus, it will also seek out external perspectives from AI-experts from the Biopharma and broader AI community, and engage on this topic with the other SIGs and broader PMx community through collaborative authoring of white papers and tutorials, and through pedagogical endeavors.
+Specific Goals: 
+1. Organize talks and panel discussions by inviting AI-experts both from Biopharma as well as the broader AI community 
+2. Organize informal discussion forums e.g. journal clubs.
+3. Assess relevant software tools and scientific articles 
+4. Author tutorials and white papers
+5. Share curated knowledge on the MCS SIG website
+6. Collaborate with other ISOP SIGs and the broader ISOP community on all the above goals
+
