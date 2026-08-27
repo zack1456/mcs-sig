@@ -1,0 +1,102 @@
+{
+  "id": "janzen_2017",
+  "source_type": "paper",
+  "title": "Extending existing structural identifiability analysis methods to mixed-effects models",
+  "authors": ["Janzén DLI", "Jirstrand M", "Chappell MJ", "Evans ND"],
+  "year": 2017,
+  "doi": "10.1016/j.mbs.2017.10.009",
+  "pmid": 29107004,
+  "url": null,
+  "journal_or_venue": "Mathematical Biosciences",
+
+  "content": {
+    "abstract_summary": "Extends structural identifiability analysis to mixed-effects (NLME) state-space models — a critical gap because standard identifiability methods were developed for single-subject (non-mixed-effects) models. Two analytical methods presented: (1) Taylor series expansion approach and (2) input-output form approach, both adapted for mixed-effects. The key insight: by generating an exhaustive summary assuming an infinite number of subjects and using uniqueness of analytical statistical moments of functions of random variables, structural identifiability of the mixed-effects model can be determined. Applied to examples of mixed-effects models. AstraZeneca + Chalmers + University of Warwick (Chappell group). Math Biosci 2017.",
+
+    "key_findings": [
+      "Structural identifiability for mixed-effects models is non-trivial: standard structural identifiability methods (Taylor series, input-output differential algebra) assume a single-subject state-space model and cannot be directly applied to NLME models",
+      "Extension strategy: generate an exhaustive summary by assuming an infinite number of subjects; derive functions of random variables from the observation function; require that the analytical statistical moments of these derived functions be uniquely identifiable — this reduces the NLME identifiability problem to moments-based uniqueness analysis",
+      "Two methods successfully adapted: (1) Taylor series expansion; (2) input-output form (differential algebra) approach — both extended to cover mixed-effects models",
+      "Applied to PK examples: demonstrates that mixed-effects model structural identifiability depends not only on the fixed-effects structure but also on the random-effects structure (which parameters have IIV)",
+      "Key insight for pharmacometrics: a model that is structurally identifiable in fixed-effects settings may not be identifiable when random effects are added on specific parameters — IIV structure matters for identifiability",
+      "Foundational paper: establishes the theoretical framework for asking 'is this population PK model structurally identifiable?' — prior to this, the question was not well-posed for NLME models"
+    ],
+
+    "methods_discussed": [
+      "structural_identifiability",
+      "mixed_effects_models",
+      "NLME",
+      "Taylor_series_expansion",
+      "input_output_form",
+      "differential_algebra",
+      "statistical_moments",
+      "state_space_models"
+    ],
+
+    "datasets_referenced": [
+      "illustrative_mixed_effects_model_examples_theoretical"
+    ],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Paywalled — full text not available for extraction; abstract content used",
+      "Infinite-subjects assumption is a mathematical idealization that simplifies the identifiability analysis but may not correspond to practical finite-N settings",
+      "Analytical methods apply to exact structural identifiability — does not address practical identifiability (parameter uncertainty given finite data, measurement noise), which is the concern in raue_2009",
+      "Computational complexity: Taylor series and input-output form approaches become intractable for large-dimensional systems — scaling limitation shared with existing single-subject methods"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "The concept of structural identifiability for state-space models is expanded to cover mixed-effects state-space models. Two methods applicable for the analytical study of the structural identifiability of mixed-effects models are presented.",
+        "location": "Abstract",
+        "evidence_type": "methodological"
+      },
+      {
+        "text": "By generating an exhaustive summary, and by assuming an infinite number of subjects, functions of random variables can be derived which in turn determine the distribution of the system's observation function(s). By considering the uniqueness of the analytical statistical moments of the derived functions of the random variables, the structural identifiability of the corresponding mixed-effects model can be determined.",
+        "location": "Abstract",
+        "evidence_type": "methodological"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability"],
+    "gaps_addressed": [
+      "Fills M1.2 (structural identifiability for pharmacometric models): provides the theoretical foundation for asking whether a population PK model (NLME) is structurally identifiable — this question is central to the WG's uq_identifiability pillar and is distinct from single-subject identifiability",
+      "Connects to raue_2009 (profile likelihood for practical identifiability) and campo_manzanares_2026 (iNODE for identifiability-aware neural ODEs): janzen_2017 addresses structural identifiability for mixed-effects models; raue_2009 addresses practical identifiability for individual models; campo_manzanares_2026 combines both for neural ODE architectures — together these three papers span the identifiability landscape",
+      "AstraZeneca (Janzén) + Chalmers (Jirstrand) + Warwick (Chappell + Evans): all three institutions are leaders in mathematical pharmacology and identifiability — paper carries strong methodological credibility for the WG"
+    ],
+    "topics": [
+      "structural_identifiability",
+      "mixed_effects_models",
+      "NLME",
+      "population_PK",
+      "Taylor_series",
+      "differential_algebra",
+      "mathematical_pharmacology",
+      "AstraZeneca",
+      "Chalmers",
+      "University_of_Warwick",
+      "Chappell_group",
+      "Jirstrand"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": ["raue_2009"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'identifiability analysis pharmacokinetic nonlinear mixed effects models' (PMID 29107004). DOI: 10.1016/j.mbs.2017.10.009. Math Biosci 2017, 295:1-10. Paywalled (Elsevier). Janzén DLI = AstraZeneca DMPK + Fraunhofer-Chalmers Centre (corresponding, david.janzen@astrazeneca.com); Jirstrand M = Fraunhofer-Chalmers Centre; Chappell MJ + Evans ND = University of Warwick School of Engineering. Chappell group (Warwick) is one of the leading identifiability groups in mathematical biology — their STRIKE-GOLDD MATLAB toolbox and related work are the standard reference. This paper is the foundational NLME identifiability paper. A second PMID from the same search (42477504) was evaluated and skipped (meta-heuristic optimization, CPT:PSP 2026 — too applied for this gap). Extensions field points to raue_2009 because janzen_2017 extends identifiability analysis from fixed-effects (raue_2009 context) to mixed-effects models."
+  }
+}

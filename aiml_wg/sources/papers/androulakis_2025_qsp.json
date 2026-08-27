@@ -1,0 +1,120 @@
+{
+  "id": "androulakis_2025_qsp",
+  "source_type": "paper",
+  "title": "The dawn of a new era: can machine learning and large language models reshape QSP modeling?",
+  "authors": ["Androulakis IP", "Cucurull-Sanchez L", "Kondic A", "Mehta K", "Pichardo C", "Pryor M", "Renardy M"],
+  "year": 2025,
+  "doi": "10.1007/s10928-025-09984-5",
+  "pmid": 40524056,
+  "url": null,
+  "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
+
+  "content": {
+    "abstract_summary": "Perspective/review paper authored entirely by ISoP QSP SIG members, articulating the QSP SIG's vision for how AI/ML and LLMs will transform QSP modeling. Organized around four primary AI/ML contributions: (1) literature mining and data extraction, (2) surrogate model development and digital twins, (3) network inference to translate data into mechanistic models, (4) hybrid mechanistic-ML frameworks. Then asks whether LLMs will transition AI from 'tool to partner' in QSP. No quantitative results — all narrative and forward-looking. JPKPD 2025.",
+
+    "key_findings": [
+      "QSP SIG's four-part AI/ML vision: enhanced literature mining → surrogate models + digital twins → automated network inference → hybrid mechanistic-ML; LLMs are framed as enabling all four as an 'active partner' rather than a mere tool",
+      "Hybrid mechanistic-ML architectures: two classes described — (1) physics-informed ML (PINNs, fPINNs) where ODEs constrain the neural network loss function; (2) composite models where mechanistic modules handle known components and ML handles poorly-understood or data-rich elements — these framings map directly onto the MCS SIG's hybrid_foundations pillar",
+      "Surrogate models definition: 'simplified mathematical or computational representation of a more complex system designed to approximate its behavior while significantly reducing computational cost'; described as embedded within digital twins to enable real-time prediction without full QSP model calls",
+      "Digital twin definition (QSP SIG framing): 'dynamic, virtual representation of a physical system or process that evolves, integrating real-time data to provide insights, monitor performance, and predict outcomes'; consistent with but less rigorous than dette_2025's three-criterion definition",
+      "LLMs positioned as democratization tools: 'the user does not need to be a domain expert!'; LLMs empower non-coding researchers to build QSP models; risk of over-reliance and hallucinations explicitly acknowledged",
+      "Key regulatory challenges raised: validation pipelines, LLM hallucinations in regulatory documentation, RAG as mitigation strategy, accountability in AGI-assisted dosing decisions, harmonization of standards across regions",
+      "Explicitly cites shin_2024_llm (NONMEM code generation paper) and other LLM-pharmacometrics evaluations as evidence of current LLM capabilities"
+    ],
+
+    "methods_discussed": [
+      "QSP",
+      "hybrid_mechanistic_ML",
+      "PINN",
+      "surrogate_models",
+      "digital_twins",
+      "LLM",
+      "RAG",
+      "literature_mining",
+      "Boolean_network_inference",
+      "virtual_populations"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [
+      "ChatGPT", "GPT-4", "Gemini", "Claude", "LLaMA", "BLOOM",
+      "PubMedGPT", "BioGPT", "GitHub_Copilot", "NONMEM"
+    ],
+
+    "limitations": [
+      "No quantitative results or case studies — entirely qualitative perspective paper",
+      "Forward-looking claims about LLMs and AGI as QSP partners are speculative and not empirically grounded",
+      "Does not engage with MCS-specific concerns: structural identifiability, optimal control, or rigorous UQ — focuses on QSP/ML workflow democratization",
+      "Hallucination risk explicitly acknowledged but no concrete mitigation beyond suggesting RAG — 'studies have highlighted the need for caution, suggesting that AI/ML should not be unquestioningly trusted'"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "In contrast to the traditional use of ML solely as a tool, the emergence of ChatGPT has marked a pivotal moment, dramatically shifting the landscape of AI/ML by introducing broadly Large Language Models (LLMs) as transformative tools.",
+        "location": "Main text",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "LLMs will drive the evolution of machine learning from a tool whose use requires a significant level of expertise to an active partner in mathematical and computational modeling in QSP.",
+        "location": "Discussion",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "the user does not need to be a domain 'expert'! One can identify many issues associated with accuracy and correctness, but we must also realize that we only witness the early beginnings of an upcoming revolution.",
+        "location": "Main text",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Treating AI/ML as a toolbox must be held to standards at least as high as those of conventional model assessment.",
+        "location": "Discussion",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai", "hybrid_foundations"],
+    "gaps_addressed": [
+      "Critical competitive intelligence: this is the QSP SIG's own articulation of their AI/ML strategy — understanding QSP SIG's framing allows the MCS SIG AI/ML WG to differentiate on mathematical rigor (structural identifiability, UQ, optimal control) vs. QSP SIG's focus on workflow democratization and LLM-as-partner",
+      "Directly relevant to M4.4 (LLMs for pharmacometrics): the paper explicitly covers LLM applications in QSP including NONMEM code generation, literature mining, and model building assistance — provides the QSP SIG's own taxonomy of where LLMs add value",
+      "Hybrid mechanistic-ML framing (PINN + composite models) is the QSP SIG's vocabulary for the same concepts covered in MCS SIG's hybrid_foundations pillar — useful for the scoping paper to position MCS's mathematical depth (identifiability, UQ) as complementary to QSP SIG's modeling breadth"
+    ],
+    "topics": [
+      "QSP_SIG",
+      "LLM",
+      "hybrid_mechanistic_ML",
+      "PINN",
+      "surrogate_models",
+      "digital_twins",
+      "democratization",
+      "pharmacometrics",
+      "cross_SIG",
+      "competitive_intelligence",
+      "ISoP",
+      "Androulakis",
+      "Pharmetheus",
+      "BMS",
+      "AstraZeneca",
+      "GSK"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["shin_2024_llm"],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'LLM drug development pharmacometrics' (PMID 40524056). Full text retrieved from PMC12170689 (DOI: 10.1007/s10928-025-09984-5). JPKPD 2025, 52(4):36. Open access. All 7 authors list dual ISoP QSP SIG affiliations. Androulakis IP = Rutgers Biomedical Engineering + QSP SIG; Cucurull-Sanchez L = Pharmetheus + QSP SIG; Kondic A = BMS + QSP SIG; Mehta K = Kyowa Kirin + QSP SIG; Pichardo C = AstraZeneca + QSP SIG; Pryor M = J&J + QSP SIG; Renardy M = GSK + QSP SIG. This paper is the QSP SIG's official perspective on AI/ML — treat as cross-SIG intelligence. MCS SIG WG should be aware of this framing when positioning its own contributions. The democratization focus of QSP SIG vs. mathematical rigor focus of MCS SIG is a natural differentiator."
+  }
+}

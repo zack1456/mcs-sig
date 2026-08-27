@@ -1,0 +1,152 @@
+{
+  "id": "elmokadem_2024",
+  "source_type": "paper",
+  "title": "Hierarchical deep compartment modeling: A workflow to leverage machine learning and Bayesian inference for hierarchical pharmacometric modeling",
+  "authors": ["Elmokadem A", "Wiens M", "Knab T", "Utsey K", "Callisto SP", "Kirouac D"],
+  "year": 2024,
+  "doi": "10.1111/cts.70045",
+  "pmid": 39402751,
+  "url": null,
+  "journal_or_venue": "Clinical and Translational Science",
+
+  "content": {
+    "abstract_summary": "Introduces Hierarchical Deep Compartment Modeling (HDCM), an extension of Deep Compartment Modeling (DCM) that integrates Bayesian inference (NUTS sampler via Turing.jl) to add IIV, residual error, and full uncertainty quantification — three features missing from vanilla DCM. DCM uses a neural network to map covariates to PK parameters but assesses no random effects, leading to overfitting and misspecification. HDCM addresses this by estimating IIV (log-normal, on CL, V2, ka) and proportional residual error jointly with NN weights via MCMC. Demonstrated on synthetic two-compartment oral data (30 subjects, 15 dense samples, 10 covariates). Open-source Julia workflow. Metrum Research Group.",
+
+    "key_findings": [
+      "DCM (the predecessor architecture) does not evaluate any residual error or IIV — stated as primary failure mode leading to model misspecification and overfitting; HDCM adds both IIV and proportional residual error estimated jointly with NN weights via MCMC",
+      "Full Bayesian inference via NUTS (No U-Turn Sampler): 4 parallel chains × 1000 total samples (500 warmup + 500 sampling); all R-hat values ≤1.05; run time ~5 hours on synthetic dataset",
+      "Bayesian prior on NN weights (σ_w = 0.6) acts as regularizer, enabling stable training on small datasets (N=30) without significant overfitting: 'Bayesian analysis offered the added benefit of putting a penalty on the NN optimization via the prior information, which allows practitioners to train the NN on a small sample size without introducing significant overfitting'",
+      "Posterior estimates within reasonable range of true values: V2 error 5.06%, Q error 0.08%, ka error 25.4%, CL error 19.0%; IIV parameters recoverable (ω_CL median 0.13, ω_V2 median 0.09, ω_ka median 0.39) with wide credible intervals at N=30",
+      "SHAP implemented via ShapML.jl with Bayesian credible intervals: weight most influential for CL, but wide CIs at small N indicate SHAP interpretation requires larger datasets",
+      "BLQ handling included via left-censored likelihood (log-normal CDF); MAP initialization via Nelder-Mead as optional starting point",
+      "No real-world dataset validation performed — limitation explicitly stated; no benchmarking against NONMEM — both acknowledged as future work"
+    ],
+
+    "methods_discussed": [
+      "deep_compartment_model",
+      "hierarchical_Bayesian",
+      "NUTS_MCMC",
+      "neural_network",
+      "IIV_modeling",
+      "RUV_modeling",
+      "BLQ_handling",
+      "SHAP",
+      "population_PK",
+      "two_compartment_model",
+      "Julia"
+    ],
+
+    "datasets_referenced": [
+      "synthetic_two_compartment_oral_PK_N30_simulated"
+    ],
+
+    "tools_software": [
+      "Julia",
+      "Turing.jl",
+      "Flux.jl",
+      "OrdinaryDiffEq.jl",
+      "Optimization.jl",
+      "Optim.jl",
+      "ShapML.jl",
+      "StatsPlots.jl",
+      "AlgebraOfGraphics.jl"
+    ],
+
+    "limitations": [
+      "Only tested on synthetic data; real-world application unvalidated — 'it is essential to test HDCM with real-world pharmacokinetic and pharmacodynamic datasets'",
+      "No benchmarking against NONMEM or other ML methods — 'Comparative studies are necessary'",
+      "Run time ~5 hours for 1000 MCMC samples on small synthetic dataset — potentially prohibitive for larger datasets or complex models",
+      "No sample size analysis; SHAP credible intervals are wide at N=30",
+      "IIV not added to all parameters (Q and V3 excluded in demonstration) — simplification not motivated"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "DCM fell short in assessing residual errors and interindividual variability (IIV), potentially leading to model misspecification and overfitting. Furthermore, DCM lacked the ability to quantify model uncertainty.",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "Bayesian analysis offered the added benefit of putting a penalty on the NN optimization via the prior information, which allows practitioners to train the NN on a small sample size without introducing significant overfitting.",
+        "location": "Discussion",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "The high performance nature of the Julia language and the composability of the Julia workflow gives Julia an edge over other languages like Python and R.",
+        "location": "Discussion",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "performance_metric",
+        "description": "Typical PK parameter recovery error: V2, Q, CL, ka vs. true values",
+        "value": "V2 5.06%, Q 0.08%, CL 19.0%, ka 25.4%",
+        "value_numeric": null,
+        "unit": "% error vs. true value",
+        "comparison_baseline": "true data-generating parameter values",
+        "location": "Table 2",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "MCMC run time for N=30 synthetic dataset, 4 chains × 1000 samples",
+        "value": "~5 hours",
+        "value_numeric": 5,
+        "unit": "hours",
+        "comparison_baseline": null,
+        "location": "Methods / Results",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "study_statistic",
+        "description": "Residual error posterior: median and 95% CI",
+        "value": "σ = 0.23 (95% CI: 0.20, 0.26), R-hat = 1.004",
+        "value_numeric": 0.23,
+        "unit": "proportional error (σ)",
+        "comparison_baseline": null,
+        "location": "Table 1",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly fills M2.1 (Bayesian deep learning for PK): HDCM is the most complete implementation of Bayesian inference in a hybrid pharmacometric model available as open-source Julia workflow — adds full IIV + RUV + UQ to the DCM architecture",
+      "Extends and critiques janssen_2024 (deep compartment models): janssen_2024 added physiological constraints; HDCM adds Bayesian IIV/RUV — together they define the state-of-the-art in pharmacometric hybrid modeling",
+      "Provides a concrete criticism of DCM that the WG can use: 'DCM does not evaluate IIV or residual error' — motivating the HDCM work and framing why Bayesian approaches are necessary for regulatory-grade pharmacometric hybrid models"
+    ],
+    "topics": [
+      "deep_compartment_model",
+      "hierarchical_Bayesian",
+      "MCMC",
+      "NUTS",
+      "IIV",
+      "population_PK",
+      "hybrid_mechanistic_ML",
+      "Julia",
+      "Metrum_Research_Group",
+      "SHAP",
+      "uncertainty_quantification"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["janssen_2024"],
+    "cited_by": [],
+    "extends": ["janssen_2024"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'Bayesian deep learning PK population UQ' (PMID 39402751). Full text retrieved from PMC11473376 (DOI: 10.1111/cts.70045). CTS 2024, 17(10):e70045. Open access. All 6 authors from Metrum Research Group (Tariffville, CT) — Kirouac D is senior author. Julia code available in Supplementary Materials. HDCM extends janssen_2024 by adding full Bayesian IIV/RUV; janssen_2024 extends lu_2021 by adding physiological constraints. This paper does NOT cite janssen_2024 explicitly (confirmed from extraction) but is architecturally an extension of the DCM line started by janssen_2024; relationship noted as extends."
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "id": "najjar_2024_gsa",
+  "source_type": "paper",
+  "title": "Global sensitivity analysis of Open Systems Pharmacology Suite physiologically based pharmacokinetic models",
+  "authors": ["Najjar A", "Hamadeh A", "Krause S", "Schepky A", "Edginton A"],
+  "year": 2024,
+  "doi": "10.1002/psp4.13256",
+  "pmid": 39498820,
+  "url": null,
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Tutorial paper presenting a new open-source R package (with GUI) for conducting one-at-a-time (OAT) and global sensitivity analysis (GSA) of PBPK models built in the Open Systems Pharmacology (OSP) Suite. OAT methods: local sensitivity analysis (LSA) and probabilistic uncertainty analysis (UA). GSA methods: Morris screening, Sobol variance decomposition, and EFAST. All outputs formatted per WHO IPCS regulatory standards. Demonstrated on three case studies: (1) itraconazole IV in PK-Sim; (2) UV filter dermal absorption in MoBi; (3) rifampicin-midazolam DDI in PK-Sim. Edginton group, University of Waterloo + Beiersdorf AG. CPT:PSP 2024.",
+
+    "key_findings": [
+      "Recommended workflow: Morris screening first to identify candidate influential parameters → Sobol or EFAST variance decomposition on the surviving subset; Morris is computationally efficient and appropriate for ranking; Sobol/EFAST for quantifying parameter interactions (T_i vs. S_i gap)",
+      "OAT vs. GSA discrepancy demonstrated empirically (Case Study 2, UV filters): local sensitivity analysis identified parameter β as most influential, but uncertainty analysis and all three GSA methods found β relatively unimportant — demonstrates that OAT can give misleading conclusions and GSA is necessary for regulatory submissions",
+      "Case Study 1 (itraconazole): 5 of 28 parameters most influential (lipophilicity/log P and fraction unbound/fu of parent compound dominant); CYP3A4 Michaelis constant K_m and inhibition constant K_i not influential — useful result for PBPK model calibration prioritization",
+      "Case Study 3 (rifampicin-midazolam DDI): E_max (maximal CYP3A4 induction by rifampicin) most influential for AUC and C_max DDI ratios; significant Sobol T_i vs. S_i gaps for fu, k_cat, K_m indicate important parameter interactions — cannot be detected by OAT",
+      "Regulatory compliance: outputs formatted per WHO IPCS guidance (sensitivity classification: High/Medium/Low/Negligible); DDI ratio analysis directly addresses a key FDA/EMA PBPK submission requirement",
+      "Package provides both R script and GUI interfaces; input parameter distributions supported: uniform, log-uniform, normal, log-normal; future work: correlated parameter distributions"
+    ],
+
+    "methods_discussed": [
+      "global_sensitivity_analysis",
+      "local_sensitivity_analysis",
+      "Morris_screening",
+      "Sobol_indices",
+      "EFAST",
+      "PBPK",
+      "uncertainty_analysis",
+      "DDI_modeling",
+      "OSP_Suite",
+      "PK-Sim",
+      "MoBi",
+      "WHO_IPCS",
+      "Monte_Carlo"
+    ],
+
+    "datasets_referenced": [
+      "itraconazole_Hanke_OSP_PBPK_model",
+      "UV_filter_dermal_absorption_Hamadeh_MoBi_model",
+      "rifampicin_midazolam_DDI_Hanke_OSP_PBPK_model_Backman_clinical_data"
+    ],
+
+    "tools_software": [
+      "PK-Sim",
+      "MoBi",
+      "OSPSuite_R_package",
+      "R",
+      "PKML_format"
+    ],
+
+    "limitations": [
+      "Parameter distribution options in initial release limited to uniform, log-uniform, normal, log-normal — no correlated parameter support; future work needed",
+      "Only three case studies demonstrated; broader validation with additional PBPK models needed",
+      "Computational cost of GSA higher than OAT — acknowledged trade-off; Morris recommended as efficient screening step before Sobol",
+      "WHO IPCS guideline defines uncertainty ratio as 95th/50th percentile (always ≥1); package uses 2.5th–97.5th CI / median (can be <1); same thresholds applied regardless — minor methodological deviation from WHO standard"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Sensitivity analysis...is a requirement in PBPK reports submitted to regulatory agencies.",
+        "location": "Introduction",
+        "evidence_type": "factual"
+      },
+      {
+        "text": "The illustrative examples presented here discuss the potential role of global sensitivity methods in identifying influential parameters that may not be detected through local sensitivity analyses alone.",
+        "location": "Conclusions",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "The local sensitivity analysis suggests that the plasma AUC of both octocrylene and oxybenzone are strongly influenced by parameter [β]. However, the uncertainty analysis shows that when the influence of each parameter is examined over its entire range, parameter [β] has a relatively small influence.",
+        "location": "Case Study 2 Results",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "The package not only ensures compliance with regulatory requirements for PBPK submissions but also enhances the depth of insights derived from sensitivity analyses.",
+        "location": "Conclusions",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Number of PBPK model parameters analyzed in itraconazole case study",
+        "value": "28",
+        "value_numeric": 28,
+        "unit": "N (parameters across 4 compounds: parent + 3 metabolites)",
+        "comparison_baseline": null,
+        "location": "Case Study 1 Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability"],
+    "gaps_addressed": [
+      "Fills the GSA/Sobol gap for PBPK identified in the work stream analysis: provides a practical open-source tool (R package + GUI) for conducting Morris, Sobol, and EFAST analyses on OSP Suite PBPK models — directly actionable for WG members doing PBPK work",
+      "Connects to chenel_2026 (ICH M15 PBPK regulatory requirements): Najjar provides the computational methodology for the GSA that chenel_2026 identifies as required for regulatory PBPK submissions; the two papers complement each other directly",
+      "Demonstrates OAT vs. GSA discrepancy with concrete example: provides the WG a publishable argument that global SA should replace local SA as the standard for PBPK submissions — relevant to the MCS SIG's mathematical rigor positioning"
+    ],
+    "topics": [
+      "global_sensitivity_analysis",
+      "Sobol_indices",
+      "Morris_method",
+      "EFAST",
+      "PBPK",
+      "OSP_Suite",
+      "PK-Sim",
+      "regulatory_submissions",
+      "WHO_IPCS",
+      "DDI",
+      "uncertainty_analysis",
+      "Edginton",
+      "University_of_Waterloo",
+      "Beiersdorf"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Found via PubMed search 'global sensitivity analysis PBPK' (PMID 39498820). Full text retrieved from PMC11646943 (DOI: 10.1002/psp4.13256). CPT:PSP 2024, 13(12):2052-2067. Open access. Edginton A = U Waterloo + Systems In Silico Ltd (corresponding); Najjar A + Krause S + Schepky A = Beiersdorf AG (Hamburg); Hamadeh A = U Waterloo + Systems In Silico. R package hosted on GitHub (exact name not parsed from full text). Package PKML files for all 3 case studies included. The itraconazole model (Hanke et al.) and midazolam/rifampicin models are publicly available from OSP GitHub — directly downloadable by WG members. Connect to chenel_2026 which identified GSA as necessary for ICH M15 regulatory submissions."
+  }
+}

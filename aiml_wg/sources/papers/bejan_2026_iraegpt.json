@@ -1,0 +1,142 @@
+{
+  "id": "bejan_2026_iraegpt",
+  "source_type": "paper",
+  "title": "irAE-GPT: leveraging large language models to identify immune-related adverse events in electronic health records and clinical trial datasets",
+  "authors": ["Bejan CA", "Wang M", "Venkateswaran S", "Bergmann EA", "Hiles L", "Xu Y", "Chandler GS", "Brondfield S", "Silverstein J", "Wright F", "de Dios K", "Kim DM", "Mukherjee E", "Krantz MS", "Yao L", "Johnson DB", "Phillips EJ", "Balko JM", "Mohindra R", "Quandt Z"],
+  "year": 2026,
+  "doi": "10.1016/j.ebiom.2026.106227",
+  "pmid": 41951517,
+  "url": null,
+  "journal_or_venue": "EBioMedicine",
+
+  "content": {
+    "abstract_summary": "Evaluates GPT-3.5, GPT-4, and GPT-4o for automated identification of immune-related adverse events (irAEs) in unstructured clinical notes from EHRs and clinical trial datasets. Zero-shot prompting for multi-label irAE classification. Validated across 442 patients from two EHR systems (Vanderbilt, UCSF) and seven clinical trials — a multi-site, generalizable study. GPT-4o achieved highest F1. Best performance in haematological, gastrointestinal, and musculoskeletal/rheumatologic irAE categories. Key limitation: models over-predicted irAEs (high sensitivity, moderate PPV). Roche co-funded and co-authored. Vanderbilt + UCSF + UCLA + Cedars-Sinai. EBioMedicine 2026.",
+
+    "key_findings": [
+      "GPT models can automate irAE detection across diverse healthcare datasets (EHR + clinical trial notes) using zero-shot prompting — no fine-tuning required, enabling rapid deployment across institutions",
+      "GPT-4o highest performance: best F1 and micro-averaged F1 for both patient-level and note-level irAE identification; haematological irAE category: F1 range 1.0–1.0; gastrointestinal: F1 range 0.81–0.85; musculoskeletal/rheumatologic: F1 range 0.67–1.0",
+      "Key limitation: models bias towards over-predicting irAE outcomes (high sensitivity, moderate positive predictive value) — reflects tendency to report any adverse event as possibly immune-related; 'a potential bias towards overpredicting irAE outcomes'",
+      "Critical failure mode: 'substantial limitations of GPT models in handling textual causation, where adverse events should not only be accurately identified in clinical text but also causally linked to immune checkpoint inhibitors' — LLMs identify irAE mentions but cannot reliably establish causal attribution to ICI therapy",
+      "Generalizable approach: model trained on no institution-specific data (zero-shot) performs reasonably across 3 institutions and 7 clinical trials — demonstrates domain generalizability of GPT-4o for pharmacovigilance NLP",
+      "Multi-label classification: any combination of irAEs per patient simultaneously identified — addresses real-world complexity where patients can have multiple concurrent irAEs"
+    ],
+
+    "methods_discussed": [
+      "LLM",
+      "zero_shot_prompting",
+      "pharmacovigilance",
+      "NLP",
+      "multi_label_classification",
+      "EHR",
+      "immune_checkpoint_inhibitors",
+      "adverse_event_detection"
+    ],
+
+    "datasets_referenced": [
+      "Vanderbilt_EHR_ICI_patients",
+      "UCSF_EHR_ICI_patients",
+      "seven_clinical_trials_ICI",
+      "442_patients_total"
+    ],
+
+    "tools_software": ["GPT-3.5", "GPT-4", "GPT-4o"],
+
+    "limitations": [
+      "Over-prediction bias: high sensitivity but moderate PPV — cannot be used without downstream human review for regulatory purposes",
+      "Causal attribution failure: identifies irAE mentions but cannot causally link them to ICI therapy — critical limitation for pharmacovigilance where causality is required",
+      "Only ICI-related irAEs evaluated — cannot generalize findings to other drug classes without additional validation",
+      "Zero-shot only — fine-tuning was not evaluated and may substantially improve performance"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "GPT models demonstrated generalisable abilities in identifying irAEs across EHRs and clinical trial reports. Overall, the models achieved relatively high sensitivity and specificity but only moderate positive predictive values, reflecting a potential bias towards overpredicting irAE outcomes.",
+        "location": "Results / Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "Error analysis uncovered substantial limitations of GPT models in handling textual causation, where adverse events should not only be accurately identified in clinical text but also causally linked to immune checkpoint inhibitors.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "This capability will accelerate the generation of safety insights across large healthcare datasets and facilitate the characterisation of patient-level drivers of toxicities, thus enhancing safety monitoring and ultimately improving patient care.",
+        "location": "Abstract",
+        "evidence_type": "opinion"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Total patients across validation cohorts (EHR + clinical trials, 3 institutions)",
+        "value": "442",
+        "value_numeric": 442,
+        "unit": "N (patients)",
+        "comparison_baseline": null,
+        "location": "Methods",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "GPT-4o F1 for haematological irAE category (best-performing category)",
+        "value": "1.0–1.0",
+        "value_numeric": 1.0,
+        "unit": "F1 score range",
+        "comparison_baseline": "GPT-3.5 and GPT-4 lower F1",
+        "location": "Results",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "GPT-4o F1 for gastrointestinal irAE category",
+        "value": "0.81–0.85",
+        "value_numeric": 0.83,
+        "unit": "F1 score range",
+        "comparison_baseline": "GPT-3.5 and GPT-4 lower F1",
+        "location": "Results",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": [
+      "Fills M4.4 (LLMs for pharmacometrics/drug development) in the pharmacovigilance dimension: provides concrete multi-site validation of LLMs for automated adverse drug reaction detection — a key application area in the MCS SIG CLAUDE.md domain context (pharmacovigilance section)",
+      "Causal attribution failure is an important message for the WG: LLMs can find irAE mentions but cannot establish causality — directly relevant to regulatory acceptance concerns and to the WG's emphasis on mechanistic grounding for AI outputs",
+      "Roche co-authorship and multi-site clinical trial data adds regulatory credibility; GPT-4o zero-shot performance across 7 clinical trials demonstrates practical deployment feasibility at scale"
+    ],
+    "topics": [
+      "LLM",
+      "pharmacovigilance",
+      "adverse_drug_reaction",
+      "irAE",
+      "immune_checkpoint_inhibitors",
+      "NLP",
+      "EHR",
+      "zero_shot",
+      "GPT-4",
+      "clinical_trials",
+      "Vanderbilt",
+      "UCSF",
+      "Roche"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'LLM foundation model pharmacology biomedical text adverse drug reaction' (PMID 41951517). Full text available from PMC13174231 (DOI: 10.1016/j.ebiom.2026.106227). EBioMedicine 2026, 127:106227. Open access. Bejan CA = Vanderbilt Biomedical Informatics (corresponding, adi.bejan@vanderbilt.edu); multi-institutional: Vanderbilt, UCSF, UCLA, Cedars-Sinai, U Colorado. Roche co-funded and co-authored (Venkateswaran S, Bergmann EA, Hiles L, Chandler GS, Mohindra R). NIH, NHMRC Australia, Larry L. Hillblom Foundation also funded. PMC full text available — upgrade if deeper analysis needed."
+  }
+}

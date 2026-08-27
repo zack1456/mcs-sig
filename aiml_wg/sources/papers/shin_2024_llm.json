@@ -1,0 +1,103 @@
+{
+  "id": "shin_2024_llm",
+  "source_type": "paper",
+  "title": "Evaluation of ChatGPT and Gemini large language models for pharmacometrics with NONMEM",
+  "authors": ["Shin E", "Yu Y", "Bies RR", "Ramanathan M"],
+  "year": 2024,
+  "doi": "10.1007/s10928-024-09921-y",
+  "pmid": 38656706,
+  "url": null,
+  "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
+
+  "content": {
+    "abstract_summary": "Systematic evaluation of ChatGPT 4.0 and Gemini Ultra 1.0 on NONMEM coding tasks relevant to pharmacometrics and clinical pharmacology. Tasks ranged from curriculum generation and code structure overview to generating complete NONMEM control streams for (1) a linear one-compartment oral PK model and (2) a complex model with two parallel first-order absorption mechanisms. Reproducibility and temperature hyperparameter effects also assessed. Both LLMs reviewed by two NONMEM experts. University at Buffalo (Ramanathan M). JPKPD 2024.",
+
+    "key_findings": [
+      "ChatGPT and Gemini can generate NONMEM curriculum structures that combine foundational knowledge with advanced concepts (covariate modeling, Bayesian approaches) and practical skills including control stream structure",
+      "Both LLMs generated NONMEM control stream code from lay-language prompts for both tasks (simple linear PK and complex dual-absorption), but code contained 'focal structural and syntax errors that required revision before they could be executed without errors and warnings'",
+      "LLM output was not reproducible: same prompts produced different code on repeat runs; varying the temperature hyperparameter did not substantively reduce errors or omissions",
+      "Key conclusion: LLMs useful for 'efficiently generating an initial coding template for modeling projects' but 'the output can contain errors and omissions that require correction' — positioning LLMs as accelerators requiring expert review, not replacements",
+      "Gemini and ChatGPT gave similar performance overall — both required correction by NONMEM experts before runnable"
+    ],
+
+    "methods_discussed": [
+      "LLM_code_generation",
+      "NONMEM",
+      "pharmacometrics",
+      "prompt_engineering",
+      "population_PK"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["NONMEM", "ChatGPT_4.0", "Gemini_Ultra_1.0"],
+
+    "limitations": [
+      "Paywalled — full text not available for extraction",
+      "Only two LLMs evaluated; does not include Claude, Llama, or other models",
+      "Only two NONMEM coding tasks; does not test PD models, covariate models, or more complex NONMEM features",
+      "Two expert reviewers — evaluation may be subjective; no automated scoring of code correctness"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Large language models may be useful in pharmacometrics for efficiently generating an initial coding template for modeling projects. However, the output can contain errors and omissions that require correction.",
+        "location": "Abstract / Conclusions",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "The code output from ChatGPT and Gemini was not reproducible, and varying the temperature hyperparameter did not reduce the errors and omissions substantively.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "study_statistic",
+        "description": "Number of NONMEM expert reviewers who assessed LLM-generated code",
+        "value": "2",
+        "value_numeric": 2,
+        "unit": "N (expert reviewers)",
+        "comparison_baseline": null,
+        "location": "Methods",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": [
+      "Primary empirical evidence for M4.4 (LLMs for pharmacometrics): first systematic evaluation of ChatGPT/Gemini specifically for NONMEM coding tasks — directly relevant to WG discussions of LLM integration into pharmacometric workflows",
+      "Establishes baseline LLM capability (2024): LLMs can scaffold NONMEM code but are not reliable enough to replace expert modelers — important calibration point for the WG's recommendations on LLM adoption",
+      "Reproducibility finding is critical: non-reproducible LLM outputs are a regulatory red flag — directly relevant to FDA guidance on AI/ML reliability"
+    ],
+    "topics": [
+      "LLM",
+      "NONMEM",
+      "pharmacometrics",
+      "ChatGPT",
+      "Gemini",
+      "code_generation",
+      "reproducibility",
+      "AI_tools_evaluation"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["androulakis_2025_qsp"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-27",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search 'LLM drug development pharmacometrics' (PMID 38656706). DOI: 10.1007/s10928-024-09921-y. JPKPD 2024, 51(3):187-197. Paywalled (Springer). U Buffalo (Ramanathan M = corresponding, Murali@Buffalo.Edu). androulakis_2025_qsp cites this paper in context of LLMs generating NONMEM code. This is the core empirical LLM-pharmacometrics paper in the library — complement with androulakis_2025_qsp for the broader QSP perspective."
+  }
+}
