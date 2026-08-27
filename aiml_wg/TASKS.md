@@ -26,25 +26,25 @@
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
 | L-01 | active | Upgrade `gerard_2025` from abstract_only to full_text | ZK/Claude | Need PDF. PMID unknown — check PubMed for Gérard et al. 2025 AI in PK/PD/pharmacovigilance |
-| L-02 | todo | Run `/literature-discovery` agent across all 4 pillars | Claude | Identifies new High/Medium candidates; deduplicated against current 16-record library |
-| L-03 | todo | Add campo_manzanares_2026 cross-references once it cites or is cited by other library records | Claude | Currently isolated node. Check on publication |
-| L-04 | todo | Update WORKPLAN.md source library table (zhang_2022, campo_manzanares_2026 not yet listed) | Claude | Quick edit — add 2 rows to the table |
+| L-02 | done | Run `/literature-discovery` agent across all 4 pillars | Claude | Completed through 5 systematic rounds (PubMed); 43-record library covers all 4 pillars + regulatory context + identifiability tools |
+| L-03 | done | Add campo_manzanares_2026 cross-references once it cites or is cited by other library records | Claude | No PubMed-traceable citations yet; noted in provenance |
+| L-04 | done | Update WORKPLAN.md source library table | Claude | Table updated to reflect all 43 records |
 
 ### Pillar 1 — Hybrid Models
 
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
 | M1.1 | todo | Architecture taxonomy: serial / parallel / embedded / surrogate / VAE-NLME | WG lead TBD | Signal interest at kickoff. Working notes: `methods/01_hybrid_models/architecture_notes.md` |
-| M1.2 | todo | Structural identifiability of neural ODE components | WG lead TBD | Key source: `campo_manzanares_2026`. Notes: `structural_identifiability_notes.md` |
-| M1.3 | todo | Practical identifiability for hybrid models (profile likelihood, GSA) | WG lead TBD | Coordinate with SAUQ WG (see C-04). Key source: `baran_gaburro_2026` |
+| M1.2 | todo | Structural identifiability of neural ODE components | WG lead TBD | Key sources: `campo_manzanares_2026` (iNODE), `janzen_2017` (NLME extension), `villaverde_2016_strikegodd` (STRIKE-GOLDD method), `diazseoane_2023_strikegodd4` (current tool), `raue_2009` (profile likelihood). Notes: `structural_identifiability_notes.md` |
+| M1.3 | todo | Practical identifiability for hybrid models (profile likelihood, GSA) | WG lead TBD | Coordinate with SAUQ WG (see C-04). Key sources: `baran_gaburro_2026`, `najjar_2024_gsa` (GSA for PBPK, OSP Suite), `chenel_2026` (regulatory GSA requirements) |
 | M1.4 | todo | When do hybrids help vs. hurt? (decision criteria) | WG lead TBD | Integrates M1.1–M1.3. Feeds white paper §B |
 
 ### Pillar 2 — UQ / Identifiability
 
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
-| M2.1 | todo | Bayesian UQ framework literature review for hybrid models | WG lead TBD | Signal interest at kickoff |
-| M2.2 | todo | Conformal prediction in PK/PD — feasibility assessment | WG lead TBD | After M2.1 |
+| M2.1 | todo | Bayesian UQ framework literature review for hybrid models | WG lead TBD | Key sources: `elmokadem_2024` (HDCM: Bayesian IIV+RUV+UQ for hybrid PK), `aslanimoghankou_2026` (neural SDEs + uncertainty), `baaz_2026` (VAE+neural ODE population PK) |
+| M2.2 | todo | Conformal prediction in PK/PD — feasibility assessment | WG lead TBD | **Confirmed white space**: zero papers found across 3 PubMed search strategies — this is a genuine first-mover opportunity for the WG, not a gap to fill with existing papers |
 | M2.3 | todo | Ensemble uncertainty for pharmacometric applications | WG lead TBD | After M2.1 |
 | M2.4 | todo | Comparative assessment of UQ methods | WG | Feeds white paper §C |
 | M2.5 | todo | Coordinate with SAUQ WG on overlapping scope | ZK | Depends on C-04 |
@@ -61,7 +61,7 @@
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
 | M4.1 | todo | Physics-constrained generative models: literature scoping | WG lead TBD | Signal interest at kickoff. DECISION-4 scopes this first |
-| M4.4 | todo | LLM failure modes in pharmacometrics — position paper scoping | WG lead TBD | Lower bandwidth in Phase 1; one person tracks |
+| M4.4 | todo | LLM failure modes in pharmacometrics — position paper scoping | WG lead TBD | Key sources: `shin_2024_llm` (ChatGPT/Gemini for NONMEM — errors persist), `zheng_2025_llm` (7 LLMs × 13 tasks — o1/gpt-4.1 near-perfect with optimized prompt), `androulakis_2025_qsp` (QSP SIG AI/ML vision, LLM framing), `bejan_2026_iraegpt` (GPT-4o pharmacovigilance — causal attribution failure). Capability trajectory steep 2024→2025; failure modes now concentrated in complex models + causal reasoning |
 
 ### Deliverables — Scoping Paper
 
@@ -117,6 +117,11 @@
 | L-done-5 | Upgrade `zhang_2022` to full_text | 2026-08-27 |
 | L-done-6 | Add `campo_manzanares_2026` (sections_key) | 2026-08-26 |
 | L-done-7 | Fix `index.json` (add liu_2023, fix dermawan_2026 pillars) | 2026-08-26 |
+| L-done-8 | Round 1 literature search — 9 records (lu_2021, raue_2009, janssen_2024, baaz_2026, aslanimoghankou_2026, giacometti_2025, cminns_2024, chhetri_2026, upinn_2025) | 2026-08-27 |
+| L-done-9 | Round 2 literature search — 4 records + 3 full-text upgrades (karlsen_2025, kekic_2026, tosca_2024, irie_2025; upgraded lu_2021, janssen_2024, giacometti_2025) | 2026-08-27 |
+| L-done-10 | Round 3 literature search — 5 records (chenel_2026, goryanin_2025, krishna_2025, dette_2025, chen_2024_amd) | 2026-08-27 |
+| L-done-11 | Round 4 literature search — 6 records (elmokadem_2024, shin_2024_llm, androulakis_2025_qsp, najjar_2024_gsa, janzen_2017, bejan_2026_iraegpt) | 2026-08-27 |
+| L-done-12 | Round 5 literature search — 3 records (zheng_2025_llm, villaverde_2016_strikegodd, diazseoane_2023_strikegodd4); confirmed 3 white spaces (conformal prediction, Pontryagin OC, synthetic data/GANs) | 2026-08-27 |
 | REPO-1 | Repo structure (methods/deliverables/benchmarks/community/regulatory) | 2026-08 |
 | REPO-2 | WORKPLAN.md | 2026-08 |
 | REPO-3 | All method and deliverable PLAN.md files | 2026-08 |

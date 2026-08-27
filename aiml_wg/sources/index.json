@@ -273,6 +273,78 @@
       "title_short": "AMD: fully automated population PK model building tool in Pharmpy (Chen et al., Uppsala, CPT:PSP 2024)",
       "pillars": ["hybrid_foundations", "uq_identifiability"],
       "relevance": "high"
+    },
+    {
+      "id": "elmokadem_2024",
+      "file": "papers/elmokadem_2024.json",
+      "source_type": "paper",
+      "title_short": "HDCM: hierarchical deep compartment modeling with Bayesian IIV/RUV + UQ (Elmokadem et al., Metrum, CTS 2024)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "shin_2024_llm",
+      "file": "papers/shin_2024_llm.json",
+      "source_type": "paper",
+      "title_short": "ChatGPT and Gemini for NONMEM coding: LLM pharmacometrics evaluation (Shin et al., U Buffalo, JPKPD 2024)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "androulakis_2025_qsp",
+      "file": "papers/androulakis_2025_qsp.json",
+      "source_type": "paper",
+      "title_short": "QSP SIG AI/ML + LLM perspective: surrogate models, digital twins, LLM as partner (Androulakis et al., JPKPD 2025)",
+      "pillars": ["generative_ai", "hybrid_foundations"],
+      "relevance": "high"
+    },
+    {
+      "id": "najjar_2024_gsa",
+      "file": "papers/najjar_2024_gsa.json",
+      "source_type": "paper",
+      "title_short": "GSA tutorial for OSP Suite PBPK: Morris, Sobol, EFAST with regulatory formatting (Najjar et al., Edginton, CPT:PSP 2024)",
+      "pillars": ["uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "janzen_2017",
+      "file": "papers/janzen_2017.json",
+      "source_type": "paper",
+      "title_short": "Structural identifiability for NLME mixed-effects models: Taylor series + input-output extension (Janzén et al., AZ+Warwick, Math Biosci 2017)",
+      "pillars": ["uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "bejan_2026_iraegpt",
+      "file": "papers/bejan_2026_iraegpt.json",
+      "source_type": "paper",
+      "title_short": "irAE-GPT: GPT-4o for pharmacovigilance adverse event detection across EHR + clinical trials (Bejan et al., Vanderbilt+Roche, EBioMedicine 2026)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "zheng_2025_llm",
+      "file": "papers/zheng_2025_llm.json",
+      "source_type": "paper",
+      "title_short": "AI for NONMEM coding: 7 LLMs × 13 tasks, scoring rubric, optimized prompt; o1/gpt-4.1 near-perfect (Zheng et al., UNC+Monash, CPT:PSP 2025)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "villaverde_2016_strikegodd",
+      "file": "papers/villaverde_2016_strikegodd.json",
+      "source_type": "paper",
+      "title_short": "STRIKE-GOLDD: structural identifiability via Lie derivatives + observability for nonlinear ODE models (Villaverde et al., PLoS Comp Biol 2016)",
+      "pillars": ["uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "diazseoane_2023_strikegodd4",
+      "file": "papers/diazseoane_2023_strikegodd4.json",
+      "source_type": "paper",
+      "title_short": "STRIKE-GOLDD 4.0: ProbObsTest algorithm + GUI for structural identifiability of nonlinear ODE models (Díaz-Seoane et al., Bioinformatics 2023)",
+      "pillars": ["uq_identifiability"],
+      "relevance": "high"
     }
   ]
 }

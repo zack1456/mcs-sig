@@ -6,7 +6,7 @@
 
 ## Last updated
 
-**Date:** 2026-08-27
+**Date:** 2026-08-27 (Round 4 complete)
 **By:** Claude (Sonnet 4.6) + Zack Kenz
 
 ---
@@ -68,6 +68,34 @@ After the meeting, the immediate focus shifts to:
 
 `sources/index.json` updated to 34 records.
 
+**Round 4 literature search** (6 new records, filling M2.1/M4.4/M1.2/UQ work stream gaps):
+
+- `elmokadem_2024` — HDCM: hierarchical deep compartment modeling; Bayesian IIV + RUV + UQ via NUTS/Turing.jl; extends DCM line; Metrum Research Group, CTS 2024 (full_text, PMC11473376); M2.1
+- `shin_2024_llm` — ChatGPT 4.0 + Gemini Ultra 1.0 for NONMEM coding: LLMs generate templates but contain errors; non-reproducible; U Buffalo, JPKPD 2024 (abstract_only, paywalled); M4.4
+- `androulakis_2025_qsp` — QSP SIG's AI/ML vision: four-task taxonomy (mining → surrogates/DTs → network inference → hybrid); LLMs as 'active partner'; all 7 authors are ISoP QSP SIG members; JPKPD 2025 (full_text, PMC12170689); cross-SIG competitive intelligence
+- `najjar_2024_gsa` — GSA tutorial for OSP Suite PBPK: Morris + Sobol + EFAST R package with GUI; WHO IPCS regulatory formatting; OAT vs. GSA discrepancy demonstrated empirically; Edginton group, CPT:PSP 2024 (full_text, PMC11646943); M2.x Sobol gap
+- `janzen_2017` — Structural identifiability for NLME mixed-effects models: extends Taylor series + input-output form to mixed-effects; foundational M1.2 paper; AstraZeneca + Warwick (Chappell group), Math Biosci 2017 (abstract_only, paywalled)
+- `bejan_2026_iraegpt` — irAE-GPT: GPT-4o zero-shot for pharmacovigilance irAE detection; 442 patients across 3 institutions + 7 clinical trials; causal attribution failure documented; Vanderbilt + Roche, EBioMedicine 2026 (abstract_only, PMC13174231 available); M4.4
+- `shin_2024_llm` cited_by updated: `androulakis_2025_qsp` cites it (confirmed from full text)
+
+`sources/index.json` updated to 40 records.
+
+**Round 5 literature search** (4 new records, following up on identified gaps):
+
+- `zheng_2025_llm` — 7 LLMs × 13 NONMEM tasks + scoring rubric + optimized prompt; o1/gpt-4.1 near-perfect accuracy with optimized prompt; extends shin_2024_llm; UNC + Monash, CPT:PSP 2025 (abstract_only, PMC12706393 available); M4.4
+- `villaverde_2016_strikegodd` — original STRIKE-GOLDD paper: structural identifiability via Lie derivatives + observability for nonlinear ODE models; foundational M1.2 tool reference; U Oxford + U Vigo (Villaverde, Papachristodoulou), PLoS Comp Biol 2016 (abstract_only, PMC5085250 available)
+- `diazseoane_2023_strikegodd4` — STRIKE-GOLDD 4.0 update: ProbObsTest algorithm (faster for rational models) + GUI; U Vigo (Villaverde group), Bioinformatics 2023 (abstract_only, PMC9805590 available)
+- Note: `shin_2024_llm` cited_by extended by `zheng_2025_llm`; `villaverde_2016_strikegodd` cited_by `diazseoane_2023_strikegodd4`
+
+`sources/index.json` updated to 43 records.
+
+**Confirmed PubMed dead ends (not indexable via PubMed):**
+
+- Classical optimal control for PK (Pontryagin/HJB) — exists in J. Math. Biol., Bull. Math. Biol., SIAM journals, not PubMed-indexed under these terms
+- Conformal prediction for pharmacometrics — zero results across multiple search strategies; confirmed white space in the field
+- Synthetic data/GAN/VAE for virtual patients in drug development — PubMed query expansion makes these searches intractable
+- These are genuine frontier opportunities for MCS SIG WG, not gaps to fill with existing papers
+
 ---
 
 ## Blocked / waiting
@@ -88,7 +116,7 @@ After the meeting, the immediate focus shifts to:
 3. `TASKS.md` — full task list with status
 4. `DECISIONS.md` — scoping decisions and rationale
 5. `WORKPLAN.md` — 18-month milestone map and methods→deliverables mapping
-6. `sources/index.json` — 34-record source library index
+6. `sources/index.json` — 43-record source library index
 
 ---
 
@@ -101,7 +129,15 @@ After the meeting, the immediate focus shifts to:
 3. Mark C-01 as `done` in TASKS.md
 4. Start C-02: draft `community/charter.md`
 
-**Literature search status (complete through Round 3):** 34 records. Library is now comprehensive across all 4 pillars + regulatory context. No further systematic rounds needed; only targeted additions if specific gaps identified at kickoff.
+**Literature search status (complete through Round 4):** 40 records. Library is now comprehensive across all 4 pillars + regulatory context + work stream technical foundations. No further systematic rounds needed; only targeted additions if specific gaps identified at kickoff.
+
+**Round 4 coverage summary by work stream:**
+
+- M2.1 (Bayesian DL for PK): filled by `elmokadem_2024` (HDCM, Metrum)
+- M4.4 (LLMs for pharmacometrics): filled by `shin_2024_llm` + `androulakis_2025_qsp` + `bejan_2026_iraegpt`
+- M2.x (GSA/Sobol for PBPK): filled by `najjar_2024_gsa`
+- M1.2 (structural identifiability for NLME): filled by `janzen_2017`
+- Cross-SIG intelligence: `androulakis_2025_qsp` documents QSP SIG's AI/ML roadmap
 
 **Remaining open items:**
 

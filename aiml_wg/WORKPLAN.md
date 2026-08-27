@@ -52,22 +52,85 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 
 ## Source library status
 
+**Authoritative record: `sources/index.json` (43 records as of 2026-08-27).** The table below is a summary; `index.json` is the ground truth.
+
+### Background & Context
+
 | Record | Status | Pillar |
 | --- | --- | --- |
-| `papers/baran_gaburro_2026` | full_text | 1, 2 |
-| `papers/de_carlo_2024` | full_text | 3 |
-| `papers/de_carlo_2025` | full_text | 3 |
-| `papers/dermawan_2026` | full_text | 1, 2, 3, 4 |
-| `papers/gerard_2025` | abstract_only | 1, 2 |
-| `papers/liu_2023` | full_text | regulatory |
-| `papers/ribba_2023` | full_text | 3 |
-| `web/fda_ai_guidance_2025` | full_text | regulatory |
-| `web/aiml_sig_page2026` | full_text | positioning |
 | `background/cpt_moore_2019` | full_text | context |
 | `background/crosssig_fostvedt_2025` | full_text | context |
 | `background/aiml_claude_background` | full_text | 1, 2, 4 |
 | `background/aiml_chatgpt_background` | full_text | 4 |
 | `working_docs/mcs_wg_2026v03` | full_text | planning |
+| `web/fda_ai_guidance_2025` | full_text | regulatory |
+| `web/aiml_sig_page2026` | full_text | positioning |
+
+### Pillar 1 — Hybrid Mechanistic-ML Models
+
+| Record | Status | Notes |
+| --- | --- | --- |
+| `papers/baran_gaburro_2026` | full_text | Hybrid PK/PD review + digital biomarkers |
+| `papers/dermawan_2026` | full_text | Bibliometric review ML-MIDD 2015–2025 |
+| `papers/gerard_2025` | abstract_only | AI in PK/PD/pharmacovigilance review |
+| `papers/zhang_2022` | full_text | QSP+ML white paper (QSP SIG 2022) |
+| `papers/lu_2021` | full_text | First neural ODE for PK (trastuzumab emtansine) |
+| `papers/janssen_2024` | full_text | Deep compartment models + physiological constraints; neural-ODE underperforms on sparse data |
+| `papers/elmokadem_2024` | full_text | HDCM: Bayesian IIV+RUV+UQ for hybrid PK (Metrum) |
+| `papers/baaz_2026` | sections_key | VAE + neural ODE for population PK |
+| `papers/giacometti_2025` | full_text | Neural ODE vs. NLME head-to-head (dalbavancin, 218 patients) |
+| `papers/cminns_2024` | sections_key | CMINNs with fractional calculus (Karniadakis group) |
+| `papers/upinn_2025` | sections_key | UPINNs for chemotherapy drug action |
+| `papers/campo_manzanares_2026` | sections_key | iNODE: identifiability-aware neural ODEs |
+
+### Pillar 1 — Covariate Selection & Automation
+
+| Record | Status | Notes |
+| --- | --- | --- |
+| `papers/karlsen_2025` | sections_key | Systematic review: pop PK covariate selection SCM→AI |
+| `papers/kekic_2026` | full_text | Stochastic gates for ML covariate selection (AstraZeneca) |
+| `papers/chen_2024_amd` | abstract_only | AMD automated pop PK in Pharmpy (Uppsala) |
+
+### Pillar 2 — UQ / Identifiability
+
+| Record | Status | Notes |
+| --- | --- | --- |
+| `papers/raue_2009` | sections_key | Profile likelihood: structural vs. practical identifiability |
+| `papers/chhetri_2026` | sections_key | CBINN with FIM-based identifiability analysis |
+| `papers/aslanimoghankou_2026` | sections_key | Neural SDEs for clinical time series + uncertainty calibration |
+| `papers/janzen_2017` | abstract_only | Structural identifiability for NLME mixed-effects models |
+| `papers/villaverde_2016_strikegodd` | abstract_only | STRIKE-GOLDD: Lie derivative identifiability method |
+| `papers/diazseoane_2023_strikegodd4` | abstract_only | STRIKE-GOLDD 4.0: ProbObsTest + GUI |
+| `papers/najjar_2024_gsa` | full_text | GSA tutorial for OSP Suite PBPK: Morris, Sobol, EFAST |
+| `papers/chenel_2026` | full_text | PBPK best practices + ICH M15 regulatory framework |
+
+### Pillar 3 — RL / Optimal Control
+
+| Record | Status | Notes |
+| --- | --- | --- |
+| `papers/de_carlo_2024` | full_text | RL + PK-PD for erdafitinib |
+| `papers/de_carlo_2025` | full_text | RL + PK-PD for givinostat (polycythemia vera) |
+| `papers/ribba_2023` | full_text | RL as innovative model-based approach (dosing, digital health) |
+| `papers/tosca_2024` | abstract_only | Model-informed RL for precision dosing: tutorial review |
+| `papers/irie_2025` | full_text | DQN for infliximab in pediatric Crohn's (real-world validation) |
+
+### Pillar 4 — Generative AI / LLMs
+
+| Record | Status | Notes |
+| --- | --- | --- |
+| `papers/dette_2025` | sections_key | Digital twin systematic review; generative DTs |
+| `papers/goryanin_2025` | abstract_only | AI+QSP: surrogate models, virtual patients, QSPaaS |
+| `papers/krishna_2025` | sections_key | MIDD for pediatric rare diseases; digital twins + synthetic controls |
+| `papers/shin_2024_llm` | abstract_only | ChatGPT/Gemini for NONMEM (2024 baseline; errors persist) |
+| `papers/zheng_2025_llm` | abstract_only | 7 LLMs × 13 NONMEM tasks; o1/gpt-4.1 near-perfect with optimized prompt |
+| `papers/androulakis_2025_qsp` | full_text | QSP SIG AI/ML vision: LLMs as active partner (cross-SIG intel) |
+| `papers/bejan_2026_iraegpt` | abstract_only | GPT-4o for pharmacovigilance irAE detection (Vanderbilt+Roche) |
+
+### Regulatory & Cross-Cutting
+
+| Record | Status | Notes |
+| --- | --- | --- |
+| `papers/liu_2023` | full_text | FDA landscape: AI/ML in regulatory submissions 2016–2021 |
 
 ---
 

@@ -260,10 +260,42 @@ Organized into three phases over ~18 months.
 - [QSP+ML White Paper (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC8837505/)
 - [QSP+ML LLM 2025 update (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12170689/)
 
-**Literature (PubMed):**
-- Baran & Gaburro (2026). Hybrid mechanistic-ML PK/PD models with digital biomarkers. [DOI](https://doi.org/10.3389/fphar.2026.1815118)
+**Literature (PubMed) — full library in `sources/index.json` (43 records). Key papers by pillar:**
+
+*Pillar 1 — Hybrid Models:*
+
+- Baran & Gaburro (2026). Hybrid mechanistic-ML PK/PD with digital biomarkers. [DOI](https://doi.org/10.3389/fphar.2026.1815118)
 - Dermawan et al. (2026). Global trends in integrating ML with MIDD. [DOI](https://doi.org/10.3390/pharmaceutics18050542)
-- Gérard et al. (2025). AI in pharmacokinetics, pharmacodynamics, pharmacovigilance. [DOI](https://doi.org/10.1016/j.therap.2025.09.002)
-- De Carlo et al. (2025). RL + PK-PD for givinostat precision dosing. [DOI](https://doi.org/10.1002/psp4.70012)
+- Janssen et al. (2024). Deep compartment models + physiological constraints; neural-ODE underperforms on sparse data. [DOI](https://doi.org/10.1007/s10928-024-09906-x)
+- Elmokadem et al. (2024). HDCM: Bayesian IIV+RUV+UQ for hybrid PK (Metrum). [DOI](https://doi.org/10.1111/cts.70045)
+- Karlsen et al. (2025). Systematic review: pop PK covariate selection SCM→AI. [DOI](https://doi.org/10.1002/psp4.70032)
+
+*Pillar 2 — UQ / Identifiability:*
+
+- Raue et al. (2009). Profile likelihood: structural vs. practical identifiability. [DOI](https://doi.org/10.1093/bioinformatics/btp358)
+- Janzén et al. (2017). Structural identifiability for NLME mixed-effects models. [DOI](https://doi.org/10.1016/j.mbs.2017.10.009)
+- Villaverde et al. (2016). STRIKE-GOLDD: Lie derivative identifiability method. [DOI](https://doi.org/10.1371/journal.pcbi.1005153)
+- Díaz-Seoane et al. (2023). STRIKE-GOLDD 4.0: ProbObsTest + GUI. [DOI](https://doi.org/10.1093/bioinformatics/btac748)
+- Najjar et al. (2024). GSA tutorial for OSP Suite PBPK: Morris, Sobol, EFAST. [DOI](https://doi.org/10.1002/psp4.13256)
+- Chenel et al. (2026). PBPK best practices + ICH M15 regulatory framework. [DOI](https://doi.org/10.1002/psp4.13299)
+
+*Pillar 3 — RL / Optimal Control:*
+
+- De Carlo et al. (2025). RL + PK-PD for givinostat. [DOI](https://doi.org/10.1002/psp4.70012)
 - De Carlo et al. (2024). RL + PK-PD for erdafitinib. [DOI](https://doi.org/10.1002/cpt.3176)
-- Ribba (2023). Reinforcement learning: precision dosing, digital health, computational psychiatry. [DOI](https://doi.org/10.3389/fphar.2022.1094281)
+- Ribba (2023). Reinforcement learning for precision dosing. [DOI](https://doi.org/10.3389/fphar.2022.1094281)
+- Irie et al. (2025). DQN for infliximab in pediatric Crohn's: first real-world RL validation. [DOI](https://doi.org/10.1002/cpt.3589)
+
+*Pillar 4 — Generative AI / LLMs:*
+
+- Gérard et al. (2025). AI in PK/PD/pharmacovigilance. [DOI](https://doi.org/10.1016/j.therap.2025.09.002)
+- Shin et al. (2024). ChatGPT and Gemini for NONMEM coding: errors persist. [DOI](https://doi.org/10.1007/s10928-024-09921-y)
+- Zheng et al. (2025). 7 LLMs × 13 NONMEM tasks; o1/gpt-4.1 near-perfect with optimized prompt. [DOI](https://doi.org/10.1002/psp4.70125)
+- Androulakis et al. / ISoP QSP SIG (2025). ML and LLMs for QSP: QSP SIG's AI/ML roadmap. [DOI](https://doi.org/10.1007/s10928-025-09984-5)
+- Dette et al. (2025). Digital twin systematic review; generative DTs. [DOI](https://doi.org/10.1016/j.csbj.2025.11.047)
+
+*Confirmed literature white spaces (0 PubMed results across multiple searches):*
+
+- Conformal prediction for PK/PD — genuine first-mover opportunity for MCS WG
+- Pontryagin/HJB optimal control for pharmacokinetics — math journals not in PubMed
+- Synthetic data / GAN-based virtual patients — query expansion intractable
