@@ -10,58 +10,130 @@
   "journal_or_venue": "Journal of pharmacokinetics and pharmacodynamics",
 
   "content": {
-    "abstract_summary": "ISoP QSP SIG white paper from a 21-member working group (18 academic/industry organizations) convened in September 2019 to identify opportunities for integrating QSP modeling and machine learning. Identifies four categories of current QSP+ML research activity, presents drug development case studies, and concludes that QSP+ML integration is in its early stages — moving from evaluating tools to building case studies — and serves as a foundation for future best-practices codification.",
+    "abstract_summary": "ISoP QSP SIG white paper from a 21-member, 18-organization working group (convened September 2019) on integrating QSP modeling and machine learning across drug development. Identifies four current integration categories (parameter estimation, model structure inference, dimension reduction, stochastic/virtual populations), presents four case studies, and concludes that QSP+ML is in early stages — moving from evaluating tools to building case studies — and serves as a foundation for future best-practices codification.",
 
     "key_findings": [
-      "Four integration categories identified: (1) ML applied to components of QSP models, (2) QSP used to generate training data for ML, (3) ML used to analyze QSP model outputs (sensitivity analysis, UQ), (4) hybrid QSP-ML architectures for mechanism + data-driven learning",
-      "Both QSP and ML are powerful individually; integration aims to overcome each approach's limitations — QSP's data hunger for parameterization vs. ML's lack of mechanistic interpretability",
-      "Multi-layer omics data (gene expression, proteomics, metabolomics, imaging) is the primary data source where ML adds value to QSP workflows",
-      "Working group concluded that the field was in early stages at time of writing (2019–2021 scoping): case study building phase, not yet best-practices codification",
-      "Rackauckas C (Pumas-AI / MIT) is listed as co-author — signals connection to Julia/Pumas-AI scientific ML ecosystem relevant to WG Pillar 1 (neural ODEs, SciML)"
+      "Four categories of integrated QSP+ML approaches: (1) parameter estimation and extraction from qualitative/quantitative data; (2) model structure inference including logic networks and sensitivity analysis; (3) dimension reduction to extract key variables from high-dimensional data; (4) stochasticity and virtual populations including generative models for population parameter inference",
+      "SciML ('scientific machine learning') uses mechanistic priors inside the learning architecture — represented in the paper as the universal differential equation framework and PINNs. Key hybrid form: [Depot]' = -KaNN([Depot],[Central]) where the unknown nonlinear feedback is replaced by a neural network while the mechanistic scaffold is retained",
+      "DeepXDE (biologically-informed neural networks) showed local optimization 100× to 10,000× more expensive than traditional approaches — a significant computational limitation for PINNs in QSP settings",
+      "Case study 1 (thrombosis): QSP model of coagulation pathway linked to ML event prediction; real-world event rate data at multiple doses used to train event prediction algorithm; supported clinical development of anti-coagulants",
+      "Case study 2 (drug-induced liver injury): QSP model with 112 coupled differential and algebraic equations; NLP used to identify gene-expression connections from literature; ML + QSP predicted relative impact of mechanistic hepatotoxic perturbations",
+      "Case study 3 (T cell differentiation): logic-based QSP model of T cell signaling; ML classification of dynamic response identified novel complex multi-fate T cell phenotypes and cytokine dosage-timing effects on T cell fate",
+      "Operational guidance: 'AI hierarchy of needs' (after Maslow) — must satisfy collect data → store → integrate → explore → model → report before ML is possible; most pharma companies are at the AI Outsourcing or ML-capable stage, not AI-driven",
+      "'The current state of the art does not include fully integrated hybrid QSP + ML models' — case studies are ML-assisted QSP modeling, not true hybrids; future goal is iteratively uncovering black box mechanisms through systematic analysis",
+      "Surrogate ML models trained on QSP simulation outputs are used to reduce computational burden for parameter space characterization and sensitivity analysis — an area where QSP and PMx practice already converge",
+      "Feature selection (FS) + QSP integration: two strategies: (a) FS first to identify minimal physiologically meaningful feature subset for QSP parameterization; (b) build full QSP model first, then apply dimension reduction — both aim for parsimonious models that balance interpretability and complexity"
     ],
 
     "methods_discussed": [
       "quantitative_systems_pharmacology",
-      "machine_learning",
-      "hybrid_mechanistic_ML",
-      "omics_data_integration",
+      "physics_informed_neural_networks",
+      "universal_differential_equations",
+      "scientific_machine_learning",
+      "biologically_informed_neural_networks",
+      "surrogate_ML_models",
+      "feature_selection",
+      "dimension_reduction",
+      "generative_adversarial_networks",
+      "normalizing_flows",
+      "Bayesian_neural_ODEs",
+      "virtual_population_generation",
       "sensitivity_analysis",
-      "uncertainty_quantification",
-      "neural_ODE"
+      "Boolean_network_modeling",
+      "logic_based_modeling",
+      "natural_language_processing",
+      "transfer_learning",
+      "multitask_deep_learning"
     ],
 
-    "datasets_referenced": [],
+    "datasets_referenced": [
+      "thrombosis_real_world_event_rate_data_multiple_doses",
+      "TransQST_hepatotoxicity_dataset",
+      "vaccine_hyporesponse_elderly_microbiome_data_NHP"
+    ],
 
-    "tools_software": [],
+    "tools_software": [
+      "DiffEqFlux (Julia)",
+      "DeepXDE",
+      "QSP toolbox (AAPS J, Cheng 2017)"
+    ],
 
     "limitations": [
-      "Scoped entirely within QSP (systems-scale mechanistic models) rather than pharmacometrics (NLME/compartmental PK/PD) — the MCS WG operates more in the PMx space, so direct overlap is partial",
-      "Published 2022 based on 2019–2021 work — landscape has shifted substantially with foundation models and SciML advances since then",
-      "Abstract-only read; four integration categories and case study details require full text to evaluate rigorously"
+      "Scoped entirely within QSP (systems-scale mechanistic models, ODE/PDE/logic networks) rather than NLME-based pharmacometrics (compartmental PK/PD) — MCS WG operates in PMx space, so direct methodological overlap is partial",
+      "No fully integrated hybrid QSP+ML models existed at time of writing (2022) — all case studies are 'ML-assisted QSP', not true hybrids; the mechanistic and ML components are largely trained/estimated separately",
+      "DeepXDE/PINNs are 100-10,000× more computationally expensive than traditional ODE solvers for biologically-informed neural networks — practical scalability to clinical development timelines is unresolved",
+      "High-quality, high-volume clinical data remains the primary bottleneck for QSP+ML; decentralized trial data, wearables, and collaborative warehouses are emerging but data harmonization is unsolved",
+      "QSP models are 'chronically under-determined due to limited clinical and preclinical pharmacology data' — ML does not resolve this fundamental identifiability challenge; the paper does not address structural or practical identifiability of hybrid components",
+      "Published 2022 based on 2019–2021 scoping — landscape has shifted substantially with foundation models, SciML advances (Julia ecosystem), and regulatory developments since then"
     ],
 
     "extracted_claims": [
       {
-        "text": "\"Both approaches are powerful tools and there is considerable interest in integrating QSP modeling and ML. So far, a few successful implementations have been carried out from which we have learned about how each approach can overcome unique limitations of the other.\"",
-        "location": "Abstract",
+        "text": "\"The current state of the art does not include fully integrated hybrid QSP + ML models. The case studies presented are ML-assisted QSP modeling, using ML to address weaknesses of QSP models.\"",
+        "location": "Conclusions: Challenges and future perspectives",
+        "evidence_type": "opinion"
+      },
+      {
+        "text": "\"The integration of QSP and ML is still in its early stages of moving from evaluating available technical tools to building case studies. Such integration offers multiple advantages from providing data-driven QSP model parameterization, to imposing a QSP model framework to increase interpretability of high dimensional data and fully data-driven QSP model structure discovery.\"",
+        "location": "Conclusions: Challenges and future perspectives",
         "evidence_type": "review"
       },
       {
-        "text": "\"The working group also concluded that the integration of QSP and ML is still in its early stages of moving from evaluating available technical tools to building case studies.\"",
-        "location": "Abstract",
+        "text": "\"ML can be oversold as a magic solution to every problem, but it is not... The right framework to think through is how to better understand an organization's decisions, how those decisions are currently made, when are they going to be made in the future, what information would be helpful to have at the time of the decision being made, and then, finally, how the data can be collected, processed, analyzed, and translated into an insight to inform that decision.\"",
+        "location": "Conclusions: Practical considerations",
         "evidence_type": "opinion"
+      },
+      {
+        "text": "A comparison of standard ODE solver based parameter estimation with the DeepXDE package used in Biologically-Informed Neural Networks showed local optimization of parameters was 100× to 10,000× more expensive than traditional approaches.",
+        "location": "Current approaches: Model structure (citing ref [35])",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "\"[A] QSP model describing the mechanisms of necrosis, steatosis and cholestasis comprising 112 coupled differential and algebraic equations were constructed\" — then linked with gene-expression ML for hepatotoxicity prediction.",
+        "location": "Case studies: Prediction of drug induced liver injury",
+        "evidence_type": "empirical"
       }
     ],
 
     "numerical_findings": [
       {
         "metric_type": "count",
-        "description": "Working group membership size at time of writing",
+        "description": "QSP+ML working group membership and organizational representation",
         "value": "21 members representing 18 academic and industry organizations",
         "value_numeric": 21,
         "unit": "N (members)",
         "comparison_baseline": null,
         "location": "Abstract",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "computational_metric",
+        "description": "Computational cost of DeepXDE (biologically-informed neural networks) vs. traditional ODE parameter estimation",
+        "value": "100× to 10,000× more expensive",
+        "value_numeric": null,
+        "unit": "fold increase in computational cost",
+        "comparison_baseline": "vs. standard ODE solver-based parameter estimation",
+        "location": "Current approaches: Model structure (citing ref [35])",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "count",
+        "description": "Number of coupled differential and algebraic equations in the QSP liver homeostasis model (hepatotoxicity case study)",
+        "value": "112",
+        "value_numeric": 112,
+        "unit": "N (equations)",
+        "comparison_baseline": null,
+        "location": "Case studies: Drug-induced liver injury",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "count",
+        "description": "Total references cited — indicates comprehensive coverage of the 2019-2021 QSP+ML landscape",
+        "value": "94",
+        "value_numeric": 94,
+        "unit": "N (references)",
+        "comparison_baseline": null,
+        "location": "Reference list",
         "is_primary_finding": false
       }
     ]
@@ -70,20 +142,30 @@
   "relevance": {
     "pillars": ["hybrid_foundations", "uq_identifiability"],
     "gaps_addressed": [
-      "Provides the sister SIG (QSP) perspective on hybrid mechanistic-ML integration — directly relevant to differentiating MCS WG scope from QSP WG scope (QSP operates at network/systems scale; PMx at NLME/compartmental scale)",
-      "The four integration categories framework is a useful taxonomy for Pillar 1 scoping paper — MCS WG should reference this QSP categorization and clarify which categories apply to pharmacometrics vs. QSP contexts",
-      "Rackauckas (Julia SciML / neural ODEs) co-authorship signals that the Julia/SciML ecosystem is QSP-adjacent — MCS WG should be aware when evaluating tool recommendations"
+      "Provides the sister SIG (QSP) taxonomy for hybrid mechanistic-ML integration — the four categories (parameter estimation, model structure, dimension reduction, stochastic/virtual) are directly mappable to WG Pillar 1 scope decisions; MCS WG should cite this taxonomy and clarify which categories apply at the PMx (NLME) scale vs. QSP (network) scale",
+      "The '100-10,000× more expensive' finding for PINNs/DeepXDE is a key quantitative limitation that motivates the iNODE approach (campo_manzanares_2026) — the two papers together frame the problem-and-solution arc for Pillar 1",
+      "The 'fully integrated hybrid QSP+ML models do not yet exist' conclusion (2022) establishes a clear benchmark: has this changed by 2026? The WG scoping paper should assess this explicitly",
+      "The AI hierarchy of needs framework is directly usable in the Pillar 4 position paper — it provides a principled framework for assessing organizational readiness for GenAI in drug development",
+      "Virtual population + ML (GAN/normalizing flow) methods discussed in Category 4 overlap with Pillar 4 (generative models) and inform the synthetic patient validation gap the WG has identified"
     ],
     "topics": [
       "quantitative_systems_pharmacology",
       "machine_learning",
       "hybrid_models",
-      "omics",
-      "drug_development",
+      "scientific_machine_learning",
+      "physics_informed_neural_networks",
+      "universal_differential_equations",
+      "virtual_populations",
+      "surrogate_models",
+      "feature_selection",
+      "drug_induced_liver_injury",
+      "thrombosis",
+      "T_cell_differentiation",
       "ISoP",
       "QSP_SIG",
       "white_paper",
-      "cross_SIG"
+      "cross_SIG",
+      "open_access"
     ],
     "relevance_score": "high"
   },
@@ -96,10 +178,10 @@
   },
 
   "provenance": {
-    "how_obtained": "pubmed_search",
+    "how_obtained": "provided_by_user",
     "date_read": "2026-08-26",
     "read_by": "claude",
-    "read_depth": "abstract_only",
-    "notes": "Found via PubMed search for 'two heads better than one QSP machine learning' (PMID 35103884, PMC8837505). PMC full text fetch failed — parameter error on mcp__claude_ai_PubMed__get_full_text_article. Abstract only processed. DOI: 10.1007/s10928-022-09805-z. J Pharmacokinet Pharmacodyn 49(1):5-18. Upgrade to full_text recommended — this is the sister SIG white paper and the most direct comparator to the MCS WG mission document."
+    "read_depth": "full_text",
+    "notes": "PDF provided by user (14 pages, 582.9KB). Full text read: all sections — Rationale, Background (QSP modeling, ML for dimension reduction), Current Approaches (all 4 categories), Case Studies (thrombosis, liver injury, T cell differentiation, network inference), Conclusions (practical considerations, challenges, future perspectives), Glossary, References (94), Author Affiliations. Open Access CC BY 4.0. Corresponding authors: Tongli Zhang (tongli.zhang@uc.edu, U Cincinnati) and Carolyn R. Cho (carolyn.cho@merck.com, Merck). Rackauckas affiliation: Pumas-AI (Baltimore) AND MIT Department of Mathematics — the Julia/SciML connection. Peter Bonate: Astellas Pharma. Parikh: GSK. Subramanian: Applied BioMath. Upgraded from abstract_only."
   }
 }
