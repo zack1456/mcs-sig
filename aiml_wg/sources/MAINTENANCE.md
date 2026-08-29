@@ -13,6 +13,7 @@ This is the provider-neutral maintenance contract for people and AI assistants w
 - Source JSON records and `_schema.json` are canonical.
 - `index.json` mirrors selected record metadata and preserves its curated `title_short` values.
 - `reader.html` is generated from the index and source records.
+- The order in `index.json` is the reader's curated default. Reader sort controls change only the current view and never rewrite source or index order.
 - `STATUS.md` and the current source-library statement in `WORKPLAN.md` must agree with the number of indexed records.
 
 Do not ask contributors to hand-maintain derived fields. `python scripts/literature.py fix` synchronizes them.

@@ -24,6 +24,8 @@ assert VALIDATOR_SPEC.loader is not None
 sys.modules[VALIDATOR_SPEC.name] = validate_sources
 VALIDATOR_SPEC.loader.exec_module(validate_sources)
 
+READER_BUILDER_PATH = Path(__file__).resolve().parents[1] / "aiml_wg" / "sources" / "build_reader.py"
+
 
 class LiteratureHelpersTest(unittest.TestCase):
     def test_normalize_doi(self):
@@ -113,6 +115,57 @@ class LiteratureHelpersTest(unittest.TestCase):
                 self.assertIn("10.1000/example", intakes[0].read_text(encoding="utf-8"))
         finally:
             literature.SOURCES_DIR = original_sources_dir
+
+    def test_reader_preserves_existing_filter_controls_and_conditions(self):
+        reader_builder = READER_BUILDER_PATH.read_text(encoding="utf-8")
+        controls = (
+            'data-pillar="hybrid_foundations"',
+            'data-pillar="uq_identifiability"',
+            'data-pillar="optimal_control_rl"',
+            'data-pillar="generative_ai"',
+            'data-type="paper"',
+            'data-type="preprint"',
+            'data-type="background"',
+            'data-type="web"',
+            'data-type="report"',
+            'data-type="working_doc"',
+            'data-depth="full_text"',
+            'data-depth="sections_key"',
+            'data-depth="abstract_only"',
+            'data-review="draft"',
+            'data-review="reviewed"',
+            'id="search"',
+        )
+        conditions = (
+            "state.pillars.length && !state.pillars.some",
+            "state.types.length  && !state.types.includes",
+            "state.depths.length && !state.depths.includes",
+            "state.reviews.length && !state.reviews.includes",
+            "if (state.q)",
+        )
+        for expected in controls + conditions:
+            with self.subTest(expected=expected):
+                self.assertIn(expected, reader_builder)
+
+    def test_reader_sorts_filtered_copy_and_keeps_library_default(self):
+        reader_builder = READER_BUILDER_PATH.read_text(encoding="utf-8")
+        self.assertIn('<option value="default">Library order (default)</option>', reader_builder)
+        self.assertIn("return sources.slice().sort", reader_builder)
+        self.assertIn("const srcs = sortedSources(filtered());", reader_builder)
+        self.assertIn("SOURCE_ORDER.get(leftSource.id) - SOURCE_ORDER.get(rightSource.id)", reader_builder)
+
+    def test_reader_sort_toolbar_is_fixed_above_scrolling_paper_list(self):
+        reader_builder = READER_BUILDER_PATH.read_text(encoding="utf-8")
+        panel_start = reader_builder.index('<div id="list-panel">')
+        toolbar_start = reader_builder.index('<div id="list-toolbar">', panel_start)
+        list_start = reader_builder.index('<div id="list"></div>', toolbar_start)
+        panel_end = reader_builder.index('</div>\n  <div id="detail-panel">', list_start)
+        self.assertLess(panel_start, toolbar_start)
+        self.assertLess(toolbar_start, reader_builder.index('id="sort-key"', toolbar_start))
+        self.assertLess(reader_builder.index('id="sort-key"', toolbar_start), list_start)
+        self.assertLess(list_start, panel_end)
+        self.assertIn("#list-toolbar {", reader_builder)
+        self.assertIn("#list { flex: 1; overflow-y: auto; }", reader_builder)
 
 
 if __name__ == "__main__":

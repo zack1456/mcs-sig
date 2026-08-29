@@ -69,6 +69,27 @@ body {
 .chip:hover { background: var(--hover); }
 .chip.active { background: #374151; border-color: #374151; color: #fff; }
 
+.sort-group {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  width: 100%;
+  white-space: nowrap;
+}
+#sort-key, #sort-direction {
+  border: 1.5px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-family: inherit;
+}
+#sort-key { flex: 1; min-width: 0; }
+#sort-direction { cursor: pointer; min-width: 86px; }
+#sort-direction:disabled { cursor: default; color: var(--muted); background: var(--hover); }
+#sort-key:focus, #sort-direction:focus { border-color: var(--sel-bar); outline: none; }
+
 #search {
   flex: 1;
   min-width: 160px;
@@ -84,11 +105,9 @@ body {
 }
 #search:focus { border-color: var(--sel-bar); }
 #count {
-  margin-left: auto;
   font-size: 11px;
   color: var(--muted);
   white-space: nowrap;
-  padding-left: 8px;
 }
 
 /* ── Main split ─────────────────────────────── */
@@ -103,6 +122,19 @@ body {
   border-right: 1px solid var(--border);
   background: var(--surface);
 }
+#list-toolbar {
+  flex-shrink: 0;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.list-toolbar-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+#list-toolbar .flabel { min-width: auto; }
 #list { flex: 1; overflow-y: auto; }
 
 .list-row {
@@ -290,7 +322,6 @@ a.doi-link:hover { text-decoration: underline; }
     <button class="chip" data-pillar="uq_identifiability">UQ &amp; Identifiability</button>
     <button class="chip" data-pillar="optimal_control_rl">RL / Optimal Control</button>
     <button class="chip" data-pillar="generative_ai">Generative AI / LLM</button>
-    <span id="count"></span>
   </div>
   <div class="frow">
     <span class="flabel">Type</span>
@@ -315,6 +346,26 @@ a.doi-link:hover { text-decoration: underline; }
 
 <div id="main">
   <div id="list-panel">
+    <div id="list-toolbar">
+      <div class="list-toolbar-head">
+        <span class="flabel">Papers</span>
+        <span id="count" aria-live="polite"></span>
+      </div>
+      <div class="sort-group">
+        <label class="flabel" for="sort-key">Sort</label>
+        <select id="sort-key" title="Choose how the visible sources are ordered">
+          <option value="default">Library order (default)</option>
+          <option value="author">First author</option>
+          <option value="year">Year</option>
+          <option value="title">Title</option>
+          <option value="source_type">Source type</option>
+          <option value="relevance">Relevance</option>
+          <option value="read_depth">Read depth</option>
+          <option value="review_status">Review status</option>
+        </select>
+        <button id="sort-direction" type="button" disabled title="The default preserves the curated source-index order">Index order</button>
+      </div>
+    </div>
     <div id="list"></div>
   </div>
   <div id="detail-panel">
@@ -346,7 +397,21 @@ const DEPTH = {
   abstract_only:{ label: "abstract",     width: "25%",  color: "#9ca3af" }
 };
 
-const state = { selected: null, pillars: [], types: [], depths: [], reviews: [], q: "" };
+const state = {
+  selected: null,
+  pillars: [],
+  types: [],
+  depths: [],
+  reviews: [],
+  q: "",
+  sortKey: "default",
+  sortDirection: "asc"
+};
+const SOURCE_ORDER = new Map(SOURCES.map(function(source, index) { return [source.id, index]; }));
+const TEXT_COLLATOR = new Intl.Collator(undefined, { numeric: true, sensitivity: "base" });
+const RELEVANCE_ORDER = { high: 0, medium: 1, low: 2 };
+const DEPTH_ORDER = { full_text: 0, sections_key: 1, abstract_only: 2 };
+const REVIEW_ORDER = { draft: 0, reviewed: 1, legacy: 2 };
 
 // ── Helpers ─────────────────────────────────────────────
 function esc(s) {
@@ -360,6 +425,72 @@ function toggle(arr, v) {
   if (i >= 0) arr.splice(i,1); else arr.push(v);
 }
 function byId(id) { return document.getElementById(id); }
+
+function sourceTitle(source) {
+  return source.title_short || source.title || source.id;
+}
+function primaryAuthor(source) {
+  const author = source.authors && source.authors.length ? String(source.authors[0]).trim() : "";
+  return author.includes(",") ? author.split(",", 1)[0].trim() : author;
+}
+function sortValue(source, key) {
+  if (key === "author") return primaryAuthor(source);
+  if (key === "year") return source.year;
+  if (key === "title") return sourceTitle(source);
+  if (key === "source_type") return source.source_type;
+  if (key === "relevance") return RELEVANCE_ORDER[source.relevance && source.relevance.relevance_score];
+  if (key === "read_depth") return DEPTH_ORDER[source.provenance && source.provenance.read_depth];
+  if (key === "review_status") return REVIEW_ORDER[source.review_status || "legacy"];
+  return SOURCE_ORDER.get(source.id);
+}
+function missingSortValue(value) {
+  return value == null || value === "";
+}
+function compareSortValues(left, right) {
+  if (typeof left === "number" && typeof right === "number") return left - right;
+  return TEXT_COLLATOR.compare(String(left), String(right));
+}
+function sortedSources(sources) {
+  return sources.slice().sort(function(leftSource, rightSource) {
+    const left = sortValue(leftSource, state.sortKey);
+    const right = sortValue(rightSource, state.sortKey);
+    const leftMissing = missingSortValue(left);
+    const rightMissing = missingSortValue(right);
+    if (leftMissing !== rightMissing) return leftMissing ? 1 : -1;
+
+    var comparison = leftMissing ? 0 : compareSortValues(left, right);
+    if (comparison && state.sortDirection === "desc") comparison = -comparison;
+    if (comparison) return comparison;
+
+    const titleComparison = TEXT_COLLATOR.compare(sourceTitle(leftSource), sourceTitle(rightSource));
+    if (titleComparison) return titleComparison;
+    return SOURCE_ORDER.get(leftSource.id) - SOURCE_ORDER.get(rightSource.id);
+  });
+}
+function updateSortDirectionControl() {
+  const button = byId("sort-direction");
+  if (state.sortKey === "default") {
+    button.disabled = true;
+    button.textContent = "Index order";
+    button.title = "The default preserves the curated source-index order";
+    button.setAttribute("aria-label", "Curated source-index order");
+    return;
+  }
+
+  button.disabled = false;
+  const labels = {
+    author: { asc: "A to Z", desc: "Z to A" },
+    year: { asc: "Oldest first", desc: "Newest first" },
+    title: { asc: "A to Z", desc: "Z to A" },
+    source_type: { asc: "A to Z", desc: "Z to A" },
+    relevance: { asc: "High to low", desc: "Low to high" },
+    read_depth: { asc: "Full to abstract", desc: "Abstract to full" },
+    review_status: { asc: "Draft to legacy", desc: "Legacy to draft" }
+  };
+  button.textContent = labels[state.sortKey][state.sortDirection];
+  button.title = "Reverse the current sort direction";
+  button.setAttribute("aria-label", "Reverse sort direction; currently " + button.textContent);
+}
 
 // ── Filter ──────────────────────────────────────────────
 function filtered() {
@@ -385,7 +516,7 @@ function filtered() {
 
 // ── List ────────────────────────────────────────────────
 function renderList() {
-  const srcs = filtered();
+  const srcs = sortedSources(filtered());
   byId("count").textContent = srcs.length + " / " + SOURCES.length;
   const list = byId("list");
   list.innerHTML = "";
@@ -607,6 +738,20 @@ document.getElementById("search").addEventListener("input", function(e) {
   renderList();
 });
 
+document.getElementById("sort-key").addEventListener("change", function(e) {
+  state.sortKey = e.target.value;
+  state.sortDirection = state.sortKey === "year" ? "desc" : "asc";
+  updateSortDirectionControl();
+  renderList();
+});
+
+document.getElementById("sort-direction").addEventListener("click", function() {
+  state.sortDirection = state.sortDirection === "asc" ? "desc" : "asc";
+  updateSortDirectionControl();
+  renderList();
+});
+
+updateSortDirectionControl();
 renderList();
 </script>
 </body>
