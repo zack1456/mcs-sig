@@ -345,6 +345,118 @@
       "title_short": "STRIKE-GOLDD 4.0: ProbObsTest algorithm + GUI for structural identifiability of nonlinear ODE models (Díaz-Seoane et al., Bioinformatics 2023)",
       "pillars": ["uq_identifiability"],
       "relevance": "high"
+    },
+    {
+      "id": "barber_2023_conformal",
+      "file": "papers/barber_2023_conformal.json",
+      "source_type": "paper",
+      "title_short": "Conformal prediction beyond exchangeability (Barber et al., Annals of Statistics 2023)",
+      "pillars": ["uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "dunn_2022_clustered_conformal",
+      "file": "papers/dunn_2022_clustered_conformal.json",
+      "source_type": "paper",
+      "title_short": "Distribution-free prediction sets for clustered/hierarchical data (Dunn et al., JASA 2022)",
+      "pillars": ["uq_identifiability", "hybrid_foundations"],
+      "relevance": "high"
+    },
+    {
+      "id": "gibbs_2021_timeseries_conformal",
+      "file": "papers/gibbs_2021_timeseries_conformal.json",
+      "source_type": "paper",
+      "title_short": "Adaptive conformal inference for time series (Gibbs & Candès, NeurIPS 2021)",
+      "pillars": ["uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "gottesman_2019_rl_healthcare",
+      "file": "papers/gottesman_2019_rl_healthcare.json",
+      "source_type": "paper",
+      "title_short": "Guidelines for reinforcement learning in healthcare (Gottesman et al., Nat Med 2019)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "levine_2020_offline_rl",
+      "file": "papers/levine_2020_offline_rl.json",
+      "source_type": "preprint",
+      "title_short": "Offline reinforcement learning tutorial and review (Levine et al., arXiv 2020)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "thomas_2016_ope",
+      "file": "papers/thomas_2016_ope.json",
+      "source_type": "paper",
+      "title_short": "Data-efficient off-policy policy evaluation for RL (Thomas & Brunskill, ICML 2016)",
+      "pillars": ["optimal_control_rl", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "richens_2020_causal_med",
+      "file": "papers/richens_2020_causal_med.json",
+      "source_type": "paper",
+      "title_short": "Improving accuracy of medical diagnosis with causal ML (Richens et al., Nature 2020)",
+      "pillars": ["generative_ai", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "sanchez_2022_causal_precision",
+      "file": "papers/sanchez_2022_causal_precision.json",
+      "source_type": "paper",
+      "title_short": "Causal ML for healthcare and precision medicine digital twins (Sanchez et al., RSOS 2022)",
+      "pillars": ["generative_ai", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "kuemmel_2020_credibility",
+      "file": "papers/kuemmel_2020_credibility.json",
+      "source_type": "paper",
+      "title_short": "Credibility assessment framework for MIDD adapting ASME V&V 40 (Kuemmel et al., CPT:PSP 2020)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "kim_2021_stiff_node",
+      "file": "papers/kim_2021_stiff_node.json",
+      "source_type": "paper",
+      "title_short": "Stiff neural ordinary differential equations and numerical stability (Kim et al., Chaos 2021)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "savic_2009_shrinkage",
+      "file": "papers/savic_2009_shrinkage.json",
+      "source_type": "paper",
+      "title_short": "Importance of eta-shrinkage in empirical Bayes estimates (Savic & Karlsson, AAPS J 2009)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "scigym_2025",
+      "file": "papers/scigym_2025.json",
+      "source_type": "paper",
+      "title_short": "SciGym: LLM scientific capabilities benchmark via systems biology dry lab (Duan, arXiv 2025) [metadata needs full verification]",
+      "pillars": ["generative_ai", "hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "kwack_2026_pkgpt",
+      "file": "papers/kwack_2026_pkgpt.json",
+      "source_type": "paper",
+      "title_short": "PKGPT: Agentic LLM for NONMEM PopPK with human benchmarking — V2=149 vs 13.2 L plausibility failure (Kwack et al., Pharmaceutics 2026)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "chen_2026_pbpkml",
+      "file": "papers/chen_2026_pbpkml.json",
+      "source_type": "paper",
+      "title_short": "ML+PBPK+QSAR integration review: parameter prediction as PBPK input; regulatory challenges (Chen & Lin, UF, CPT:PSP 2026)",
+      "pillars": ["generative_ai", "hybrid_foundations"],
+      "relevance": "medium"
     }
   ]
 }

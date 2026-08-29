@@ -1,0 +1,163 @@
+{
+  "id": "kwack_2026_pkgpt",
+  "source_type": "paper",
+  "title": "PKGPT: Expert-Orchestrated Recursive LLM Agent for Automated NONMEM PopPK Modeling with Human Benchmarking",
+  "authors": ["Kwack H", "Kong H", "Lim J", "Zhang BT", "Hahn J", "Chang MJ"],
+  "year": 2026,
+  "doi": "10.3390/pharmaceutics18040501",
+  "pmid": 42076151,
+  "url": null,
+  "journal_or_venue": "Pharmaceutics",
+
+  "content": {
+    "abstract_summary": "PKGPT is a recursive, five-phase agentic LLM system (powered by Gemini 3.0 Flash) that automates NONMEM-based PopPK model development and benchmarks its performance against human expert models on three public datasets. The system iteratively executes NONMEM, parses outputs, and refines control streams across phases: base model, structural diagnostics, overfitting reduction, random-effects optimization, and covariate analysis. Naïve zero-shot LLM prompting consistently fails (non-executable code); the agentic loop produces executable, converging models but exhibits physiological plausibility failures and variable reproducibility.",
+
+    "key_findings": [
+      "Naïve zero-shot LLM prompting typically produces NONMEM code that fails to execute — the agentic feedback loop is necessary for convergence",
+      "Warfarin: PKGPT and human both selected one-compartment oral (ADVAN2), but expert achieved OFV 294.41 vs PKGPT's 484.43 via covariate scaling",
+      "Theophylline: PKGPT produced parameter estimates close to expert (Ka=1.59 vs 1.46 h; CL=0.0399 vs 0.0404 L/h/kg)",
+      "Tobramycin: PKGPT correctly identified two-compartment structure but produced physiologically implausible V2=149 L vs expert's 13.2 L — a 11-fold plausibility error",
+      "PKGPT did not identify clinically established covariates across all three datasets — covariate analysis remains a critical gap",
+      "Run-to-run reproducibility was variable — consistent with shin_2024_llm but not resolved by the agentic architecture",
+      "Human-in-the-loop oversight remains essential for physiological plausibility and clinical interpretability despite successful numerical convergence"
+    ],
+
+    "methods_discussed": [
+      "LLM_agents",
+      "NONMEM",
+      "agentic_AI",
+      "recursive_self_correction",
+      "population_PK",
+      "human_benchmarking",
+      "prompt_engineering"
+    ],
+
+    "datasets_referenced": [
+      "warfarin_Holford_1992",
+      "theophylline_Boeckmann_1992",
+      "tobramycin_Rodman_1984"
+    ],
+
+    "tools_software": [
+      "NONMEM",
+      "Gemini_3.0_Flash",
+      "PKGPT",
+      "Python"
+    ],
+
+    "limitations": [
+      "Only three standard PopPK datasets tested — all 1-cpt or 2-cpt; no PBPK, QSP, or stiff ODE systems",
+      "Single LLM backend (Gemini 3.0 Flash) — not a comparative study across models",
+      "Covariate identification failed across all datasets — the system's covariate analysis phase is weakest",
+      "Variable reproducibility not quantified — no formal reproducibility metric reported",
+      "No identifiability assessment of generated models",
+      "Physiological plausibility scoring was qualitative (V2 comparison), not systematized"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "PKGPT consistently produced executable, converging NONMEM models across all three datasets.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "In tobramycin, PKGPT correctly identified a two-compartment structure but produced physiologically implausible peripheral volume estimates (V2 = 149 L vs. expert's 13.2 L).",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "Across datasets, PKGPT did not identify clinically established covariates, and run-to-run reproducibility was variable.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      },
+      {
+        "text": "PKGPT substantially improves the robustness and usability of LLM-generated NONMEM code compared with naïve zero-shot prompting, accelerating model drafting and iterative refinement, but physiological plausibility and clinical interpretability still require a human-in-the-loop oversight.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": [
+      {
+        "metric_type": "performance_metric",
+        "description": "OFV for warfarin one-compartment model: PKGPT vs. human expert",
+        "value": "[484.43 vs. 294.41]",
+        "value_numeric": null,
+        "unit": "OFV (NONMEM objective function value)",
+        "comparison_baseline": "Human expert model",
+        "location": "Abstract / Results",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Theophylline Ka estimate: PKGPT vs. human expert",
+        "value": "[1.59 vs. 1.46 h]",
+        "value_numeric": null,
+        "unit": "h (absorption rate constant)",
+        "comparison_baseline": "Human expert model",
+        "location": "Abstract / Results",
+        "is_primary_finding": false
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Tobramycin V2 estimate: PKGPT vs. human expert — physiological plausibility failure",
+        "value": "[149 L vs. 13.2 L]",
+        "value_numeric": null,
+        "unit": "L (peripheral volume of distribution)",
+        "comparison_baseline": "Human expert model (13.2 L is physiologically consistent)",
+        "location": "Abstract / Results",
+        "is_primary_finding": true
+      },
+      {
+        "metric_type": "performance_metric",
+        "description": "Theophylline CL estimate: PKGPT vs. human expert",
+        "value": "[0.0399 vs. 0.0404 L/h/kg]",
+        "value_numeric": null,
+        "unit": "L/h/kg",
+        "comparison_baseline": "Human expert model",
+        "location": "Abstract / Results",
+        "is_primary_finding": false
+      }
+    ]
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": [
+      "Activity 1 benchmark anchor: first agentic NONMEM system benchmarked against human expert models with quantitative OFV and parameter estimates — the comparative activity can position Claude/Codex/Antigravity against PKGPT's documented gaps (covariate failure, V2 plausibility, reproducibility)",
+      "Activity 2 failure mode evidence: V2=149 L vs 13.2 L is a documented real-world plausibility failure (M4.3 category: plausibility error) and covariate identification failure is a structural reasoning gap",
+      "Establishes that agentic execution (PKGPT) is categorically different from static zero-shot prompting — relevant to interpreting Codex agent capability",
+      "Three public benchmark datasets (warfarin, theophylline, tobramycin) proposed as standard test cases for comparative activities"
+    ],
+    "topics": [
+      "LLM_agents",
+      "NONMEM",
+      "PopPK",
+      "agentic_AI",
+      "human_benchmarking",
+      "pharmacometrics",
+      "Gemini",
+      "physiological_plausibility",
+      "covariate_analysis",
+      "reproducibility",
+      "Yonsei",
+      "Seoul_National_University"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["shin_2024_llm", "zheng_2025_llm"],
+    "cited_by": [],
+    "extends": ["zheng_2025_llm", "pkgpt_2026"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Found via PubMed search during Activity 1 literature support (PMID 42076151). DOI 10.3390/pharmaceutics18040501 (Pharmaceutics vol 18 issue 4). Open access via PMC13118610. Note: distinct from pkgpt_2026 in library (DOI 10.3390/pharmaceutics18020215, vol 18 issue 2, Chen et al.) — same journal and topic but different groups and different numerical results. This paper provides the only quantitative human-vs-LLM OFV comparison and the tobramycin V2 plausibility failure, which are the key anchor points for Activity 1/2 scoring design. Upgrade to full_text via PMC when needed."
+  }
+}

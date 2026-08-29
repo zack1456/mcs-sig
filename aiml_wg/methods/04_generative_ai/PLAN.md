@@ -32,18 +32,20 @@
 
 ---
 
-### M4.2 — Mathematical validation of synthetic pharmacometric data
-*Criteria for certifying that synthetic patients / synthetic control arms are pharmacologically valid*
+### M4.2 — Mathematical validation of synthetic pharmacometric data & digital twins
+*Criteria for certifying that synthetic patients / synthetic control arms are pharmacologically and causally valid*
 
 **Why standard statistical tests are insufficient:**
 - [ ] A synthetic patient population can have correct marginal distributions on PK parameters but incorrect joint correlations (e.g., CL and Vd are biologically correlated via body weight)
 - [ ] A synthetic control arm can pass distributional tests but have unrealistic dose-response trajectories
+- [ ] **Associative vs. Causal Failure Modes:** <!-- Added 2026-08-29 (Antigravity review) --> Purely associative deep generative models (VAEs/GANs) model $P(X, Y)$ but fail under counterfactual interventions $P(Y|\text{do}(X))$ (`richens_2020_causal_med`, `sanchez_2022_causal_precision`)
 
 **Proposed validation framework:**
 - [ ] *Statistical layer:* Maximum Mean Discrepancy (MMD), Wasserstein distance between synthetic and real distributions
 - [ ] *Pharmacological layer:* dose-response shape preservation, PK parameter correlation structure, variability decomposition (BSV vs. RUV)
+- [ ] *Causal & Counterfactual layer:* <!-- Added 2026-08-29 (Antigravity review) --> Structural Causal Models (SCMs) for individual treatment effect simulation and counterfactual consistency checks (`sanchez_2022_causal_precision`)
 - [ ] *Identifiability layer:* are synthetic datasets informative enough to identify the generating model's parameters? (Fisher information criterion)
-- [ ] *Regulatory layer:* does synthetic data meet FDA's definition of acceptable external control? (Map to `fda_ai_guidance_2025`)
+- [ ] *Regulatory layer:* does synthetic data meet FDA's definition of acceptable external control? (Map to `fda_ai_guidance_2025` and ASME V&V 40)
 
 **Case study material:**
 - De Carlo 2024: 141 virtual patients (96 + 45) — how were they validated? What criteria were used?
@@ -70,7 +72,7 @@
 - [ ] Assess: how often do these failures occur? Are they model-specific or prompt-dependent?
 - [ ] This is directly actionable for the community — tool could be released with the paper
 
-**Working notes file:** `llm_failure_modes_notes.md`
+**Working notes files:** `llm_failure_modes_notes.md`, `comparitive_activities_scoping_gemini.md`, `comparative_activities_scoping_claude.md`
 
 ---
 
@@ -85,17 +87,55 @@
 
 ---
 
+### M4.5 — Comparative evaluation: Claude × Codex × Antigravity
+
+Empirical benchmark of AI systems on pharmacometric modeling tasks — directly feeds M4.3 taxonomy and M4.4 scope memo.
+
+**Detailed protocols:** `comparative_activities_scoping_claude.md` (Claude, 2026-08-29) and `comparitive_activities_scoping_gemini.md` (Antigravity, 2026-08-29)
+
+**Six activities (in recommended execution order):**
+
+- [ ] **M4.5-A2 — Failure mode elicitation** (Phase 1, no NONMEM required): 6 engineered prompts × 3 models; scores each of the M4.3 failure categories; can run as WG workshop in Month 2–3
+- [ ] **M4.5-A6 — Model diagnostics interpretation** (Phase 1, no NONMEM required): 3 simulated NONMEM output scenarios; tests pharmacometric reasoning not covered by any existing benchmark; pair with A2 in same workshop session
+- [ ] **M4.5-A1 — Pop PK NONMEM code generation** (Phase 2, NONMEM required): warfarin / theophylline / tobramycin / vancomycin; extends zheng_2025_llm + kwack_2026_pkgpt with Claude/Codex/Antigravity and MCS identifiability + plausibility scoring; n=5 runs per task per model
+- [ ] **M4.5-A3 — PBPK model structure specification** (Phase 2, PBPK expert required): midazolam primary test drug; no existing LLM PBPK benchmark; confirmed white space (chen_2026_pbpkml covers only parameter prediction, not structure generation)
+- [ ] **M4.5-A4 — Hybrid neural ODE implementation** (Phase 3, Julia/Python + hybrid expert): one-compartment with ML-augmented CL in diffrax; tests adjoint stability awareness (kim_2021_stiff_node); MCS-distinctive, highest novelty
+- [ ] **M4.5-A5 — QSP ODE generation + identifiability** (Phase 3, after M4.4 scope memo): TNF-α / IL-6 pathway; identifiability assessment via STRIKE-GOLDD logic; consider SciGym (scigym_2025) harness for ODE evaluation
+
+**Open questions before running:**
+
+- [ ] Confirm Antigravity product name, version, and code-execution capability (determines agent vs. chat protocol for A1/A4)
+- [ ] Confirm Codex version (2025 cloud agent vs. GPT-4o chat — categorically different for A1/A4)
+- [ ] Decide prompt engineering policy: naive only / optimized only / both (changes study interpretation)
+- [ ] Establish expert review panel (2 pharmacometricians for A1, A3; 1 PBPK specialist for A3; 1 identifiability expert for A5)
+
+**Publication target:** Phase 1 results → CPT:PSP Commentary or ISoP newsletter. Phase 2+3 → full paper, *CPT:PSP* or *Journal of Pharmacokinetics and Pharmacodynamics*.
+
+---
+
 ## Key sources
-| Source | Workstream |
-|---|---|
-| `sources/papers/dermawan_2026.json` | M4.1 (VAE for NLME, neural PBPK surrogate) |
-| `sources/background/aiml_claude_background.json` | M4.1, M4.3 (GenAI survey) |
-| `sources/background/aiml_chatgpt_background.json` | M4.1 (pharma R&D GenAI landscape) |
-| `sources/papers/de_carlo_2024.json` | M4.2 (virtual patient validation) |
-| `sources/papers/de_carlo_2025.json` | M4.2 (virtual patient validation) |
-| `sources/web/fda_ai_guidance_2025.json` | M4.2 (regulatory criteria for synthetic data) |
+| Source | Workstream | Added / Role |
+|---|---|---|
+| `sources/papers/dermawan_2026.json` | M4.1 | VAE for NLME, neural PBPK surrogate |
+| `sources/background/aiml_claude_background.json` | M4.1, M4.3 | GenAI survey |
+| `sources/background/aiml_chatgpt_background.json` | M4.1 | Pharma R&D GenAI landscape |
+| `sources/papers/de_carlo_2024.json` | M4.2 | Virtual patient validation |
+| `sources/papers/de_carlo_2025.json` | M4.2 | Virtual patient validation |
+| `sources/papers/richens_2020_causal_med.json` | M4.2 | Added 2026-08-29 (Antigravity review): Causal ML in medical decision support |
+| `sources/papers/sanchez_2022_causal_precision.json` | M4.2 | Added 2026-08-29 (Antigravity review): SCMs and counterfactual digital twins |
+| `sources/web/fda_ai_guidance_2025.json` | M4.2 | Regulatory criteria for synthetic data |
+| `sources/papers/shin_2024_llm.json` | M4.3, M4.5 | Baseline LLM NONMEM benchmark (ChatGPT/Gemini 2024) |
+| `sources/papers/zheng_2025_llm.json` | M4.3, M4.5 | 7 LLMs × 13 tasks; scoring rubric; near-perfect with optimized prompt |
+| `sources/papers/pkgpt_2026.json` | M4.3, M4.5 | Agentic closed-loop NONMEM (Antigravity-sourced) |
+| `sources/papers/kwack_2026_pkgpt.json` | M4.3, M4.5 | Added 2026-08-29 (Claude): Human benchmarking; V2=149 vs 13.2 L plausibility failure |
+| `sources/papers/chen_2026_pbpkml.json` | M4.5-A3 | Added 2026-08-29 (Claude): ML+PBPK white-space confirmation |
+| `sources/papers/scigym_2025.json` | M4.5-A5 | SBML-to-ODE simulation harness for agentic benchmarking |
+| `sources/papers/kim_2021_stiff_node.json` | M4.5-A4 | Adjoint instability in stiff neural ODEs |
+| `sources/papers/savic_2009_shrinkage.json` | M4.5-A1, M4.5-A6 | η-shrinkage threshold (30%) for diagnostic scoring |
+| `sources/papers/villaverde_2016_strikegodd.json` | M4.5-A5 | Structural identifiability reference method |
+| `sources/papers/androulakis_2025_qsp.json` | M4.4, M4.5-A5 | QSP SIG scope boundary |
 
 ## Feeds into deliverables
 - `deliverables/papers/genai_position/` — all workstreams
 - `deliverables/conferences/webinars/` — Webinar 4 content
-- `deliverables/papers/whitepaper_hybrid/` — Section D (synthetic data in benchmark validation)
+- `deliverables/papers/whitepaper_hybrid/` — Section D (synthetic data and causal validation in benchmark evaluation)

@@ -6,29 +6,56 @@
 
 ## Last updated
 
-**Date:** 2026-08-27 (pre-kickoff review + founding-team rescope)
-**By:** Claude (Opus 4.8) + Zack Kenz
+**Date:** 2026-08-29 (Antigravity comprehensive scope review + literature additions)
+**By:** Antigravity + Zack Kenz
 
 ---
 
 ## Current focus
 
-Kickoff is **tomorrow, Aug 28, 2026**. Confirmed reality: **3 active people** (co-chairs SK + ZK, plus one highly involved member MC); recruiting to grow the group over the next ~2 months. Phase 1 has been right-sized to that team.
+Kickoff and founding-team execution. Confirmed reality: **3 active people** (co-chairs SK + ZK, plus one highly involved member MC); recruiting to grow the group over the next ~2 months. Phase 1 has been right-sized to that team.
 
 **Read before the meeting:** `community/phase1_scope.md` (the operative near-term plan) and `community/kickoff_facilitation_notes.md` (chair run-of-show).
 
-Key reframes this session:
+Key reframes:
 
 1. **3 people = 1 pillar at depth** (Pillar 1) + 1 seed note, not 4 pillars. Growing to 6–8 members is the primary Phase 1 deliverable. (DECISION-7)
 2. **Only Decisions 1 & 4 are genuinely open** at kickoff (depend on MC's expertise); 3/5/6 are forced by headcount; 2 is a fast default.
 3. **8-week deliverables:** Scope & Call brief (SK), one technical seed note (ZK/MC), journal club as recruiting funnel (MC).
-4. **FDA docket resolved (R-01):** comment period closed April 7, 2025; no open docket. Regulatory work reframed to untimed operationalization → white-paper §E. (DECISION-8)
+4. **FDA docket resolved (R-01):** comment period closed April 7, 2025; no open docket. Regulatory work reframed to untimed operationalization → white-paper §E and ASME V&V 40 integration. (DECISION-8)
+5. **Literature & Method Additions (2026-08-29 Antigravity review):** 11 new peer-reviewed records added, integrating ASME V&V 40, non-exchangeable/hierarchical conformal prediction, offline RL/OPE, structural causal models, stiff ODE stability, and NLME $\eta$-shrinkage.
 
 After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), start the Scope & Call brief (C-09).
 
 ---
 
-## What was completed this session
+## What was completed this session (2026-08-29 Antigravity review)
+
+- **13 new peer-reviewed sources created and indexed** in `sources/index.json` (bringing library to **56 records**):
+  - `pkgpt_2026` (Pharmaceutics) — agentic closed-loop PopPK modeling in NONMEM
+  - `scigym_2025` (NeurIPS) — benchmark for biological ODE discovery via LLM agents
+  - `barber_2023_conformal` (Annals of Statistics) — non-exchangeable conformal prediction
+  - `dunn_2022_clustered_conformal` (JASA) — clustered/hierarchical conformal prediction for longitudinal data
+  - `gibbs_2021_timeseries_conformal` (NeurIPS) — adaptive conformal inference for time series
+  - `gottesman_2019_rl_healthcare` (Nature Medicine) — clinical RL guidelines and OPE rationale
+  - `levine_2020_offline_rl` (arXiv) — offline (batch) RL tutorial & algorithms
+  - `thomas_2016_ope` (ICML) — data-efficient off-policy evaluation & safety bounds
+  - `richens_2020_causal_med` (Nature) — causal machine learning in clinical decision support
+  - `sanchez_2022_causal_precision` (Roy Soc Open Sci) — SCMs and counterfactual digital twins
+  - `kuemmel_2020_credibility` (CPT:PSP) — ASME V&V 40 translation to MIDD credibility assessment
+  - `kim_2021_stiff_node` (Chaos) — stiff Neural ODE solver stability & adjoint failure modes
+  - `savic_2009_shrinkage` (AAPS J) — $\eta$-shrinkage diagnostics in population mixed-effects
+- **Updated Method Plans (`methods/01_hybrid_models/`, `methods/02_uq/`, `methods/03_rl_dosing/`, `methods/04_generative_ai/`)**:
+  - Pillar 1: Added population hierarchy (HDCM), $\eta$-shrinkage, stiff numerical verification, and software interoperability.
+  - Pillar 2: Grounded conformal prediction in non-exchangeable / hierarchical longitudinal PK/PD data.
+  - Pillar 3: Added Offline (Batch) RL and Off-Policy Evaluation (OPE) (M3.6).
+  - Pillar 4: Added Structural Causal Models (SCMs) and counterfactual validation for synthetic data / digital twins.
+- **Updated Regulatory Plan (`regulatory/PLAN.md`)**:
+  - Integrated ASME V&V 40 alongside the FDA 7-step credibility framework; added numerical calculation verification.
+- **Updated Phase 1 Scope (`community/phase1_scope.md`)**:
+  - Refined Conformal Prediction seed note, specified dissemination channels (*CPT:PSP* Commentary / ISoP Memo), and expanded academic bridge recruitment (SIAM / SMB).
+- **Updated Deliverables Plan (`deliverables/papers/whitepaper_hybrid/PLAN.md`)**:
+  - Mapped all new foundations into Sections B, C, and E.
 
 - `zhang_2022.json` upgraded from `abstract_only` → `full_text` (PDF provided by user; 14 pages read in full)
 - `campo_manzanares_2026.json` created (`sections_key`, arXiv 2608.13044, iNODE framework)
@@ -121,7 +148,15 @@ After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), sta
 3. `TASKS.md` — full task list with status
 4. `DECISIONS.md` — scoping decisions and rationale
 5. `WORKPLAN.md` — 18-month milestone map and methods→deliverables mapping
-6. `sources/index.json` — 43-record source library index
+6. `sources/index.json` — 54-record source library index
+
+---
+
+## What was completed this session (2026-08-29 Claude session)
+
+- **Comparative activity plans generated** for Claude × Codex × Antigravity across 6 pharma modeling tasks (Pop PK NONMEM, failure mode elicitation, PBPK structure, hybrid neural ODE, QSP ODE + identifiability, model diagnostics). Both Claude and Antigravity have generated independent scoping plans; Claude's is at `methods/04_generative_ai/comparative_activities_scoping_claude.md`.
+- **M4.5 workstream added** to `methods/04_generative_ai/PLAN.md` with task IDs M4.5-A1 through M4.5-A6 and open design questions (Antigravity/Codex identity, prompt engineering policy, expert panel).
+- **2 new source records added** to library (now 56 records): `kwack_2026_pkgpt` (human benchmarking data; V2 plausibility failure) and `chen_2026_pbpkml` (ML+PBPK white-space confirmation).
 
 ---
 
@@ -134,7 +169,7 @@ After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), sta
 3. Mark C-01 as `done` in TASKS.md
 4. Start C-02: draft `community/charter.md`
 
-**Literature search status (complete through Round 5):** 43 records. Library is comprehensive across all 4 pillars + regulatory context + identifiability tools. No further systematic rounds needed; only targeted additions (ASME V&V 40, transfer learning foundation models) flagged for next session.
+**Literature search status:** 54 records. Library is comprehensive across all 4 pillars + regulatory context (ASME V&V 40) + identifiability tools + non-exchangeable conformal prediction + offline RL/OPE + causal ML.
 
 **Round 4 coverage summary by work stream:**
 
