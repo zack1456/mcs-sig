@@ -1,0 +1,49 @@
+{
+  "id": "jiang_2024_synthetic_pkpd",
+  "source_type": "paper",
+  "title": "Generative models for synthetic data generation: application to pharmacokinetic/pharmacodynamic data",
+  "authors": ["Jiang Y", "Garcia-Duran A", "Bachali Losada I", "Girard P", "Terranova N"],
+  "year": 2024,
+  "doi": "10.1007/s10928-024-09935-6",
+  "pmid": 39192091,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/39192091/",
+  "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
+  "content": {
+    "abstract_summary": "Benchmarks PAR, TimeGAN, and MLP conditional GAN approaches on clinical-style longitudinal datasets containing covariates and PK/PD endpoints. Evaluation combines ML fidelity/usefulness scores, univariate distributional tests, and pharmacometrics-specific metrics; MLP cGAN performed best overall on most reported metrics.",
+    "key_findings": [
+      "The benchmark addresses longitudinal observations, heterogeneous covariates/endpoints, and multiple treatment arms.",
+      "Evaluation included discriminative and predictive scores, Kolmogorov-Smirnov and chi-square tests, and pharmacometrics-specific measures.",
+      "MLP cGAN performed best overall for most evaluated metrics.",
+      "The work supports synthetic-data augmentation and sharing, but the accessible evidence does not establish downstream inferential equivalence, causal validity, or privacy guarantees."
+    ],
+    "methods_discussed": ["PAR", "TimeGAN", "MLP_cGAN", "synthetic_data", "Kolmogorov-Smirnov_test", "chi-square_test", "PKPD_validation"],
+    "datasets_referenced": ["12_Simulx-generated_PKPD_datasets"],
+    "tools_software": ["Simulx"],
+    "limitations": [
+      "Detailed full-text results were not openly accessible during extraction.",
+      "The public abstract and related PAGE study description do not provide a complete downstream model-refitting comparison.",
+      "Distributional and predictive similarity do not by themselves establish counterfactual validity or disclosure protection."
+    ],
+    "extracted_claims": [
+      {"text": "MLP conditional GAN exhibited the best overall performance for most of the evaluated metrics.", "location": "Abstract", "evidence_type": "empirical"},
+      {"text": "Synthetic-data quality was evaluated using ML, univariate statistical, and pharmacometrics-related metrics.", "location": "Abstract and associated PAGE methods summary", "evidence_type": "empirical"}
+    ],
+    "numerical_findings": [
+      {"metric_type": "study_statistic", "description": "Simulx-generated benchmark datasets described in the associated PAGE study", "value": "12", "value_numeric": 12, "unit": "N (datasets)", "comparison_baseline": null, "location": "Associated PAGE methods summary", "is_primary_finding": false}
+    ]
+  },
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": ["Supports M4.5-A10 and the requirement to supplement generic fidelity tests with pharmacometric and downstream model-based validation."],
+    "topics": ["synthetic_data", "PKPD", "validation", "virtual_patients", "generative_models"],
+    "relevance_score": "high"
+  },
+  "relationships": {"cites": [], "cited_by": [], "extends": [], "contradicts": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "codex",
+    "read_depth": "abstract_only",
+    "notes": "Publication metadata and abstract verified through PubMed/EPFL. The associated PAGE abstract was used only to identify the method families and reported 12 simulated datasets; full-paper numerical extraction remains a follow-up if licensed access is available."
+  }
+}

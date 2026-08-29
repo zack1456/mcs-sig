@@ -1,0 +1,57 @@
+{
+  "id": "saini_2025_qsp_copilot",
+  "source_type": "paper",
+  "title": "QSP-Copilot: An AI-Augmented Platform for Accelerating Quantitative Systems Pharmacology Model Development",
+  "authors": ["Saini A", "Farnoud A"],
+  "year": 2025,
+  "doi": "10.1002/psp4.70127",
+  "pmid": 41159846,
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12625087/",
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+  "content": {
+    "abstract_summary": "Describes a modular, multi-agent QSP platform spanning literature extraction, effect-diagram construction, ODE generation, evaluation, and reporting. Two rare-disease case studies show high extraction precision but lower recall, model-to-model and run-to-run variability, and continued need for human verification.",
+    "key_findings": [
+      "Blood-coagulation extraction from 10 papers produced 179 entity pairs and 105 retained mechanisms; precision was 99.1%, recall 93.8%, and F1 96.4%.",
+      "Gaucher-disease extraction from 9 papers produced 151 pairs and 68 retained mechanisms; precision was 100.0%, recall 86.1%, and F1 92.5%.",
+      "The reported 40% time saving came from one internal knowledge-synthesis project reduced from approximately 2 weeks to 6 days and requires broader validation.",
+      "Repeated runs and different GPT variants varied in extraction completeness, with PDF formatting and context-window limitations contributing to missed mechanisms.",
+      "Generated base models still used placeholder parameters and omitted some cellular dynamics, so the evidence-to-model path was not shown to be autonomously decision-ready."
+    ],
+    "methods_discussed": ["LLM_agents", "RAG", "knowledge_graph", "relation_extraction", "QSP", "effect_diagrams", "ODE_generation"],
+    "datasets_referenced": ["blood_coagulation_10-paper_corpus", "Gaucher_disease_9-paper_corpus"],
+    "tools_software": ["GPT-4o", "Claude_Sonnet", "TxGemma", "LangChain", "Pinecone", "AWS", "Streamlit"],
+    "limitations": [
+      "Only two rare-disease literature sets were used for formal extraction evaluation.",
+      "Recall was lower than precision and varied by disease area.",
+      "Mandatory human verification remained part of the workflow.",
+      "The 40% time estimate came from a single internal project and only the knowledge-synthesis phase.",
+      "Generated models used placeholder parameters and lacked some cellular dynamics."
+    ],
+    "extracted_claims": [
+      {"text": "The primary challenge identified through validation is extraction completeness rather than accuracy.", "location": "Discussion", "evidence_type": "empirical"},
+      {"text": "Repeated processing of identical documents produced variable numbers of extracted mechanisms, requiring multiple validation approaches and quality control.", "location": "Results, model variability and technical limitations", "evidence_type": "empirical"},
+      {"text": "Each extracted biological pair is presented with its source paragraph and page number for expert verification.", "location": "Discussion", "evidence_type": "empirical"}
+    ],
+    "numerical_findings": [
+      {"metric_type": "performance_metric", "description": "Blood-coagulation mechanism-extraction precision, recall, and F1", "value": "[99.1%, 93.8%, 96.4%]", "value_numeric": null, "unit": "%", "comparison_baseline": "Expert-validated mechanisms in the 10-paper corpus", "location": "Results, Section 3.2.2", "is_primary_finding": true},
+      {"metric_type": "performance_metric", "description": "Gaucher-disease mechanism-extraction precision, recall, and F1", "value": "[100.0%, 86.1%, 92.5%]", "value_numeric": null, "unit": "%", "comparison_baseline": "Expert-validated mechanisms in the 9-paper corpus", "location": "Results, Section 3.2.2", "is_primary_finding": true},
+      {"metric_type": "effect_size", "description": "Reported reduction in knowledge-synthesis duration", "value": "~40% (approximately 2 weeks to 6 days)", "value_numeric": 40, "unit": "%", "comparison_baseline": "Traditional literature review and effect-diagram validation in one internal project", "location": "Discussion", "is_primary_finding": true},
+      {"metric_type": "count", "description": "Extracted and retained blood-coagulation interactions", "value": "179 extracted; 105 retained", "value_numeric": null, "unit": "interaction pairs", "comparison_baseline": null, "location": "Results, Section 3.1.1", "is_primary_finding": false},
+      {"metric_type": "count", "description": "Extracted and retained Gaucher-disease interactions", "value": "151 extracted; 68 retained", "value_numeric": null, "unit": "interaction pairs", "comparison_baseline": null, "location": "Results, Section 3.1.2", "is_primary_finding": false}
+    ]
+  },
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": ["Anchors M4.5-A8 design around claim-level precision and recall, source provenance, run-to-run completeness, expert curation burden, and downstream mathematical validity."],
+    "topics": ["QSP", "LLM_agents", "literature_extraction", "effect_diagrams", "ODE_generation", "human_in_the_loop"],
+    "relevance_score": "high"
+  },
+  "relationships": {"cites": [], "cited_by": [], "extends": [], "contradicts": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "codex",
+    "read_depth": "sections_key",
+    "notes": "Open full text reviewed at the publisher/PMC record, focusing on architecture, validation results, limitations, and discussion. The study evaluates a multi-model platform rather than a clean head-to-head comparison of product configurations."
+  }
+}

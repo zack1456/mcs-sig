@@ -273,7 +273,7 @@
         },
         "read_by": {
           "type": "string",
-          "enum": ["claude", "user", "both"],
+          "enum": ["claude", "codex", "antigravity", "user", "both"],
           "description": "Who read and extracted content from this source"
         },
         "read_depth": {

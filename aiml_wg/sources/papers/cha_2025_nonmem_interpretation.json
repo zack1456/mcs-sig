@@ -1,0 +1,56 @@
+{
+  "id": "cha_2025_nonmem_interpretation",
+  "source_type": "paper",
+  "title": "Leveraging large language models in pharmacometrics: evaluation of NONMEM output interpretation and simulation capabilities",
+  "authors": ["Cha HJ", "Choe K", "Shin E", "Ramanathan M", "Han S"],
+  "year": 2025,
+  "doi": "10.1007/s10928-025-09982-7",
+  "pmid": 40464844,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/40464844/",
+  "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
+  "content": {
+    "abstract_summary": "Evaluates Claude on diagrams, parameter tables, and reports derived from 44 NONMEM outputs, and ChatGPT on Python simulation for two PK models. Initial-prompt success was high for several presentation tasks, but complex structures, parameter extraction, calculations, and covariate-rich simulations required correction.",
+    "key_findings": [
+      "Claude generated 40 of 44 model diagrams correctly on the initial prompt; iterative correction produced diagrams for all 44.",
+      "Claude produced 38 of 44 parameter tables successfully on the initial prompt, with errors involving initial/iteration values, OMEGA blocks, and CV calculations.",
+      "Eight of 44 generated reports initially omitted parameter values in models with many parameters.",
+      "ChatGPT generated simulations for meropenem and nivolumab, but the complex nivolumab clearance relationship still omitted covariate values after correction.",
+      "The study evaluates output translation and simulation, so a new diagnostics benchmark should claim novelty only for its engineered reasoning traps, current products, and blinded expert scoring."
+    ],
+    "methods_discussed": ["LLM", "NONMEM", "output_interpretation", "Mermaid_diagrams", "parameter_tables", "report_generation", "PK_simulation"],
+    "datasets_referenced": ["DDMoRe_model_repository", "nivolumab_PK_model", "meropenem_PK_model"],
+    "tools_software": ["NONMEM", "Claude", "ChatGPT", "Python", "Mermaid", "APAI"],
+    "limitations": [
+      "Different LLM products were used for output interpretation and simulation tasks.",
+      "Only two relatively simple PK models were used for the simulation assessment.",
+      "Prompt correction was allowed but not structured as a uniform agentic retry budget.",
+      "The accessible detailed source was the author preprint corresponding to the published version."
+    ],
+    "extracted_claims": [
+      {"text": "Claude generated model structure diagrams for 40 of 44 NONMEM outputs with the initial prompt, and the remaining cases were resolved with additional prompts.", "location": "Results", "evidence_type": "empirical"},
+      {"text": "Complex OMEGA structures and long parameter lists caused omissions or incorrect value extraction.", "location": "Results, parameter tables and reports", "evidence_type": "empirical"},
+      {"text": "The covariate-rich nivolumab simulation required correction and still omitted some clearance covariate values.", "location": "Results, PK simulations", "evidence_type": "empirical"}
+    ],
+    "numerical_findings": [
+      {"metric_type": "study_statistic", "description": "NONMEM output files evaluated", "value": "44", "value_numeric": 44, "unit": "N (models)", "comparison_baseline": null, "location": "Methods", "is_primary_finding": false},
+      {"metric_type": "performance_metric", "description": "Model diagrams generated successfully from the initial prompt", "value": "40/44 (90.9%)", "value_numeric": 90.9, "unit": "%", "comparison_baseline": "Original NONMEM model structures", "location": "Results", "is_primary_finding": true},
+      {"metric_type": "performance_metric", "description": "Parameter tables generated successfully from the initial prompt", "value": "38/44 (86.4%)", "value_numeric": 86.4, "unit": "%", "comparison_baseline": "Values in NONMEM outputs", "location": "Results", "is_primary_finding": true},
+      {"metric_type": "count", "description": "Reports initially omitting parameter values", "value": "8/44", "value_numeric": 8, "unit": "N (reports)", "comparison_baseline": null, "location": "Results", "is_primary_finding": false},
+      {"metric_type": "performance_metric", "description": "Meropenem simulation median Cmax and AUClast differences versus NONMEM", "value": "[-0.626%, -0.64%]", "value_numeric": null, "unit": "%", "comparison_baseline": "NONMEM simulation", "location": "Results", "is_primary_finding": false}
+    ]
+  },
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": ["Provides the prior benchmark that M4.5-A6 must acknowledge and supplies concrete failure modes for M4.5-A7 output parsing and repair."],
+    "topics": ["PopPK", "NONMEM", "LLM_evaluation", "diagnostics", "reporting", "simulation"],
+    "relevance_score": "high"
+  },
+  "relationships": {"cites": ["shin_2024_llm"], "cited_by": [], "extends": ["shin_2024_llm"], "contradicts": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "codex",
+    "read_depth": "sections_key",
+    "notes": "Publication metadata verified through PubMed. Detailed Methods and Results were reviewed in the openly accessible author preprint linked to the version of record."
+  }
+}

@@ -66,6 +66,10 @@
 - `community/` — GitHub org and website hosting decisions
 - Resourcing decision: needs 1–2 members with strong computational background (R and/or Python)
 
+## Related benchmark track — Generative AI pharmacometrics
+
+The Claude × Codex × Antigravity comparison is maintained separately under `benchmarks/generative_ai/` because its experimental unit, prompt controls, provenance requirements, and expert-scoring workflow differ from the hybrid-model benchmark. Phase 1 materials cover M4.5-A2 and M4.5-A6; the common protocol defines gates for M4.5-A1 through A11.
+
 ## Open questions
 - [ ] GitHub org: ISoP/MCS SIG org or personal repo that transfers later?
 - [ ] Is this a living benchmark (updated as field evolves) or a fixed snapshot? Living is higher-impact but requires governance

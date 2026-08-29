@@ -1,5 +1,5 @@
 {
-  "_comment": "Registry of all sources in this collection. One entry per source file. Add here when adding a new file. Updated 2026-08-29 by Codex: added six focused validation, RL/OPE, and regulatory records.",
+  "_comment": "Registry of all sources in this collection. One entry per source file. Add here when adding a new file. Updated 2026-08-29 by Codex: added focused validation, RL/OPE, regulatory, and generative-AI pharmacometrics records.",
   "_schema": "./_schema.json",
   "sources": [
     {
@@ -504,6 +504,46 @@
       "source_type": "report",
       "title_short": "FDA-EMA good AI practice principles for drug development (2026)",
       "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "saini_2025_qsp_copilot",
+      "file": "papers/saini_2025_qsp_copilot.json",
+      "source_type": "paper",
+      "title_short": "QSP-Copilot evidence-to-model workflow (Saini and Farnoud 2025)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "cha_2025_nonmem_interpretation",
+      "file": "papers/cha_2025_nonmem_interpretation.json",
+      "source_type": "paper",
+      "title_short": "LLM interpretation and simulation from NONMEM outputs (Cha et al. 2025)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "jiang_2024_synthetic_pkpd",
+      "file": "papers/jiang_2024_synthetic_pkpd.json",
+      "source_type": "paper",
+      "title_short": "Generative synthetic PK/PD data benchmark (Jiang et al. 2024)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "pasculli_2025_synthetic_data_regulation",
+      "file": "papers/pasculli_2025_synthetic_data_regulation.json",
+      "source_type": "paper",
+      "title_short": "Synthetic-data definitions and regulatory issues (Pasculli et al. 2025)",
+      "pillars": ["generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "ema_2025_pbpk_approvals",
+      "file": "papers/ema_2025_pbpk_approvals.json",
+      "source_type": "paper",
+      "title_short": "PBPK qualification in EMA approvals (Paul et al. 2025)",
+      "pillars": ["generative_ai"],
       "relevance": "high"
     }
   ]

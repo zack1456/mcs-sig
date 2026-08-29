@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "mcs-sig-generative-ai-run-manifest-v0.1",
+  "title": "Generative AI Pharmacometric Benchmark Run Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "run_id",
+    "activity_id",
+    "task_id",
+    "provider",
+    "product_name",
+    "model_version",
+    "interface",
+    "access_date",
+    "capability_mode",
+    "prompt_condition",
+    "fresh_session",
+    "tools",
+    "input_artifacts",
+    "output_artifacts",
+    "timing",
+    "completion_status"
+  ],
+  "properties": {
+    "run_id": {"type": "string", "pattern": "^[A-Za-z0-9._-]+$"},
+    "activity_id": {"type": "string", "pattern": "^M4\\.5-A([1-9]|1[01])$"},
+    "task_id": {"type": "string", "minLength": 1},
+    "provider": {"type": "string", "minLength": 1},
+    "product_name": {"type": "string", "minLength": 1},
+    "model_version": {"type": "string", "minLength": 1},
+    "interface": {"type": "string", "minLength": 1},
+    "account_tier": {"type": ["string", "null"]},
+    "access_date": {"type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$"},
+    "capability_mode": {"type": "string", "enum": ["chat_only", "human_in_the_loop", "autonomous_agent"]},
+    "prompt_condition": {"type": "string", "enum": ["naive", "scaffolded"]},
+    "fresh_session": {"type": "boolean"},
+    "sampling_parameters": {"type": "object", "additionalProperties": true},
+    "tools": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file_access", "image_access", "code_execution", "internet_or_retrieval", "memory"],
+      "properties": {
+        "file_access": {"type": "boolean"},
+        "image_access": {"type": "boolean"},
+        "code_execution": {"type": "boolean"},
+        "internet_or_retrieval": {"type": "boolean"},
+        "memory": {"type": "boolean"},
+        "other": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "input_artifacts": {"type": "array", "items": {"type": "string"}},
+    "output_artifacts": {"type": "array", "items": {"type": "string"}},
+    "retry_budget": {"type": "integer", "minimum": 0},
+    "actual_retries": {"type": "integer", "minimum": 0},
+    "human_interventions": {"type": "integer", "minimum": 0},
+    "timing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["started_at", "ended_at"],
+      "properties": {
+        "started_at": {"type": "string"},
+        "ended_at": {"type": "string"},
+        "wall_time_seconds": {"type": ["number", "null"], "minimum": 0}
+      }
+    },
+    "completion_status": {"type": "string", "enum": ["complete", "incomplete", "infrastructure_failure", "not_available"]},
+    "infrastructure_notes": {"type": ["string", "null"]},
+    "prompt_hash": {"type": ["string", "null"]},
+    "environment_hash": {"type": ["string", "null"]}
+  }
+}

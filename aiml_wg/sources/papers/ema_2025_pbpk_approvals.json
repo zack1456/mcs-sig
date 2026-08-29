@@ -1,0 +1,55 @@
+{
+  "id": "ema_2025_pbpk_approvals",
+  "source_type": "paper",
+  "title": "Current Use of Physiologically Based Pharmacokinetic Modeling in New Medicinal Product Approvals at EMA",
+  "authors": ["Paul P", "Colin PJ", "Musuamba Tshinanu F", "Versantvoort C", "Manolis E", "Blake K"],
+  "year": 2025,
+  "doi": "10.1002/cpt.3525",
+  "pmid": 39748538,
+  "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11835421/",
+  "journal_or_venue": "Clinical Pharmacology & Therapeutics",
+  "content": {
+    "abstract_summary": "EMA review of PBPK models in full-basis marketing-authorisation applications approved in 2022-2023, focusing on intended use, regulatory impact, qualification, and reasons models were not considered qualified. It shows that intended-use qualification, not structural plausibility alone, determines whether PBPK evidence can support decisions.",
+    "key_findings": [
+      "Twenty-five of 95 full-basis applications contained PBPK modeling.",
+      "Across 65 proposed intended uses, enzyme/transporter DDI prediction was the most common at 69%.",
+      "Only 28% of applications containing PBPK models were considered qualified according to the EMA reporting guideline.",
+      "Qualification requires verification, validation against observed data, and evaluation against the question of interest.",
+      "Model impact and context determine the needed evidence and acceptance criteria."
+    ],
+    "methods_discussed": ["PBPK", "regulatory_review", "model_qualification", "context_of_use", "DDI"],
+    "datasets_referenced": ["EMA_full-basis_MAAs_2022-2023"],
+    "tools_software": [],
+    "limitations": [
+      "The analysis covers EMA approvals from only 2022 and 2023.",
+      "Confidential submission details limit public transparency.",
+      "The review evaluates submitted PBPK evidence, not LLM-generated models."
+    ],
+    "extracted_claims": [
+      {"text": "A PBPK model used as key regulatory evidence must be qualified for its intended use.", "location": "Abstract and Introduction", "evidence_type": "regulatory"},
+      {"text": "Qualification combines platform/equation verification, validation against observed data, and evaluation for the question of interest.", "location": "Introduction", "evidence_type": "regulatory"},
+      {"text": "Most submitted models were not considered qualified for their intended uses.", "location": "Abstract", "evidence_type": "empirical"}
+    ],
+    "numerical_findings": [
+      {"metric_type": "study_statistic", "description": "Full-basis EMA applications reviewed", "value": "95", "value_numeric": 95, "unit": "N (applications)", "comparison_baseline": null, "location": "Abstract", "is_primary_finding": false},
+      {"metric_type": "count", "description": "Applications containing PBPK modeling", "value": "25/95", "value_numeric": 25, "unit": "N (applications)", "comparison_baseline": "95 full-basis applications", "location": "Abstract", "is_primary_finding": true},
+      {"metric_type": "count", "description": "Proposed PBPK intended uses", "value": "65", "value_numeric": 65, "unit": "N (intended uses)", "comparison_baseline": null, "location": "Abstract", "is_primary_finding": false},
+      {"metric_type": "performance_metric", "description": "Intended uses involving enzyme/transporter DDI prediction", "value": "69%", "value_numeric": 69, "unit": "%", "comparison_baseline": "65 proposed intended uses", "location": "Abstract", "is_primary_finding": true},
+      {"metric_type": "performance_metric", "description": "Applications with PBPK models considered qualified", "value": "28%", "value_numeric": 28, "unit": "%", "comparison_baseline": "Applications containing PBPK models", "location": "Study Highlights", "is_primary_finding": true}
+    ]
+  },
+  "relevance": {
+    "pillars": ["generative_ai"],
+    "gaps_addressed": ["Supports M4.5-A9 as a context-of-use qualification task and provides empirical regulatory anchors for DDI use and qualification scoring."],
+    "topics": ["PBPK", "DDI", "regulatory_qualification", "context_of_use", "MIDD"],
+    "relevance_score": "high"
+  },
+  "relationships": {"cites": [], "cited_by": [], "extends": [], "contradicts": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "codex",
+    "read_depth": "sections_key",
+    "notes": "Bibliographic metadata verified through PubMed. Open PMC full text reviewed at targeted sections covering study highlights, qualification definitions, results, and regulatory implications."
+  }
+}
