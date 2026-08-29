@@ -1,0 +1,79 @@
+{
+  "id": "sanchez_2022_causal_precision",
+  "source_type": "paper",
+  "title": "Causal machine learning for healthcare and precision medicine",
+  "authors": ["Sanchez P", "Voisey JP", "Xia T", "Watson HI", "O'Neil AQ", "Tsaftaris SA"],
+  "year": 2022,
+  "doi": "10.1098/rsos.220638",
+  "pmid": 36059781,
+  "url": "https://doi.org/10.1098/rsos.220638",
+  "journal_or_venue": "Royal Society Open Science",
+
+  "content": {
+    "abstract_summary": "Reviews the convergence of causal inference and deep learning in precision medicine. Details how Structural Causal Models (SCMs), causal generative models, and counterfactual estimation enable individualized treatment effect estimation and biologically valid digital twin simulation.",
+
+    "key_findings": [
+      "Traditional generative deep learning models (VAEs, GANs) capture joint observational distributions P(X, Y) but fail to capture interventional P(Y|do(X)) or counterfactual distributions",
+      "Structural Causal Models (SCMs) combined with deep neural networks provide a formal framework for simulating individualized treatment effects",
+      "Validating digital twins requires verifying causal invariance and counterfactual consistency, not merely marginal distributional matching (Wasserstein/MMD)",
+      "Essential foundation for Pillar 4 work on mathematical validation of synthetic pharmacometric patients"
+    ],
+
+    "methods_discussed": [
+      "structural_causal_models",
+      "causal_machine_learning",
+      "counterfactual_simulation",
+      "digital_twins",
+      "individualized_treatment_effects"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["Python", "PyTorch"],
+
+    "limitations": [
+      "Review article; specific pharmacometric ODE integration left as future challenge"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Causal machine learning provides the mathematical tools to answer interventional and counterfactual questions, which are at the heart of precision medicine and personalized digital twins.",
+        "location": "Abstract",
+        "evidence_type": "review"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai", "uq_identifiability"],
+    "gaps_addressed": [
+      "Directly establishes the theoretical criteria for counterfactual validation of digital twins in Pillar 4 (M4.2)"
+    ],
+    "topics": [
+      "causal_inference",
+      "digital_twins",
+      "precision_medicine",
+      "synthetic_data",
+      "counterfactuals"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["richens_2020_causal_med"],
+    "cited_by": [],
+    "extends": ["richens_2020_causal_med"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Authoritative review connecting causal ML and counterfactual validation to precision medicine digital twins."
+  }
+}
+

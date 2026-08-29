@@ -1,0 +1,79 @@
+{
+  "id": "richens_2020_causal_med",
+  "source_type": "paper",
+  "title": "Improving the accuracy of medical diagnosis with causal machine learning",
+  "authors": ["Richens JG", "Lee CM", "Johri S"],
+  "year": 2020,
+  "doi": "10.1038/s41467-020-17419-7",
+  "pmid": 32782264,
+  "url": "https://doi.org/10.1038/s41467-020-17419-7",
+  "journal_or_venue": "Nature Communications",
+
+  "content": {
+    "abstract_summary": "Demonstrates that associative machine learning algorithms make systematic, safety-critical errors in clinical diagnostics due to confounding and selection bias, whereas counterfactual and causal machine learning formulations consistently outperform associative models and approach expert human physician accuracy.",
+
+    "key_findings": [
+      "Purely associative ML models confuse correlation with causation, failing when presented with rare disease presentations or confounded clinical markers",
+      "Counterfactual reasoning via Pearl's do-calculus enables algorithms to query 'what if' scenarios accurately",
+      "Causal ML achieves top-quarter physician-level diagnostic accuracy (F1 score significantly higher than standard associative deep learning)",
+      "Proves mathematically why counterfactual validity is essential for clinical decision-support and synthetic patient simulation"
+    ],
+
+    "methods_discussed": [
+      "causal_inference",
+      "counterfactual_reasoning",
+      "structural_causal_models",
+      "Pearl_do_calculus",
+      "medical_AI"
+    ],
+
+    "datasets_referenced": ["clinical_vignettes"],
+
+    "tools_software": ["Python"],
+
+    "limitations": [
+      "Requires explicit causal graph specification or strong assumptions for causal discovery"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Associative algorithms suffer from systematic errors when observational correlations do not reflect causal relationships. Causal reasoning rectifies these limitations.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["generative_ai", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides mathematical and empirical rationale for requiring counterfactual / causal validity in synthetic patients and digital twins in Pillar 4 (M4.2)"
+    ],
+    "topics": [
+      "causal_inference",
+      "counterfactuals",
+      "digital_twins",
+      "synthetic_data",
+      "generative_AI"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Foundational benchmark paper demonstrating why causal ML is required for clinical decision support and synthetic digital twins."
+  }
+}
+

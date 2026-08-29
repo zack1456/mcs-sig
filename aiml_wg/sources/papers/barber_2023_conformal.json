@@ -1,0 +1,79 @@
+{
+  "id": "barber_2023_conformal",
+  "source_type": "paper",
+  "title": "Conformal prediction beyond exchangeability",
+  "authors": ["Barber RF", "Candès EJ", "Ramdas A", "Tibshirani RJ"],
+  "year": 2023,
+  "doi": "10.1214/23-AOS2276",
+  "pmid": null,
+  "url": "https://doi.org/10.1214/23-AOS2276",
+  "journal_or_venue": "The Annals of Statistics",
+
+  "content": {
+    "abstract_summary": "Extends conformal prediction theory to non-exchangeable data settings via weighted conformal prediction and permutation-invariance relaxations. Provides rigorous finite-sample coverage bounds when training and test distributions differ or data points exhibit dependency structures, establishing the mathematical basis for conformal inference on clinical data.",
+
+    "key_findings": [
+      "Standard conformal prediction guarantees 1 - α coverage only under exact exchangeability (i.i.d. data)",
+      "Introduces weighted non-conformity scores with provable coverage bounds under arbitrary known covariate shifts and bounded non-exchangeability",
+      "Establishes robustness bounds showing coverage degradation is strictly bounded by the total variation distance from exchangeability",
+      "Applicable to clinical and longitudinal datasets where distributional shifts occur across treatment cohorts"
+    ],
+
+    "methods_discussed": [
+      "conformal_prediction",
+      "non_exchangeable_inference",
+      "weighted_conformal",
+      "distribution_free_UQ",
+      "coverage_guarantees"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["R", "Python"],
+
+    "limitations": [
+      "Bounds depend on estimating or bounding departure from exchangeability",
+      "Prediction set efficiency can widen substantially under severe non-exchangeability"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Conformal prediction offers distribution-free, finite-sample predictive inference, but standard guarantees rely heavily on data exchangeability.",
+        "location": "Introduction",
+        "evidence_type": "theoretical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability"],
+    "gaps_addressed": [
+      "Fills Pillar 2 (M2.2) theoretical requirement for adapting conformal prediction to non-exchangeable pharmacometric clinical trial data"
+    ],
+    "topics": [
+      "conformal_prediction",
+      "uncertainty_quantification",
+      "non_exchangeability",
+      "mathematical_statistics"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "web_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Foundational mathematical reference for Pillar 2 M2.2 conformal prediction extension."
+  }
+}
+

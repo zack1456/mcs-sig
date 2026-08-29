@@ -1,0 +1,78 @@
+{
+  "id": "dunn_2022_clustered_conformal",
+  "source_type": "paper",
+  "title": "Distribution-Free Prediction Sets for Two-Layer Hierarchical Models",
+  "authors": ["Dunn R", "Wasserman L", "Ramdas A"],
+  "year": 2022,
+  "doi": "10.1080/01621459.2022.2060112",
+  "pmid": null,
+  "url": "https://doi.org/10.1080/01621459.2022.2060112",
+  "journal_or_venue": "Journal of the American Statistical Association",
+
+  "content": {
+    "abstract_summary": "Develops distribution-free conformal prediction sets for clustered and hierarchical data structures where observations within a cluster (e.g. repeated PK measures from the same patient) are dependent, but clusters are exchangeable. Provides valid finite-sample coverage at both cluster and unit levels.",
+
+    "key_findings": [
+      "Standard split conformal fails on clustered data due to intra-cluster correlation",
+      "Proposes cluster-level split conformal and leave-one-cluster-out methods that maintain valid nominal coverage",
+      "Establishes theoretical guarantees for both new cluster prediction and unit-level prediction within observed clusters",
+      "Directly applicable to hierarchical clinical trial data with repeated sampling per subject"
+    ],
+
+    "methods_discussed": [
+      "conformal_prediction",
+      "clustered_data",
+      "hierarchical_inference",
+      "distribution_free_UQ"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["R"],
+
+    "limitations": [
+      "Requires exchangeability at the cluster level (patients must be exchangeable even if repeated samples are correlated)",
+      "Conservative prediction intervals if number of clusters is small (<20)"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "When data are clustered, standard exchangeability is violated. We develop methods that provide exact finite-sample coverage guarantees by leveraging cluster-level exchangeability.",
+        "location": "Abstract",
+        "evidence_type": "theoretical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability", "hybrid_foundations"],
+    "gaps_addressed": [
+      "Provides exact mathematical formulation for applying conformal prediction to repeated-measures PK/PD trial data in Pillar 2 (M2.2)"
+    ],
+    "topics": [
+      "conformal_prediction",
+      "clustered_data",
+      "hierarchical_models",
+      "uncertainty_quantification"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["barber_2023_conformal"],
+    "cited_by": [],
+    "extends": ["barber_2023_conformal"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "web_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Key reference for hierarchical/clustered conformal prediction in PK/PD."
+  }
+}
+

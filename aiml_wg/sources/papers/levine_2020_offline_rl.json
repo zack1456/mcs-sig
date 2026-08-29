@@ -1,0 +1,78 @@
+{
+  "id": "levine_2020_offline_rl",
+  "source_type": "preprint",
+  "title": "Offline Reinforcement Learning: Tutorial, Review, and Perspectives on Open Problems",
+  "authors": ["Levine S", "Kumar A", "Tucker G", "Fu J"],
+  "year": 2020,
+  "doi": null,
+  "pmid": null,
+  "url": "https://arxiv.org/abs/2005.01643",
+  "journal_or_venue": "arXiv preprint arXiv:2005.01643",
+
+  "content": {
+    "abstract_summary": "Comprehensive survey and tutorial on offline (batch) reinforcement learning. Formalizes the core challenge of distributional shift / out-of-distribution actions and reviews algorithms (conservative Q-learning, policy regularization, model-based offline RL) for learning optimal policies from static datasets.",
+
+    "key_findings": [
+      "Standard off-policy RL algorithms fail catastrophically in offline settings due to distributional shift and extrapolation errors on unobserved state-action pairs",
+      "Core mitigation approaches: policy constraints (forcing policy close to behavior distribution), conservative value estimation (CQL), and uncertainty-aware model-based offline RL",
+      "Establishes theoretical foundations for sample efficiency, convergence, and safe policy improvement from historical logs",
+      "Directly translates to learning dosing policies from historical clinical trial logs without exploring risky dose regimens"
+    ],
+
+    "methods_discussed": [
+      "offline_RL",
+      "batch_RL",
+      "conservative_Q_learning",
+      "distributional_shift",
+      "policy_constraints"
+    ],
+
+    "datasets_referenced": ["D4RL"],
+
+    "tools_software": ["PyTorch", "TensorFlow"],
+
+    "limitations": [
+      "Heavy reliance on dataset coverage; cannot learn effective policies in completely unvisited regions of state-action space"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Offline reinforcement learning provides a path toward utilizing vast logged datasets to train decision-making agents without the risks associated with online exploration in safety-critical domains.",
+        "location": "Section 1",
+        "evidence_type": "theoretical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["optimal_control_rl"],
+    "gaps_addressed": [
+      "Provides the core mathematical algorithms and theory for offline precision dosing policy optimization in Pillar 3 (M3.4/M3.6)"
+    ],
+    "topics": [
+      "offline_RL",
+      "batch_RL",
+      "reinforcement_learning",
+      "optimal_control"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["gottesman_2019_rl_healthcare"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "web_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Canonical tutorial and survey for offline reinforcement learning in Pillar 3."
+  }
+}
+

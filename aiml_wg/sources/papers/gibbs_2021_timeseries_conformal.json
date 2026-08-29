@@ -1,0 +1,78 @@
+{
+  "id": "gibbs_2021_timeseries_conformal",
+  "source_type": "paper",
+  "title": "Adaptive Conformal Inference for Time Series",
+  "authors": ["Gibbs I", "Candès EJ"],
+  "year": 2021,
+  "doi": null,
+  "pmid": null,
+  "url": "https://proceedings.neurips.cc/paper/2021/hash/8a1e808b55fde83d740ab39f962e4711-Abstract.html",
+  "journal_or_venue": "Advances in Neural Information Processing Systems (NeurIPS)",
+
+  "content": {
+    "abstract_summary": "Presents Adaptive Conformal Inference (ACI), a framework that updates non-conformity thresholds dynamically to maintain valid empirical coverage on sequential, non-exchangeable time series data with temporal autocorrelation and distribution shifts.",
+
+    "key_findings": [
+      "Standard conformal prediction fails under temporal autocorrelation; ACI dynamically updates prediction bands to guarantee long-run coverage",
+      "Proves that online gradient-descent style threshold updates achieve exact asymptotic coverage even under arbitrary non-stationary processes",
+      "Demonstrates minimal tracking lag on volatile time-series trajectories",
+      "Essential foundation for applying distribution-free UQ to individual longitudinal PK/PD concentration-time curves"
+    ],
+
+    "methods_discussed": [
+      "conformal_prediction",
+      "adaptive_conformal_inference",
+      "time_series_UQ",
+      "online_learning"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["Python"],
+
+    "limitations": [
+      "Finite-sample guarantees are asymptotic in time-series length T",
+      "Step-size parameter γ requires tuning to balance responsiveness against band stability"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Adaptive Conformal Inference achieves valid empirical coverage on arbitrary non-exchangeable time series by adjusting the confidence level dynamically online.",
+        "location": "Abstract",
+        "evidence_type": "theoretical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["uq_identifiability"],
+    "gaps_addressed": [
+      "Enables conformal prediction bounds on longitudinal time-series PK concentration trajectories in Pillar 2 (M2.2)"
+    ],
+    "topics": [
+      "conformal_prediction",
+      "time_series",
+      "longitudinal_data",
+      "uncertainty_quantification"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": ["barber_2023_conformal"],
+    "cited_by": [],
+    "extends": ["barber_2023_conformal"],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "web_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Core reference for time-series conformal inference in Pillar 2."
+  }
+}
+

@@ -1,0 +1,80 @@
+{
+  "id": "kim_2021_stiff_node",
+  "source_type": "paper",
+  "title": "Stiff neural ordinary differential equations",
+  "authors": ["Kim S", "Ji W", "Deng S", "Ma Y", "Rackauckas C"],
+  "year": 2021,
+  "doi": "10.1063/5.0060697",
+  "pmid": 34598501,
+  "url": "https://doi.org/10.1063/5.0060697",
+  "journal_or_venue": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
+
+  "content": {
+    "abstract_summary": "Investigates the training and numerical stability of Neural ODEs on stiff dynamical systems with multiscale temporal dynamics. Demonstrates that standard explicit ODE solvers and classical adjoint sensitivity methods fail catastrophically on stiff systems, and presents stabilized implicit solvers and checkpointed forward sensitivity methods.",
+
+    "key_findings": [
+      "Stiff dynamical systems (ubiquitous in biological systems with fast absorption/distribution and slow elimination) cause standard Neural ODE solvers to diverge or take excessive computation time",
+      "The continuous adjoint state method suffers from extreme numerical error accumulation when backward integration of stiff systems becomes unstable",
+      "Implicit / Radau / Rodas stiff solvers with analytical Jacobian formulations and forward-mode automatic differentiation are required for stable training and parameter estimation",
+      "Directly establishes numerical verification criteria for hybrid pharmacometric models in Pillar 1 (M1.3)"
+    ],
+
+    "methods_discussed": [
+      "neural_ODE",
+      "stiff_ODE_solvers",
+      "adjoint_sensitivity",
+      "forward_sensitivity",
+      "numerical_stability",
+      "scientific_machine_learning"
+    ],
+
+    "datasets_referenced": ["ROBER", "POLLU"],
+
+    "tools_software": ["Julia", "DifferentialEquations.jl", "SciML", "PyTorch"],
+
+    "limitations": [
+      "Demonstrated on chemical kinetics benchmarks; pharmacometric multi-compartment PK/PD case studies needed"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Stiffness in neural ordinary differential equations poses severe numerical challenges where standard explicit solvers and continuous adjoint sensitivity methods fail.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides numerical verification and stiff solver stability foundations for hybrid Neural ODEs in Pillar 1 (M1.3)"
+    ],
+    "topics": [
+      "neural_ODE",
+      "stiffness",
+      "numerical_verification",
+      "adjoint_methods",
+      "SciML"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Added 2026-08-29 by Antigravity review. Foundational paper on numerical stiffness and adjoint instability in Neural ODEs for Pillar 1."
+  }
+}
+

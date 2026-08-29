@@ -1,0 +1,63 @@
+{
+  "id": "scigym_2025",
+  "source_type": "paper",
+  "title": "Measuring Scientific Capabilities of Language Models with a Systems Biology Dry Lab",
+  "authors": ["Duan H"],
+  "year": 2025,
+  "doi": null,
+  "pmid": null,
+  "url": "https://arxiv.org/abs/2507.02083",
+  "journal_or_venue": "arXiv preprint",
+  "content": {
+    "abstract_summary": "Introduction of SciGym, a standardized dry-lab simulation benchmark designed to evaluate autonomous LLM agents on scientific discovery tasks in systems biology. Systems are encoded as ODE networks using SBML. Agents must design experimental interventions (perturbations, dosing, sampling times) within a fixed experimental budget to recover unknown reaction kinetics and dynamical topologies.",
+    "key_findings": [
+      "Establishes a standardized gym-like environment for evaluating LLM agents on nonlinear biological ODE systems",
+      "Identifies that frontier models without execution feedback struggle with stiff kinetics and high-dimensional parameter spaces",
+      "Provides reusable SBML-to-ODE simulation harnesses directly relevant for QSP and pharmacometric benchmarking"
+    ],
+    "methods_discussed": [
+      "LLM_agents",
+      "systems_biology",
+      "SBML",
+      "ODE_discovery",
+      "benchmarking",
+      "experimental_design"
+    ],
+    "datasets_referenced": ["SBML_biomodels_benchmark_set"],
+    "tools_software": ["SciGym", "SBML", "libRoadRunner", "Python"],
+    "limitations": [
+      "Focuses primarily on biochemical network topology rather than clinical pharmacometrics or population hierarchy (NLME)"
+    ],
+    "extracted_claims": [
+      {
+        "text": "SciGym benchmarks LLM agent scientific reasoning through closed-loop interaction with dynamical systems modeled as ODEs in SBML.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+    "numerical_findings": []
+  },
+  "relevance": {
+    "pillars": ["generative_ai", "hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Standardizes agentic benchmarking for biological ODE systems (feeds Activity 1 / QSP tasks and Activity 3)",
+      "Provides SBML-to-ODE simulation infrastructure"
+    ],
+    "topics": ["LLM_agents", "systems_biology", "SBML", "benchmarking", "ODE_networks"],
+    "relevance_score": "high"
+  },
+  "relationships": {
+    "cites": [],
+    "cited_by": [],
+    "extends": [],
+    "contradicts": []
+  },
+  "provenance": {
+    "how_obtained": "web_search",
+    "date_read": "2026-08-29",
+    "read_by": "antigravity",
+    "read_depth": "sections_key",
+    "notes": "Added during 2026-08-29 GenAI comparative scoping review. Original metadata (authors, DOI, arXiv ID, NeurIPS venue) were hallucinated by Antigravity and corrected 2026-08-29 after CrossRef/API audit. Real project: h4duan/SciGym on GitHub, Hugging Face dataset h4duan/scigym-sbml (350 BioModels-sourced SBML ODE systems). Title and arXiv URL updated from web search confirmation; full author list needs manual verification before citation."
+  }
+}
+

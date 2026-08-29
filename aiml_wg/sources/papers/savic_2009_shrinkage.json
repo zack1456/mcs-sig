@@ -1,0 +1,79 @@
+{
+  "id": "savic_2009_shrinkage",
+  "source_type": "paper",
+  "title": "Importance of shrinkage in empirical Bayes estimates for diagnostics in population pharmacokinetics",
+  "authors": ["Savic RM", "Karlsson MO"],
+  "year": 2009,
+  "doi": "10.1208/s12248-009-9133-0",
+  "pmid": 19688264,
+  "url": "https://doi.org/10.1208/s12248-009-9133-0",
+  "journal_or_venue": "The AAPS Journal",
+
+  "content": {
+    "abstract_summary": "Classic foundational paper on parameter shrinkage (eta-shrinkage and epsilon-shrinkage) in empirical Bayes estimates (EBEs) for nonlinear mixed-effects models. Demonstrates how shrinkage masks model misspecification, distorts covariate relationships, and leads to false conclusions in model evaluation.",
+
+    "key_findings": [
+      "When individual data are uninformative (sparse sampling), EBEs shrink toward the population mean (eta-shrinkage) and individual residuals shrink toward zero (epsilon-shrinkage)",
+      "High shrinkage (>20–30%) renders standard diagnostic plots (e.g. EBE vs covariate, individual IPRED vs DV) misleading and incapable of detecting structural misspecification",
+      "Crucial for hybrid NLME-ML models: overparameterized neural network layers can artificially absorb individual variance, creating severe unnoticed shrinkage and spurious covariate relationships",
+      "Establishes formal mathematical equations for quantifying eta-shrinkage and epsilon-shrinkage"
+    ],
+
+    "methods_discussed": [
+      "empirical_Bayes_estimates",
+      "eta_shrinkage",
+      "epsilon_shrinkage",
+      "NLME_diagnostics",
+      "population_PK"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": ["NONMEM"],
+
+    "limitations": [
+      "Focused on classical parametric NLME; implications for neural-ODE hybrid layers need formal mathematical extension"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Shrinkage is a well-known phenomenon in empirical Bayes estimation. High shrinkage conceals true model misspecification and distorts individual parameter-covariate relationships.",
+        "location": "Abstract",
+        "evidence_type": "empirical"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides foundational shrinkage theory for analyzing how neural network layers interact with between-subject variability in Pillar 1 (M1.2)"
+    ],
+    "topics": [
+      "shrinkage",
+      "NLME",
+      "population_PK",
+      "diagnostics",
+      "empirical_Bayes"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["elmokadem_2024", "baaz_2026"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Added 2026-08-29 by Antigravity review. Foundational reference for eta-shrinkage in mixed-effects hybrid models."
+  }
+}
+

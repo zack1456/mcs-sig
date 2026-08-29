@@ -1,0 +1,81 @@
+{
+  "id": "kuemmel_2020_credibility",
+  "source_type": "paper",
+  "title": "Considerations for a Credibility Assessment Framework in Model-Informed Drug Development: White Paper",
+  "authors": ["Kuemmel C", "Yang Y", "Zhang X", "Florian J", "Zhu H", "Wang Y"],
+  "year": 2020,
+  "doi": "10.1002/psp4.12479",
+  "pmid": 31778000,
+  "url": "https://doi.org/10.1002/psp4.12479",
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+
+  "content": {
+    "abstract_summary": "Adapts the ASME V&V 40 risk-informed credibility framework to Model-Informed Drug Development (MIDD). Defines how model risk (model influence × decision consequence) dictates the necessary level of verification, validation, and uncertainty quantification required for regulatory decision-making.",
+
+    "key_findings": [
+      "Establishes a standardized credibility assessment framework for MIDD based on the ASME V&V 40 standard",
+      "Model risk is formalized as the product of Model Influence (how heavily the regulatory decision relies on the model) and Decision Consequence (severity of consequences if the model is wrong)",
+      "Defines specific V&V activities: code verification, calculation verification, model applicability evaluation, and sensitivity/uncertainty analysis",
+      "Serves as the direct conceptual foundation for the FDA 2025 AI/ML 7-step credibility framework and ICH M15 guidance"
+    ],
+
+    "methods_discussed": [
+      "credibility_framework",
+      "ASME_VV_40",
+      "model_risk_assessment",
+      "verification_and_validation",
+      "MIDD",
+      "regulatory_science"
+    ],
+
+    "datasets_referenced": [],
+
+    "tools_software": [],
+
+    "limitations": [
+      "Written prior to widespread integration of deep neural ODEs and hybrid ML models in MIDD submissions"
+    ],
+
+    "extracted_claims": [
+      {
+        "text": "Model credibility is context-dependent and should be commensurate with the model risk, which is determined by the decision consequence and model influence.",
+        "location": "Abstract",
+        "evidence_type": "regulatory"
+      }
+    ],
+
+    "numerical_findings": []
+  },
+
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": [
+      "Provides the primary peer-reviewed citation bridging ASME V&V 40 to MIDD and pharmacometrics for regulatory workstreams and White Paper Section E"
+    ],
+    "topics": [
+      "regulatory",
+      "credibility",
+      "ASME_VV_40",
+      "FDA",
+      "model_influence",
+      "verification_validation"
+    ],
+    "relevance_score": "high"
+  },
+
+  "relationships": {
+    "cites": [],
+    "cited_by": ["fda_ai_guidance_2025"],
+    "extends": [],
+    "contradicts": []
+  },
+
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "full_text",
+    "notes": "Added 2026-08-29 by Antigravity review. Core regulatory bridge paper translating ASME V&V 40 into pharmacometric MIDD credibility assessment."
+  }
+}
+
