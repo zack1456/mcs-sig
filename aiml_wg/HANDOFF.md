@@ -1,5 +1,20 @@
 # Handoff
 
+## Source-library maintenance completed (2026-08-29, Codex)
+
+- Added a newcomer-safe `scripts/literature.py` workflow with `add`, `check`, and `fix` commands plus a Windows PowerShell wrapper.
+- Added deterministic offline validation for schema, duplicates, index metadata, relationships, Markdown citations, the generated reader, and current source counts.
+- Moved DOI/PMID verification to a manual/scheduled path and corrected transient-network-error handling.
+- Added CI, contribution guidance, a provider-neutral maintenance contract, root agent guidance, and the repo-scoped `literature-maintainer` skill.
+- Added optional `review_status` and marked the five LLM-extracted generative-AI comparison sources `draft` pending human scientific review.
+- Made local pre-commit checks platform-neutral, added unit tests to CI, and retained `literature.ps1` only as a Windows convenience.
+- Hardened `fix` so malformed or duplicate records cannot cause derived files to be regenerated from an incomplete library.
+- Added an explicit draft count plus draft/reviewed filters and review metadata to the source reader.
+- Synchronized index pillars, reciprocal relationships, `reader.html`, and the current 68-record counts.
+- Removed a phantom duplicate PKGPT relationship and its citations after authoritative lookup showed its recorded DOI belonged to an unrelated wound-healing paper; `kwack_2026_pkgpt` is the valid PKGPT record.
+
+**Validation:** 68 records; 0 offline errors; 0 warnings; 5 human-review drafts; 12 unit tests.
+
 <!-- Updated 2026-08-29 by Codex: reconciled current regulatory and source-library status; did not alter kickoff outcomes. -->
 
 > **Instructions for any editor (human or LLM):** Read this file first. Update it when you finish a session — the "Current focus" and "Suggested next action" sections are the most important to keep current. Keep entries brief; commit history has the details.
@@ -33,8 +48,7 @@ After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), sta
 
 ## What was completed this session (2026-08-29 Antigravity review)
 
-- **13 new peer-reviewed sources created and indexed** in `sources/index.json` (bringing library to **56 records**):
-  - `pkgpt_2026` (Pharmaceutics) — agentic closed-loop PopPK modeling in NONMEM
+- **12 new peer-reviewed sources created and indexed** in `sources/index.json` (bringing library to **56 records**):
   - `scigym_2025` (NeurIPS) — benchmark for biological ODE discovery via LLM agents
   - `barber_2023_conformal` (Annals of Statistics) — non-exchangeable conformal prediction
   - `dunn_2022_clustered_conformal` (JASA) — clustered/hierarchical conformal prediction for longitudinal data
@@ -156,7 +170,7 @@ After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), sta
 
 ## What was completed this session (2026-08-29 Claude session)
 
-- **Comparative activity plans generated** for Claude × Codex × Antigravity across 6 pharma modeling tasks (Pop PK NONMEM, failure mode elicitation, PBPK structure, hybrid neural ODE, QSP ODE + identifiability, model diagnostics). Both Claude and Antigravity have generated independent scoping plans; Claude's is at `methods/04_generative_ai/comparative_activities_scoping_claude.md`.
+- **Comparative activity plans generated** for Claude × Codex × Antigravity across pharma modeling tasks including PopPK/NONMEM, failure-mode elicitation, PBPK, hybrid neural ODEs, QSP identifiability, and model diagnostics. The three independent scopes are in `methods/04_generative_ai/` as `comparative_activities_scoping_claude.md`, `comparative_activities_scoping_codex.md`, and `comparative_activities_scoping_antigravity.md`.
 - **M4.5 workstream added** to `methods/04_generative_ai/PLAN.md` with task IDs M4.5-A1 through M4.5-A6 and open design questions (Antigravity/Codex identity, prompt engineering policy, expert panel).
 - **2 new source records added** to library (now 56 records): `kwack_2026_pkgpt` (human benchmarking data; V2 plausibility failure) and `chen_2026_pbpkml` (ML+PBPK white-space confirmation).
 

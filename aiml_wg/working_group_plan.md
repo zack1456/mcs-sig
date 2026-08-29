@@ -260,7 +260,7 @@ Organized into three phases over ~18 months.
 - [QSP+ML White Paper (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC8837505/)
 - [QSP+ML LLM 2025 update (PMC)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12170689/)
 
-**Literature (PubMed) — full library in `sources/index.json` (43 records). Key papers by pillar:**
+**Literature (PubMed) — full, current library in `sources/index.json`. Key papers by pillar:**
 
 *Pillar 1 — Hybrid Models:*
 

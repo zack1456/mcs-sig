@@ -28,13 +28,12 @@ The existing pharmacometrics LLM benchmark literature:
 |---|---|---|---|
 | shin_2024_llm | ChatGPT 4.0, Gemini Ultra 1.0 | 2 NONMEM tasks | Only 2 models, 2 tasks; no Claude; no MCS scoring criteria |
 | zheng_2025_llm | 7 LLMs (incl. o1, gpt-4.1) | 13 NONMEM tasks | Best model achieves near-perfect accuracy with optimized prompt; still no Claude, no plausibility/identifiability scoring |
-| pkgpt_2026 | LLM agent (closed-loop) | NONMEM (automated) | No human benchmark; Chen et al. version |
 | kwack_2026_pkgpt | Gemini 3.0 Flash agent | 3 datasets vs. human expert | **V2=149 L vs. 13.2 L plausibility failure documented**; covariate analysis fails |
 | scigym_2025 | Frontier LLM agents | Biological ODE discovery | Biochemical networks, not clinical pharmacometrics |
 
 **White space confirmed by this search:**
 - No existing benchmark includes Claude, Codex, or Antigravity
-- No benchmark scores physiological plausibility systematically (kwack_2026 notes it qualitatively)
+- No benchmark scores physiological plausibility systematically (kwack_2026_pkgpt notes it qualitatively)
 - No benchmark covers PBPK structure generation by LLMs
 - No benchmark covers QSP ODE + identifiability by LLMs
 - No benchmark covers hybrid neural ODE implementation by LLMs
@@ -45,7 +44,7 @@ The existing pharmacometrics LLM benchmark literature:
 
 **Domain:** Population pharmacokinetics  
 **Study type:** Formal benchmark, paper-quality  
-**MCS differentiation:** Medium — extends zheng_2025 + kwack_2026 with new models and new MCS scoring criteria  
+**MCS differentiation:** Medium — extends zheng_2025_llm + kwack_2026_pkgpt with new models and new MCS scoring criteria
 **Estimated effort:** 3–4 person-days for a 3-dataset × 3-model run + expert scoring
 
 ### Benchmark datasets
@@ -59,7 +58,7 @@ Use the same three public NONMEM example datasets as kwack_2026_pkgpt — this e
 | tobramycin | Tobramycin | 2-cpt IV | Moderate — V2 plausibility is the known trap |
 
 Add a fourth dataset as MCS extension:
-- **vancomycin** (Revilla 2010 or Llopis-Salvia 2006 — well-characterized, M3 BLQ data available): 2-cpt IV with BLQ observations, tests M3 method handling not covered by zheng_2025 or kwack_2026.
+- **vancomycin** (Revilla 2010 or Llopis-Salvia 2006 — well-characterized, M3 BLQ data available): 2-cpt IV with BLQ observations, tests M3 method handling not covered by zheng_2025_llm or kwack_2026_pkgpt.
 
 ### Task prompt template
 
@@ -104,7 +103,7 @@ After the code, provide a one-paragraph justification of your structural model c
 **D. Physiological plausibility of initial estimates (20 pts)**
 - CL initial estimate within 5-fold of published population mean: 8 pts
 - Vd initial estimate within 5-fold of published population mean: 7 pts
-- V2 (if 2-cpt) within 5-fold of published population mean (kwack_2026 failure: 149 vs 13.2 L): 5 pts
+- V2 (if 2-cpt) within 5-fold of published population mean (kwack_2026_pkgpt failure: 149 vs 13.2 L): 5 pts
 
 **E. MCS-specific criteria (20 pts)**
 - Identifiability: no IIV parameters confounded or redundant in $OMEGA block: 8 pts
@@ -122,8 +121,8 @@ After the code, provide a one-paragraph justification of your structural model c
 
 ### Expected hypotheses
 
-- H1: Claude and Antigravity will match or exceed zheng_2025's best chat models (o1, gpt-4.1) on executability (A) but MCS criteria (E) will discriminate
-- H2: V2 plausibility failure (kwack_2026's documented gap) will appear in at least one model on tobramycin
+- H1: Claude and Antigravity will match or exceed zheng_2025_llm's best chat models (o1, gpt-4.1) on executability (A) but MCS criteria (E) will discriminate
+- H2: V2 plausibility failure (kwack_2026_pkgpt's documented gap) will appear in at least one model on tobramycin
 - H3: Agentic Codex will outperform chat models on executability (A) through self-correction but may not improve identifiability scoring (E)
 - H4: Reproducibility CV will be high (>30%) for all models — consistent with shin_2024_llm
 
@@ -533,7 +532,7 @@ Before publishing, consult scope differentiation memo (M4.4). The biology conten
 
 **Domain:** Population PK  
 **Study type:** Workshop-suitable; informal comparison; high community relevance  
-**MCS differentiation:** Medium — novel relative to existing benchmarks (zheng_2025 tests only code generation); tests pharmacometric reasoning  
+**MCS differentiation:** Medium — novel relative to existing benchmarks (zheng_2025_llm tests only code generation); tests pharmacometric reasoning
 **Estimated effort:** 1 person-day; can be run without NONMEM access
 
 ### Simulated output scenarios
@@ -661,7 +660,6 @@ Activities 4 and 5 require neural ODE and identifiability expertise respectively
 | shin_2024_llm | 1, 2, 6 | Baseline benchmark (ChatGPT/Gemini 2024) |
 | zheng_2025_llm | 1 | Extends to 7 LLMs × 13 tasks; scoring rubric |
 | kwack_2026_pkgpt | 1, 2 | Human benchmarking data; V2 plausibility failure anchor |
-| pkgpt_2026 | 1 | Agentic loop architecture reference |
 | savic_2009_shrinkage | 1, 6 | η-shrinkage scoring threshold (30%) |
 | kim_2021_stiff_node | 4 | Adjoint instability in stiff neural ODEs |
 | chenel_2026 | 3 | PBPK best practices + ICH M15 scoring anchor |

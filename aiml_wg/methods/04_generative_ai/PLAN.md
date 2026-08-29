@@ -72,7 +72,7 @@
 - [ ] Assess: how often do these failures occur? Are they model-specific or prompt-dependent?
 - [ ] This is directly actionable for the community — tool could be released with the paper
 
-**Working notes files:** `llm_failure_modes_notes.md`, `comparitive_activities_scoping_gemini.md`, `comparative_activities_scoping_claude.md`
+**Working notes files:** `llm_failure_modes_notes.md`, `comparative_activities_scoping_antigravity.md`, `comparative_activities_scoping_claude.md`, `comparative_activities_scoping_codex.md`
 
 ---
 
@@ -91,7 +91,7 @@
 
 Empirical benchmark of AI systems on pharmacometric modeling tasks — directly feeds M4.3 taxonomy and M4.4 scope memo.
 
-**Detailed protocols:** `comparative_activities_scoping_claude.md` (Claude, 2026-08-29) and `comparitive_activities_scoping_gemini.md` (Antigravity, 2026-08-29)
+**Detailed protocols:** `comparative_activities_scoping_claude.md` (Claude, 2026-08-29), `comparative_activities_scoping_codex.md` (Codex, 2026-08-29), and `comparative_activities_scoping_antigravity.md` (Antigravity, 2026-08-29)
 
 **Core six activities (in recommended execution order):**
 
@@ -136,7 +136,6 @@ Empirical benchmark of AI systems on pharmacometric modeling tasks — directly 
 | `sources/web/fda_ai_guidance_2025.json` | M4.2 | Regulatory criteria for synthetic data |
 | `sources/papers/shin_2024_llm.json` | M4.3, M4.5 | Baseline LLM NONMEM benchmark (ChatGPT/Gemini 2024) |
 | `sources/papers/zheng_2025_llm.json` | M4.3, M4.5 | 7 LLMs × 13 tasks; scoring rubric; near-perfect with optimized prompt |
-| `sources/papers/pkgpt_2026.json` | M4.3, M4.5 | Agentic closed-loop NONMEM (Antigravity-sourced) |
 | `sources/papers/kwack_2026_pkgpt.json` | M4.3, M4.5 | Added 2026-08-29 (Claude): Human benchmarking; V2=149 vs 13.2 L plausibility failure |
 | `sources/papers/chen_2026_pbpkml.json` | M4.5-A3 | Added 2026-08-29 (Claude): ML+PBPK white-space confirmation |
 | `sources/papers/scigym_2025.json` | M4.5-A5 | SBML-to-ODE simulation harness for agentic benchmarking |

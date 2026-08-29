@@ -560,7 +560,7 @@ Right-sized to the confirmed 3-person working group headcount (*ZK, SK, MC*):
 
 ## 12. Summary Checklist for Phase 1 Kickoff
 
-- [ ] Confirm acceptance of [`comparitive_activities_scoping_gemini.md`](file:///c:/Users/zackk/Documents/Python/mcs-sig/aiml_wg/methods/04_generative_ai/comparitive_activities_scoping_gemini.md) with co-chairs.
+- [ ] Confirm acceptance of `comparative_activities_scoping_antigravity.md` with co-chairs.
 - [ ] Initialize `benchmarks/pharma_bench_ode/` directory with task schemas.
 - [ ] Deploy the `SymPy` symbolic mass balance evaluator script in `evaluators/mass_balance_sympy.py`.
 - [ ] Circulate M4.4 scope differentiation matrix to QSP and AI/ML SIG leadership for alignment.
