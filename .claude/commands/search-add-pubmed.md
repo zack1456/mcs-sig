@@ -49,6 +49,7 @@ For each new paper, scan its reference list (if full text was obtained) for DOIs
 
 **7. Write records**
 Write each new record to `aiml_wg/sources/papers/{id}.json`.
+Set `review_status: "draft"`; an LLM must not mark its own extraction scientifically reviewed.
 
 **8. Confirm**
-Report a table: paper, PMID, read_depth achieved, pillars assigned, and any cross-references linked.
+Run `python scripts/literature.py fix` followed by `python scripts/literature.py check`. Report a table: paper, PMID, review status, read_depth achieved, pillars assigned, cross-references linked, and remaining review warnings.

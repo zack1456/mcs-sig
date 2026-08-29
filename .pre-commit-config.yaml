@@ -1,16 +1,21 @@
 repos:
   - repo: local
     hooks:
-      - id: validate-sources
-        name: Validate source JSON DOIs and PMIDs (CrossRef + PubMed)
+      - id: check-source-library
+        name: Check source library (offline, newcomer-safe)
+        language: python
+        entry: python scripts/literature.py check
+        files: ^(\.pre-commit-config\.yaml$|aiml_wg/sources/|aiml_wg/.*\.md$|scripts/(literature\.py|validate_sources\.py)$)
+        pass_filenames: false
+        always_run: false
+        description: >
+          Runs deterministic checks without network access. Clear structural
+          errors block the commit; review warnings do not. It never deletes or
+          reverts contributor files.
+      - id: verify-source-identifiers-online
+        name: Verify source identifiers online (maintainer/manual)
         language: python
         entry: python scripts/validate_sources.py --files
         files: ^aiml_wg/sources/papers/.*\.json$
         pass_filenames: true
-        always_run: false
-        description: >
-          Resolves every DOI against CrossRef and every PMID against NCBI PubMed.
-          Fails if a DOI returns 404 (hallucinated) or if it resolves to a paper
-          with a title that does not match the JSON record. Set doi/pmid to null
-          for unconfirmed preprints rather than guessing.
-
+        stages: [manual]

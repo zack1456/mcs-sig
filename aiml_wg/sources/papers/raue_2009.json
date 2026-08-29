@@ -2,16 +2,22 @@
   "id": "raue_2009",
   "source_type": "paper",
   "title": "Structural and practical identifiability analysis of partially observed dynamical models by exploiting the profile likelihood",
-  "authors": ["Raue A", "Kreutz C", "Maiwald T", "Bachmann J", "Schilling M", "Klingmüller U", "Timmer J"],
+  "authors": [
+    "Raue A",
+    "Kreutz C",
+    "Maiwald T",
+    "Bachmann J",
+    "Schilling M",
+    "Klingmüller U",
+    "Timmer J"
+  ],
   "year": 2009,
   "doi": "10.1093/bioinformatics/btp358",
   "pmid": 19505944,
   "url": null,
   "journal_or_venue": "Bioinformatics",
-
   "content": {
     "abstract_summary": "Introduces the profile likelihood approach to simultaneously detect structural non-identifiabilities (functionally related parameter combinations that produce identical model outputs regardless of data quality) and practical non-identifiabilities (arising from finite, noisy data) in partially observed dynamical models described by ODEs. Derives confidence intervals from the profile. Foundational methods paper for identifiability analysis in biological dynamical systems — widely cited as the standard methodology for practical identifiability in systems biology and pharmacometrics.",
-
     "key_findings": [
       "Profile likelihood approach distinguishes two distinct causes of non-identifiability: (1) structural — parameters are functionally related and cannot be separated even with infinite perfect data; (2) practical — parameters are theoretically identifiable but not from the available finite noisy data",
       "Confidence intervals for parameters can be derived directly from the profile likelihood — superior to asymptotic (Fisher information matrix-based) intervals which assume local quadratic approximation",
@@ -19,7 +25,6 @@
       "Method applies to partially observed systems (not all states measured) — the typical situation in clinical pharmacology and pharmacokinetics",
       "Implementation: PottersWheel modeling toolbox for MATLAB; open source. The method has since been implemented in many pharmacometrics tools"
     ],
-
     "methods_discussed": [
       "profile_likelihood",
       "structural_identifiability",
@@ -28,19 +33,15 @@
       "ODE_dynamical_systems",
       "nonlinear_model_calibration"
     ],
-
     "datasets_referenced": [],
-
     "tools_software": [
       "PottersWheel (MATLAB)"
     ],
-
     "limitations": [
       "Profile likelihood is computationally expensive for high-dimensional parameter spaces — scales poorly beyond ~20 parameters without approximation",
       "Requires optimization from multiple starting points to avoid local minima being misidentified as global profiles",
       "Does not address identifiability of neural network components or ML-augmented ODE systems — extending profile likelihood to neural ODE hybrid models is an open problem (directly addressed by campo_manzanares_2026)"
     ],
-
     "extracted_claims": [
       {
         "text": "\"We suggest an approach that exploits the profile likelihood. It enables to detect structural non-identifiabilities, which manifest in functionally related model parameters. Furthermore, practical non-identifiabilities are detected, that might arise due to limited amount and quality of experimental data.\"",
@@ -48,12 +49,13 @@
         "evidence_type": "theoretical"
       }
     ],
-
     "numerical_findings": []
   },
-
   "relevance": {
-    "pillars": ["uq_identifiability", "hybrid_foundations"],
+    "pillars": [
+      "uq_identifiability",
+      "hybrid_foundations"
+    ],
     "gaps_addressed": [
       "Provides the methodological foundation for M1.2 and M1.3 — any WG analysis of identifiability of neural ODE components must establish what profile likelihood says about the mechanistic parameters first, before extending to the ML components",
       "The structural/practical identifiability distinction is the key conceptual frame for M1.2 — neural ODE components are generally structurally non-identifiable (redundant weight configurations), which is a different type of non-identifiability than the parameter correlations Raue addresses",
@@ -71,14 +73,14 @@
     ],
     "relevance_score": "high"
   },
-
   "relationships": {
     "cites": [],
-    "cited_by": [],
+    "cited_by": [
+      "janzen_2017"
+    ],
     "extends": [],
     "contradicts": []
   },
-
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-27",

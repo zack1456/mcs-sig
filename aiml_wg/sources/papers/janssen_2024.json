@@ -2,16 +2,19 @@
   "id": "janssen_2024",
   "source_type": "paper",
   "title": "On inductive biases for the robust and interpretable prediction of drug concentrations using deep compartment models",
-  "authors": ["Janssen A", "Bennis FC", "Cnossen MH", "Mathôt RAA"],
+  "authors": [
+    "Janssen A",
+    "Bennis FC",
+    "Cnossen MH",
+    "Mathôt RAA"
+  ],
   "year": 2024,
   "doi": "10.1007/s10928-024-09906-x",
   "pmid": 38532084,
   "url": null,
   "journal_or_venue": "Journal of Pharmacokinetics and Pharmacodynamics",
-
   "content": {
     "abstract_summary": "Extends the deep compartment model (DCM) architecture — a hybrid mechanistic-ML PK model — by introducing physiological inductive biases (boundary constraints, global parameter estimation, multi-branch networks) to improve robustness in sparse data settings. Validates on simulated haemophilia A data (756 patients from NHANES covariates) and real clinical data (69 patients, standard half-life FVIII). The multi-branch network architecture enables model interpretability through visualization of learned covariate functions, eliminating the need for post-hoc SHAP. Key finding: naive neural-ODE achieves the WORST performance on sparse real data; physiological constraints are necessary. Amsterdam UMC, published in JPKPD 2024.",
-
     "key_findings": [
       "Naive DCM without constraints: 18% of models diverge on small data (N=20) producing physiologically implausible curves (peak FVIII up to 1340 IU/dL); global parameter constraints reduce divergence to 0.33% — constraints are not optional in sparse clinical settings",
       "Neural-ODE (Lu et al. architecture) achieves the HIGHEST RMSE (worst performance) on real 69-patient sparse data (RMSE 19.5 IU/dL) vs multi-branch DCM 13.0 IU/dL and best NLME 13.7 IU/dL — contradict the narrative that neural-ODEs always outperform traditional methods; they fail with sparse data",
@@ -20,7 +23,6 @@
       "Multi-branch architecture makes post-hoc explainability methods (SHAP) unnecessary: covariate effects are isolated by design and can be visualized directly — a cleaner approach to interpretability for regulatory purposes",
       "Simulation study: 756 male NHANES individuals; 20-fold Monte Carlo CV × 5 model replicates = 100 replicates per condition; boundary constraints reduce divergence more than initialization but less than global parameter estimation"
     ],
-
     "methods_discussed": [
       "deep_compartment_model",
       "inductive_biases",
@@ -36,21 +38,19 @@
       "population_PK",
       "NONMEM"
     ],
-
     "datasets_referenced": [
       "NHANES_756_male_simulated_haemophilia_A",
       "haemophilia_A_real_world_n69_FVIII"
     ],
-
-    "tools_software": ["NONMEM"],
-
+    "tools_software": [
+      "NONMEM"
+    ],
     "limitations": [
       "Haemophilia A with only 3 measurements per patient (4h, 24h, 48h) — extremely sparse; results may not generalize to drugs with richer PK sampling",
       "Neural-ODE failure may be specific to the very sparse data setting (N=69, 3 obs/patient) — does not mean neural-ODE underperforms in general",
       "Multi-branch architecture requires a priori specification of which covariates connect to which PK parameters — shifts complexity from model fitting to study design; in practice still requires pharmacometric expertise",
       "Identifiability of neural components not formally analyzed; practical robustness is addressed via constraints but theoretical identifiability is not"
     ],
-
     "extracted_claims": [
       {
         "text": "We conclude that physiological-based constraints can improve model robustness. We describe an interpretable architecture which aids model trust, which will be key for the adoption of machine learning-based models in clinical practice.",
@@ -68,7 +68,6 @@
         "evidence_type": "empirical"
       }
     ],
-
     "numerical_findings": [
       {
         "metric_type": "study_statistic",
@@ -102,9 +101,11 @@
       }
     ]
   },
-
   "relevance": {
-    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "pillars": [
+      "hybrid_foundations",
+      "uq_identifiability"
+    ],
     "gaps_addressed": [
       "Critical counter-evidence for M1.4 (when do hybrids NOT help?): neural-ODE underperforms traditional pharmacometrics on sparse real data — this nuanced finding is essential for a balanced WG scoping paper",
       "Provides the architectural solution to practical identifiability in M1.3: physiological constraints reduce the solution space to realistic regions, directly analogous to prior distributions in Bayesian estimation",
@@ -126,14 +127,20 @@
     ],
     "relevance_score": "high"
   },
-
   "relationships": {
-    "cites": ["lu_2021"],
-    "cited_by": ["kekic_2026", "dette_2025"],
-    "extends": ["lu_2021"],
+    "cites": [
+      "lu_2021"
+    ],
+    "cited_by": [
+      "kekic_2026",
+      "dette_2025",
+      "elmokadem_2024"
+    ],
+    "extends": [
+      "lu_2021"
+    ],
     "contradicts": []
   },
-
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-27",

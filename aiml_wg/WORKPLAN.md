@@ -54,7 +54,7 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 
 ## Source library status
 
-**Authoritative record: `sources/index.json` (63 records as of 2026-08-29).** The table below is a summary; `index.json` is the ground truth.
+**Authoritative record: `sources/index.json` (68 records as of 2026-08-29).** The table below is a summary; `index.json` is the ground truth.
 
 ### Background & Context
 

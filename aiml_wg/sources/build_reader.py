@@ -4,12 +4,12 @@ Regenerates reader.html from index.json + all source files.
 Run after adding new sources: python build_reader.py
 """
 
+import argparse
 import json, os, sys
 
 
-def main():
-    base = os.path.dirname(os.path.abspath(__file__))
-
+def render(base):
+    """Return rendered HTML and any index entries whose files are missing."""
     with open(os.path.join(base, "index.json"), encoding="utf-8") as f:
         index = json.load(f)
 
@@ -30,11 +30,32 @@ def main():
     data_json = json.dumps(sources, ensure_ascii=False, separators=(",", ":"))
     data_json = data_json.replace("</", "<\\/")   # prevent </script> injection
 
-    out = os.path.join(base, "reader.html")
-    with open(out, "w", encoding="utf-8") as f:
-        f.write(TEMPLATE.replace("__SOURCES_JSON__", data_json))
+    return TEMPLATE.replace("__SOURCES_JSON__", data_json), skipped, len(sources)
 
-    print(f"reader.html  ({len(sources)} sources, {os.path.getsize(out):,} bytes)")
+
+def main():
+    parser = argparse.ArgumentParser(description="Build or check the generated source-library reader.")
+    parser.add_argument("--check", action="store_true", help="Fail if reader.html is stale; do not write it.")
+    args = parser.parse_args()
+    base = os.path.dirname(os.path.abspath(__file__))
+    rendered, skipped, count = render(base)
+
+    out = os.path.join(base, "reader.html")
+    if args.check:
+        current = ""
+        if os.path.exists(out):
+            with open(out, encoding="utf-8") as f:
+                current = f.read()
+        if skipped or current != rendered:
+            print("reader.html is stale; run `python scripts/literature.py fix`.", file=sys.stderr)
+            raise SystemExit(1)
+        print(f"reader.html is current ({count} sources)")
+        return
+
+    with open(out, "w", encoding="utf-8", newline="\n") as f:
+        f.write(rendered)
+
+    print(f"reader.html  ({count} sources, {os.path.getsize(out):,} bytes)")
 
 
 # ---------------------------------------------------------------------------
@@ -180,6 +201,11 @@ body {
   letter-spacing: .04em;
   flex-shrink: 0;
 }
+.row-review {
+  font-size: 9px; color: #92400e; background: #fef3c7;
+  border: 1px solid #f59e0b; padding: 0 5px; border-radius: 3px;
+  font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+}
 .row-title {
   font-size: 12.5px;
   font-weight: 500;
@@ -226,6 +252,11 @@ body {
 .depth-badge {
   padding: 1px 9px; border-radius: 999px;
   font-size: 11px; border: 1.5px solid; background: #fff;
+}
+.review-badge {
+  padding: 1px 9px; border-radius: 999px; font-size: 11px;
+  border: 1.5px solid #f59e0b; color: #92400e; background: #fef3c7;
+  font-weight: 700;
 }
 
 .detail-title { font-size: 17px; font-weight: 700; line-height: 1.35; margin-bottom: 6px; }
@@ -337,6 +368,10 @@ a.doi-link:hover { text-decoration: underline; }
     <button class="chip" data-depth="full_text">full text</button>
     <button class="chip" data-depth="sections_key">key sections</button>
     <button class="chip" data-depth="abstract_only">abstract</button>
+    <span class="fsep"></span>
+    <span class="flabel">Review</span>
+    <button class="chip" data-review="draft">draft</button>
+    <button class="chip" data-review="reviewed">reviewed</button>
     <input id="search" type="search" placeholder="Search title, author, topic…">
   </div>
 </div>
@@ -374,7 +409,7 @@ const DEPTH = {
   abstract_only:{ label: "abstract",     width: "25%",  color: "#9ca3af" }
 };
 
-const state = { selected: null, pillars: [], types: [], depths: [], q: "" };
+const state = { selected: null, pillars: [], types: [], depths: [], reviews: [], q: "" };
 
 // ── Helpers ─────────────────────────────────────────────
 function esc(s) {
@@ -397,6 +432,7 @@ function filtered() {
     if (state.types.length  && !state.types.includes(s.source_type)) return false;
     const depth = s.provenance ? s.provenance.read_depth : null;
     if (state.depths.length && !state.depths.includes(depth)) return false;
+    if (state.reviews.length && !state.reviews.includes(s.review_status || "legacy")) return false;
     if (state.q) {
       const hay = [
         s.title_short, s.title,
@@ -432,6 +468,7 @@ function renderList() {
             return "<span class='dot' style='background:" + pi.color + "' title='" + esc(pi.label) + "'></span>";
           }).join("") +
         "</div>" +
+        (s.review_status === "draft" ? "<span class='row-review'>draft</span>" : "") +
         "<span class='row-type' style='background:" + t.color + "'>" + t.label + "</span>" +
       "</div>" +
       "<div class='row-title'>" + esc(s.title_short || s.title || s.id) + "</div>" +
@@ -530,6 +567,8 @@ function renderDetail(s) {
       }).join("") +
       "<span class='type-badge' style='background:" + t.color + "'>" + t.label + "</span>" +
       "<span class='depth-badge' style='border-color:" + d.color + ";color:" + d.color + "'>" + d.label + "</span>" +
+      (s.review_status === "draft" ? "<span class='review-badge'>Draft - human review required</span>" : "") +
+      (s.review_status === "reviewed" ? "<span class='review-badge' style='border-color:#16a34a;color:#166534;background:#dcfce7'>Human reviewed</span>" : "") +
     "</div>" +
     "<h1 class='detail-title'>" + esc(s.title || s.title_short || s.id) + "</h1>" +
     (auth ? "<div class='detail-authors'>" + esc(auth) + "</div>" : "") +
@@ -561,6 +600,10 @@ function renderDetail(s) {
       "<span class='prov-k'>Date read</span><span class='prov-v'>"    + esc(prov.date_read    || "—") + "</span>" +
       "<span class='prov-k'>How obtained</span><span class='prov-v'>" + esc(prov.how_obtained || "—") + "</span>" +
       "<span class='prov-k'>Read by</span><span class='prov-v'>"      + esc(prov.read_by      || "—") + "</span>" +
+      "<span class='prov-k'>Review status</span><span class='prov-v'>" + esc(s.review_status || "legacy / not recorded") + "</span>" +
+      (s.reviewed_by ? "<span class='prov-k'>Reviewed by</span><span class='prov-v'>" + esc(s.reviewed_by) + "</span>" : "") +
+      (s.reviewed_date ? "<span class='prov-k'>Review date</span><span class='prov-v'>" + esc(s.reviewed_date) + "</span>" : "") +
+      (s.review_notes ? "<span class='prov-k'>Review notes</span><span class='prov-v prov-notes'>" + esc(s.review_notes) + "</span>" : "") +
       (prov.notes ? "<span class='prov-k'>Notes</span><span class='prov-v prov-notes'>" + esc(prov.notes) + "</span>" : "") +
     "</div></div>" +
 
@@ -610,6 +653,14 @@ document.querySelectorAll("[data-depth]").forEach(function(btn) {
   btn.addEventListener("click", function() {
     toggle(state.depths, btn.dataset.depth);
     btn.classList.toggle("active", state.depths.includes(btn.dataset.depth));
+    renderList();
+  });
+});
+
+document.querySelectorAll("[data-review]").forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    toggle(state.reviews, btn.dataset.review);
+    btn.classList.toggle("active", state.reviews.includes(btn.dataset.review));
     renderList();
   });
 });

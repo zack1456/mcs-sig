@@ -2,23 +2,27 @@
   "id": "gottesman_2019_rl_healthcare",
   "source_type": "paper",
   "title": "Guidelines for reinforcement learning in healthcare",
-  "authors": ["Gottesman O", "Johansson F", "Komorowski M", "Faisal A", "Sontag D", "Doshi-Velez F"],
+  "authors": [
+    "Gottesman O",
+    "Johansson F",
+    "Komorowski M",
+    "Faisal A",
+    "Sontag D",
+    "Doshi-Velez F"
+  ],
   "year": 2019,
   "doi": "10.1038/s41591-018-0310-5",
   "pmid": 30617322,
   "url": "https://doi.org/10.1038/s41591-018-0310-5",
   "journal_or_venue": "Nature Medicine",
-
   "content": {
     "abstract_summary": "Establishes clinical and methodological guidelines for applying reinforcement learning in healthcare. Highlights the critical need for offline/batch RL, rigorous off-policy evaluation, handling of unobserved confounding (POMDPs), and safety bounds before clinical translation.",
-
     "key_findings": [
       "Active exploration on real patients is unethical; clinical RL must be learned offline from observational data or validated mechanistic simulators",
       "Off-Policy Evaluation (OPE) is mandatory to estimate policy performance reliably prior to clinical deployment",
       "Identifies key pitfalls: partial observability, action space mismatch, unmeasured confounding, and unstable reward functions",
       "Proposes reporting standards for clinical RL studies to ensure reproducibility and safety"
     ],
-
     "methods_discussed": [
       "reinforcement_learning",
       "offline_RL",
@@ -26,15 +30,15 @@
       "POMDP",
       "clinical_safety"
     ],
-
-    "datasets_referenced": ["MIMIC-III"],
-
-    "tools_software": ["Python"],
-
+    "datasets_referenced": [
+      "MIMIC-III"
+    ],
+    "tools_software": [
+      "Python"
+    ],
     "limitations": [
       "Broad high-level guidelines; does not provide pharmacometric ODE-specific reward formulations"
     ],
-
     "extracted_claims": [
       {
         "text": "Unlike games or robotics where agents learn through online exploration, reinforcement learning in healthcare must almost exclusively rely on observational data and offline evaluation.",
@@ -42,12 +46,12 @@
         "evidence_type": "review"
       }
     ],
-
     "numerical_findings": []
   },
-
   "relevance": {
-    "pillars": ["optimal_control_rl"],
+    "pillars": [
+      "optimal_control_rl"
+    ],
     "gaps_addressed": [
       "Provides foundational clinical translation guidelines and OPE rationale for precision dosing in Pillar 3 (M3.4/M3.6)"
     ],
@@ -60,14 +64,14 @@
     ],
     "relevance_score": "high"
   },
-
   "relationships": {
     "cites": [],
-    "cited_by": [],
+    "cited_by": [
+      "roggeveen_2024_clinical_rl_ope"
+    ],
     "extends": [],
     "contradicts": []
   },
-
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",
@@ -76,4 +80,3 @@
     "notes": "Added 2026-08-29 by Antigravity review. Foundational guideline for clinical RL and off-policy evaluation in Pillar 3."
   }
 }
-

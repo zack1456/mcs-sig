@@ -44,6 +44,7 @@ Read `aiml_wg/sources/_schema.json` to confirm the current schema. Then extract:
 - `how_obtained`: `pubmed_search` | `biorxiv_search` | `web_search` | `web_fetch` | `provided_by_user` | `background_doc`
 - `read_depth`: `abstract_only` | `sections_key` | `full_text`
 - `date_read`: today's date (YYYY-MM-DD)
+- `review_status`: `draft` for every new LLM-assisted extraction; only a human scientific reviewer may later change it to `reviewed`
 
 **5. Determine target folder**
 
@@ -64,10 +65,10 @@ Apply these record-writing discipline rules before writing:
 - **Apply the relevance_score rubric.** `high` = would justify a white paper citation or journal club session; `medium` = useful background; `low` = tangential. Do not default to high.
 
 **7. Update index**
-Read `aiml_wg/sources/index.json`. Append a new entry for this record with at minimum: `id`, `source_type`, `title`, `year`, `pillars`, `relevance_score`, `read_depth`. Write the updated index back.
+Do not hand-edit derived index metadata. Run `python scripts/literature.py fix`; it adds the entry using the actual index shape and preserves curated `title_short` values.
 
 **8. Update relationships in existing records**
 For any existing record that should now reference this new record (e.g., it was already in `cites` of another record), read and update that record's `cited_by` or other relationship field to include the new `id`.
 
 **9. Confirm**
-Report: the new file path, `read_depth`, `relevance_score`, pillars, any cross-references updated, and confirmation that `index.json` was updated.
+Run `python scripts/literature.py check`. Report: the new file path, `review_status`, `read_depth`, `relevance_score`, pillars, any cross-references updated, confirmation that generated files were updated, and all remaining review warnings.

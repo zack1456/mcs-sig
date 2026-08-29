@@ -149,7 +149,7 @@
   "relationships": {
     "cites": ["shin_2024_llm", "zheng_2025_llm"],
     "cited_by": [],
-    "extends": ["zheng_2025_llm", "pkgpt_2026"],
+    "extends": ["zheng_2025_llm"],
     "contradicts": []
   },
 
@@ -158,6 +158,6 @@
     "date_read": "2026-08-29",
     "read_by": "claude",
     "read_depth": "abstract_only",
-    "notes": "Found via PubMed search during Activity 1 literature support (PMID 42076151). DOI 10.3390/pharmaceutics18040501 (Pharmaceutics vol 18 issue 4). Open access via PMC13118610. Note: distinct from pkgpt_2026 in library (DOI 10.3390/pharmaceutics18020215, vol 18 issue 2, Chen et al.) — same journal and topic but different groups and different numerical results. This paper provides the only quantitative human-vs-LLM OFV comparison and the tobramycin V2 plausibility failure, which are the key anchor points for Activity 1/2 scoring design. Upgrade to full_text via PMC when needed."
+    "notes": "Found via PubMed search during Activity 1 literature support (PMID 42076151). DOI 10.3390/pharmaceutics18040501 (Pharmaceutics vol 18 issue 4). Open access via PMC13118610. This paper provides quantitative human-vs-LLM OFV comparison and the tobramycin V2 plausibility failure, which are key anchor points for Activity 1/2 scoring design. A prior note incorrectly described a separate pkgpt_2026 record using DOI 10.3390/pharmaceutics18020215; authoritative lookup showed that DOI belongs to an unrelated wound-healing paper, so the phantom relationship was removed on 2026-08-29. Upgrade to full_text via PMC when needed."
   }
 }

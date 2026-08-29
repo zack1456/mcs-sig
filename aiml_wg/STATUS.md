@@ -7,7 +7,7 @@
 - **Founding-team constraint:** Three active participants; run Pillar 1 at depth and one Pillar 2 seed note while recruiting to 6–8 active members.
 - **Near-term outputs:** Scope & Call brief, one technical seed note, journal-club recruiting funnel, Credibility Evidence Package v1, and validation-pilot protocol.
 - **Kickoff decisions:** Remain recorded as tentative until the co-chairs reconcile them from meeting notes.
-- **Source library:** 63 indexed records as of 2026-08-29. `sources/index.json` is authoritative.
+- **Source library:** 68 indexed records as of 2026-08-29. `sources/index.json` is authoritative.
 - **FDA AI guidance:** The January 2025 guidance remains draft. The comment period is closed; comments may still be submitted under FDA's general guidance-comment process. Do not describe the guidance as finalized.
 - **M15:** ICH M15 General Principles for MIDD is final (Step 4, January 2026) and applies to emerging M&S approaches, including AI/ML.
 

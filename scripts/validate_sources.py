@@ -14,8 +14,10 @@ existence alone is not sufficient. This script cross-checks:
   3. Author family-name overlap between JSON and CrossRef/PubMed response
      (at least 1 family name must match; zero overlap = hard fail)
 
-All mismatches are hard failures (exit 1). Set doi/pmid to null for
-unconfirmed preprints rather than guessing identifiers.
+Confirmed identifier and metadata mismatches are hard failures (exit 1).
+Transient network, rate-limit, and metadata-service failures are review
+warnings and do not falsely classify an identifier as hallucinated. Set
+doi/pmid to null for unconfirmed preprints rather than guessing identifiers.
 
 Usage:
     python scripts/validate_sources.py               # checks all files
@@ -40,11 +42,16 @@ CROSSREF_BASE = "https://api.crossref.org/works/"
 PUBMED_ESUMMARY = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi"
 PUBMED_ESEARCH  = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi"
 USER_AGENT = "MCS-SIG-Source-Validator/1.1 (mailto:mcs-sig@isop.org)"
+RETRY_DELAYS = (0.0, 0.5, 1.5)
+_RESPONSE_CACHE: dict[str, dict] = {}
 
-PASS = "\033[92m[PASS]\033[0m"
-WARN = "\033[93m[WARN]\033[0m"
-FAIL = "\033[91m[FAIL]\033[0m"
-INFO = "\033[94m[INFO]\033[0m"
+if sys.stdout.isatty():
+    PASS = "\033[92m[PASS]\033[0m"
+    WARN = "\033[93m[WARN]\033[0m"
+    FAIL = "\033[91m[FAIL]\033[0m"
+    INFO = "\033[94m[INFO]\033[0m"
+else:
+    PASS, WARN, FAIL, INFO = "[PASS]", "[WARN]", "[FAIL]", "[INFO]"
 
 TITLE_JACCARD_THRESHOLD = 0.50  # token overlap required to consider titles equivalent
 
@@ -53,17 +60,39 @@ TITLE_JACCARD_THRESHOLD = 0.50  # token overlap required to consider titles equi
 # HTTP helper
 # ---------------------------------------------------------------------------
 
-def _get(url: str, timeout: int = 8) -> dict | None:
+class IdentifierNotFound(Exception):
+    """The remote service definitively reported that an identifier is absent."""
+
+
+class MetadataServiceUnavailable(Exception):
+    """Metadata could not be checked because the remote service was unavailable."""
+
+
+def _get(url: str, timeout: int = 8) -> dict:
+    if url in _RESPONSE_CACHE:
+        return _RESPONSE_CACHE[url]
     req = urllib.request.Request(url, headers={"User-Agent": USER_AGENT})
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            return json.loads(r.read().decode())
-    except urllib.error.HTTPError as e:
-        if e.code == 404:
-            return None  # Hard 404 = ID does not exist
-        raise
-    except Exception:
-        return None
+    last_error: Exception | None = None
+    for attempt, delay in enumerate(RETRY_DELAYS):
+        if delay:
+            time.sleep(delay)
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                data = json.loads(r.read().decode())
+                _RESPONSE_CACHE[url] = data
+                return data
+        except urllib.error.HTTPError as e:
+            if e.code == 404:
+                raise IdentifierNotFound from e
+            last_error = e
+            if e.code != 429 and e.code < 500:
+                break
+        except (urllib.error.URLError, TimeoutError, OSError) as e:
+            last_error = e
+        if attempt == len(RETRY_DELAYS) - 1:
+            break
+    detail = f"HTTP {last_error.code}" if isinstance(last_error, urllib.error.HTTPError) else str(last_error)
+    raise MetadataServiceUnavailable(detail) from last_error
 
 
 # ---------------------------------------------------------------------------
@@ -125,15 +154,22 @@ def check_doi(doi: str, json_title: str, json_authors: list) -> list[dict]:
     """
     issues = []
     url = CROSSREF_BASE + urllib.parse.quote(doi, safe="")
-    data = _get(url)
-
-    if data is None:
+    try:
+        data = _get(url)
+    except IdentifierNotFound:
         issues.append({
             "level": "fail",
             "field": "doi_not_found",
             "message": f"DOI {doi!r} → HTTP 404 from CrossRef. ID does not exist — likely hallucinated.",
         })
         return issues  # Can't do further checks without data
+    except MetadataServiceUnavailable as exc:
+        issues.append({
+            "level": "warn",
+            "field": "doi_unverified",
+            "message": f"DOI {doi!r} could not be checked because CrossRef was unavailable ({exc}).",
+        })
+        return issues
 
     msg = data.get("message", {})
     cr_titles = msg.get("title", [])
@@ -178,13 +214,13 @@ def check_pmid(pmid: int, json_title: str, json_authors: list) -> list[dict]:
     """
     issues = []
     url = f"{PUBMED_ESUMMARY}?db=pubmed&id={pmid}&retmode=json"
-    data = _get(url)
-
-    if data is None:
+    try:
+        data = _get(url)
+    except (IdentifierNotFound, MetadataServiceUnavailable) as exc:
         issues.append({
-            "level": "fail",
-            "field": "pmid_network_error",
-            "message": f"PMID {pmid} — network error contacting PubMed.",
+            "level": "warn",
+            "field": "pmid_unverified",
+            "message": f"PMID {pmid} could not be checked because PubMed was unavailable ({exc}).",
         })
         return issues
 
@@ -291,28 +327,36 @@ def main():
           f"  (3) author family-name overlap >= 1\n")
 
     total_fails = 0
+    total_warnings = 0
 
     for path in files:
         issues = validate_file(path)
         fails  = [i for i in issues if i["level"] == "fail"]
+        warnings = [i for i in issues if i["level"] == "warn"]
         total_fails += len(fails)
+        total_warnings += len(warnings)
 
-        if not fails:
+        if not fails and not warnings:
             print(f"{PASS} {path.name}")
         else:
-            print(f"{FAIL} {path.name}")
+            print(f"{FAIL if fails else WARN} {path.name}")
             for iss in fails:
                 print(f"   ✗ [{iss['field']}] {iss['message']}")
+            for iss in warnings:
+                print(f"   ! [{iss['field']}] {iss['message']}")
 
     print(f"\n{'='*64}")
     print(f"  Files checked : {len(files)}")
     print(f"  Hard failures : {total_fails}")
+    print(f"  Review warnings: {total_warnings}")
     print(f"{'='*64}")
 
     if total_fails > 0:
         print(f"\n{FAIL} Validation FAILED. Fix identifiers before committing.")
         print("  Rule: set doi/pmid to null if the correct ID is not confirmed.")
         sys.exit(1)
+    elif total_warnings > 0:
+        print(f"\n{WARN} Verification completed with review warnings and no hard failures.")
     else:
         print(f"\n{PASS} All source records validated successfully.")
 
