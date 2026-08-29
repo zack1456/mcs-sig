@@ -52,7 +52,7 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 
 ## Source library status
 
-**Authoritative record: `sources/index.json` (43 records as of 2026-08-27).** The table below is a summary; `index.json` is the ground truth.
+**Authoritative record: `sources/index.json` (54 records as of 2026-08-29).** The table below is a summary; `index.json` is the ground truth.
 
 ### Background & Context
 
@@ -82,6 +82,8 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 | `papers/cminns_2024` | sections_key | CMINNs with fractional calculus (Karniadakis group) |
 | `papers/upinn_2025` | sections_key | UPINNs for chemotherapy drug action |
 | `papers/campo_manzanares_2026` | sections_key | iNODE: identifiability-aware neural ODEs |
+| `papers/kim_2021_stiff_node` | sections_key | Stiff neural ODEs and solver stability (Added 2026-08-29 Antigravity) |
+| `papers/savic_2009_shrinkage` | full_text | Importance of eta-shrinkage in NLME empirical Bayes (Added 2026-08-29 Antigravity) |
 
 ### Pillar 1 — Covariate Selection & Automation
 
@@ -103,6 +105,10 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 | `papers/diazseoane_2023_strikegodd4` | abstract_only | STRIKE-GOLDD 4.0: ProbObsTest + GUI |
 | `papers/najjar_2024_gsa` | full_text | GSA tutorial for OSP Suite PBPK: Morris, Sobol, EFAST |
 | `papers/chenel_2026` | full_text | PBPK best practices + ICH M15 regulatory framework |
+| `papers/barber_2023_conformal` | sections_key | Conformal prediction beyond exchangeability (Added 2026-08-29 Antigravity) |
+| `papers/dunn_2022_clustered_conformal` | sections_key | Distribution-free prediction sets for clustered data (Added 2026-08-29 Antigravity) |
+| `papers/gibbs_2021_timeseries_conformal` | sections_key | Adaptive conformal inference for time series (Added 2026-08-29 Antigravity) |
+| `papers/kuemmel_2020_credibility` | full_text | ASME V&V 40 credibility assessment for MIDD (Added 2026-08-29 Antigravity) |
 
 ### Pillar 3 — RL / Optimal Control
 
@@ -113,6 +119,9 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 | `papers/ribba_2023` | full_text | RL as innovative model-based approach (dosing, digital health) |
 | `papers/tosca_2024` | abstract_only | Model-informed RL for precision dosing: tutorial review |
 | `papers/irie_2025` | full_text | DQN for infliximab in pediatric Crohn's (real-world validation) |
+| `papers/gottesman_2019_rl_healthcare` | sections_key | Guidelines for RL in healthcare & OPE rationale (Added 2026-08-29 Antigravity) |
+| `papers/levine_2020_offline_rl` | sections_key | Offline reinforcement learning tutorial & review (Added 2026-08-29 Antigravity) |
+| `papers/thomas_2016_ope` | sections_key | Data-efficient off-policy policy evaluation (Added 2026-08-29 Antigravity) |
 
 ### Pillar 4 — Generative AI / LLMs
 
@@ -125,6 +134,8 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 | `papers/zheng_2025_llm` | abstract_only | 7 LLMs × 13 NONMEM tasks; o1/gpt-4.1 near-perfect with optimized prompt |
 | `papers/androulakis_2025_qsp` | full_text | QSP SIG AI/ML vision: LLMs as active partner (cross-SIG intel) |
 | `papers/bejan_2026_iraegpt` | abstract_only | GPT-4o for pharmacovigilance irAE detection (Vanderbilt+Roche) |
+| `papers/richens_2020_causal_med` | sections_key | Improving medical diagnosis with causal ML (Added 2026-08-29 Antigravity) |
+| `papers/sanchez_2022_causal_precision` | sections_key | Causal ML and counterfactual digital twins (Added 2026-08-29 Antigravity) |
 
 ### Regulatory & Cross-Cutting
 

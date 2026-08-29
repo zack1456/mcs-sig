@@ -93,15 +93,32 @@ Key source: `ribba_2023` ("RL is at the crossroads of trial-and-error learning a
 
 ---
 
+### M3.6 — Offline (Batch) RL and Off-Policy Evaluation (OPE)
+*Learning and validating precision dosing policies without live clinical exploration* <!-- Added 2026-08-29 (Antigravity review) -->
+
+- [ ] **Ethical & Clinical Imperative:** Live exploration on patients is unethical; dosing policies must be learned offline from historical trial/EHR logs or validated mechanistic simulators (`gottesman_2019_rl_healthcare`)
+- [ ] **Offline RL Algorithms for Dosing:** Mitigating distributional shift and out-of-distribution action extrapolation using Conservative Q-Learning (CQL) and policy-constrained actor-critic (`levine_2020_offline_rl`)
+- [ ] **Off-Policy Evaluation (OPE):** Statistically evaluating proposed dosing policies from logged observational data via Doubly Robust (DR) and Weighted Doubly Robust estimators with high-confidence safety bounds (`thomas_2016_ope`)
+- [ ] Connection to Regulatory: OPE as a formal mathematical submission artifact proving policy safety before prospective trial initiation
+
+Key sources: `gottesman_2019_rl_healthcare`, `levine_2020_offline_rl`, `thomas_2016_ope`
+
+**Working notes file:** `offline_rl_ope_notes.md`
+
+---
+
 ## Key sources
-| Source | Workstream |
-|---|---|
-| `sources/papers/ribba_2023.json` | M3.1, M3.5 |
-| `sources/papers/de_carlo_2024.json` | M3.2, M3.3, M3.4, M3.5 |
-| `sources/papers/de_carlo_2025.json` | M3.2, M3.3, M3.5 |
-| `sources/web/fda_ai_guidance_2025.json` | M3.4 (regulatory pathway for RL dosing) |
+| Source | Workstream | Added / Role |
+|---|---|---|
+| `sources/papers/ribba_2023.json` | M3.1, M3.5 | RL in precision dosing framework |
+| `sources/papers/de_carlo_2024.json` | M3.2, M3.3, M3.4, M3.5 | Erdafitinib RL case study |
+| `sources/papers/de_carlo_2025.json` | M3.2, M3.3, M3.5 | Givinostat multiobjective RL case study |
+| `sources/papers/gottesman_2019_rl_healthcare.json` | M3.6 | Added 2026-08-29 (Antigravity review): Healthcare RL guidelines |
+| `sources/papers/levine_2020_offline_rl.json` | M3.6 | Added 2026-08-29 (Antigravity review): Offline RL tutorial & algorithms |
+| `sources/papers/thomas_2016_ope.json` | M3.6 | Added 2026-08-29 (Antigravity review): Off-policy evaluation & safety bounds |
+| `sources/web/fda_ai_guidance_2025.json` | M3.4, M3.6 | Regulatory pathway for RL dosing |
 
 ## Feeds into deliverables
 - `deliverables/papers/rl_framework/` — all workstreams
 - `deliverables/conferences/webinars/` — Webinar 3 content
-- `regulatory/` — clinical trial design for RL dosing (M3.4)
+- `regulatory/` — clinical trial design and OPE safety validation for RL dosing (M3.4, M3.6)

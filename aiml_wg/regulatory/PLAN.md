@@ -6,22 +6,14 @@
 
 ## Sub-tasks
 
-### FDA comment on Jan 2025 AI draft guidance
-- [ ] **First: confirm docket status** — check regulations.gov for docket number and whether comment period is still open
-  - FDA draft guidance: "Considerations for the Use of Artificial Intelligence to Support Regulatory Decision Making" (Jan 2025)
-  - If open: comment is time-sensitive — may need to advance ahead of other deliverables
-  - If closed: publish as ISoP MCS SIG position paper instead (still valuable; submit to CPT:PSP or similar)
-- [ ] Coordinate with ISoP regulatory affairs: institutional comment (under ISoP name) or named-individual comment?
-- [ ] Identify co-authors: MCS AI/ML WG (lead) + QSP SIG credibility WG + SxP AI/ML SubSIG reps
-- [ ] **Scope of MCS comment:**
-  - Mathematical operationalization of the 7-step credibility framework for hybrid mechanistic-ML PMx models
-  - Feedback on "model risk = model influence × decision consequence" — how to quantify ML model influence
-  - Request for COU (context of use) guidance specific to hybrid mechanistic-ML models
-  - Request for a pilot program with sponsors submitting hybrid mechanistic-ML models under the new framework
-- [ ] Draft: Month 10 (or earlier if docket is closing)
-- [ ] ISoP review and sign-off: Month 11
-- [ ] Submit: Month 12
-- [ ] **Deliverable:** `fda_comment/comment_draft.md` → submitted PDF
+### ASME V&V 40 & FDA Credibility Framework Operationalization
+*Translating risk-informed computational credibility standards into hybrid pharmacometric practice* <!-- Added 2026-08-29 (Antigravity review) -->
+
+- [ ] **ASME V&V 40 Standard Alignment:** Formally map ASME V&V 40-2018 (*Assessing Credibility of Computational Models through Verification and Validation*) and its MIDD translation (`kuemmel_2020_credibility`) to the FDA 2025 7-step AI/ML credibility framework
+- [ ] **Model Risk Formulation:** Quantify *Model Risk = Model Influence × Decision Consequence* for embedded neural components vs. mechanistic compartments
+- [ ] **Code & Calculation Verification:** Define standards for verifying stiff numerical ODE solvers, adjoint sensitivity gradient accuracy, and tolerance convergence in regulatory packages (`kim_2021_stiff_node`)
+- [ ] **Context of Use (COU) Templates:** Create standardized COU templates for hybrid mechanistic-ML models and offline RL precision dosing algorithms
+- [ ] Note: per DECISION-8, the FDA AI draft guidance comment period closed April 7, 2025; this workstream is reframed as an untimed operationalization deliverable folded into `deliverables/papers/whitepaper_hybrid/` Section E and a potential ISoP position paper
 
 ### FDA-EMA Joint Principles monitoring
 - [ ] Map each of the 10 FDA-EMA Joint Principles (Jan 2026, "Good AI Practice in Drug Development") to MCS WG pillar deliverables
@@ -38,20 +30,19 @@
 ---
 
 ## Key sources
-| Source | Role |
-|---|---|
-| `sources/web/fda_ai_guidance_2025.json` | Primary subject of FDA comment — full 7-step framework |
-| `sources/papers/liu_2023.json` | Evidence base: 132 AI/ML submissions in 2021 — establishes stakes |
-| `sources/papers/dermawan_2026.json` | No standalone ML-MIDD regulatory endorsement yet — urgency argument |
-| `sources/background/crosssig_fostvedt_2025.json` | ISoP cross-SIG institutional context for comment authorship |
+| Source | Role | Added / Role |
+|---|---|---|
+| `sources/web/fda_ai_guidance_2025.json` | Regulatory credibility framework | Primary 7-step framework |
+| `sources/papers/kuemmel_2020_credibility.json` | ASME V&V 40 translation to MIDD | Added 2026-08-29 (Antigravity review): Model influence & risk |
+| `sources/papers/liu_2023.json` | Evidence base | 132 AI/ML submissions in 2021 — establishes stakes |
+| `sources/papers/dermawan_2026.json` | Evidence base | No standalone ML-MIDD regulatory endorsement yet |
+| `sources/papers/chenel_2026.json` | Regulatory PBPK / ICH M15 | PBPK best practices and M15 alignment |
+| `sources/background/crosssig_fostvedt_2025.json` | ISoP institutional context | Cross-SIG alignment |
 
 ## Dependencies
-- `deliverables/papers/whitepaper_hybrid/` Section E — provides technical basis for FDA comment content
-- `community/` cross-SIG alignment — co-authors for FDA comment identified through alignment meetings
-- Docket status: check immediately — if open, this may need to advance in priority
+- `deliverables/papers/whitepaper_hybrid/` Section E — provides technical basis for regulatory credibility framework
+- `community/` cross-SIG alignment — co-authors identified through alignment meetings
 
 ## Open questions
-- [ ] Is the FDA docket still open? (Check regulations.gov now — this is time-sensitive)
-- [ ] ISoP institutional comment vs. named-individual: which carries more regulatory weight in the pharmacometrics context?
-- [ ] FDA-EMA Joint Principles (Jan 2026): is there a separate comment opportunity, or finalized?
-- [ ] Who at ISoP handles regulatory affairs contacts?
+- [ ] How will the upcoming finalized FDA AI guidance (post-April 2025 comment period) adjust the 7-step credibility framework for generative vs. predictive models?
+- [ ] FDA-EMA Joint Principles (Jan 2026): track pilot programs or companion operationalization guides.

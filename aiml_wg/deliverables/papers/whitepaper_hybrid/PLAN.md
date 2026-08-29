@@ -22,18 +22,20 @@
 - [ ] Pharmacometric examples for each type
 - [ ] Decision guide: which architecture for which pharmacometric problem?
 
-### Section B — Structural and practical identifiability
+### Section B — Structural and practical identifiability & numerical stability
 *Draws from `methods/01_hybrid_models/` M1.2 and M1.3*
 - [ ] Classical identifiability theory: what it guarantees, how neural components disrupt it
+- [ ] Population-level identifiability & $\eta$-shrinkage: <!-- Added 2026-08-29 (Antigravity review) --> how ML layers interact with random effects and mask misspecification (`janzen_2017`, `savic_2009_shrinkage`)
 - [ ] Practical identifiability: profile likelihood, sensitivity analysis for hybrid models
+- [ ] Numerical verification: <!-- Added 2026-08-29 (Antigravity review) --> stiff ODE solver stability and adjoint gradient reliability (`kim_2021_stiff_node`)
 - [ ] The "when hybrids help" criterion: formalize Baran & Gaburro's empirical finding mathematically
 - [ ] Coordinate with SAUQ WG to avoid duplication (see `methods/02_uq/` M2.5)
 
 ### Section C — UQ approaches and comparative assessment
 *Draws from `methods/02_uq/` M2.1–M2.4*
-- [ ] Bayesian, conformal, and ensemble methods: mathematical properties side-by-side
+- [ ] Bayesian (NUTS MCMC, HDCM; `elmokadem_2024`), hierarchical/non-exchangeable conformal prediction (`dunn_2022_clustered_conformal`, `barber_2023_conformal`), and ensemble methods: mathematical properties side-by-side <!-- Added 2026-08-29 (Antigravity review) -->
 - [ ] Pharmacometric context criteria for method selection (sample size, model complexity, regulatory need)
-- [ ] Map to FDA model risk framework: how does UQ quantify "model influence"?
+- [ ] Map to FDA model risk framework: how does UQ quantify "model influence" under ASME V&V 40? (`kuemmel_2020_credibility`)
 
 ### Section D — Validation and benchmarking
 *Draws from `methods/01_hybrid_models/` M1.4 and `benchmarks/`*
@@ -43,7 +45,7 @@
 
 ### Section E — Regulatory alignment
 *Draws from `methods/02_uq/` M2.4 and `regulatory/`*
-- [ ] Map paper framework to FDA 7-step credibility assessment (fda_ai_guidance_2025)
+- [ ] Map paper framework to ASME V&V 40 standard and FDA 7-step credibility assessment (`fda_ai_guidance_2025`, `kuemmel_2020_credibility`) <!-- Added 2026-08-29 (Antigravity review) -->
 - [ ] Operationalize "Context of Use" for hybrid PMx models
 - [ ] Quantify "model risk = model influence × decision consequence" for ML components
 - [ ] Position relative to QSP SIG credibility WG: complementary, not duplicative
@@ -59,15 +61,21 @@
 ---
 
 ## Key sources
-| Source | Section(s) |
-|---|---|
-| `sources/papers/baran_gaburro_2026.json` | A, B, D |
-| `sources/papers/dermawan_2026.json` | A, D (landscape context, hybrid PBPK) |
-| `sources/papers/gerard_2025.json` | B, D (black-box limitations) |
-| `sources/web/fda_ai_guidance_2025.json` | C, E |
-| `sources/papers/liu_2023.json` | E (regulatory stakes) |
-| `sources/background/aiml_claude_background.json` | A, B |
-| `sources/background/crosssig_fostvedt_2025.json` | E (positioning) |
+| Source | Section(s) | Added / Role |
+|---|---|---|
+| `sources/papers/baran_gaburro_2026.json` | A, B, D | Hybrid PK/PD baseline |
+| `sources/papers/dermawan_2026.json` | A, D | Landscape context, hybrid PBPK |
+| `sources/papers/gerard_2025.json` | B, D | Black-box limitations |
+| `sources/papers/elmokadem_2024.json` | A, B, C | Bayesian HDCM |
+| `sources/papers/savic_2009_shrinkage.json` | B | Added 2026-08-29 (Antigravity review): $\eta$-shrinkage diagnostics |
+| `sources/papers/kim_2021_stiff_node.json` | B | Added 2026-08-29 (Antigravity review): Stiff Neural ODE stability |
+| `sources/papers/barber_2023_conformal.json` | C | Added 2026-08-29 (Antigravity review): Non-exchangeable conformal |
+| `sources/papers/dunn_2022_clustered_conformal.json` | C | Added 2026-08-29 (Antigravity review): Clustered conformal |
+| `sources/papers/kuemmel_2020_credibility.json` | C, E | Added 2026-08-29 (Antigravity review): ASME V&V 40 for MIDD |
+| `sources/web/fda_ai_guidance_2025.json` | C, E | FDA 7-step credibility framework |
+| `sources/papers/liu_2023.json` | E | Regulatory stakes |
+| `sources/background/aiml_claude_background.json` | A, B | NeuralODE survey |
+| `sources/background/crosssig_fostvedt_2025.json` | E | Positioning |
 
 ## Dependencies
 - `methods/01_hybrid_models/` working notes: M1.1–M1.4 → Sections A–B–D

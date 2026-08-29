@@ -27,10 +27,13 @@
 *Distribution-free, finite-sample coverage guarantees — can these apply to pharmacometric hybrid models?*
 
 - [ ] Conformal prediction basics: coverage guarantee regardless of model and data distribution
-- [ ] Split conformal (exchangeability assumption): does it hold for pharmacometric data (repeated measures, hierarchical)?
-- [ ] Conformal prediction for time-series PK data: challenges and adaptations
-- [ ] Advantage over Bayesian: no need to specify a prior on neural weights
-- [ ] Key open question: what does 90% conformal coverage mean for a patient-level prediction? Is it the right guarantee for dosing decisions?
+- [ ] **The Non-Exchangeability Challenge in PK/PD:** <!-- Added 2026-08-29 (Antigravity review) --> Standard split conformal requires strict exchangeability ($i.i.d.$); pharmacometric data violate this via longitudinal autocorrelation and dosing cohort shifts (`barber_2023_conformal`)
+- [ ] **Clustered & Hierarchical Conformal Prediction:** <!-- Added 2026-08-29 (Antigravity review) --> Apply group-level and clustered conformal prediction (`dunn_2022_clustered_conformal`) where patients are exchangeable clusters with repeated internal measures
+- [ ] **Adaptive Conformal Inference for Longitudinal Time-Series:** <!-- Added 2026-08-29 (Antigravity review) --> Dynamic non-conformity threshold updating (`gibbs_2021_timeseries_conformal`) for PK concentration time-series trajectories
+- [ ] Advantage over Bayesian: distribution-free valid coverage without prior specification on neural network weights
+- [ ] Key open question: what does 90% conformal coverage mean for an individual patient's dosing bounds? Translating finite-sample coverage to regulatory and clinical risk guarantees
+
+Key sources: `barber_2023_conformal`, `dunn_2022_clustered_conformal`, `gibbs_2021_timeseries_conformal`
 
 **Working notes file:** `conformal_notes.md`
 
@@ -54,10 +57,10 @@
 
 - [ ] Build comparison table: method × (pharmacometric context criteria)
   - Criteria: sample size, model complexity, regulatory acceptability, computational cost, coverage guarantee type
-- [ ] Regulatory context: which UQ approach maps most naturally to FDA 7-step credibility assessment and "model influence" quantification?
+- [ ] Regulatory context: which UQ approach maps most naturally to FDA 7-step credibility assessment and "model influence" quantification? (Connecting to ASME V&V 40 and `kuemmel_2020_credibility`)
 - [ ] This becomes the core contribution of white paper Section C
 
-Key source: `fda_ai_guidance_2025` (model risk = influence × consequence; how does UQ inform "influence"?)
+Key source: `fda_ai_guidance_2025` (model risk = influence × consequence; how does UQ inform "influence"?), `kuemmel_2020_credibility`
 
 **Working notes file:** `uq_comparison_table.md`
 
@@ -76,13 +79,18 @@ Key source: `fda_ai_guidance_2025` (model risk = influence × consequence; how d
 ---
 
 ## Key sources
-| Source | Workstream |
-|---|---|
-| `sources/papers/baran_gaburro_2026.json` | M2.1 (UQ in hybrid model context) |
-| `sources/web/fda_ai_guidance_2025.json` | M2.4 (model influence quantification) |
-| `sources/background/aiml_claude_background.json` | M2.1–M2.3 (UQ survey) |
+| Source | Workstream | Added / Role |
+|---|---|---|
+| `sources/papers/baran_gaburro_2026.json` | M2.1 | UQ in hybrid model context |
+| `sources/papers/elmokadem_2024.json` | M2.1 | Bayesian IIV+RUV with NUTS MCMC |
+| `sources/papers/barber_2023_conformal.json` | M2.2 | Added 2026-08-29 (Antigravity review): Non-exchangeable conformal prediction |
+| `sources/papers/dunn_2022_clustered_conformal.json` | M2.2 | Added 2026-08-29 (Antigravity review): Clustered/hierarchical conformal prediction |
+| `sources/papers/gibbs_2021_timeseries_conformal.json` | M2.2 | Added 2026-08-29 (Antigravity review): Time-series adaptive conformal inference |
+| `sources/papers/kuemmel_2020_credibility.json` | M2.4 | Added 2026-08-29 (Antigravity review): ASME V&V 40 MIDD credibility framework |
+| `sources/web/fda_ai_guidance_2025.json` | M2.4 | Model influence quantification |
+| `sources/background/aiml_claude_background.json` | M2.1–M2.3 | UQ survey |
 
 ## Feeds into deliverables
 - `deliverables/papers/whitepaper_hybrid/` — Section C
-- `benchmarks/` — UQ calibration metrics (coverage probability)
+- `benchmarks/` — UQ calibration metrics (coverage probability, interval sharpness)
 - `deliverables/conferences/webinars/` — Webinar 2 content

@@ -42,7 +42,10 @@ The recruiting magnet. Public-facing, member-facing. Not the 10-page scoping pap
 - **Later becomes:** the front half of the scoping paper (`deliverables/papers/scoping_paper/`), so it is not throwaway work.
 
 ### 3b. Technical seed — conformal-prediction-for-PK/PD concept note (1–2 pages)
-This is the sharpest "we are staking new ground" signal we have. Conformal prediction returned **zero PubMed hits** across three search strategies — a genuine white space. A 1–2 page concept note (what it is, where it sits relative to profile likelihood and Bayesian UQ, what a PK/PD application looks like) is (a) draftable by one person, (b) not a literature synthesis anyone can dismiss as derivative, and (c) catnip for the mathematically-minded members we most want. This is task M2.2, elevated from a buried subtask to an early flagship.
+This is the sharpest "we are staking new ground" signal we have. Conformal prediction returned **zero PubMed hits** across three search strategies — a genuine white space. 
+- **The Core Mathematical Angle:** <!-- Added 2026-08-29 (Antigravity review) --> Address the **hierarchical & non-exchangeable** nature of clinical trial PK data (longitudinal repeated measures per subject, cohort shifts) leveraging group-conformal (`dunn_2022_clustered_conformal`) and time-series adaptive conformal inference (`gibbs_2021_timeseries_conformal`, `barber_2023_conformal`).
+- **Content:** (a) what conformal prediction is, (b) where it sits relative to profile likelihood (`raue_2009`) and Bayesian UQ (`elmokadem_2024`), (c) what a distribution-free PK/PD coverage guarantee means for individual patient dosing bounds.
+- **Dissemination Target:** <!-- Added 2026-08-29 (Antigravity review) --> Targeted as a high-visibility *CPT:PSP* Commentary / Tutorial or ISoP Technical Memo to establish early citable priority.
 - **Owner:** ZK (or MC if MC's background is UQ/stats-leaning)
 - **Alternative seed** if the team's expertise points that way: a neural-ODE structural-identifiability mini-review anchored on the iNODE preprint (M1.2). Pick one seed, not both.
 
@@ -62,7 +65,7 @@ For a 3-person team, **growing to 6–8 is the primary Phase 1 deliverable** —
 2. **Sister MCS working groups** — Optimal Control WG and SAUQ WG have the most natural methodological overlap; their members are the highest-yield targets and align with Pillars 2 and 3.
 3. **ISoP AI/ML SIG cross-post** — coordinate (not compete) per DECISION-5; a cross-post also opens the cross-SIG relationship.
 4. **ACoP 2026 (Oct 2026, National Harbor)** — a birds-of-a-feather table or informal meetup as an in-person recruiting event; timing is ideal, ~6–8 weeks out.
-5. **Academic bridge** — SIAM Life Sciences / SMB, consistent with MCS's historical mission; slower but high-quality for the identifiability/UQ pillars.
+5. **Academic bridge (SIAM / SMB / Math & Biostats Depts)** — <!-- Added 2026-08-29 (Antigravity review) --> Active outreach to SIAM Life Sciences, Society for Mathematical Biology (SMB), and university applied math/biostats groups (researchers working on dynamical systems, UQ, and scientific ML who lack direct pharma domain exposure); consistent with MCS's historical founding mission (`cpt_moore_2019`).
 
 Set a concrete target and name owners at kickoff, e.g. *"reach 6 active members by end of Month 2; each co-chair personally invites 5 named people this week."* Recruiting fails when it's everyone's job; give it an owner.
 
