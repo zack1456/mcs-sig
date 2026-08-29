@@ -1,5 +1,7 @@
 # Regulatory · FDA Engagement and Guidance Monitoring
 
+<!-- Updated 2026-08-29 by Codex: added the Credibility Evidence Package and lifecycle/transportability work; corrected FDA draft-guidance status. -->
+
 **What:** MCS WG's regulatory engagement — a formal comment on the FDA Jan 2025 AI draft guidance, and ongoing monitoring of FDA/EMA AI guidance developments.
 
 ---
@@ -27,12 +29,29 @@
 - [ ] Incorporate M15 alignment into `deliverables/papers/whitepaper_hybrid/` Section E
 - [ ] **Deliverable:** `monitoring/m15_gaps.md`
 
+### Credibility Evidence Package
+
+*A reusable, inspectable evidence package for bounded hybrid-model and offline-RL contexts of use.*
+
+- [ ] Maintain the templates in `credibility_package/`: Context of Use, Data and Model Card, Validation Evidence Matrix, and Lifecycle Change Log
+- [ ] Apply them to one illustrative hybrid PK/PD and one offline-RL case before presenting them as WG guidance
+- [ ] Explicitly document data provenance, solver/model version, applicability limits, model changes, and requalification triggers
+- [ ] **Deliverable:** `credibility_package/` v1, reviewed with the white-paper Section E framework
+
+### Lifecycle, transportability, and reporting
+
+- [ ] Map the FDA-EMA principles on data governance, risk-based performance assessment, lifecycle management, and clear essential information to the package templates
+- [ ] Specify evidence for temporal/external validation, dataset shift, subgroup coverage, and decision-relevant safety before a model is used outside its development setting
+- [ ] Keep this scoped to evidence-generating models in MIDD; do not import device-specific regulatory obligations without a clear applicability analysis
+
 ---
 
 ## Key sources
 | Source | Role | Added / Role |
 |---|---|---|
 | `sources/web/fda_ai_guidance_2025.json` | Regulatory credibility framework | Primary 7-step framework |
+| `sources/web/ich_m15_2026.json` | Final MIDD evidence framework | Applies to emerging M&S methods, including AI/ML |
+| `sources/web/fda_ema_good_ai_principles_2026.json` | AI lifecycle principles | Data governance, lifecycle, and reporting expectations |
 | `sources/papers/kuemmel_2020_credibility.json` | ASME V&V 40 translation to MIDD | Added 2026-08-29 (Antigravity review): Model influence & risk |
 | `sources/papers/liu_2023.json` | Evidence base | 132 AI/ML submissions in 2021 — establishes stakes |
 | `sources/papers/dermawan_2026.json` | Evidence base | No standalone ML-MIDD regulatory endorsement yet |
@@ -43,6 +62,7 @@
 - `deliverables/papers/whitepaper_hybrid/` Section E — provides technical basis for regulatory credibility framework
 - `community/` cross-SIG alignment — co-authors identified through alignment meetings
 
-## Open questions
+## Current status and open questions
+- [ ] FDA's January 2025 AI guidance remains draft as of 2026-08-29. Monitor for finalization or companion implementation guidance before changing the operational framework.
 - [ ] How will the upcoming finalized FDA AI guidance (post-April 2025 comment period) adjust the 7-step credibility framework for generative vs. predictive models?
 - [ ] FDA-EMA Joint Principles (Jan 2026): track pilot programs or companion operationalization guides.

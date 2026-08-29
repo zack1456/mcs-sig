@@ -1,5 +1,7 @@
 # MCS SIG AI/ML WG — Decision Log
 
+<!-- Updated 2026-08-29 by Codex: corrected the FDA AI-guidance status in DECISION-8; kickoff decisions remain unchanged. -->
+
 **How to use:**
 - Add an entry whenever a scoping, strategic, or design decision is made
 - `Status`: `tentative` (proposed, not yet confirmed) · `confirmed` (agreed by WG or co-chairs) · `revised` (changed — add a new entry rather than editing the old one) · `superseded` (replaced by a later decision)
@@ -113,7 +115,7 @@
 | **Date** | 2026-08-27 (proposed) |
 | **Status** | tentative — confirm at kickoff (Aug 28) |
 | **Decision** | Reframe the regulatory workstream from an FDA docket comment to an **untimed operationalization** of the finalized 7-step credibility framework + Jan 2026 FDA–EMA Joint Principles, folded into white-paper §E. |
-| **Rationale** | Confirmed 2026-08-27: comment period on the AI draft guidance (Docket FDA-2024-D-4689) closed April 7, 2025; final guidance expected Q2 2026 (now finalized/imminent). No open docket exists. Removes an artificial deadline and produces a more durable, citable contribution. |
+| **Rationale** | Confirmed 2026-08-27: comment period on the AI draft guidance (Docket FDA-2024-D-4689) closed April 7, 2025. As of 2026-08-29 the guidance remains draft; no open time-bound docket deliverable exists. This removes an artificial deadline and produces a more durable, citable contribution. |
 | **What would change this** | FDA opens a new docket (e.g., on a revised or companion guidance) with a live comment window. |
 | **Affects tasks** | R-01, R-02, D-SC-E, D-WP (§E) |
 

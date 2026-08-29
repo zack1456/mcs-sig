@@ -1,5 +1,7 @@
 # Methods · Optimal Control ↔ Reinforcement Learning for Precision Dosing (Pillar 3)
 
+<!-- Updated 2026-08-29 by Codex: added M3.7 on causal validity and safety for offline RL. -->
+
 **What this folder is:** Working notes and mathematical development for the RL-as-optimal-control framework in pharmacometric precision dosing. Feeds into `deliverables/papers/rl_framework/`.
 
 **Scope:** The mathematical connection between classical optimal control and RL; pharmacometric requirements for MDP formulation (states, actions, rewards, safety); case study analysis of De Carlo et al. and Ribba.
@@ -104,6 +106,21 @@ Key source: `ribba_2023` ("RL is at the crossroads of trial-and-error learning a
 Key sources: `gottesman_2019_rl_healthcare`, `levine_2020_offline_rl`, `thomas_2016_ope`
 
 **Working notes file:** `offline_rl_ope_notes.md`
+
+---
+
+### M3.7 — Causal validity and safety of offline RL
+*When can evidence from historical treatment trajectories support a proposed dosing policy?*
+
+- [ ] Define the target policy, target population, decision horizon, and estimand before choosing an RL algorithm
+- [ ] Diagnose treatment-confounding risks, missing state information, and positivity/action-support failures in logged data
+- [ ] Specify clinically permissible action constraints and reject policies that depend on unsupported actions
+- [ ] Use OPE uncertainty intervals and sensitivity analyses; compare estimators where feasible rather than treating one estimate as proof
+- [ ] Define prospective-validation or simulation-qualification triggers before a policy can advance beyond research use
+
+Key sources: `gottesman_2019_rl_healthcare`, `thomas_2016_ope`, `roggeveen_2024_clinical_rl_ope`, `adamson_2026_transportability`
+
+**Working notes files:** `causal_offline_rl_notes.md`, `ope_assumptions_checklist.md`
 
 ---
 

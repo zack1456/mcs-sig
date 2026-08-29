@@ -1,0 +1,38 @@
+{
+  "id": "fda_ema_good_ai_principles_2026",
+  "source_type": "report",
+  "title": "Guiding Principles of Good AI Practice in Drug Development",
+  "authors": [],
+  "year": 2026,
+  "doi": null,
+  "pmid": null,
+  "url": "https://www.fda.gov/about-fda/artificial-intelligence-drug-development/guiding-principles-good-ai-practice-drug-development",
+  "journal_or_venue": "U.S. Food and Drug Administration and European Medicines Agency",
+  "content": {
+    "abstract_summary": "FDA and EMA jointly set out ten principles for AI use in drug development, including a risk-based approach, clear context of use, data governance, lifecycle management, risk-based performance assessment, and clear essential information.",
+    "key_findings": [
+      "The principles address AI evidence generation across the medicine lifecycle.",
+      "They explicitly emphasize data governance, documentation, risk-based assessment, and lifecycle management.",
+      "They are intended to inform future good practice and international convergence, not to prescribe a single technical method."
+    ],
+    "methods_discussed": ["AI_governance", "risk_based_assessment", "lifecycle_management", "data_governance"],
+    "datasets_referenced": [],
+    "tools_software": [],
+    "limitations": ["Principles are high-level and do not specify pharmacometric implementation details or quantitative acceptance criteria."],
+    "extracted_claims": []
+  },
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": ["AI lifecycle, data governance, risk-based performance assessment, and essential reporting in drug development"],
+    "topics": ["FDA", "EMA", "AI_governance", "lifecycle", "data_governance"],
+    "relevance_score": "high"
+  },
+  "relationships": {"extends": [], "cites": [], "cited_by": []},
+  "provenance": {
+    "how_obtained": "web_fetch",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Primary joint FDA-EMA principles published January 2026."
+  }
+}

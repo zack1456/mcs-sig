@@ -1,5 +1,7 @@
 # Deliverable · White Paper: Mathematical Foundations of Hybrid Mechanistic-ML PK/PD Models
 
+<!-- Updated 2026-08-29 by Codex: added transportability, decision-validation, reproducibility, and credibility-package scope. -->
+
 **What:** Flagship WG publication establishing mathematical criteria for hybrid mechanistic-ML pharmacometric models — identifiability, UQ, validation, and regulatory alignment. Covers Pillars 1 and 2.
 
 **Target journal:** CPT: Pharmacometrics & Systems Pharmacology *or* Journal of Pharmacokinetics and Pharmacodynamics
@@ -41,6 +43,9 @@
 *Draws from `methods/01_hybrid_models/` M1.4 and `benchmarks/`*
 - [ ] Identifiability-aware validation metrics (beyond RMSE)
 - [ ] Criteria: prediction accuracy, identifiability, UQ calibration, computational cost, documentation quality
+- [ ] Transportability: pre-specified temporal/external cohorts, applicability-domain or shift diagnostics, and subgroup reporting where relevant to the COU
+- [ ] Decision relevance: when the model informs dosing, include decision-level safety and utility/regret metrics rather than accuracy alone
+- [ ] Reproducibility: record solver tolerance/convergence, software/model versions, seeds, data lineage, and compute environment
 - [ ] Illustrative examples using benchmark datasets from `benchmarks/` (if available by draft deadline)
 
 ### Section E — Regulatory alignment
@@ -49,6 +54,7 @@
 - [ ] Operationalize "Context of Use" for hybrid PMx models
 - [ ] Quantify "model risk = model influence × decision consequence" for ML components
 - [ ] Position relative to QSP SIG credibility WG: complementary, not duplicative
+- [ ] Release the `regulatory/credibility_package/` templates as a practical companion to the paper
 
 ### Review and submission
 - [ ] First draft: Month 10

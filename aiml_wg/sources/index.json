@@ -1,5 +1,5 @@
 {
-  "_comment": "Registry of all sources in this collection. One entry per source file. Add here when adding a new file.",
+  "_comment": "Registry of all sources in this collection. One entry per source file. Add here when adding a new file. Updated 2026-08-29 by Codex: added six focused validation, RL/OPE, and regulatory records.",
   "_schema": "./_schema.json",
   "sources": [
     {
@@ -457,6 +457,54 @@
       "title_short": "ML+PBPK+QSAR integration review: parameter prediction as PBPK input; regulatory challenges (Chen & Lin, UF, CPT:PSP 2026)",
       "pillars": ["generative_ai", "hybrid_foundations"],
       "relevance": "medium"
+    },
+    {
+      "id": "marshall_2016_mid3",
+      "file": "papers/marshall_2016_mid3.json",
+      "source_type": "paper",
+      "title_short": "MID3 good practice: practice, application, and documentation (Marshall et al. 2016)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "cabitza_2021_external_validation",
+      "file": "papers/cabitza_2021_external_validation.json",
+      "source_type": "paper",
+      "title_short": "External validation of medical ML: discrimination, utility, calibration (Cabitza et al. 2021)",
+      "pillars": ["hybrid_foundations", "uq_identifiability"],
+      "relevance": "high"
+    },
+    {
+      "id": "roggeveen_2024_clinical_rl_ope",
+      "file": "papers/roggeveen_2024_clinical_rl_ope.json",
+      "source_type": "paper",
+      "title_short": "Clinical RL: cross-OPE, policy restriction, and inspection (Roggeveen et al. 2024)",
+      "pillars": ["optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "adamson_2026_transportability",
+      "file": "papers/adamson_2026_transportability.json",
+      "source_type": "paper",
+      "title_short": "Transportability principles for drug-development evidence (Adamson et al. 2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl"],
+      "relevance": "high"
+    },
+    {
+      "id": "ich_m15_2026",
+      "file": "web/ich_m15_2026.json",
+      "source_type": "report",
+      "title_short": "ICH M15 final MIDD guideline (2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
+    },
+    {
+      "id": "fda_ema_good_ai_principles_2026",
+      "file": "web/fda_ema_good_ai_principles_2026.json",
+      "source_type": "report",
+      "title_short": "FDA-EMA good AI practice principles for drug development (2026)",
+      "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+      "relevance": "high"
     }
   ]
 }

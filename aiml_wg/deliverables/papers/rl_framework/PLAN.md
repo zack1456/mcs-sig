@@ -1,5 +1,7 @@
 # Deliverable · Framework Paper: Optimal Control ↔ RL for Precision Dosing
 
+<!-- Updated 2026-08-29 by Codex: added causal logged-data validity and OPE-credibility requirements. -->
+
 **What:** Framework paper establishing a principled pharmacometric formulation of RL-based precision dosing, connecting RL to classical optimal control theory and grounding reward/state design in pharmacology. Covers Pillar 3.
 
 **Target journal:** CPT: Pharmacometrics & Systems Pharmacology *or* Frontiers in Pharmacology
@@ -32,6 +34,7 @@
 - [ ] Hard vs. soft constraints: CMDP (constrained MDP) formulation
 - [ ] POMDP for measurement uncertainty: when patient state is not directly observed
 - [ ] Bayesian online updating: progressively estimating individual PK-PD parameters during treatment
+- [ ] Causal validity of logged-data learning: target-policy definition, confounding, missing state, and positivity/action-support diagnostics
 
 ### Section D — Case studies
 *Draws from `methods/03_rl_dosing/` M3.5*
@@ -45,6 +48,7 @@
 - [ ] Transfer learning: train on one drug, adapt to another
 - [ ] Clinical trial design for RL dosing protocols (MRT, adaptive platform trials)
 - [ ] Regulatory pathway: connecting to FDA 7-step framework for RL-based dosing decisions
+- [ ] OPE credibility: uncertainty bounds, sensitivity analyses, policy constraints, and prospective-validation triggers
 
 ### Review and submission
 - [ ] Outline: Month 7

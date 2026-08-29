@@ -1,5 +1,7 @@
 # Handoff
 
+<!-- Updated 2026-08-29 by Codex: reconciled current regulatory and source-library status; did not alter kickoff outcomes. -->
+
 > **Instructions for any editor (human or LLM):** Read this file first. Update it when you finish a session — the "Current focus" and "Suggested next action" sections are the most important to keep current. Keep entries brief; commit history has the details.
 
 ---
@@ -135,7 +137,7 @@ After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), sta
 - **C-01 (kickoff):** Meeting is tomorrow — all pre-meeting work done
 - **C-02 (charter):** Can't draft until scoping decisions are locked at kickoff
 - **L-01 (gerard_2025 upgrade):** Need PDF; PMID not yet retrieved
-- **R-01 (FDA docket):** Time-sensitive — check whether the 2025 AI/ML draft guidance comment period is still open
+- **R-01 (FDA docket):** Resolved. The comment period closed April 7, 2025; the January 2025 guidance remains draft as of 2026-08-29. Monitor through the regulatory workstream rather than treating it as a time-bound deliverable.
 - **M1.1–M4.4 (method workstreams):** All pending pillar lead assignment at kickoff
 - **D-SC-A–E (scoping paper):** Pending section lead assignment at kickoff
 
@@ -169,7 +171,7 @@ After the meeting: lock DECISIONS 1/4/7/8, name the recruiting owner (C-08), sta
 3. Mark C-01 as `done` in TASKS.md
 4. Start C-02: draft `community/charter.md`
 
-**Literature search status:** 54 records. Library is comprehensive across all 4 pillars + regulatory context (ASME V&V 40) + identifiability tools + non-exchangeable conformal prediction + offline RL/OPE + causal ML.
+**Literature search status:** 63 indexed records. The library now includes focused evidence on external validation/transportability, clinical offline-RL OPE, MIDD documentation, final ICH M15, and the FDA–EMA AI principles. `sources/index.json` is authoritative.
 
 **Round 4 coverage summary by work stream:**
 

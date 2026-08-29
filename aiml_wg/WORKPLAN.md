@@ -1,5 +1,7 @@
 # MCS SIG AI/ML Working Group — Workplan Overview
 
+<!-- Updated 2026-08-29 by Codex: reconciled source count and replaced the obsolete FDA-comment success metric. -->
+
 *See `working_group_plan.md` for full strategic context, gap analysis, and positioning.*
 
 ---
@@ -52,7 +54,7 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 
 ## Source library status
 
-**Authoritative record: `sources/index.json` (54 records as of 2026-08-29).** The table below is a summary; `index.json` is the ground truth.
+**Authoritative record: `sources/index.json` (63 records as of 2026-08-29).** The table below is a summary; `index.json` is the ground truth.
 
 ### Background & Context
 
@@ -151,7 +153,7 @@ The **methods/** folders are where the math gets worked out; **deliverables/** f
 - [ ] RL/optimal control framework paper submitted (Pillar 3)
 - [ ] GenAI position paper preprint posted (Pillar 4)
 - [ ] ACoP or PAGE session delivered
-- [ ] FDA regulatory comment submitted
+- [ ] Credibility Evidence Package v1 published and maintained
 - [ ] ≥4 webinars delivered
 - [ ] Cross-SIG coordination group established
 - [ ] WG membership: 15+ active members

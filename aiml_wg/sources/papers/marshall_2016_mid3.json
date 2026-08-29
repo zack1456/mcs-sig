@@ -1,0 +1,38 @@
+{
+  "id": "marshall_2016_mid3",
+  "source_type": "paper",
+  "title": "Good Practices in Model-Informed Drug Discovery and Development: Practice, Application, and Documentation",
+  "authors": ["Marshall, Simon F", "Burghaus, Rolf", "Chenel, Marylore"],
+  "year": 2016,
+  "doi": "10.1002/psp4.12049",
+  "pmid": 27069774,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/27069774/",
+  "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
+  "content": {
+    "abstract_summary": "An EFPIA MID3 workgroup paper proposes good-practice recommendations to improve consistency in model-informed drug discovery and development practice, application, and documentation.",
+    "key_findings": [
+      "MIDD planning, application, and documentation benefit from shared good-practice expectations.",
+      "The paper frames model-informed work as a decision-support process spanning development and regulatory interaction.",
+      "It provides an established pharmacometrics foundation for the Credibility Evidence Package."
+    ],
+    "methods_discussed": ["model_informed_drug_development", "documentation", "decision_support"],
+    "datasets_referenced": [],
+    "tools_software": [],
+    "limitations": ["Published before current AI/ML-specific regulatory guidance; does not operationalize hybrid-model lifecycle controls."],
+    "extracted_claims": []
+  },
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": ["MIDD evidence planning and documentation for AI/ML-augmented pharmacometric models"],
+    "topics": ["MIDD", "documentation", "credibility", "regulatory"],
+    "relevance_score": "high"
+  },
+  "relationships": {"extends": [], "cites": [], "cited_by": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Focused regulatory-lifecycle search; full-text follow-up is warranted before external guidance is drafted."
+  }
+}

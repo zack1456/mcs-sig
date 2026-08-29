@@ -1,0 +1,38 @@
+{
+  "id": "adamson_2026_transportability",
+  "source_type": "paper",
+  "title": "Transportability Analyses in Comparative Effectiveness Research: A Conceptual Framework and Methodological Principles Endorsed by the International Society for Pharmacoepidemiology",
+  "authors": ["Adamson, Blythe", "Liu, Wei", "Duffield, Stephen"],
+  "year": 2026,
+  "doi": "10.1002/pds.70396",
+  "pmid": 42144278,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/42144278/",
+  "journal_or_venue": "Pharmacoepidemiology and Drug Safety",
+  "content": {
+    "abstract_summary": "An ISPE-endorsed conceptual framework for transporting comparative-effectiveness evidence across settings, emphasizing early engagement, transparent assumptions, data quality and comparability assessment, and uncertainty communication.",
+    "key_findings": [
+      "Transported evidence requires explicit assessment of data quality, fitness, comparability, and analytic assumptions.",
+      "Uncertainty in transported evidence should be communicated for decision relevance.",
+      "The framework identifies a need for empirical validation and harmonized methods across the product lifecycle."
+    ],
+    "methods_discussed": ["transportability", "causal_inference", "external_validity"],
+    "datasets_referenced": [],
+    "tools_software": [],
+    "limitations": ["Focuses on comparative-effectiveness research rather than PK/PD hybrid modeling or RL specifically."],
+    "extracted_claims": []
+  },
+  "relevance": {
+    "pillars": ["uq_identifiability", "optimal_control_rl", "hybrid_foundations"],
+    "gaps_addressed": ["Transportability assumptions and uncertainty communication for validation and offline policy evaluation"],
+    "topics": ["transportability", "external_validity", "causal_inference", "lifecycle"],
+    "relevance_score": "high"
+  },
+  "relationships": {"extends": [], "cites": [], "cited_by": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Focused validation and causal-offline-RL search; full text available through PubMed Central."
+  }
+}

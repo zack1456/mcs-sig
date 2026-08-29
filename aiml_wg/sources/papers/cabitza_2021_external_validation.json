@@ -1,0 +1,38 @@
+{
+  "id": "cabitza_2021_external_validation",
+  "source_type": "paper",
+  "title": "The importance of being external. Methodological insights for the external validation of machine learning models in medicine",
+  "authors": ["Cabitza, Federico"],
+  "year": 2021,
+  "doi": "10.1016/j.cmpb.2021.106288",
+  "pmid": 34352688,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/34352688/",
+  "journal_or_venue": "Computer Methods and Programs in Biomedicine",
+  "content": {
+    "abstract_summary": "A methodological paper on external validation of medical ML models that examines how training-validation similarity affects generalizability and proposes assessing discrimination, utility, and calibration together.",
+    "key_findings": [
+      "External validation should assess more than discrimination alone.",
+      "Dataset similarity and covariate shift affect apparent generalizability.",
+      "Discrimination, utility, and calibration provide complementary validation dimensions."
+    ],
+    "methods_discussed": ["external_validation", "calibration", "decision_utility", "dataset_shift"],
+    "datasets_referenced": [],
+    "tools_software": [],
+    "limitations": ["General medical ML framework rather than pharmacometric or hybrid-model-specific guidance."],
+    "extracted_claims": []
+  },
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability"],
+    "gaps_addressed": ["External validation, calibration, and decision-relevant evaluation for hybrid PK/PD models"],
+    "topics": ["external_validation", "calibration", "transportability", "benchmarking"],
+    "relevance_score": "high"
+  },
+  "relationships": {"extends": [], "cites": [], "cited_by": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "abstract_only",
+    "notes": "Focused validation/transportability search; used to define evaluation-card dimensions."
+  }
+}

@@ -1,5 +1,7 @@
 # Benchmarks · Hybrid Mechanistic-ML PK/PD Model Evaluation Repository
 
+<!-- Updated 2026-08-29 by Codex: added Phase 0 validation-pilot design and transportability/decision-validation criteria. -->
+
 **What:** Public, reproducible benchmark giving the community a shared evaluation standard for hybrid mechanistic-ML pharmacometric models — currently nonexistent. Hosted on GitHub.
 
 **Status:** Stretch goal; pursue once `deliverables/papers/whitepaper_hybrid/` Section D (validation criteria) is drafted.
@@ -9,6 +11,13 @@
 
 ## Sub-tasks
 
+### Phase 0 — Validation-pilot design (start before public benchmark commitment)
+- [ ] Use one simulated PK/PD dataset with known truth and one openly licensed clinical PK dataset
+- [ ] Compare a mechanistic baseline against one bounded hybrid implementation; do not promise a public repository at this stage
+- [ ] Define an evaluation card containing numerical verification, identifiability, error, calibration/sharpness, temporal/external validation, applicability-domain/shift checks, subgroup reporting where meaningful, decision-level safety/utility, and reproducibility metadata
+- [ ] Record dataset provenance, license, preprocessing, solver tolerances, software versions, random seeds, and hardware
+- [ ] **Deliverables:** `pilot_protocol.md`, `evaluation_card_template.md`, `datasets/provenance_and_license_matrix.md`
+
 ### Phase 1 — Criteria (depends on whitepaper_hybrid Section D)
 - [ ] Lock evaluation criteria from white paper Section D:
   - Prediction accuracy: test-set RMSE, 90% PI coverage
@@ -16,6 +25,8 @@
   - UQ calibration: coverage probability of credible/conformal intervals
   - Computational cost: training + inference time, hardware spec
   - Regulatory documentation: checklist based on FDA 7-step framework
+  - Transportability: temporal/external performance, applicability-domain or shift diagnostics, and prespecified subgroup reporting
+  - Decision validation: unsafe-action rate and utility/regret where the COU is a dosing decision
 - [ ] **Deliverable:** `criteria/evaluation_criteria_v1.md`
 
 ### Phase 2 — Datasets

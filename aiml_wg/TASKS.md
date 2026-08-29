@@ -1,5 +1,7 @@
 # MCS SIG AI/ML WG — Task List
 
+<!-- Updated 2026-08-29 by Codex: added completed focused searches and new validation, credibility, and causal-offline-RL tasks. -->
+
 **How to use:**
 - `Status`: `todo` · `active` · `blocked` · `done`
 - `Owner`: initials or role (SK = Shreyas Chakravarty, ZK = Zack Kenz, WG = working group, Claude = AI assistant)
@@ -33,6 +35,9 @@
 | L-02 | done | Run `/literature-discovery` agent across all 4 pillars | Claude | Completed through 5 systematic rounds (PubMed); 43-record library covers all 4 pillars + regulatory context + identifiability tools |
 | L-03 | done | Add campo_manzanares_2026 cross-references once it cites or is cited by other library records | Claude | No PubMed-traceable citations yet; noted in provenance |
 | L-04 | done | Update WORKPLAN.md source library table | Antigravity | Table updated to reflect all 54 records (added 11 records on 2026-08-29) |
+| L-05 | done | Focused evidence search: validation, transportability, and decision usefulness | Claude | Protocol: `sources/searches/2026-08_validation_transportability.md`; feeds V-01 and white paper §D |
+| L-06 | done | Focused evidence search: causal offline RL and OPE safety | Claude | Protocol: `sources/searches/2026-08_causal_offline_rl.md`; feeds M3.7 |
+| L-07 | done | Focused evidence search: MIDD/AI lifecycle and documentation | Claude | Protocol: `sources/searches/2026-08_regulatory_lifecycle.md`; feeds R-03 and white paper §E |
 
 ### Pillar 1 — Hybrid Models
 
@@ -60,6 +65,16 @@
 | M3.1 | todo | Track RL dosing literature; contribute to scoping paper §C | WG liaison TBD | Signal interest at kickoff. DECISION-3 sets lighter bandwidth |
 | M3.2 | todo | Identify Optimal Control WG liaison for joint paper (Phase 2) | ZK | Depends on C-04 |
 | M3.6 | todo | Offline (Batch) RL & Off-Policy Evaluation (OPE) framework | WG liaison TBD | Added 2026-08-29 (Antigravity review). Key sources: `gottesman_2019_rl_healthcare`, `levine_2020_offline_rl`, `thomas_2016_ope`. Feeds regulatory & white paper |
+| M3.7 | todo | Causal validity and safety for offline RL/OPE | WG liaison TBD | Define target policy/estimand, confounding and action-support diagnostics, OPE uncertainty, safety constraints, and prospective-validation triggers. Notes: `methods/03_rl_dosing/causal_offline_rl_notes.md` |
+
+### Cross-cutting validation and credibility
+
+| ID | Status | Task | Owner | Notes / Dependencies |
+| --- | --- | --- | --- | --- |
+| V-01 | todo | Validation-pilot protocol: known-truth simulation + one open clinical PK dataset | Computational lead TBD | `benchmarks/pilot_protocol.md`; required before public benchmark commitment |
+| V-02 | todo | Define transportability and decision-validation criteria | WG lead TBD | Feeds white paper §D and Credibility Evidence Package |
+| R-03 | todo | Publish Credibility Evidence Package v1 | ZK + WG | Templates in `regulatory/credibility_package/`; review against illustrative hybrid and offline-RL cases |
+| C-11 | todo | Monthly portfolio/status review | SK, ZK | Update `STATUS.md`, reconcile source count/status, and reassess scope against active membership |
 
 ### Pillar 4 — Generative AI (lighter in Phase 1)
 
@@ -83,7 +98,7 @@
 
 | ID | Status | Task | Owner | Notes / Dependencies |
 | --- | --- | --- | --- | --- |
-| R-01 | done | Check FDA AI/ML docket for open comment periods | ZK/Claude | **Resolved 2026-08-27:** comment period (Docket FDA-2024-D-4689) closed April 7, 2025; final guidance expected Q2 2026 (now finalized/imminent). No open docket. See DECISION-8. |
+| R-01 | done | Check FDA AI/ML docket for open comment periods | ZK/Claude | **Resolved:** comment period (Docket FDA-2024-D-4689) closed April 7, 2025. As of 2026-08-29 the guidance remains draft; no time-bound comment deliverable. See DECISION-8. |
 | R-02 | todo | Operationalize ASME V&V 40 + 7-step credibility framework + FDA–EMA Joint Principles | ZK + WG | Reframed per DECISION-8 & updated 2026-08-29 Antigravity review (`kuemmel_2020_credibility`). Untimed; folds into white-paper §E / D-SC-E. |
 
 ---

@@ -1,0 +1,38 @@
+{
+  "id": "ich_m15_2026",
+  "source_type": "report",
+  "title": "ICH M15 Guideline: General Principles for Model-Informed Drug Development",
+  "authors": [],
+  "year": 2026,
+  "doi": null,
+  "pmid": null,
+  "url": "https://database.ich.org/sites/default/files/ICH_M15_Step4_Final_Guideline_2026_0129.pdf",
+  "journal_or_venue": "International Council for Harmonisation",
+  "content": {
+    "abstract_summary": "Final ICH M15 guidance provides harmonized recommendations for planning, evaluating, documenting, communicating, and submitting MIDD evidence. It explicitly applies to current and emerging modeling approaches, including AI/ML.",
+    "key_findings": [
+      "M15 is a final general-principles framework for MIDD evidence assessment.",
+      "It applies to AI/ML used alone or with other M&S approaches.",
+      "Early planning and regulatory communication are encouraged for MIDD strategies."
+    ],
+    "methods_discussed": ["MIDD", "model_evaluation", "documentation", "AI_ML"],
+    "datasets_referenced": [],
+    "tools_software": [],
+    "limitations": ["General guidance; it does not prescribe hybrid-model-specific identifiability, UQ, or lifecycle acceptance thresholds."],
+    "extracted_claims": []
+  },
+  "relevance": {
+    "pillars": ["hybrid_foundations", "uq_identifiability", "optimal_control_rl", "generative_ai"],
+    "gaps_addressed": ["Harmonized MIDD evidence planning, evaluation, documentation, and regulatory communication for AI/ML"],
+    "topics": ["ICH_M15", "MIDD", "regulatory", "documentation"],
+    "relevance_score": "high"
+  },
+  "relationships": {"extends": [], "cites": [], "cited_by": []},
+  "provenance": {
+    "how_obtained": "web_fetch",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Primary final guideline (Step 4, January 2026)."
+  }
+}

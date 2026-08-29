@@ -1,0 +1,38 @@
+{
+  "id": "roggeveen_2024_clinical_rl_ope",
+  "source_type": "paper",
+  "title": "Reinforcement learning for intensive care medicine: actionable clinical insights from novel approaches to reward shaping and off-policy model evaluation",
+  "authors": ["Roggeveen, Luca F", "El Hassouni, Ali", "de Grooth, Harm-Jan", "Elbers, Paul W G"],
+  "year": 2024,
+  "doi": "10.1186/s40635-024-00614-x",
+  "pmid": 38526681,
+  "url": "https://pubmed.ncbi.nlm.nih.gov/38526681/",
+  "journal_or_venue": "Intensive Care Medicine Experimental",
+  "content": {
+    "abstract_summary": "A clinical RL study develops cross off-policy evaluation, policy restriction, and policy inspection for ventilator-setting decisions using ICU data.",
+    "key_findings": [
+      "Cross-OPE exposed reward-sensitive suboptimal policies that appeared acceptable under an initial evaluation.",
+      "Policy restrictions were used to prevent potentially hazardous actions.",
+      "Individual-policy inspection supported interpretation beyond aggregate policy value."
+    ],
+    "methods_discussed": ["reinforcement_learning", "off_policy_evaluation", "policy_constraints", "clinical_policy_inspection"],
+    "datasets_referenced": ["Dutch ICU Data Warehouse"],
+    "tools_software": [],
+    "limitations": ["ICU ventilation use case is not a PK/PD dosing study; transfer requires pharmacometric-specific causal and model-qualification analysis."],
+    "extracted_claims": []
+  },
+  "relevance": {
+    "pillars": ["optimal_control_rl"],
+    "gaps_addressed": ["Safety-oriented OPE, policy restrictions, and interpretable review for offline dosing policies"],
+    "topics": ["offline_RL", "OPE", "safety", "policy_constraints"],
+    "relevance_score": "high"
+  },
+  "relationships": {"extends": ["thomas_2016_ope", "gottesman_2019_rl_healthcare"], "cites": [], "cited_by": []},
+  "provenance": {
+    "how_obtained": "pubmed_search",
+    "date_read": "2026-08-29",
+    "read_by": "claude",
+    "read_depth": "sections_key",
+    "notes": "Focused causal-offline-RL search; open full text available through PubMed Central."
+  }
+}
