@@ -6,7 +6,7 @@
 - Added deterministic offline validation for schema, duplicates, index metadata, relationships, Markdown citations, the generated reader, and current source counts.
 - Moved DOI/PMID verification to a manual/scheduled path and corrected transient-network-error handling.
 - Added CI, contribution guidance, a provider-neutral maintenance contract, root agent guidance, and the repo-scoped `literature-maintainer` skill.
-- Added optional `review_status` and marked the five LLM-extracted generative-AI comparison sources `draft` pending human scientific review.
+- Made `review_status` required and marked all 68 extracted source records `draft` pending human scientific review.
 - Made local pre-commit checks platform-neutral, added unit tests to CI, and retained `literature.ps1` only as a Windows convenience.
 - Hardened `fix` so malformed or duplicate records cannot cause derived files to be regenerated from an incomplete library.
 - Added an explicit draft count plus draft/reviewed filters and review metadata to the source reader.
@@ -14,7 +14,7 @@
 - Synchronized index pillars, reciprocal relationships, `reader.html`, and the current 68-record counts.
 - Removed a phantom duplicate PKGPT relationship and its citations after authoritative lookup showed its recorded DOI belonged to an unrelated wound-healing paper; `kwack_2026_pkgpt` is the valid PKGPT record.
 
-**Validation:** 68 records; 0 offline errors; 0 warnings; 5 human-review drafts; 15 unit tests.
+**Validation:** 68 records; 0 offline errors; 0 warnings; 68 human-review drafts; 15 unit tests; all 59 paper records passed online DOI/PMID verification.
 
 <!-- Updated 2026-08-29 by Codex: reconciled current regulatory and source-library status; did not alter kickoff outcomes. -->
 

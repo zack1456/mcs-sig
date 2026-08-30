@@ -183,6 +183,8 @@
     ],
     "contradicts": []
   },
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "provided_by_user",
     "date_read": "2026-08-26",

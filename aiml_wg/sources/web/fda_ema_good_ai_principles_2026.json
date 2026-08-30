@@ -28,6 +28,8 @@
     "relevance_score": "high"
   },
   "relationships": {"extends": [], "cites": [], "cited_by": []},
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "web_fetch",
     "date_read": "2026-08-29",

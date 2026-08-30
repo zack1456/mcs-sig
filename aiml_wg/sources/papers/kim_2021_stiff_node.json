@@ -5,7 +5,7 @@
   "authors": ["Kim S", "Ji W", "Deng S", "Ma Y", "Rackauckas C"],
   "year": 2021,
   "doi": "10.1063/5.0060697",
-  "pmid": 34598501,
+  "pmid": 34598467,
   "url": "https://doi.org/10.1063/5.0060697",
   "journal_or_venue": "Chaos: An Interdisciplinary Journal of Nonlinear Science",
 
@@ -69,6 +69,8 @@
     "contradicts": []
   },
 
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",
@@ -77,4 +79,3 @@
     "notes": "Added 2026-08-29 by Antigravity review. Foundational paper on numerical stiffness and adjoint instability in Neural ODEs for Pillar 1."
   }
 }
-

@@ -85,6 +85,8 @@
     "contradicts": []
   },
 
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "web_fetch",
     "date_read": "2026-08-26",

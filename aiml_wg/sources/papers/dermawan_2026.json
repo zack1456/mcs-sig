@@ -213,6 +213,8 @@
     "contradicts": []
   },
 
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-26",

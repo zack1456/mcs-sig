@@ -4,7 +4,7 @@
   "title": "MCS SIG AI/ML WG Source Record",
   "description": "Schema for a single source document used to inform the working group plan.",
   "type": "object",
-  "required": ["id", "source_type", "title", "year", "content", "relevance", "provenance"],
+  "required": ["id", "source_type", "title", "year", "content", "relevance", "review_status", "provenance"],
   "additionalProperties": false,
 
   "properties": {
@@ -260,7 +260,7 @@
     "review_status": {
       "type": "string",
       "enum": ["draft", "reviewed"],
-      "description": "Optional transition field. New LLM-assisted records start as draft and become reviewed only after human scientific review. Legacy records may omit it until next substantive review."
+      "description": "Required lifecycle field. Every extracted source starts as draft and becomes reviewed only after documented human scientific review."
     },
 
     "reviewed_by": {

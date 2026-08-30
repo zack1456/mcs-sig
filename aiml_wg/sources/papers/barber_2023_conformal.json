@@ -70,6 +70,8 @@
     "extends": [],
     "contradicts": []
   },
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "web_search",
     "date_read": "2026-08-29",

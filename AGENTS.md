@@ -9,4 +9,4 @@ python scripts/literature.py fix
 python scripts/literature.py check
 ```
 
-Treat automated structural success as distinct from human scientific review. New LLM-assisted source records must use `review_status: "draft"` until a person reviews the extraction against the accessed source.
+Treat automated structural success as distinct from human scientific review. Every extracted source record must use `review_status: "draft"` until a person reviews the extraction against the accessed source.

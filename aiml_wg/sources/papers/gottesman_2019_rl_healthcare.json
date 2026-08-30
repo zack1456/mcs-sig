@@ -12,7 +12,7 @@
   ],
   "year": 2019,
   "doi": "10.1038/s41591-018-0310-5",
-  "pmid": 30617322,
+  "pmid": 30617332,
   "url": "https://doi.org/10.1038/s41591-018-0310-5",
   "journal_or_venue": "Nature Medicine",
   "content": {
@@ -72,6 +72,8 @@
     "extends": [],
     "contradicts": []
   },
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",

@@ -38,7 +38,7 @@ Then run `check` again.
 
 ## Review status
 
-Automated checks confirm repository consistency, not scientific truth. New LLM-assisted source records start with `review_status: "draft"`. A person should change this to `"reviewed"` only after comparing the claims and numerical findings with the material actually accessed. Reviewed records must also include `reviewed_by` and `reviewed_date`; `review_notes` can document the scope or caveats of that review.
+Automated checks confirm repository consistency, not scientific truth. Every extracted source record starts with `review_status: "draft"`. A person should change this to `"reviewed"` only after comparing the claims and numerical findings with the material actually accessed. Reviewed records must also include `reviewed_by` and `reviewed_date`; `review_notes` can document the scope or caveats of that review.
 
 ## Git and GitHub
 

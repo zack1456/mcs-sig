@@ -138,6 +138,8 @@
     "extends": [],
     "contradicts": []
   },
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "background_doc",
     "date_read": "2026-08-26",

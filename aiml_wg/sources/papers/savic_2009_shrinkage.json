@@ -5,7 +5,7 @@
   "authors": ["Savic RM", "Karlsson MO"],
   "year": 2009,
   "doi": "10.1208/s12248-009-9133-0",
-  "pmid": 19688264,
+  "pmid": 19649712,
   "url": "https://doi.org/10.1208/s12248-009-9133-0",
   "journal_or_venue": "The AAPS Journal",
 
@@ -68,6 +68,8 @@
     "contradicts": []
   },
 
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",
@@ -76,4 +78,3 @@
     "notes": "Added 2026-08-29 by Antigravity review. Foundational reference for eta-shrinkage in mixed-effects hybrid models."
   }
 }
-

@@ -1,11 +1,11 @@
 {
   "id": "kuemmel_2020_credibility",
   "source_type": "paper",
-  "title": "Considerations for a Credibility Assessment Framework in Model-Informed Drug Development: White Paper",
+  "title": "Consideration of a Credibility Assessment Framework in Model-Informed Drug Development: Potential Application to Physiologically-Based Pharmacokinetic Modeling and Simulation",
   "authors": ["Kuemmel C", "Yang Y", "Zhang X", "Florian J", "Zhu H", "Wang Y"],
   "year": 2020,
   "doi": "10.1002/psp4.12479",
-  "pmid": 31778000,
+  "pmid": 31652029,
   "url": "https://doi.org/10.1002/psp4.12479",
   "journal_or_venue": "CPT: Pharmacometrics & Systems Pharmacology",
 
@@ -70,6 +70,8 @@
     "contradicts": []
   },
 
+  "review_status": "draft",
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",
@@ -78,4 +80,3 @@
     "notes": "Added 2026-08-29 by Antigravity review. Core regulatory bridge paper translating ASME V&V 40 into pharmacometric MIDD credibility assessment."
   }
 }
-

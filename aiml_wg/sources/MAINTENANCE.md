@@ -27,7 +27,7 @@ Do not ask contributors to hand-maintain derived fields. `python scripts/literat
 - Give extracted claims and numerical findings a location that is reachable at the recorded reading depth.
 - Mark genuinely inferred findings with `[inferred]`.
 - Do not silently upgrade an abstract-only record to `sections_key` or `full_text`.
-- New LLM-assisted records use `review_status: "draft"`. Only human scientific review can change it to `"reviewed"`.
+- Every extracted source record uses `review_status: "draft"` until a human scientific reviewer changes it to `"reviewed"`.
 - A reviewed record must also identify the human reviewer in `reviewed_by` and record the ISO review date in `reviewed_date`; `review_notes` can capture scope or caveats.
 
 ## Required workflow after an extraction or update
