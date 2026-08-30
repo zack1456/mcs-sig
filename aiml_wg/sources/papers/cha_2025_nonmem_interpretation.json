@@ -47,6 +47,14 @@
   },
   "relationships": {"cites": ["shin_2024_llm"], "cited_by": [], "extends": ["shin_2024_llm"], "contradicts": []},
   "review_status": "draft",
+  "identifier_verification": {
+    "verified_date": "2026-08-29",
+    "verified_by": "codex/literature-maintainer",
+    "method": "crossref_pubmed_metadata_match_v1",
+    "result": "passed",
+    "input_fingerprint": "sha256:69fd5f902638fd4740a663d7585c9fccb1a5c9b023c15b416e0e8a4c75e222d0"
+  },
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",

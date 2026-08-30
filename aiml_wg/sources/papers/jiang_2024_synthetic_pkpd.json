@@ -40,6 +40,14 @@
   },
   "relationships": {"cites": [], "cited_by": [], "extends": [], "contradicts": []},
   "review_status": "draft",
+  "identifier_verification": {
+    "verified_date": "2026-08-29",
+    "verified_by": "codex/literature-maintainer",
+    "method": "crossref_pubmed_metadata_match_v1",
+    "result": "passed",
+    "input_fingerprint": "sha256:f68a34f880a36b3a499bcc35a72e884230667d04de728122fc8b8cde6dcc571f"
+  },
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",

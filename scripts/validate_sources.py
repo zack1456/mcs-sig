@@ -20,8 +20,11 @@ warnings and do not falsely classify an identifier as hallucinated. Set
 doi/pmid to null for unconfirmed preprints rather than guessing identifiers.
 
 Usage:
-    python scripts/validate_sources.py               # checks all files
+    python scripts/validate_sources.py --pending     # never verified or changed
+    python scripts/validate_sources.py --all         # checks all files
     python scripts/validate_sources.py --files a.json b.json
+    python scripts/validate_sources.py --pending --older-than 365
+    python scripts/validate_sources.py --all --record-results --verified-by "name"
 
 Exit codes:
     0  All checks passed
@@ -30,12 +33,14 @@ Exit codes:
 
 import argparse
 import glob
+import hashlib
 import json
 import sys
 import time
 import urllib.error
 import urllib.parse
 import urllib.request
+from datetime import date, timedelta
 from pathlib import Path
 
 CROSSREF_BASE = "https://api.crossref.org/works/"
@@ -54,6 +59,76 @@ else:
     PASS, WARN, FAIL, INFO = "[PASS]", "[WARN]", "[FAIL]", "[INFO]"
 
 TITLE_JACCARD_THRESHOLD = 0.50  # token overlap required to consider titles equivalent
+VERIFICATION_METHOD = "crossref_pubmed_metadata_match_v1"
+
+
+def verification_fingerprint(record: dict) -> str:
+    """Fingerprint only the local metadata used by online verification."""
+    checked_input = {
+        "authors": record.get("authors", []),
+        "doi": record.get("doi"),
+        "pmid": record.get("pmid"),
+        "title": record.get("title", ""),
+    }
+    serialized = json.dumps(checked_input, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    return "sha256:" + hashlib.sha256(serialized.encode("utf-8")).hexdigest()
+
+
+def has_identifiers(record: dict) -> bool:
+    return bool(record.get("doi")) or record.get("pmid") is not None
+
+
+def verification_is_pending(record: dict, older_than: int | None = None, today: date | None = None) -> bool:
+    """Return whether an identifier-bearing record needs online verification."""
+    if not has_identifiers(record):
+        return False
+    verification = record.get("identifier_verification")
+    if not isinstance(verification, dict):
+        return True
+    if verification.get("result") != "passed" or verification.get("method") != VERIFICATION_METHOD:
+        return True
+    if verification.get("input_fingerprint") != verification_fingerprint(record):
+        return True
+    if older_than is not None:
+        try:
+            verified_date = date.fromisoformat(verification["verified_date"])
+        except (KeyError, TypeError, ValueError):
+            return True
+        cutoff = (today or date.today()) - timedelta(days=older_than)
+        if verified_date < cutoff:
+            return True
+    return False
+
+
+def record_successful_verification(path: Path, record: dict, verified_by: str, verified_date: date | None = None) -> None:
+    """Persist a successful check without reformatting the rest of the record."""
+    verification = {
+        "verified_date": (verified_date or date.today()).isoformat(),
+        "verified_by": verified_by,
+        "method": VERIFICATION_METHOD,
+        "result": "passed",
+        "input_fingerprint": verification_fingerprint(record),
+    }
+    rendered = json.dumps(verification, ensure_ascii=False, indent=2)
+    rendered = "\n".join("  " + line for line in rendered.splitlines())
+    field = f'  "identifier_verification": {rendered.lstrip()},'
+    text = path.read_text(encoding="utf-8")
+    start_marker = '  "identifier_verification": {'
+    provenance_marker = '  "provenance": {'
+    if start_marker in text:
+        start = text.index(start_marker)
+        end = text.index(provenance_marker, start)
+        text = text[:start] + field + "\n\n" + text[end:]
+    else:
+        insertion = text.index(provenance_marker)
+        text = text[:insertion] + field + "\n\n" + text[insertion:]
+    path.write_text(text, encoding="utf-8", newline="\n")
+    record["identifier_verification"] = verification
+
+
+def verification_can_be_recorded(issues: list[dict]) -> bool:
+    """Only a warning-free, failure-free result may replace the last success."""
+    return not any(issue.get("level") in {"fail", "warn"} for issue in issues)
 
 
 # ---------------------------------------------------------------------------
@@ -306,9 +381,23 @@ def main():
     sys.stdout.reconfigure(encoding="utf-8")
 
     parser = argparse.ArgumentParser(description="Validate source JSON DOIs and PMIDs.")
-    parser.add_argument("--all", action="store_true", help="Check all files in aiml_wg/sources/papers/")
-    parser.add_argument("--files", nargs="+", help="Specific files to check")
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument("--all", action="store_true", help="Check all files in aiml_wg/sources/papers/")
+    selection.add_argument("--pending", action="store_true", help="Check records never verified or changed since verification")
+    selection.add_argument("--files", nargs="+", help="Specific files to check")
+    parser.add_argument("--older-than", type=int, metavar="DAYS", help="With --pending, also check passes older than DAYS")
+    parser.add_argument("--record-results", action="store_true", help="Write successful verification metadata to source records")
+    parser.add_argument("--verified-by", help="Human or agent identifier; required with --record-results")
     args = parser.parse_args()
+
+    if args.older_than is not None and not args.pending:
+        parser.error("--older-than requires --pending")
+    if args.older_than is not None and args.older_than < 0:
+        parser.error("--older-than must be zero or greater")
+    if args.record_results and (not args.verified_by or not args.verified_by.strip()):
+        parser.error("--record-results requires --verified-by")
+    if args.verified_by and not args.record_results:
+        parser.error("--verified-by requires --record-results")
 
     repo_root  = Path(__file__).resolve().parent.parent
     papers_dir = repo_root / "aiml_wg" / "sources" / "papers"
@@ -318,8 +407,28 @@ def main():
     else:
         files = sorted(papers_dir.glob("*.json"))
 
+    skipped_without_identifiers = 0
+    skipped_current = 0
+    selected_files: list[Path] = []
+    for path in files:
+        try:
+            with path.open(encoding="utf-8") as handle:
+                record = json.load(handle)
+        except (OSError, json.JSONDecodeError):
+            selected_files.append(path)
+            continue
+        if not has_identifiers(record):
+            skipped_without_identifiers += 1
+            continue
+        if args.pending and not verification_is_pending(record, args.older_than):
+            skipped_current += 1
+            continue
+        selected_files.append(path)
+    files = selected_files
+
     if not files:
-        print(f"{INFO} No files to validate.")
+        print(f"{INFO} No records require identifier verification."
+              f" ({skipped_current} current; {skipped_without_identifiers} without DOI/PMID.)")
         sys.exit(0)
 
     print(f"{INFO} Validating {len(files)} source file(s) ...\n"
@@ -328,6 +437,7 @@ def main():
 
     total_fails = 0
     total_warnings = 0
+    recorded = 0
 
     for path in files:
         issues = validate_file(path)
@@ -336,8 +446,13 @@ def main():
         total_fails += len(fails)
         total_warnings += len(warnings)
 
-        if not fails and not warnings:
+        if verification_can_be_recorded(issues):
             print(f"{PASS} {path.name}")
+            if args.record_results:
+                with path.open(encoding="utf-8") as handle:
+                    record = json.load(handle)
+                record_successful_verification(path, record, args.verified_by)
+                recorded += 1
         else:
             print(f"{FAIL if fails else WARN} {path.name}")
             for iss in fails:
@@ -349,6 +464,12 @@ def main():
     print(f"  Files checked : {len(files)}")
     print(f"  Hard failures : {total_fails}")
     print(f"  Review warnings: {total_warnings}")
+    if args.pending:
+        print(f"  Current/skipped: {skipped_current}")
+    if skipped_without_identifiers:
+        print(f"  No DOI/PMID    : {skipped_without_identifiers}")
+    if args.record_results:
+        print(f"  Results recorded: {recorded}")
     print(f"{'='*64}")
 
     if total_fails > 0:

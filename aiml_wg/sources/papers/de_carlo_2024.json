@@ -185,6 +185,14 @@
   },
   "review_status": "draft",
 
+  "identifier_verification": {
+    "verified_date": "2026-08-29",
+    "verified_by": "codex/literature-maintainer",
+    "method": "crossref_pubmed_metadata_match_v1",
+    "result": "passed",
+    "input_fingerprint": "sha256:e844801da823f0d39e38205e5152a423c199546a45fd9433c0423ef22f8db0d2"
+  },
+
   "provenance": {
     "how_obtained": "provided_by_user",
     "date_read": "2026-08-26",

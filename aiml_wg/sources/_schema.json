@@ -280,6 +280,40 @@
       "description": "Optional scope, caveats, or corrections recorded by the human scientific reviewer."
     },
 
+    "identifier_verification": {
+      "type": "object",
+      "required": ["verified_date", "verified_by", "method", "result", "input_fingerprint"],
+      "additionalProperties": false,
+      "description": "Last successful automated DOI/PMID metadata verification. This is separate from human scientific review.",
+      "properties": {
+        "verified_date": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "ISO 8601 date of the successful online verification."
+        },
+        "verified_by": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Name or stable identifier of the person or agent that ran and recorded verification."
+        },
+        "method": {
+          "type": "string",
+          "enum": ["crossref_pubmed_metadata_match_v1"],
+          "description": "Versioned verification procedure used."
+        },
+        "result": {
+          "type": "string",
+          "enum": ["passed"],
+          "description": "Only warning-free successful verification is persisted."
+        },
+        "input_fingerprint": {
+          "type": "string",
+          "pattern": "^sha256:[a-f0-9]{64}$",
+          "description": "Fingerprint of DOI, PMID, title, and authors at verification time."
+        }
+      }
+    },
+
     "provenance": {
       "type": "object",
       "required": ["how_obtained", "date_read", "read_by", "read_depth"],

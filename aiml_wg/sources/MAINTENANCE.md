@@ -40,7 +40,14 @@ Do not ask contributors to hand-maintain derived fields. `python scripts/literat
 6. Run `python scripts/literature.py check` and resolve all errors.
 7. Report warnings and evidence limitations to the user or reviewer.
 
-The offline checker never contacts external services. Maintainers can separately run `python scripts/validate_sources.py --all` when network metadata verification is appropriate.
+The offline checker never contacts external services. Identifier verification is separate from human scientific review. Maintainers can use:
+
+- `python scripts/validate_sources.py --pending` to check records that have never passed or whose DOI, PMID, title, or authors changed.
+- `python scripts/validate_sources.py --pending --older-than 365` to include older successful checks.
+- `python scripts/validate_sources.py --all` to recheck every identifier-bearing paper.
+- Add `--record-results --verified-by "name-or-agent"` only when successful results should be written to the records.
+
+Only warning-free passes are recorded. Network warnings and hard failures preserve any previous successful verification. The input fingerprint prevents changed metadata from appearing current. Git history provides the verification history; `identifier_verification` stores only the latest successful result.
 
 ## What automation means
 

@@ -1,8 +1,10 @@
 import importlib.util
+import json
 import sys
 import tempfile
 import unittest
 import urllib.error
+from datetime import date
 from contextlib import redirect_stdout
 from io import StringIO
 from argparse import Namespace
@@ -95,6 +97,49 @@ class LiteratureHelpersTest(unittest.TestCase):
         with mock.patch.object(validate_sources.urllib.request, "urlopen", side_effect=error):
             with self.assertRaises(validate_sources.IdentifierNotFound):
                 validate_sources._get("https://example.invalid")
+
+    def test_identifier_verification_pending_when_missing_or_input_changes(self):
+        record = {"title": "Example", "authors": ["Smith J"], "doi": "10.1000/example", "pmid": 1}
+        self.assertTrue(validate_sources.verification_is_pending(record))
+        record["identifier_verification"] = {
+            "verified_date": "2026-08-29",
+            "verified_by": "tester",
+            "method": validate_sources.VERIFICATION_METHOD,
+            "result": "passed",
+            "input_fingerprint": validate_sources.verification_fingerprint(record),
+        }
+        self.assertFalse(validate_sources.verification_is_pending(record))
+        record["title"] = "Changed title"
+        self.assertTrue(validate_sources.verification_is_pending(record))
+
+    def test_identifier_verification_pending_when_stale(self):
+        record = {"title": "Example", "authors": [], "doi": "10.1000/example", "pmid": None}
+        record["identifier_verification"] = {
+            "verified_date": "2025-08-28",
+            "verified_by": "tester",
+            "method": validate_sources.VERIFICATION_METHOD,
+            "result": "passed",
+            "input_fingerprint": validate_sources.verification_fingerprint(record),
+        }
+        self.assertTrue(validate_sources.verification_is_pending(record, 365, today=date(2026, 8, 29)))
+        self.assertFalse(validate_sources.verification_is_pending(record, 367, today=date(2026, 8, 29)))
+
+    def test_record_successful_identifier_verification(self):
+        record = {"title": "Example", "authors": [], "doi": "10.1000/example", "pmid": None}
+        with tempfile.TemporaryDirectory() as temporary_directory:
+            path = Path(temporary_directory) / "record.json"
+            path.write_text(json.dumps({**record, "provenance": {}}, indent=2) + "\n", encoding="utf-8")
+            validate_sources.record_successful_verification(path, record, "manual-reviewer", date(2026, 8, 29))
+            saved = literature.load_json(path)["identifier_verification"]
+        self.assertEqual(saved["verified_date"], "2026-08-29")
+        self.assertEqual(saved["verified_by"], "manual-reviewer")
+        self.assertEqual(saved["result"], "passed")
+        self.assertEqual(saved["input_fingerprint"], validate_sources.verification_fingerprint(record))
+
+    def test_identifier_verification_warnings_and_failures_are_not_recordable(self):
+        self.assertTrue(validate_sources.verification_can_be_recorded([]))
+        self.assertFalse(validate_sources.verification_can_be_recorded([{"level": "warn"}]))
+        self.assertFalse(validate_sources.verification_can_be_recorded([{"level": "fail"}]))
 
     def test_add_creates_intake_not_source_json(self):
         original_sources_dir = literature.SOURCES_DIR

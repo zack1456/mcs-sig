@@ -30,6 +30,14 @@
   "relationships": {"extends": [], "cites": [], "cited_by": []},
   "review_status": "draft",
 
+  "identifier_verification": {
+    "verified_date": "2026-08-29",
+    "verified_by": "codex/literature-maintainer",
+    "method": "crossref_pubmed_metadata_match_v1",
+    "result": "passed",
+    "input_fingerprint": "sha256:3d6554febcbebf17bb6460546256fe11bdcd674d6efea4c6a8a40935aadde6c7"
+  },
+
   "provenance": {
     "how_obtained": "pubmed_search",
     "date_read": "2026-08-29",

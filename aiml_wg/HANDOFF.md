@@ -10,11 +10,12 @@
 - Made local pre-commit checks platform-neutral, added unit tests to CI, and retained `literature.ps1` only as a Windows convenience.
 - Hardened `fix` so malformed or duplicate records cannot cause derived files to be regenerated from an incomplete library.
 - Added an explicit draft count plus draft/reviewed filters and review metadata to the source reader.
+- Added persistent DOI/PMID verification provenance, fingerprint-based pending checks, optional age-based rechecks, and an explicit read-only versus record-results boundary.
 - Added stable client-side sorting by author, year, title, type, relevance, read depth, and review status while preserving all existing filters and the curated index order as the default.
 - Synchronized index pillars, reciprocal relationships, `reader.html`, and the current 68-record counts.
 - Removed a phantom duplicate PKGPT relationship and its citations after authoritative lookup showed its recorded DOI belonged to an unrelated wound-healing paper; `kwack_2026_pkgpt` is the valid PKGPT record.
 
-**Validation:** 68 records; 0 offline errors; 0 warnings; 68 human-review drafts; 15 unit tests; all 59 paper records passed online DOI/PMID verification.
+**Validation:** 68 records; 0 offline errors; 0 warnings; 68 human-review drafts; 19 unit tests; all 54 identifier-bearing paper records passed online DOI/PMID verification, while 5 papers without DOI/PMID were explicitly skipped.
 
 <!-- Updated 2026-08-29 by Codex: reconciled current regulatory and source-library status; did not alter kickoff outcomes. -->
 

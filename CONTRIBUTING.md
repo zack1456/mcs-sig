@@ -70,9 +70,15 @@ The installed local hook creates its own small Python environment and works on W
 Maintainers can manually run online DOI/PMID verification when appropriate:
 
 ```text
+python scripts/validate_sources.py --pending
+```
+
+Use `--all` instead of `--pending` for a complete recheck. Add `--older-than 365` to pending verification to recheck older passes. To save warning-free results, add `--record-results --verified-by "your-name"`; without that explicit option, verification is read-only. The manual pre-commit command remains available for checking changed paper files without recording results:
+
+```text
 python -m pre_commit run verify-source-identifiers-online --hook-stage manual --all-files
 ```
 
-Temporary network failures are reported for review without being mistaken for false identifiers. Confirmed identifier or metadata mismatches fail this manual check.
+Temporary network failures are reported for review without being mistaken for false identifiers, and they do not overwrite a previous successful verification. Confirmed identifier or metadata mismatches fail this manual check. Identifier verification does not change `review_status` or constitute human scientific review.
 
 For the full maintenance contract, see `aiml_wg/sources/MAINTENANCE.md`.

@@ -19,4 +19,4 @@ For extraction or upgrades:
 
 After modifications, run `python scripts/literature.py fix`, then `python scripts/literature.py check`. Resolve errors. Report warnings, accessed evidence, reading depth, files changed, and the remaining human-review requirement.
 
-Use `python scripts/validate_sources.py --all` only when online metadata verification is requested or appropriate; network unavailability is not evidence that an identifier is false.
+Use `python scripts/validate_sources.py --pending` for routine online metadata verification and `--all` for a complete recheck. Add `--record-results --verified-by "agent-or-person"` only when the successful results should update source records. Network unavailability is not evidence that an identifier is false and must not overwrite a previous successful verification. Identifier verification is distinct from human scientific review.
